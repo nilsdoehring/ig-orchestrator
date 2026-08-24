@@ -23,8 +23,8 @@
     {
         "team": "IONOS",
         "name": "Allgemeine Verbraucher",
-        "context": "Anwendungsmöglichkeiten reichen von Websites, Web- und App-Development bis hin zu gemeinnützigen Websites.\n\nDecision maker: Konsument selbst\nTechnical level: low_to_medium",
-        "pain_points": "[]",
+        "context": "Allgemeine Verbraucher: Private Anwenderinnen und Anwender, preissensitiv und teils technikaffin. Die Anwendungsfälle reichen von Hochzeits-Websites über Web- und App-Development und gemeinnützige Seiten bis hin zur Nutzung als reiner Online-Speicherplatz. Domains erwerben sie für Personal Branding, zum Schutz der eigenen Online-Identität und als Plattform für berufliche Referenzen oder ein Portfolio. Der günstige Preis ist der Hauptauslöser für den Kauf; technikaffine Kunden schätzen zusätzlich die Funktionsvielfalt.\n\nShare of customers: 10%\nDecision maker: Konsument selbst\nTechnical level: low_to_medium",
+        "pain_points": "[\"Preissensitive Zielgruppe\"]",
         "motivations": "[\"Günstiger Preis\",\"Servicequalität\",\"Professioneller Auftritt (werbefrei)\",\"Zusätzliche Add-ons (Domain, SSL-Zertifikat, Spam-Schutz)\"]"
     },
     {
@@ -79,16 +79,9 @@
     {
         "team": "IONOS",
         "name": "Freelancer & Agenturen",
-        "context": "Freelancer & Agenturen: Technikaffine Dienstleister, die Hosting und Server für ihre Kunden verwalten. Brauchen effiziente Multi-Projekt-Verwaltung, API-Zugang und Reseller-Möglichkeiten. Preissensibel, vergleichen aktiv mit Hetzner und DigitalOcean. Schätzen Automatisierung und gute Dokumentation.",
+        "context": "Freelancer & Agenturen: Technikaffine Dienstleister, die Hosting und Server für ihre Kunden verwalten — Webentwickler, Webdesigner, DevOps und Agenturen jeder Größe. Brauchen effiziente Multi-Projekt-Verwaltung, API-Zugang und Reseller-Möglichkeiten. Suchen Lösungen, die die Bedürfnisse ihrer Kunden abdecken und die sie zugleich intern für das eigene Business nutzen können. Preissensibel, vergleichen aktiv mit Hetzner und DigitalOcean. Schätzen Automatisierung und gute Dokumentation. Kleine Agenturen und Start-ups stehen unter permanentem Kundendruck und haben oft weder Zeit noch Know-how für manuelle Problemlösung: Sie brauchen direkte Ansprechpartner statt nur einer Support-Hotline, und Benutzerfreundlichkeit wie Datensicherheit nach höchsten Standards sind für sie absolute Kauffaktoren.\n\nShare of customers: 50%\nDecision maker: Endbenutzer und Profis selbst\nTechnical level: high",
         "pain_points": "[\"Zeitaufwand für Server-Management statt Kerngeschäft\",\"Kundensupport-Last bei Hosting-Problemen\",\"Fehlende White-Label-Optionen bei vielen Anbietern\",\"Unzureichende API-Dokumentation für Automatisierung\",\"Margendruck durch günstige Wettbewerber\"]",
         "motivations": "[\"Effizienz steigern durch Automatisierung und APIs\",\"Margen verbessern mit Reseller-Programmen\",\"Kunden mit zuverlässiger Performance begeistern\",\"Professionelle Infrastruktur ohne eigene Datacenter\",\"Einfache Abrechnung und Kundenverwaltung\"]"
-    },
-    {
-        "team": "IONOS",
-        "name": "Gesellschaften, Vereine und Verbände",
-        "context": "Personengruppen, die sich für einen gemeinsamen Zweck engagieren, z.B. Vereine, Stiftungen, gemeinnützige Einrichtungen.\n\nShare of customers: 20%\nTechnical level: low",
-        "pain_points": "[\"Technisches Grundwissen der einzelnen Mitglieder kann stark variieren\"]",
-        "motivations": "[\"Speicherplatz und Tools, die alle Mitglieder nutzen können\",\"Prozesse wie das Planen von Veranstaltungen vereinfachen\",\"Interne und externe Kommunikation erleichtern\"]"
     },
     {
         "team": "IONOS",
@@ -282,7 +275,7 @@
     {
         "team": "IONOS",
         "name": "IT-Entscheider Mittelstand",
-        "context": "IT-Entscheider Mittelstand: Technisch versierte Führungskräfte, die Cloud-Infrastruktur strategisch evaluieren. Fokus auf Performance, Compliance und Kosteneffizienz. Skeptisch gegenüber US-Cloud-Anbietern wegen Datenhoheit. Suchen europäische Alternativen mit Enterprise-Features.",
+        "context": "IT-Entscheider Mittelstand: Technisch versierte Führungskräfte, die für die IT-Infrastruktur ihres Unternehmens verantwortlich sind und Cloud-Infrastruktur strategisch evaluieren. Fokus auf Performance, Compliance und Kosteneffizienz. Skeptisch gegenüber US-Cloud-Anbietern wegen Datenhoheit. Suchen europäische Alternativen mit Enterprise-Features. Sie investieren viel Zeit in Recherche und prüfen, ob eine Lösung zu Budget und technologischen Rahmenbedingungen des Unternehmens passt. Die Entscheidung treffen sie am Ende selbst, müssen jedoch ihre Vorgesetzten überzeugen und für deren Zustimmung werben — der Preis gilt dabei als ein wichtiges Kriterium.\n\nDecision maker: IT-Entscheider (requires approval from superiors)\nTechnical level: high",
         "pain_points": "[\"Vendor Lock-in bei AWS\\/Azure erschwert Migration\",\"Unklare Kostenstrukturen und versteckte Gebühren\",\"Fehlende Transparenz beim Datenstandort\",\"Compliance-Nachweise für Audits schwer zu beschaffen\",\"Mangelhafter Support außerhalb US-Geschäftszeiten\"]",
         "motivations": "[\"Moderne, skalierbare Infrastruktur aufbauen\",\"Kostenoptimierung durch transparente Preismodelle\",\"Datensouveränität und DSGVO-Konformität sicherstellen\",\"Hybrid-Cloud-Strategie mit europäischem Provider\",\"Karrieresicherheit durch richtige Technologiewahl\"]"
     },
@@ -296,7 +289,7 @@
     {
         "team": "IONOS",
         "name": "KMU-Inhaber",
-        "context": "KMU-Inhaber DACH: Entscheider in kleinen Unternehmen ohne eigene IT. Suchen einfache, bezahlbare Cloud-Lösungen mit deutschem Support. Getrieben von Digitalisierungsdruck und Datenschutz-Anforderungen. Bevorzugen klare Preise, schnelle Einrichtung und persönliche Beratung.",
+        "context": "KMU-Inhaber DACH: Entscheider in kleinen Unternehmen (häufig bis neun Mitarbeitende) ohne eigene IT, vornehmlich aus technik-fernen Branchen. Suchen einfache, bezahlbare Cloud-Lösungen mit deutschem Support. Getrieben von Digitalisierungsdruck und Datenschutz-Anforderungen. Bevorzugen klare Preise, schnelle Einrichtung und persönliche Beratung. Sie haben keine Webdesign-Erfahrung und wollen sich auch nicht einarbeiten: Ein professioneller Auftritt darf sie wenig Zeit und Aufwand kosten, weshalb eine geführte Bedienung per Drag & Drop ihnen die nötige Sicherheit gibt.\n\nShare of customers: 40%\nTechnical level: low",
         "pain_points": "[\"IT-Komplexität überfordert das Team\",\"Datenschutz-Unsicherheit und DSGVO-Compliance\",\"Zeitmangel für technische Themen\",\"Angst vor Vendor Lock-in bei US-Anbietern\",\"Unvorhersehbare IT-Kosten\"]",
         "motivations": "[\"Digitalisierung vorantreiben und wettbewerbsfähig bleiben\",\"IT-Kosten planbar und transparent halten\",\"Daten in Deutschland speichern\",\"Professioneller Online-Auftritt mit wenig Aufwand\",\"Zuverlässiger Partner mit persönlichem Support\"]"
     },
@@ -362,6 +355,13 @@
         "context": "Erwerben Domains zum Zweck des Personal Brandings, um ihre Online-Identität zu schützen, um ihre Internetpräsenz auszubauen, als Plattform für ihre beruflichen Referenzen oder ihr Portfolio.",
         "pain_points": "[]",
         "motivations": "[\"Personal Branding\",\"Online-Identität schützen\",\"Internetpräsenz ausbauen\",\"Plattform für berufliche Referenzen\\/Portfolio\",\"Zukünftige Marken der Kinder schützen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "NGOs, Vereine und Verbände",
+        "context": "Personengruppen, die sich für einen gemeinsamen Zweck engagieren, z.B. Vereine, Stiftungen, gemeinnützige Einrichtungen.\n\nShare of customers: 20%\nTechnical level: low",
+        "pain_points": "[\"Technisches Grundwissen der einzelnen Mitglieder kann stark variieren\"]",
+        "motivations": "[\"Speicherplatz und Tools, die alle Mitglieder nutzen können\",\"Prozesse wie das Planen von Veranstaltungen vereinfachen\",\"Interne und externe Kommunikation erleichtern\"]"
     },
     {
         "team": "IONOS",

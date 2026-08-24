@@ -4,13 +4,13 @@ Edits are overwritten on the next publish and CI rejects them — change the sou
 
 subject: knowledge/rules/product-tone.md
 team: IONOS
-source_rows: audience_segments(76), benefit_ladders(4), concepts(207), discards(186), exemplars(156), keys(1110), market_positions(5), markets(6), metrics(28), rules(660), statements(473), terms(990), vocabulary(61)
-source_documents: CONSTRUCTED — no source locator; see NOTES.md §A4, Comms Guide DE Web Hosting.md, Style Guide DEU.md, ionos - brand identity and voice.md, migrated from BrandProfile.writingRules, migrated from a legacy briefing column, migrated from a legacy glossary column, migrated from the legacy Product.description column, section 11.2 IONOS-Produktnamen, line 163, section 11.2 IONOS-Produktnamen, line 164, section 11.2 IONOS-Produktnamen, line 165, section 11.2 IONOS-Produktnamen, line 166, section 11.2 IONOS-Produktnamen, line 167, section 11.2 IONOS-Produktnamen, line 168, section 11.2 IONOS-Produktnamen, line 169, section 11.2 IONOS-Produktnamen, line 170, section 11.2 IONOS-Produktnamen, line 171, section 11.2 IONOS-Produktnamen, line 172, section 11.2 IONOS-Produktnamen, line 173, section 11.2 IONOS-Produktnamen, line 174, section 11.2 IONOS-Produktnamen, line 176, section 11.2 IONOS-Produktnamen, line 177, section 11.2 IONOS-Produktnamen, line 234, section 11.2 IONOS-Produktnamen, line 235, section 11.2 IONOS-Produktnamen, line 236, section 11.2 IONOS-Produktnamen, line 237, section 11.2 IONOS-Produktnamen, line 238, section 11.2 IONOS-Produktnamen, line 239, section 11.2 IONOS-Produktnamen, line 240, section 11.2 IONOS-Produktnamen, line 241, section 11.2 IONOS-Produktnamen, line 242, section 11.2 IONOS-Produktnamen, line 243, section 11.2 IONOS-Produktnamen, line 244, section 11.2 IONOS-Produktnamen, line 245, section 11.2 IONOS-Produktnamen, line 246, section 11.2 IONOS-Produktnamen, line 247, section 11.2 IONOS-Produktnamen, line 248, section 11.2 IONOS-Produktnamen, line 249, section 11.2 IONOS-Produktnamen, line 250, section 11.2 IONOS-Produktnamen, line 251, section 11.3 Zusammensetzungen im Fließtext, line 180, section 11.3 Zusammensetzungen im Fließtext, line 181, section 11.3 Zusammensetzungen im Fließtext, line 182, section 11.3 Zusammensetzungen im Fließtext, line 183, section 11.3 Zusammensetzungen im Fließtext, line 184, section 11.3 Zusammensetzungen im Fließtext, line 185, section 11.3 Zusammensetzungen im Fließtext, line 186, section 11.3 Zusammensetzungen im Fließtext, line 187, section 11.3 Zusammensetzungen im Fließtext, line 188, section 11.3 Zusammensetzungen im Fließtext, line 189, section 11.3 Zusammensetzungen im Fließtext, line 190, section 11.3 Zusammensetzungen im Fließtext, line 251, section 11.3 Zusammensetzungen im Fließtext, line 252, section 11.3 Zusammensetzungen im Fließtext, line 253, section 11.3 Zusammensetzungen im Fließtext, line 254, section 11.3 Zusammensetzungen im Fließtext, line 255, section 11.3 Zusammensetzungen im Fließtext, line 256, section 11.3 Zusammensetzungen im Fließtext, line 257, section 11.3 Zusammensetzungen im Fließtext, line 258, section 11.3 Zusammensetzungen im Fließtext, line 259, section 11.3 Zusammensetzungen im Fließtext, line 260, section 11.3 Zusammensetzungen im Fließtext, line 261, section 11.3 Zusammensetzungen im Fließtext, line 262, section 11.3 Zusammensetzungen im Fließtext, line 263, section 11.3 Zusammensetzungen im Fließtext, line 264, section Abkürzungen, page 18, section Addressing Customers, section Adressen, page 18, section Allgemeine Regeln, page 13, section Allgemeines Glossar, section Allgemeines Glossar, line 100, section Allgemeines Glossar, line 101, section Allgemeines Glossar, line 102, section Allgemeines Glossar, line 103, section Allgemeines Glossar, line 104, section Allgemeines Glossar, line 105, section Allgemeines Glossar, line 106, section Allgemeines Glossar, line 107, section Allgemeines Glossar, line 108, section Allgemeines Glossar, line 109, section Allgemeines Glossar, line 110, section Allgemeines Glossar, line 111, section Allgemeines Glossar, line 112, section Allgemeines Glossar, line 113, section Allgemeines Glossar, line 114, section Allgemeines Glossar, line 115, section Allgemeines Glossar, line 116, section Allgemeines Glossar, line 117, section Allgemeines Glossar, line 118, section Allgemeines Glossar, line 119, section Allgemeines Glossar, line 120, section Allgemeines Glossar, line 121, section Allgemeines Glossar, line 122, section Allgemeines Glossar, line 123, section Allgemeines Glossar, line 124, section Allgemeines Glossar, line 125, section Allgemeines Glossar, line 126, section Allgemeines Glossar, line 127, section Allgemeines Glossar, line 128, section Allgemeines Glossar, line 129, section Allgemeines Glossar, line 130, section Allgemeines Glossar, line 131, section Allgemeines Glossar, line 132, section Allgemeines Glossar, line 134, section Allgemeines Glossar, line 135, section Allgemeines Glossar, line 136, section Allgemeines Glossar, line 137, section Allgemeines Glossar, line 138, section Allgemeines Glossar, line 139, section Allgemeines Glossar, line 140, section Allgemeines Glossar, line 141, section Allgemeines Glossar, line 142, section Allgemeines Glossar, line 143, section Allgemeines Glossar, line 144, section Allgemeines Glossar, line 145, section Allgemeines Glossar, line 146, section Allgemeines Glossar, line 147, section Allgemeines Glossar, line 149, section Allgemeines Glossar, line 150, section Allgemeines Glossar, line 170, section Allgemeines Glossar, line 171, section Allgemeines Glossar, line 172, section Allgemeines Glossar, line 173, section Allgemeines Glossar, line 174, section Allgemeines Glossar, line 175, section Allgemeines Glossar, line 176, section Allgemeines Glossar, line 177, section Allgemeines Glossar, line 178, section Allgemeines Glossar, line 179, section Allgemeines Glossar, line 180, section Allgemeines Glossar, line 181, section Allgemeines Glossar, line 182, section Allgemeines Glossar, line 183, section Allgemeines Glossar, line 184, section Allgemeines Glossar, line 185, section Allgemeines Glossar, line 186, section Allgemeines Glossar, line 187, section Allgemeines Glossar, line 188, section Allgemeines Glossar, line 189, section Allgemeines Glossar, line 190, section Allgemeines Glossar, line 191, section Allgemeines Glossar, line 192, section Allgemeines Glossar, line 193, section Allgemeines Glossar, line 194, section Allgemeines Glossar, line 195, section Allgemeines Glossar, line 196, section Allgemeines Glossar, line 197, section Allgemeines Glossar, line 198, section Allgemeines Glossar, line 199, section Allgemeines Glossar, line 200, section Allgemeines Glossar, line 201, section Allgemeines Glossar, line 202, section Allgemeines Glossar, line 203, section Allgemeines Glossar, line 204, section Allgemeines Glossar, line 205, section Allgemeines Glossar, line 206, section Allgemeines Glossar, line 207, section Allgemeines Glossar, line 208, section Allgemeines Glossar, line 209, section Allgemeines Glossar, line 210, section Allgemeines Glossar, line 211, section Allgemeines Glossar, line 212, section Allgemeines Glossar, line 213, section Allgemeines Glossar, line 214, section Allgemeines Glossar, line 215, section Allgemeines Glossar, line 216, section Allgemeines Glossar, line 217, section Allgemeines Glossar, line 218, section Allgemeines Glossar, line 219, section Allgemeines Glossar, line 220, section Allgemeines Glossar, line 221, section Allgemeines Glossar, line 222, section Allgemeines Glossar, line 223, section Allgemeines Glossar, line 224, section Allgemeines Glossar, line 99, section Allgemeines Glossar, page 2, section Allgemeines Glossar, page 3, section Anführungszeichen, section Anführungszeichen, page 1, section Anführungszeichen, page 14, section Anglizismen und Fremdwörter, page 15, section Ansprache, page 8, section Auflistungen mit Bullet Points, page 15, section Ausrufezeichen/Markierungen, page 14, section Barrierefreies Schreiben (Alt-Text, Link-Titel usw.), page 11, section Bedürfnisse, page 1, section Bedürfnisse/Kundenprobleme, page 1, section Bedürfnisse/Kundenprobleme, page 2, section Benefits, page 1, line 38, section Benefits, page 1, line 40, section Benefits, page 1, line 42, section Best Practices, page 11, section Best Practices, page 5, section Bilder [ Do's & Dont's ], page 1, section Bilder [ Do’s & Dont’s ], page 3, section Bilder [Do's & Dont's], page 3, section Bilder [Do’s & Dont’s], page 1, section Bilder [Do’s & Dont’s], page 4, section Bildsprache [ do's & don'ts ], page 1, section Bildsprache [Do's & Dont's], page 1, section Bildsprache [do's & don'ts], page 2, section Bildwelt [ Do's & Don'ts ], page 2, section Bildwelt [ Do's & Dont's ], page 1, section Bildwelt [Dos & Don'ts ], page 1, section Bindestriche, page 14, section Brand Identity, page 1, line 1, section Brand Voice, page 1, line 70, section CTA-Buttons, page 12, section Cloud Platform, page 1, line 5, section Cloud Platform, page 1, line 7, section Content Goals, page 1, line 86, section Content Goals, page 1, line 87, section Content Goals, page 1, line 88, section Content Goals, page 1, line 89, section Content Goals, page 1, line 90, section Content Principles, page 1, line 100, section Content Principles, page 1, line 101, section Content Principles, page 1, line 102, section Content Principles, page 1, line 103, section Content Principles, page 1, line 96, section Content Principles, page 1, line 97, section Content Principles, page 1, line 99, section Cross-Media Brand Campaigns, page 38, section Customer Service, page 25, section Das Publikum auf dem Schirm behalten, page 6, section Das funktioniert / Das funktioniert nicht, page 1, section Der Fokus auf Probleme treibt den Leser zum Handeln., page 9, section Doppelpunkte, page 13, section Eigennamen (nie übersetzen), section Eigennamen (nie übersetzen), page 1, section Eigennamen (nie übersetzen), page 3, section Eigennamen (nie übersetzen), page 5, section Einsatz von Pronomen, page 8, section Elevator Pitch, page 1, section Elevator pitch, page 1, section Emotionaler Nutzen, page 2, section Emotionen | Wahrnehmung, page 1, section Emotionen | Wahrnehmung, page 2, section Employees, page 24, section Fehlermeldungen schreiben, page 10, section Fragen stellen erhöht die Aufmerksamkeit des Lesers., page 9, section Fragezeichen, page 13, section Frontloading, page 7, section Gedankenstriche & Bindestriche, section Gedankenstriche & Bindestriche, page 1, section Gedankenstriche, page 14, section Gender-sensible Sprache, page 8, section Hero Archetype, page 1, line 11, section Hero Principles, page 1, line 25, section Hero Principles, page 1, line 26, section Hero Principles, page 1, line 27, section Hero Principles, page 1, line 28, section Hero Principles, page 1, line 29, section Hero Principles, page 1, line 30, section Hero Story, page 1, line 17, section Hero Story, page 1, line 21, section Highlight Badges, page 35, section How we sound, page 1, line 78, section Image, page 1, line 62, section Image, page 1, line 64, section Image, page 1, line 66, section Imagery [ do's & don'ts ], page 1, section Imagery [ do's & don'ts ], page 3, section Imagery [Dos & don'ts ], page 3, section Imagery [dos & don'ts], page 1, section Interpunktion – Punkt am Satzende, nach Element-Typ, section Interpunktion – Punkt am Satzende, nach Element-Typ, page 1, section Jobtitel, page 18, section KI / AI / IA – Terminologieregeln, section KI / AI / IA – Terminologieregeln, page 1, section KI / AI / IA – Terminologieregeln, page 2, section KI / AI / IA – Terminologieregeln, page 3, section KI / AI / IA – Terminologieregeln, page 4, section KSPs | Key Messages, page 1, section KSPs | Key Messages, page 2, section Kaufmännisches &-Zeichen, page 13, section Kernaussagen, page 1, section Kommas, page 13, section Leseverhalten im Netz, page 6, section Logo Basics, page 5, section Logo Transition, page 4, section Look ‘n’ Feel / Bilder [Do’s & Dont’s], page 1, section Look ‘n’ Feel [ Screenshots ], page 3, section Look ‘n’ Feel, page 1, section Man kann auch zu einfach schreiben., page 9, section Markenbewusstsein, page 5, section Markenregeln, section Markenregeln, page 1, section Maßangaben und Maßeinheiten, page 17, section Mehr Überblick durch Überschriften, page 6, section Mission, page 1, line 34, section Mission, page 4, section Navigation, section Navigation, page 1, section Personality, page 1, line 54, section Personality, page 1, line 56, section Personality, page 1, line 58, section Preise und Währungen, page 16, section Price Tags, page 33, section Production Requirements, page 26, section Produkt-Terminologie, section Produkt-Terminologie, line 107, section Produkt-Terminologie, line 108, section Produkt-Terminologie, line 109, section Produkt-Terminologie, line 110, section Produkt-Terminologie, line 111, section Produkt-Terminologie, line 112, section Produkt-Terminologie, line 113, section Produkt-Terminologie, line 114, section Produkt-Terminologie, line 115, section Produkt-Terminologie, line 116, section Produkt-Terminologie, line 117, section Produkt-Terminologie, line 118, section Produkt-Terminologie, line 119, section Produkt-Terminologie, line 120, section Produkt-Terminologie, line 121, section Produkt-Terminologie, line 122, section Produkt-Terminologie, line 123, section Produkt-Terminologie, line 124, section Produkt-Terminologie, line 125, section Produkt-Terminologie, line 126, section Produkt-Terminologie, line 127, section Produkt-Terminologie, line 128, section Produkt-Terminologie, line 129, section Produkt-Terminologie, line 130, section Produkt-Terminologie, line 131, section Produkt-Terminologie, line 132, section Produkt-Terminologie, line 133, section Produkt-Terminologie, line 134, section Produkt-Terminologie, line 135, section Produkt-Terminologie, line 136, section Produkt-Terminologie, line 137, section Produkt-Terminologie, line 138, section Produkt-Terminologie, line 139, section Produkt-Terminologie, line 140, section Produkt-Terminologie, line 141, section Produkt-Terminologie, line 142, section Produkt-Terminologie, line 143, section Produkt-Terminologie, line 144, section Produkt-Terminologie, line 145, section Produkt-Terminologie, line 146, section Produkt-Terminologie, line 148, section Produkt-Terminologie, line 149, section Produkt-Terminologie, line 150, section Produkt-Terminologie, line 151, section Produkt-Terminologie, line 152, section Produkt-Terminologie, line 153, section Produkt-Terminologie, line 154, section Produkt-Terminologie, line 155, section Produkt-Terminologie, line 156, section Produkt-Terminologie, line 157, section Produkt-Terminologie, line 158, section Produkt-Terminologie, line 159, section Produkt-Terminologie, line 160, section Produkt-Terminologie, line 161, section Produkt-Terminologie, line 162, section Produkt-Terminologie, line 163, section Produkt-Terminologie, line 164, section Produkt-Terminologie, line 165, section Produkt-Terminologie, line 166, section Produkt-Terminologie, line 167, section Produkt-Terminologie, line 168, section Produkt-Terminologie, line 169, section Produkt-Terminologie, page 2, section Prozentangaben, page 16, section Reason to believe, page 1, line 46, section Reason to believe, page 1, line 48, section Reason to believe, page 1, line 50, section Rechtliches & Formate, page 3, section Rechtliches & Formate, page 5, section Schrägstriche, page 14, section Secondary CTAs / Links im Text als CTAs, page 12, section Semikolon, page 14, section Senders in Communication, page 39, section Server, page 1, section So soll es klingen		            So nicht, page 2, section So soll es klingen So nicht, page 1, section So soll es klingen So nicht, page 2, section So soll es klingen | So nicht, page 1, section So soll es klingen | So nicht, page 2, section Symbole, page 19, section Taglines, page 4, section Tattoos & Piercings, page 27, section Telefonnummern, page 18, section Terminologie, page 1, section Terminologie, page 2, section Terminologie, page 3, section Terminologie/Stilrichtlinien, page 3, section Terminologie/Styleguide, page 1, section Terminologie/Styleguide, page 3, section Testimonials, page 23, section Texten für SEO, page 7, section Tonalität, page 1, section Tonalität, page 2, section Tone of Voice, page 1, section Tone of Voice, page 2, section Tone of Voice, page 3, section Tone of Voice, page 5, section Tooltips schreiben, page 10, section Typography, section Weitere markttypische Regeln, section Weitere markttypische Regeln, page 1, section Weitere markttypische Regeln, page 2, section Zahlen, Währung, Telefon, section Zahlen, Währung, Telefon, page 1, section Zahlen, page 18, section Zielgruppe(n) | Personas, page 1, section Zielgruppen | Personas, page 1, section Zielmärkte, page 1, section Zielmärkte, page 2, section Zielmärkte, page 3, section Zielmärkte/Lokale Marktaspekte, page 3, section Zielmärkte/Lokale Marktbesonderheiten, page 1, section Zielpublikum/Segmentierung, page 1, section Über UX-Texte, page 10, section Über diesen Styleguide, page 4, section Überschriften, page 13
+source_rows: audience_segments(7), benefit_ladders(4), concepts(207), discards(186), exemplars(156), keys(1110), market_positions(5), markets(6), metrics(28), rules(770), statements(473), terms(990), vocabulary(61)
+source_documents: CONSTRUCTED — no source locator; see NOTES.md §A4, Comms Guide DE Web Hosting.md, Style Guide DEU.md, ionos - brand identity and voice.md, migrated from BrandProfile.writingRules, migrated from a legacy briefing column, migrated from a legacy glossary column, migrated from the legacy Product.description column, salvaged from the retired product-brief dossier (n8n products.description), section 11.2 IONOS-Produktnamen, line 163, section 11.2 IONOS-Produktnamen, line 164, section 11.2 IONOS-Produktnamen, line 165, section 11.2 IONOS-Produktnamen, line 166, section 11.2 IONOS-Produktnamen, line 167, section 11.2 IONOS-Produktnamen, line 168, section 11.2 IONOS-Produktnamen, line 169, section 11.2 IONOS-Produktnamen, line 170, section 11.2 IONOS-Produktnamen, line 171, section 11.2 IONOS-Produktnamen, line 172, section 11.2 IONOS-Produktnamen, line 173, section 11.2 IONOS-Produktnamen, line 174, section 11.2 IONOS-Produktnamen, line 176, section 11.2 IONOS-Produktnamen, line 177, section 11.2 IONOS-Produktnamen, line 234, section 11.2 IONOS-Produktnamen, line 235, section 11.2 IONOS-Produktnamen, line 236, section 11.2 IONOS-Produktnamen, line 237, section 11.2 IONOS-Produktnamen, line 238, section 11.2 IONOS-Produktnamen, line 239, section 11.2 IONOS-Produktnamen, line 240, section 11.2 IONOS-Produktnamen, line 241, section 11.2 IONOS-Produktnamen, line 242, section 11.2 IONOS-Produktnamen, line 243, section 11.2 IONOS-Produktnamen, line 244, section 11.2 IONOS-Produktnamen, line 245, section 11.2 IONOS-Produktnamen, line 246, section 11.2 IONOS-Produktnamen, line 247, section 11.2 IONOS-Produktnamen, line 248, section 11.2 IONOS-Produktnamen, line 249, section 11.2 IONOS-Produktnamen, line 250, section 11.2 IONOS-Produktnamen, line 251, section 11.3 Zusammensetzungen im Fließtext, line 180, section 11.3 Zusammensetzungen im Fließtext, line 181, section 11.3 Zusammensetzungen im Fließtext, line 182, section 11.3 Zusammensetzungen im Fließtext, line 183, section 11.3 Zusammensetzungen im Fließtext, line 184, section 11.3 Zusammensetzungen im Fließtext, line 185, section 11.3 Zusammensetzungen im Fließtext, line 186, section 11.3 Zusammensetzungen im Fließtext, line 187, section 11.3 Zusammensetzungen im Fließtext, line 188, section 11.3 Zusammensetzungen im Fließtext, line 189, section 11.3 Zusammensetzungen im Fließtext, line 190, section 11.3 Zusammensetzungen im Fließtext, line 251, section 11.3 Zusammensetzungen im Fließtext, line 252, section 11.3 Zusammensetzungen im Fließtext, line 253, section 11.3 Zusammensetzungen im Fließtext, line 254, section 11.3 Zusammensetzungen im Fließtext, line 255, section 11.3 Zusammensetzungen im Fließtext, line 256, section 11.3 Zusammensetzungen im Fließtext, line 257, section 11.3 Zusammensetzungen im Fließtext, line 258, section 11.3 Zusammensetzungen im Fließtext, line 259, section 11.3 Zusammensetzungen im Fließtext, line 260, section 11.3 Zusammensetzungen im Fließtext, line 261, section 11.3 Zusammensetzungen im Fließtext, line 262, section 11.3 Zusammensetzungen im Fließtext, line 263, section 11.3 Zusammensetzungen im Fließtext, line 264, section Abkürzungen, page 18, section Addressing Customers, section Adressen, page 18, section Allgemeine Regeln, page 13, section Allgemeines Glossar, section Allgemeines Glossar, line 100, section Allgemeines Glossar, line 101, section Allgemeines Glossar, line 102, section Allgemeines Glossar, line 103, section Allgemeines Glossar, line 104, section Allgemeines Glossar, line 105, section Allgemeines Glossar, line 106, section Allgemeines Glossar, line 107, section Allgemeines Glossar, line 108, section Allgemeines Glossar, line 109, section Allgemeines Glossar, line 110, section Allgemeines Glossar, line 111, section Allgemeines Glossar, line 112, section Allgemeines Glossar, line 113, section Allgemeines Glossar, line 114, section Allgemeines Glossar, line 115, section Allgemeines Glossar, line 116, section Allgemeines Glossar, line 117, section Allgemeines Glossar, line 118, section Allgemeines Glossar, line 119, section Allgemeines Glossar, line 120, section Allgemeines Glossar, line 121, section Allgemeines Glossar, line 122, section Allgemeines Glossar, line 123, section Allgemeines Glossar, line 124, section Allgemeines Glossar, line 125, section Allgemeines Glossar, line 126, section Allgemeines Glossar, line 127, section Allgemeines Glossar, line 128, section Allgemeines Glossar, line 129, section Allgemeines Glossar, line 130, section Allgemeines Glossar, line 131, section Allgemeines Glossar, line 132, section Allgemeines Glossar, line 134, section Allgemeines Glossar, line 135, section Allgemeines Glossar, line 136, section Allgemeines Glossar, line 137, section Allgemeines Glossar, line 138, section Allgemeines Glossar, line 139, section Allgemeines Glossar, line 140, section Allgemeines Glossar, line 141, section Allgemeines Glossar, line 142, section Allgemeines Glossar, line 143, section Allgemeines Glossar, line 144, section Allgemeines Glossar, line 145, section Allgemeines Glossar, line 146, section Allgemeines Glossar, line 147, section Allgemeines Glossar, line 149, section Allgemeines Glossar, line 150, section Allgemeines Glossar, line 170, section Allgemeines Glossar, line 171, section Allgemeines Glossar, line 172, section Allgemeines Glossar, line 173, section Allgemeines Glossar, line 174, section Allgemeines Glossar, line 175, section Allgemeines Glossar, line 176, section Allgemeines Glossar, line 177, section Allgemeines Glossar, line 178, section Allgemeines Glossar, line 179, section Allgemeines Glossar, line 180, section Allgemeines Glossar, line 181, section Allgemeines Glossar, line 182, section Allgemeines Glossar, line 183, section Allgemeines Glossar, line 184, section Allgemeines Glossar, line 185, section Allgemeines Glossar, line 186, section Allgemeines Glossar, line 187, section Allgemeines Glossar, line 188, section Allgemeines Glossar, line 189, section Allgemeines Glossar, line 190, section Allgemeines Glossar, line 191, section Allgemeines Glossar, line 192, section Allgemeines Glossar, line 193, section Allgemeines Glossar, line 194, section Allgemeines Glossar, line 195, section Allgemeines Glossar, line 196, section Allgemeines Glossar, line 197, section Allgemeines Glossar, line 198, section Allgemeines Glossar, line 199, section Allgemeines Glossar, line 200, section Allgemeines Glossar, line 201, section Allgemeines Glossar, line 202, section Allgemeines Glossar, line 203, section Allgemeines Glossar, line 204, section Allgemeines Glossar, line 205, section Allgemeines Glossar, line 206, section Allgemeines Glossar, line 207, section Allgemeines Glossar, line 208, section Allgemeines Glossar, line 209, section Allgemeines Glossar, line 210, section Allgemeines Glossar, line 211, section Allgemeines Glossar, line 212, section Allgemeines Glossar, line 213, section Allgemeines Glossar, line 214, section Allgemeines Glossar, line 215, section Allgemeines Glossar, line 216, section Allgemeines Glossar, line 217, section Allgemeines Glossar, line 218, section Allgemeines Glossar, line 219, section Allgemeines Glossar, line 220, section Allgemeines Glossar, line 221, section Allgemeines Glossar, line 222, section Allgemeines Glossar, line 223, section Allgemeines Glossar, line 224, section Allgemeines Glossar, line 99, section Allgemeines Glossar, page 2, section Allgemeines Glossar, page 3, section Anführungszeichen, section Anführungszeichen, page 1, section Anführungszeichen, page 14, section Anglizismen und Fremdwörter, page 15, section Ansprache, page 8, section Auflistungen mit Bullet Points, page 15, section Ausrufezeichen/Markierungen, page 14, section Barrierefreies Schreiben (Alt-Text, Link-Titel usw.), page 11, section Bedürfnisse, page 1, section Bedürfnisse/Kundenprobleme, page 1, section Bedürfnisse/Kundenprobleme, page 2, section Benefits, page 1, line 38, section Benefits, page 1, line 40, section Benefits, page 1, line 42, section Best Practices, page 11, section Best Practices, page 5, section Bilder [ Do's & Dont's ], page 1, section Bilder [ Do’s & Dont’s ], page 3, section Bilder [Do's & Dont's], page 3, section Bilder [Do’s & Dont’s], page 1, section Bilder [Do’s & Dont’s], page 4, section Bildsprache [ do's & don'ts ], page 1, section Bildsprache [Do's & Dont's], page 1, section Bildsprache [do's & don'ts], page 2, section Bildwelt [ Do's & Don'ts ], page 2, section Bildwelt [ Do's & Dont's ], page 1, section Bildwelt [Dos & Don'ts ], page 1, section Bindestriche, page 14, section Brand Identity, page 1, line 1, section Brand Voice, page 1, line 70, section CTA-Buttons, page 12, section Cloud Platform, page 1, line 5, section Cloud Platform, page 1, line 7, section Content Goals, page 1, line 86, section Content Goals, page 1, line 87, section Content Goals, page 1, line 88, section Content Goals, page 1, line 89, section Content Goals, page 1, line 90, section Content Principles, page 1, line 100, section Content Principles, page 1, line 101, section Content Principles, page 1, line 102, section Content Principles, page 1, line 103, section Content Principles, page 1, line 96, section Content Principles, page 1, line 97, section Content Principles, page 1, line 99, section Cross-Media Brand Campaigns, page 38, section Customer Service, page 25, section Das Publikum auf dem Schirm behalten, page 6, section Das funktioniert / Das funktioniert nicht, page 1, section Der Fokus auf Probleme treibt den Leser zum Handeln., page 9, section Doppelpunkte, page 13, section Eigennamen (nie übersetzen), section Eigennamen (nie übersetzen), page 1, section Eigennamen (nie übersetzen), page 3, section Eigennamen (nie übersetzen), page 5, section Einsatz von Pronomen, page 8, section Elevator Pitch, page 1, section Elevator pitch, page 1, section Emotionaler Nutzen, page 2, section Emotionen | Wahrnehmung, page 1, section Emotionen | Wahrnehmung, page 2, section Employees, page 24, section Fehlermeldungen schreiben, page 10, section Fragen stellen erhöht die Aufmerksamkeit des Lesers., page 9, section Fragezeichen, page 13, section Frontloading, page 7, section Gedankenstriche & Bindestriche, section Gedankenstriche & Bindestriche, page 1, section Gedankenstriche, page 14, section Gender-sensible Sprache, page 8, section Hero Archetype, page 1, line 11, section Hero Principles, page 1, line 25, section Hero Principles, page 1, line 26, section Hero Principles, page 1, line 27, section Hero Principles, page 1, line 28, section Hero Principles, page 1, line 29, section Hero Principles, page 1, line 30, section Hero Story, page 1, line 17, section Hero Story, page 1, line 21, section Highlight Badges, page 35, section How we sound, page 1, line 78, section Image, page 1, line 62, section Image, page 1, line 64, section Image, page 1, line 66, section Imagery [ do's & don'ts ], page 1, section Imagery [ do's & don'ts ], page 3, section Imagery [Dos & don'ts ], page 3, section Imagery [dos & don'ts], page 1, section Interpunktion – Punkt am Satzende, nach Element-Typ, section Interpunktion – Punkt am Satzende, nach Element-Typ, page 1, section Jobtitel, page 18, section KI / AI / IA – Terminologieregeln, section KI / AI / IA – Terminologieregeln, page 1, section KI / AI / IA – Terminologieregeln, page 2, section KI / AI / IA – Terminologieregeln, page 3, section KI / AI / IA – Terminologieregeln, page 4, section KSPs | Key Messages, page 1, section KSPs | Key Messages, page 2, section Kaufmännisches &-Zeichen, page 13, section Kernaussagen, page 1, section Kommas, page 13, section Leseverhalten im Netz, page 6, section Logo Basics, page 5, section Logo Transition, page 4, section Look ‘n’ Feel / Bilder [Do’s & Dont’s], page 1, section Look ‘n’ Feel [ Screenshots ], page 3, section Look ‘n’ Feel, page 1, section Man kann auch zu einfach schreiben., page 9, section Markenbewusstsein, page 5, section Markenregeln, section Markenregeln, page 1, section Maßangaben und Maßeinheiten, page 17, section Mehr Überblick durch Überschriften, page 6, section Mission, page 1, line 34, section Mission, page 4, section Navigation, section Navigation, page 1, section Personality, page 1, line 54, section Personality, page 1, line 56, section Personality, page 1, line 58, section Preise und Währungen, page 16, section Price Tags, page 33, section Production Requirements, page 26, section Produkt-Terminologie, section Produkt-Terminologie, line 107, section Produkt-Terminologie, line 108, section Produkt-Terminologie, line 109, section Produkt-Terminologie, line 110, section Produkt-Terminologie, line 111, section Produkt-Terminologie, line 112, section Produkt-Terminologie, line 113, section Produkt-Terminologie, line 114, section Produkt-Terminologie, line 115, section Produkt-Terminologie, line 116, section Produkt-Terminologie, line 117, section Produkt-Terminologie, line 118, section Produkt-Terminologie, line 119, section Produkt-Terminologie, line 120, section Produkt-Terminologie, line 121, section Produkt-Terminologie, line 122, section Produkt-Terminologie, line 123, section Produkt-Terminologie, line 124, section Produkt-Terminologie, line 125, section Produkt-Terminologie, line 126, section Produkt-Terminologie, line 127, section Produkt-Terminologie, line 128, section Produkt-Terminologie, line 129, section Produkt-Terminologie, line 130, section Produkt-Terminologie, line 131, section Produkt-Terminologie, line 132, section Produkt-Terminologie, line 133, section Produkt-Terminologie, line 134, section Produkt-Terminologie, line 135, section Produkt-Terminologie, line 136, section Produkt-Terminologie, line 137, section Produkt-Terminologie, line 138, section Produkt-Terminologie, line 139, section Produkt-Terminologie, line 140, section Produkt-Terminologie, line 141, section Produkt-Terminologie, line 142, section Produkt-Terminologie, line 143, section Produkt-Terminologie, line 144, section Produkt-Terminologie, line 145, section Produkt-Terminologie, line 146, section Produkt-Terminologie, line 148, section Produkt-Terminologie, line 149, section Produkt-Terminologie, line 150, section Produkt-Terminologie, line 151, section Produkt-Terminologie, line 152, section Produkt-Terminologie, line 153, section Produkt-Terminologie, line 154, section Produkt-Terminologie, line 155, section Produkt-Terminologie, line 156, section Produkt-Terminologie, line 157, section Produkt-Terminologie, line 158, section Produkt-Terminologie, line 159, section Produkt-Terminologie, line 160, section Produkt-Terminologie, line 161, section Produkt-Terminologie, line 162, section Produkt-Terminologie, line 163, section Produkt-Terminologie, line 164, section Produkt-Terminologie, line 165, section Produkt-Terminologie, line 166, section Produkt-Terminologie, line 167, section Produkt-Terminologie, line 168, section Produkt-Terminologie, line 169, section Produkt-Terminologie, page 2, section Prozentangaben, page 16, section Reason to believe, page 1, line 46, section Reason to believe, page 1, line 48, section Reason to believe, page 1, line 50, section Rechtliches & Formate, page 3, section Rechtliches & Formate, page 5, section Schrägstriche, page 14, section Secondary CTAs / Links im Text als CTAs, page 12, section Semikolon, page 14, section Senders in Communication, page 39, section Server, page 1, section So soll es klingen		            So nicht, page 2, section So soll es klingen So nicht, page 1, section So soll es klingen So nicht, page 2, section So soll es klingen | So nicht, page 1, section So soll es klingen | So nicht, page 2, section Symbole, page 19, section Taglines, page 4, section Tattoos & Piercings, page 27, section Telefonnummern, page 18, section Terminologie, page 1, section Terminologie, page 2, section Terminologie, page 3, section Terminologie/Stilrichtlinien, page 3, section Terminologie/Styleguide, page 1, section Terminologie/Styleguide, page 3, section Testimonials, page 23, section Texten für SEO, page 7, section Tonalität, page 1, section Tonalität, page 2, section Tone of Voice, page 1, section Tone of Voice, page 2, section Tone of Voice, page 3, section Tone of Voice, page 5, section Tooltips schreiben, page 10, section Typography, section Weitere markttypische Regeln, section Weitere markttypische Regeln, page 1, section Weitere markttypische Regeln, page 2, section Zahlen, Währung, Telefon, section Zahlen, Währung, Telefon, page 1, section Zahlen, page 18, section Zielgruppe(n) | Personas, page 1, section Zielgruppen | Personas, page 1, section Zielmärkte, page 1, section Zielmärkte, page 2, section Zielmärkte, page 3, section Zielmärkte/Lokale Marktaspekte, page 3, section Zielmärkte/Lokale Marktbesonderheiten, page 1, section Zielpublikum/Segmentierung, page 1, section Über UX-Texte, page 10, section Über diesen Styleguide, page 4, section Überschriften, page 13
 -->
 
 # Product tone
 
-63 rules. Modality is the contract: **must** is never dropped, **should** and **may** yield to the budget in that order.
+90 rules. Modality is the contract: **must** is never dropped, **should** and **may** yield to the budget in that order.
 
 ### `copy_principle.technical_language`
 
@@ -38,6 +38,54 @@ source_documents: CONSTRUCTED — no source locator; see NOTES.md §A4, Comms Gu
 - **Slots:** body_text, bullet, cta_button, headline, subline
 - **Source:** `section Tonalität, page 1`
 
+### `product_tone.agency_business_tone`
+
+**[SHOULD]** Write Agency Business in a tone that is partnerschaftlich, professionell, zuverlässig, effizient and unterstützend.
+
+- **Scope:** product Agency Business (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.ai_app_and_site_builder_tone`
+
+**[SHOULD]** Write AI App and Site Builder in a tone that is empowering, secure, technically capable, uninterrupted and streamlined.
+
+- **Scope:** product AI App and Site Builder (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.ai_crm_manager_tone`
+
+**[SHOULD]** Write AI CRM Manager in a tone that is Lightweight, helpful, straightforward, jargon-free and empowering.
+
+- **Scope:** product AI CRM Manager (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.ai_document_manager_tone`
+
+**[SHOULD]** Write AI Document Manager in a tone that is Sovereign and secure, Value-oriented and transparent, Empathetic to administrative burdens and Productive and time-saving.
+
+- **Scope:** product AI Document Manager (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.ai_model_studio_tone`
+
+**[SHOULD]** Write AI Model Studio in a tone that is Professional-grade, Secure and compliance-first, Developer-friendly and Reliable and enterprise-ready.
+
+- **Scope:** product AI Model Studio (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.cloud_server_tone`
+
+**[SHOULD]** Write Cloud Server in a tone that is vertrauenswürdig, partnerschaftlich, professionell and zugänglich und verständlich.
+
+- **Scope:** product Cloud Server (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
 ### `product_tone.copy_complexity_adapts_to_audience_tier`
 
 **[SHOULD]** Passe die Komplexität der Sprache an die Audience-Tier an: Personal-Audience erhält edukativen, klaren, nicht-technischen Wortschatz; SMB-Audience leicht erhöhte Komplexität, an die Zielgruppe angepasst; Corporate-Audience komplexere, ggf. jargon-haltige Sprache je nach Persona (buyer, admin, user).
@@ -48,6 +96,38 @@ source_documents: CONSTRUCTED — no source locator; see NOTES.md §A4, Comms Gu
 - **Modality inferred:** the source had no modal verb. Treat with the corresponding caution when it conflicts with a stated one.
 - **Source:** `ionos - brand identity and voice.md:108 [IMG-FILE b081f98047e4.png]`
 
+### `product_tone.dedicated_server_tone`
+
+**[SHOULD]** Write Dedicated Server in a tone that is professionell, vertrauenswürdig, lösungsorientiert and zugänglich und verständlich.
+
+- **Scope:** product Dedicated Server (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.deploy_now_tone`
+
+**[SHOULD]** Write Deploy Now in a tone that is dev-friendly, professionell, unkompliziert, technisch fokussiert and einladend.
+
+- **Scope:** product Deploy Now (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.domains_tone`
+
+**[SHOULD]** Write Domains in a tone that is Professional, Credible, Value-oriented and Secure.
+
+- **Scope:** product Domains (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.e_mail_tone`
+
+**[SHOULD]** Write E-Mail in a tone that is professional, credible, reassuring and clear.
+
+- **Scope:** product E-Mail (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
 ### `product_tone.focus_on_solutions`
 
 **[MUST]** Halten Sie den Fokus stets auf den positiven Botschaften und einfachen Lösungen, anstatt den Kunden wegen mangelnder IT-Kenntnisse zu sticheln oder vor verpasster Digitalisierung zu warnen.
@@ -56,6 +136,14 @@ source_documents: CONSTRUCTED — no source locator; see NOTES.md §A4, Comms Gu
 - **Slots:** unscoped — applies wherever this rule's scope matches.
 - **Modality inferred:** the source had no modal verb. Treat with the corresponding caution when it conflicts with a stated one.
 - **Source:** `section Der Fokus auf Probleme treibt den Leser zum Handeln., page 9`
+
+### `product_tone.google_workspace_tone`
+
+**[SHOULD]** Write Google Workspace in a tone that is hilfreich, freundlich, professionell, effizient and vertrauenserweckend.
+
+- **Scope:** product Google Workspace (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
 
 ### `product_tone.helpful_guiding`
 
@@ -66,6 +154,70 @@ source_documents: CONSTRUCTED — no source locator; see NOTES.md §A4, Comms Gu
 - **Slots:** body_text, bullet, headline, info_text, subline
 - **Channels:** email, newsletter, social, web
 - **Source:** `section Tonalität, page 2`
+
+### `product_tone.list_local_tone`
+
+**[SHOULD]** Write List Local in a tone that is einfach, zeitsparend, preisbewusst and ergebnisorientiert.
+
+- **Scope:** product List Local (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.momentum_team_ai_receptionist_tone`
+
+**[SHOULD]** Write Momentum Team – AI Receptionist in a tone that is Sovereign, Practical, Secure, Professional and Direct.
+
+- **Scope:** product Momentum Team – AI Receptionist (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.mywebsite_creator_ecommerce_tone`
+
+**[SHOULD]** Write MyWebsite Creator eCommerce in a tone that is unterstützend, professionell und glaubwürdig, lösungsorientiert, motivierend (Fokus auf Autonomie and Wachstum und Kontrolle).
+
+- **Scope:** product MyWebsite Creator eCommerce (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.mywebsite_creator_tone`
+
+**[SHOULD]** Write MyWebsite Creator in a tone that is ermutigend, professionell, vertrauensvoll and unkompliziert.
+
+- **Scope:** product MyWebsite Creator (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.mywebsite_now_shop_tone`
+
+**[SHOULD]** Write MyWebsite Now Shop in a tone that is Pragmatisch, Ermutigend, Sicherheitsgebend and Effizient.
+
+- **Scope:** product MyWebsite Now Shop (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.mywebsite_now_tone`
+
+**[SHOULD]** Write MyWebsite Now in a tone that is ermutigend, unkompliziert, sicherheitsvermittelnd and ergebnisorientiert.
+
+- **Scope:** product MyWebsite Now (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.n8n_vps_tone`
+
+**[SHOULD]** Write n8n VPS in a tone that is technical, authoritative, security-conscious, performance-driven and reassuring.
+
+- **Scope:** product n8n VPS (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.nextcloud_tone`
+
+**[SHOULD]** Write Nextcloud in a tone that is Erleichternd und partnerschaftlich, Professionell und sicherheitsbetont and Einfach und verständlich (kein unnötiges Fachchinesisch).
+
+- **Scope:** product Nextcloud (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
 
 ### `product_tone.positive_encouraging`
 
@@ -85,6 +237,38 @@ source_documents: CONSTRUCTED — no source locator; see NOTES.md §A4, Comms Gu
 - **Slots:** unscoped — applies wherever this rule's scope matches.
 - **Modality inferred:** the source had no modal verb. Treat with the corresponding caution when it conflicts with a stated one.
 - **Source:** `section Das Publikum auf dem Schirm behalten, page 6`
+
+### `product_tone.rankingcoach_tone`
+
+**[SHOULD]** Write rankingCoach in a tone that is befähigend (Empowerment), sicherheitsgebend, unkompliziert, motivierend and budgetbewusst.
+
+- **Scope:** product rankingCoach (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.shoplement_tone`
+
+**[SHOULD]** Write Shoplement in a tone that is produktivitätssteigernd, kontrolliert und autonom wirkend, rückversichernd und sicherheitsgebend and unabhängig und unterstützend.
+
+- **Scope:** product Shoplement (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.social_buy_button_tone`
+
+**[SHOULD]** Write Social Buy Button in a tone that is zeitsparend, einfach, unterstützend and zukunftsorientiert.
+
+- **Scope:** product Social Buy Button (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.vps_tone`
+
+**[SHOULD]** Write VPS in a tone that is Technical, Reliable, Professional, Empowering and Transparent.
+
+- **Scope:** product VPS (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
 
 ### `product_tone.web_hosting_avoid_passive`
 
@@ -112,6 +296,38 @@ source_documents: CONSTRUCTED — no source locator; see NOTES.md §A4, Comms Gu
 - **Slots:** unscoped — applies wherever this rule's scope matches.
 - **Modality inferred:** the source had no modal verb. Treat with the corresponding caution when it conflicts with a stated one.
 - **Source:** `Comms Guide DE Web Hosting.md:78-80`
+
+### `product_tone.web_hosting_tone`
+
+**[SHOULD]** Write Web Hosting in a tone that is Professional and reliable, Performance-focused and tech-savvy, Reassuringly secure and Accessible yet technically capable.
+
+- **Scope:** product Web Hosting (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.website_design_service_tone`
+
+**[SHOULD]** Write Website Design Service in a tone that is entlastend, partnerschaftlich und beratend, professionell, zuverlässig and ergebnisorientiert.
+
+- **Scope:** product Website Design Service (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.wordpress_hosting_tone`
+
+**[SHOULD]** Write WordPress Hosting in a tone that is unterstützend, professionell, vertrauenerweckend and unkompliziert.
+
+- **Scope:** product WordPress Hosting (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
+
+### `product_tone.wordpress_pro_tone`
+
+**[SHOULD]** Write WordPress Pro in a tone that is effizient, fokussiert, professionell and technisch-kompetent.
+
+- **Scope:** product WordPress Pro (specificity 8)
+- **Slots:** unscoped — applies wherever this rule's scope matches.
+- **Source:** `salvaged from the retired product-brief dossier (n8n products.description)`
 
 ### `tonality.active_present_tense`
 
