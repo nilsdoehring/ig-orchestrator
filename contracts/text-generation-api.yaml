@@ -1,0 +1,670 @@
+openapi: 3.1.0
+info:
+  title: Unima Text Generation API
+  description: |
+    Text generation endpoint powered by n8n (workflow
+    `integrations/n8n/workflows/text-generation-router.json`, webhook path `text-generate`),
+    routing to Google Gemini, Anthropic Claude or a local oMLX model based on `model_hint`.
+    Supports prompt enrichment via Data Tables lookup or inline briefing data.
+
+    Every provider sub-workflow parses the model's answer as JSON and returns it under `result`.
+    A response that is not valid JSON is a `status: "failed"`, not a string result — this endpoint
+    has no plain-text mode.
+
+    ## Where prompts come from
+
+    `prompt_key` resolves against the n8n `prompts` Data Table, which is a MIRROR of the `AiPrompt`
+    database entity, refreshed by `bin/console unima:n8n:sync-tables`. Only rows with status
+    `published` are mirrored, so a draft is indistinguishable from a key that does not exist.
+
+    The `config/unima/prompts/*.txt` files are NOT a resolution tier. That tier was removed from
+    `DoctrinePromptLibrary`; the files are a factory seed used by `unima:ai:seed-prompts` to
+    populate a fresh database, and editing one changes nothing that runs. Edit the Skill at
+    `/unima/prompts`, then re-run the sync. See `config/unima/prompts/README.md`.
+
+    ## EVERY PROMPT KEY WAS RENAMED (2026-08-23)
+
+    The keys moved to a dotted `domain.action` naming scheme. The old flat names are GONE — not
+    aliased, not deprecated-but-working. Because an unknown key fails silently (see
+    `prompt_key` below), a caller still sending an old name gets output that looks fine and has no
+    system prompt behind it. Old name on the left, current key on the right:
+
+    | Retired name                    | Current key                         |
+    |---------------------------------|-------------------------------------|
+    | `campaign_strategist`           | `campaign.storyline`                |
+    | `campaign_module_selector`      | `campaign.module_selection`         |
+    | `campaign_content_briefer`      | `campaign.content_briefing`         |
+    | `campaign_coherence_reviewer`   | `campaign.coherence_review`         |
+    | `resolve_lookup_slots`          | `campaign.lookup_slots`             |
+    | `text_copywriter`               | `copy.slot_text`                    |
+    | `ad_variant_copywriter`         | `copy.variants`                     |
+    | `persona_enrichment`            | `persona.profile`                   |
+    | `uds_layout_planner`            | `layout.uds_plan`                   |
+    | `knowledge_*` (4 keys)          | `knowledge.ingest.*`, `knowledge.validate.*` |
+    | `catalog_*_hint_wrapper` (2)    | `catalog.generate_hint`, `catalog.select_hint` |
+
+    Retired with no replacement: `ad_copywriter` and the whole style-director family
+    (`director_photo`, `director_flat`, `director_3d`, `director_isometric`, `pictogram_director`,
+    `illustration_director`). They belonged to the Catalog+Gen reference-style experiment and were
+    superseded when it was finalised. Most still exist as `draft` rows in the database, but drafts
+    are never mirrored to n8n, so they behave exactly like deleted keys.
+
+    ## Authentication
+
+    Every request must include a custom header:
+
+      ai-website-builder: <key>
+
+    curl example:
+
+      curl -s -X POST https://n8nwh.ionos.org/webhook/brand-official-text-generate \
+        -H "Content-Type: application/json" \
+        -H "ai-website-builder: $N8N_IONOS_ORG_HEADER_AUTH_KEY" \
+        -d '{"system_prompt":"Return valid JSON only.","user_prompt":"Return: {\"greeting\":\"hello\"}","metadata":{"model_hint":"gemini-3-flash-preview"}}'
+
+    Header auth is an ENTERPRISE-INSTANCE concern. The workflow exports in
+    `integrations/n8n/workflows/` are the local-dev copies and their webhook nodes carry
+    `authentication: none`; locally the same call is an unauthenticated
+    `POST http://localhost:5678/webhook/text-generate`. The in-cluster PHP caller
+    (`src/AI/Infrastructure/External/ExternalTextGeneratorAdapter.php`) sends
+    `Authorization: Bearer <key>`, not this header.
+  version: 2.2.0
+  contact:
+    name: Unima Team
+
+servers:
+  - url: https://n8nwh.ionos.org/webhook
+    description: Enterprise n8n (production)
+
+security:
+  - headerAuth: []
+
+paths:
+  /brand-official-text-generate:
+    post:
+      operationId: generateText
+      summary: Generate text via AI provider
+      description: |
+        Routes text generation by SUBSTRING TEST on `model_hint`, in this order — see
+        `metadata.model_hint` for the exact tokens. Gemini is the default for anything unmatched.
+
+        ## The four enrichment modes, by what each one KEEPS
+
+        | mode                      | system prompt        | briefing keys resolved? |
+        |---------------------------|----------------------|-------------------------|
+        | `skip`                    | yours, as sent       | NO — silently discarded |
+        | `enrich_from_keys`        | the `prompt_key` row | yes, through the corpus |
+        | `enrich_from_keys_inline` | yours, as sent       | yes, the SAME cascade   |
+        | `enrich_from_data`        | yours, as sent       | no — your literals only |
+
+        `enrich_from_keys` and `enrich_from_keys_inline` share ONE block of assembler code, entered
+        through one boolean (`resolvesFromKeys`). They cannot resolve knowledge differently; the
+        only difference between them is where the system prompt comes from.
+
+        In `enrich_from_keys` and `enrich_from_data` the resolved `prompt_key` row REPLACES
+        `system_prompt` outright, and the assembled brand reference is appended AFTER it under a
+        `# Brand reference` heading (role first, reference material second).
+        `ExternalTextGeneratorAdapter` therefore sends an empty `system_prompt` in those two modes,
+        and sends the real one in `skip` and `enrich_from_keys_inline`.
+
+        ## `prompt_key` IS NOT HONOURED IN `skip` MODE
+
+        This contract previously said the opposite — "the lookup sits upstream of the mode branch",
+        stated twice. It is not upstream. The lookup lives in the `Resolve Text Context` node, which
+        is on the ENRICH branch only; `skip` goes to `Build Skip Payload`, which returns exactly
+        `{system_prompt, user_prompt, model, provider, metadata, images}` and drops `prompt_key` and
+        `briefing` on the floor. A caller relying on the old sentence was sending a key that nothing
+        ever read, and getting a 200.
+
+        ## Rejected request shapes
+
+        - no `system_prompt`, no `user_prompt`, mode `skip` →
+          `{"status": "failed", "error": {"message": "No prompts provided and mode is skip"}}`
+        - mode `enrich_from_keys_inline` with BOTH a `system_prompt` and a `prompt_key`, or with an
+          empty `system_prompt` → the node THROWS, so the execution fails with that message rather
+          than returning a `failed` envelope. Two prompts for one generation is a caller
+          contradiction and this mode refuses to rank them; see `enrichment_mode` below.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextGenerateRequest'
+            examples:
+              skip_mode:
+                summary: Skip mode — inline prompts, no enrichment
+                value:
+                  system_prompt: "Return valid JSON only."
+                  user_prompt: "Return: {\"greeting\": \"hello\"}"
+                  enrichment_mode: skip
+                  metadata:
+                    model_hint: "gemini-3-flash-preview"
+              enrich_from_keys:
+                summary: enrich_from_keys — system prompt loaded by prompt_key, briefing from Data Tables
+                value:
+                  prompt_key: "campaign.storyline"
+                  enrichment_mode: enrich_from_keys
+                  briefing:
+                    brand: "IONOS"
+                    product: "Momentum Team – AI Visual Designer"
+                    target_group: "KMU-Inhaber"
+                    goal: "Brand Awareness"
+                    language: "de-DE"
+                  metadata:
+                    model_hint: "gemini-3.1-pro-preview"
+              enrich_from_keys_inline:
+                summary: enrich_from_keys_inline — YOUR system prompt, briefing still resolved from the corpus
+                value:
+                  system_prompt: "You rewrite one headline for an A/B test. Return {\"headline\": \"...\"}."
+                  user_prompt: "Rewrite: 'Hosting that just works'."
+                  enrichment_mode: enrich_from_keys_inline
+                  briefing:
+                    brand: "IONOS"
+                    product: "Momentum Team – AI Visual Designer"
+                    target_group: "KMU-Inhaber"
+                    goal: "Brand Awareness"
+                    language: "de-DE"
+                  metadata:
+                    model_hint: "gemini-3.1-pro-preview"
+              enrich_from_data:
+                summary: enrich_from_data — system prompt loaded by prompt_key, briefing inline
+                value:
+                  prompt_key: "campaign.module_selection"
+                  enrichment_mode: enrich_from_data
+                  briefing:
+                    brand_context: "IONOS – European cloud and hosting provider"
+                    brand_tone: "Professional, direct, trustworthy"
+                    module_catalog: "[{\"key\": \"hero\"}, {\"key\": \"benefits\"}]"
+                  metadata:
+                    model_hint: "gemini-3-flash-preview"
+      responses:
+        '200':
+          description: Text generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TextGenerateResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Provider error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    headerAuth:
+      type: apiKey
+      in: header
+      name: ai-website-builder
+      description: |
+        Custom header auth. Header name: ai-website-builder.
+        Value from env var: N8N_IONOS_ORG_HEADER_AUTH_KEY (in .env / .env.local).
+
+  schemas:
+    Briefing:
+      type: object
+      additionalProperties: true
+      description: |
+        Brand context for prompt enrichment. Fields used depend on enrichment_mode, and the groups
+        read DISJOINT field sets — a field from the wrong group is ignored in silence.
+
+        The `(enrich_from_keys)` annotations below mean BOTH key-resolving modes:
+        `enrich_from_keys` and `enrich_from_keys_inline` run the same assembler block, so they read
+        the same fields and produce the same sections from them. Only the system prompt differs.
+
+        `enrich_from_keys` resolves the brand's identity, tone, writing rules and glossary from the
+        composed knowledge corpus (via the `Resolve Briefing Context` sub-workflow), and products,
+        target groups and goals from their Data Tables. A key with no matching row degrades: the
+        raw key string is used in place of the resolved description, and the section is labelled
+        `(unresolved fallback)` where a composed value was expected. `brand.visual_style` is
+        deliberately NOT sent to a text model.
+
+        The language NAME is derived from the BCP-47 code with `Intl.DisplayNames` — there is no
+        longer a `languages` Data Table to look it up in.
+      properties:
+        brand:
+          type: string
+          description: |
+            Team/brand name (enrich_from_keys). Without it the entire brand branch is skipped —
+            no identity, tone, writing rules, glossary, product, target group, goal or language
+            section is emitted, and nothing reports that.
+        product:
+          type: string
+          description: Product name (enrich_from_keys)
+        target_group:
+          type: string
+          description: Target group name (enrich_from_keys)
+        goal:
+          type: string
+          description: Campaign goal name (enrich_from_keys)
+        language:
+          type: string
+          description: BCP-47 language code, e.g. "de-DE" (enrich_from_keys)
+        custom_prompt:
+          type: string
+          description: |
+            Free-text instructions appended to the user prompt under `## Custom Instructions`.
+            Read in BOTH modes, unlike everything else here.
+        brand_context:
+          type: string
+          description: Brand identity / processed context (enrich_from_data)
+        brand_tone:
+          type: string
+          description: Brand tone of voice (enrich_from_data)
+        brand_visual_style:
+          type: string
+          description: Brand visual style (enrich_from_data)
+        brand_writing_rules:
+          description: Writing rules, string or object — objects are JSON-stringified (enrich_from_data)
+          oneOf:
+            - type: string
+            - type: object
+              additionalProperties: true
+        brand_glossary:
+          description: Glossary, string or object — objects are JSON-stringified (enrich_from_data)
+          oneOf:
+            - type: string
+            - type: object
+              additionalProperties: true
+        page_catalog:
+          description: |
+            Available UDS components, appended to the SYSTEM prompt under `## Available Components`
+            (enrich_from_data). String or object.
+          oneOf:
+            - type: string
+            - type: object
+              additionalProperties: true
+        module_catalog:
+          description: |
+            Available template modules, appended to the SYSTEM prompt under `## Available Modules`
+            (enrich_from_data). String or object.
+          oneOf:
+            - type: string
+            - type: object
+              additionalProperties: true
+        available_modes:
+          type: array
+          description: |
+            Token-mode groups, rendered into the SYSTEM prompt under `## Available Token Modes`
+            (enrich_from_data). Must be an ARRAY — any other type is dropped without comment.
+          items:
+            type: object
+            properties:
+              collectionName:
+                type: string
+              collectionId:
+                type: string
+              defaultModeId:
+                type: string
+              modes:
+                type: object
+                additionalProperties:
+                  type: string
+        base_user_prompt:
+          type: string
+          description: First block of the assembled user prompt (enrich_from_data)
+        product_name:
+          type: string
+          description: |
+            Product name (enrich_from_data). GATES the whole `## Product` section — without it,
+            product_description, product_briefing, seo_keywords, value_propositions and
+            competitive_edge are all silently dropped.
+        product_description:
+          type: string
+          description: Product description (enrich_from_data)
+        product_briefing:
+          type: string
+          description: Product briefing summary (enrich_from_data)
+        seo_keywords:
+          type: array
+          items:
+            type: string
+          description: SEO keywords (enrich_from_data)
+        value_propositions:
+          type: array
+          items:
+            type: string
+          description: Value propositions (enrich_from_data)
+        competitive_edge:
+          type: string
+          description: Competitive edge (enrich_from_data)
+        target_name:
+          type: string
+          description: |
+            Target group name (enrich_from_data). GATES the `## Target Group` section — target_context,
+            pain_points and motivations are dropped without it.
+        target_context:
+          type: string
+          description: Target group profile (enrich_from_data)
+        pain_points:
+          type: array
+          items:
+            type: string
+          description: Target group pain points (enrich_from_data)
+        motivations:
+          type: array
+          items:
+            type: string
+          description: Target group motivations (enrich_from_data)
+        goal_name:
+          type: string
+          description: |
+            Campaign goal name (enrich_from_data). GATES the `## Campaign Goal` section —
+            goal_description and goal_guidance are dropped without it.
+        goal_description:
+          type: string
+          description: Campaign goal description (enrich_from_data)
+        goal_guidance:
+          type: string
+          description: Goal prompt guidance (enrich_from_data)
+        language_name:
+          type: string
+          description: |
+            Human-readable language name (enrich_from_data). GATES the `## Language` section —
+            language_code, writing_style, localization_notes and language_glossary are dropped
+            without it.
+        language_code:
+          type: string
+          description: BCP-47 code, shown beside the name (enrich_from_data)
+        writing_style:
+          type: string
+          description: Language writing style (enrich_from_data)
+        localization_notes:
+          type: string
+          description: Localization notes (enrich_from_data)
+        language_glossary:
+          type: object
+          additionalProperties: true
+          description: Language glossary (enrich_from_data)
+
+    TextGenerateRequest:
+      type: object
+      properties:
+        system_prompt:
+          type: string
+          description: |
+            System prompt. Required in `skip` mode (together with `user_prompt` — the request is
+            rejected only when BOTH are absent and the mode is skip), and REQUIRED in
+            `enrich_from_keys_inline`, where an empty one is an error rather than a silent
+            downgrade.
+
+            In `enrich_from_keys` and `enrich_from_data` a resolved `prompt_key` replaces it
+            entirely, which is why `ExternalTextGeneratorAdapter` sends it empty in those two.
+            In `enrich_from_keys_inline` nothing replaces it: it leads, and the resolved brand
+            reference is appended after it under `# Brand reference`.
+        user_prompt:
+          type: string
+          description: |
+            User prompt / task (required in skip mode). In enrich modes it is APPENDED after the
+            assembled briefing sections rather than replaced.
+        prompt_key:
+          type: string
+          description: |
+            Key of the system prompt to load from the prompts Data Table. The workflow loads the
+            single matching row and REPLACES `system_prompt` with its text (it does not append to
+            it).
+
+            ## WHERE IT IS READ, AND WHERE IT IS NOT
+
+            The lookup is in the `Resolve Text Context` node, which sits on the ENRICH branch only.
+            So this field is read in `enrich_from_keys` and `enrich_from_data`; it is DISCARDED in
+            `skip` (`Build Skip Payload` never forwards it) and REJECTED in
+            `enrich_from_keys_inline` (that mode keeps your own prompt and refuses to rank two).
+
+            This contract used to claim the lookup "runs before the mode branch, so it applies in
+            `skip` mode too". It does not, and never did.
+
+            ## AN UNKNOWN KEY IS NOT AN ERROR — READ THIS BEFORE PASSING ONE
+
+            The router does, literally:
+
+                if (d.prompt_key && prompts[d.prompt_key]) { systemPrompt = prompts[d.prompt_key]; }
+
+            so a key that is misspelled, renamed, unpublished or simply not synced leaves
+            `systemPrompt` at whatever `system_prompt` held — and in every enrich mode PHP sends
+            that as the empty string. The generation then proceeds with NO system prompt at all and
+            returns confident, well-formed, entirely ungoverned output. Nothing in the response
+            distinguishes this from success. There is no 400, no warning field, no log the caller
+            sees.
+
+            Three things make a key silently miss: it was renamed (see the rename table in the API
+            description — every key changed on 2026-08-23), its row is `draft` rather than
+            `published`, or someone edited it at `/unima/prompts` without running
+            `unima:n8n:sync-tables`. `bin/console unima:prompts:check` reports all three.
+
+            ## The 15 published keys
+
+            Campaign pipeline:
+
+            - **campaign.storyline** — campaign storyline and creative brief.
+              `enrich_from_keys`; briefing: brand, product, target_group, goal, language.
+              (`GenerateStorylineStep`)
+
+            - **campaign.module_selection** — selects which template modules to include.
+              `enrich_from_keys`; the module catalog is passed inline. (`SelectModulesStep`)
+
+            - **campaign.content_briefing** — per-module copy briefs derived from the storyline.
+              `enrich_from_keys`. (`GenerateContentBriefingsStep`)
+
+            - **campaign.coherence_review** — reviews narrative coherence across generated copy.
+              `enrich_from_keys`. (`ReviewNarrativeCoherenceStep`)
+
+            - **campaign.lookup_slots** — resolves INSTANCE_SWAP / component_select slots by
+              matching available options against the campaign context.
+              `enrich_from_keys`. (`ResolveLookupSlotsStep`)
+
+            Copy:
+
+            - **copy.slot_text** — final text overrides for each template slot.
+              `enrich_from_keys`. (`GenerateTextOverridesStep`, `GenerateSelectedTextStep`)
+
+            - **copy.variants** — alternative copy variants for a single slot.
+              (`GenerateAiVariantCommandHandler`)
+
+            Layout and persona:
+
+            - **layout.uds_plan** — plans UDS component layout for landing-page generation.
+              `enrich_from_data`; briefing carries inline page_catalog + available_modes.
+              (`PlanUdsLayoutStep`)
+
+            - **persona.profile** — enriches a persona description into a full profile.
+              (`PersonaEnrichmentPromptBuilder`, `/api/v1` GenerationController)
+
+            Knowledge pipeline (called by the ingest/validate CLI, not by campaign generation):
+
+            - **knowledge.ingest.atoms** — extracts knowledge atoms from a source document.
+            - **knowledge.ingest.document_type** — classifies a source document's type.
+            - **knowledge.validate.rule_conflicts** — finds contradictions between published rules.
+            - **knowledge.validate.metric_drift** — flags metrics that have drifted from source.
+
+            Catalog hint wrappers (read by the catalog workflows THEMSELVES, never sent as a
+            `prompt_key` on this endpoint — see catalog-select-api.yaml / catalog-generate-api.yaml):
+
+            - **catalog.generate_hint**
+            - **catalog.select_hint**
+
+            ## One key that is deliberately absent
+
+            - **campaign_html_generator** — generates freeform HTML for html_node slots
+              (`GenerateNodeHtmlStep`). It is still sent as a `prompt_key`, but in `skip` mode with
+              a full inline `system_prompt` built in PHP. There is not even an empty lookup: `skip`
+              discards the key before any node could read it. It has no row and no seed file, and it
+              was NOT renamed with the others. Do not "fix" it by publishing a row — that row would
+              then start replacing the inline prompt the first time the step moved off `skip`.
+
+              PHP now logs a discard warning for this call, correctly: the key really is thrown
+              away. The clean fix is to stop sending it. If that step ever needs brand knowledge,
+              `enrich_from_keys_inline` with no `prompt_key` is its mode.
+        briefing:
+          $ref: '#/components/schemas/Briefing'
+        images:
+          type: array
+          description: |
+            Optional multimodal input, appended to the Gemini call as `inlineData` parts. Used by
+            the Asset Localizer's image-OCR step; text-only callers omit it. Note the camelCase
+            `mimeType` here — it differs from the image API's snake_case `mime_type`.
+
+            Forwarded on BOTH branches as of 2026-08-24. `Resolve Text Context` used to omit it from
+            its output while `Build Skip Payload` kept it, so images sent in any enrich mode were
+            silently dropped. No caller did that (both `image_parts` senders are on `skip`), but
+            `enrich_from_keys_inline` — a one-off prompt plus resolved brand rules, over an image —
+            is exactly the shape that would have hit it.
+          items:
+            type: object
+            required: [data]
+            properties:
+              mimeType:
+                type: string
+                default: "image/png"
+              data:
+                type: string
+                description: Base64-encoded image bytes
+        enrichment_mode:
+          type: string
+          enum: [skip, enrich_from_keys, enrich_from_keys_inline, enrich_from_data]
+          default: skip
+          description: |
+            Prompt enrichment strategy, matched exactly. See the mode table in the endpoint
+            description for what each one keeps.
+
+            ## THE DEFAULT IS A TRAP, AND IT IS DELIBERATELY STILL `skip`
+
+            Omitting this field means `skip`, and `skip` discards `prompt_key` AND `briefing`
+            without an error, a warning field or anything in the response that distinguishes it from
+            success. A caller that assembled a full briefing and forgot this one line generated
+            confident, well-formed, entirely ungoverned output for as long as nobody looked.
+
+            The default was NOT changed, because it is correct for a caller that sends neither field
+            (the image-OCR step, the pictogram enricher), and moving it would silently change
+            behaviour for every existing caller. Instead the discard is now LOUD: both
+            `ExternalTextGeneratorAdapter` and `ExternalImageGeneratorAdapter` log a warning naming
+            the exact fields the chosen mode will throw away. If you are calling the webhook
+            directly, you get no such warning — set the field.
+
+            An unrecognised value is not rejected and is the worst case of all: the router's
+            `Route by Mode` IF tests `startsWith('enrich')`, so `enrich_form_keys` (sic) routes down
+            the enrich branch, then matches no `mode ===` arm in the assembler and produces no
+            briefing section — while PHP has already blanked the system prompt for it. No prompt,
+            no data, HTTP 200. PHP logs a warning for this too.
+
+            ## `enrich_from_keys_inline`: your prompt, resolved knowledge
+
+            The mode the "DATA always from knowledge, by key; PROMPTS in the hub only when they are
+            genuine reusable skills" policy needs. Before it existed no combination of the other
+            three expressed it: `skip` keeps the prompt and drops the data, `enrich_from_keys`
+            resolves the data and blanks the prompt, `enrich_from_data` keeps the prompt and
+            resolves nothing.
+
+            Use it for a step whose prompt is genuinely one-off. Use `enrich_from_keys` the moment
+            that prompt becomes a reusable skill worth publishing to the hub.
+
+            SENDING BOTH A `system_prompt` AND A `prompt_key` IN THIS MODE IS REJECTED. Not ranked —
+            rejected, by a `throw` in the node and an `InvalidArgumentException` in PHP before the
+            request is even sent. Every silent way of resolving that contradiction loses an argument
+            nobody knew was happening: prompt_key-wins is the exact rule that makes
+            `enrich_from_keys` blank a caller's prompt, and inline-wins would make a published hub
+            skill evaporate behind a 200. There is no third value to pick, so this mode picks none.
+            An empty `system_prompt` is rejected for the same reason — it is the mode whose whole
+            purpose is that the caller's prompt survives.
+        metadata:
+          type: object
+          additionalProperties: true
+          description: |
+            NOT echoed on the response. Unlike the image API, the response's `metadata` is rebuilt
+            by the provider sub-workflow and carries only `model_used` / `tokens_used`; anything
+            else you put here is dropped.
+          properties:
+            model_hint:
+              type: string
+              default: 'gemini-3-flash-preview'
+              description: |
+                Selects the provider by SUBSTRING, evaluated in this order, and is then passed to
+                that provider as the literal model id:
+
+                - contains `claude` or `anthropic` → Anthropic (`api.anthropic.com/v1/messages`)
+                - else contains `gpt` or `openai` → provider `openai`, which HAS NO SUB-WORKFLOW.
+                  The request returns `{"status": "failed", "error": {"message": "Provider not
+                  available: openai text generation sub-workflow not yet configured."}}`.
+                - else contains `Qwen`, `qwen`, `Gemma`, `gemma`, `local` or `omlx` → local oMLX at
+                  `host.docker.internal:8000`. Note this list is CASE-SENSITIVE and is not the same
+                  list the image workflow uses (that one is lowercased and includes `flux`/`mflux`).
+                - otherwise → Gemini. This is the DEFAULT, so an unrecognised or misspelled hint is
+                  sent to Gemini as a model id and fails there, not here.
+            response_format:
+              type: string
+              description: |
+                Sent as `"json"` by PHP. Informational only — no node reads it, and every provider
+                sub-workflow parses the answer as JSON unconditionally.
+
+    TextGenerateResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [completed]
+        result:
+          description: |
+            The model's answer, `JSON.parse`d. Usually an object, but whatever the model emitted —
+            a top-level array parses to an array. It is never a raw string: unparseable output is
+            a `failed`.
+          oneOf:
+            - type: object
+              additionalProperties: true
+            - type: array
+              items: true
+        metadata:
+          type: object
+          description: |
+            Built by the provider sub-workflow, NOT echoed from the request.
+          properties:
+            model_used:
+              type: string
+              description: |
+                Read back from the provider (`modelVersion` for Gemini, `model` for Anthropic and
+                oMLX), so unlike the image API's `model` this reflects what actually served the
+                request. `null` when the provider omitted it.
+            tokens_used:
+              type: integer
+              description: |
+                Total tokens for Gemini and oMLX; OUTPUT tokens only for Anthropic
+                (`usage.output_tokens`), so the number is not comparable across providers.
+
+    ErrorResponse:
+      type: object
+      description: |
+        Returned with HTTP 200 — check `status`. Every failure this endpoint produces is a
+        `message` string; there is no `code` field and no `metadata`.
+      properties:
+        status:
+          type: string
+          enum: [failed]
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: |
+                One of: "No prompts provided and mode is skip"; "Provider not available: <name>
+                text generation sub-workflow not yet configured."; "No text in <provider>
+                response"; "Failed to parse JSON from <provider> response: <detail>".
+
+                THERE IS NO `code` FIELD. The former `HTTP_ERROR`, `TIMEOUT`, `PROVIDER_ERROR` and
+                `PROVIDER_NOT_AVAILABLE` enum was documented here but never emitted by any node —
+                if you are branching on `error.code`, it has always been undefined. Match on
+                `status` and, if you must, on the message text.
+            raw_text:
+              type: string
+              description: |
+                First 500 characters of the model's output. Present only on a JSON parse failure,
+                so it is the field to log when a generation "succeeded" but produced nothing usable.
+
+                Note that a transport-level failure — provider HTTP error, or the 300s Gemini /
+                oMLX timeout — aborts the n8n execution instead of producing this envelope, so the
+                caller sees an n8n-level error rather than a `failed` body.

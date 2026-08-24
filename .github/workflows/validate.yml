@@ -1,0 +1,49 @@
+# CI for this repo. Every step below is `node scripts/<name>.mjs` and nothing else — this repo has
+# ZERO DEPENDENCIES by design (see lib/yaml.mjs's file header for why), so there is deliberately no
+# `npm install` / `npm ci` step here. Adding one would be dead weight on every run and a standing
+# invitation for a future PR to add a dependency this repo exists specifically not to need.
+#
+# Each gate is its own named step so a failure is legible straight from the PR checks list, without
+# opening the log:
+#   - selftest          proves lib/yaml.mjs parses the exporter's grammar and refuses everything else
+#   - verify-manifest   proves no published path was hand-edited (or corrupted) after publish
+#   - conformance       proves lib/resolve.mjs agrees with the PHP resolver on every known context
+#   - design-firewall   proves no design content (colours, fonts, measurements, …) leaked into a
+#                        knowledge file
+#   - forbidden-terms   proves no term listed in knowledge/terms/forbidden.yaml appears anywhere else
+#                        in the tree
+name: validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: selftest — lib/yaml.mjs parses the exporter's grammar
+        run: node scripts/selftest.mjs
+
+      - name: verify-manifest — no published path was hand-edited after publish
+        run: node scripts/verify-manifest.mjs
+
+      - name: conformance — lib/resolve.mjs agrees with the PHP resolver
+        run: node scripts/conformance.mjs
+
+      - name: design-firewall — no design content leaked into a knowledge file
+        run: node scripts/design-firewall.mjs
+
+      - name: forbidden-terms — no forbidden term appears outside its own ledger
+        run: node scripts/forbidden-terms.mjs

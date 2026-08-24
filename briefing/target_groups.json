@@ -1,0 +1,464 @@
+[
+    {
+        "team": "IONOS",
+        "name": "Agenturen",
+        "context": "Müssen mehrere Kundenkonten gleichzeitig verwalten und wünschen sich eine Lösung, die ihnen dies so leicht wie möglich macht. Legen Wert auf Partner-Tools und Profi-Features.\n\nTechnical level: high",
+        "pain_points": "[\"Verwaltung großer Portfolios\"]",
+        "motivations": "[\"Mehrere Kundenkonten verwalten\",\"Mehr Traffic auf Kundenwebsites erzeugen durch Registrierung unter mehreren Domains\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Agenturen/Start-ups",
+        "context": "Kleine Web-Agenturen oder Start-ups stehen unter permanentem Druck seitens ihrer Kunden, ihnen fehlt möglicherweise die Zeit oder das technische Know-how, um potenzielle Upgrades zu recherchieren oder Probleme manuell zu lösen. Sie benötigen nicht nur Zugang zu einer Support-Hotline, sondern auch zu direkten Ansprechpartnern, die ihnen dabei helfen, technische Probleme so schnell wie möglich zu lösen. Benutzerfreundlichkeit ist ein entscheidendes Kriterium analog zur Gewissheit, dass ihre Daten sicher und nach höchsten Standards geschützt werden - das sind absolute Kauffaktoren.\n\nDecision maker: Agentur- oder Start-up-Inhaber\nTechnical level: medium",
+        "pain_points": "[\"Permanenter Druck seitens Kunden\",\"Mangelnde Zeit\",\"Fehlendes technisches Know-how\",\"Manuelle Problemlösung\"]",
+        "motivations": "[\"Technische Probleme schnell lösen\",\"Daten nach höchsten Standards schützen\",\"Einfache Verwaltung (Benutzerfreundlichkeit)\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Agenturinhaber",
+        "context": "Inhaber von Agenturen, Systemintegratoren oder Teamleiter im Development.\n\nTechnical level: high",
+        "pain_points": "[\"Zeitaufwändige Deployment-Prozesse\"]",
+        "motivations": "[\"Effiziente Workflows für das Team\",\"Sicheres, redundantes Hosting für Kundenprojekte\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Allgemeine Verbraucher",
+        "context": "Anwendungsmöglichkeiten reichen von Websites, Web- und App-Development bis hin zu gemeinnützigen Websites.\n\nDecision maker: Konsument selbst\nTechnical level: low_to_medium",
+        "pain_points": "[]",
+        "motivations": "[\"Günstiger Preis\",\"Servicequalität\",\"Professioneller Auftritt (werbefrei)\",\"Zusätzliche Add-ons (Domain, SSL-Zertifikat, Spam-Schutz)\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Der IT-Entscheider",
+        "context": "Personen, die verantwortlich sind für die IT-Infrastruktur eines Unternehmens. Das sind diejenigen, die eine Notwendigkeit erkennen, Lösungen zu suchen oder aber anzupassen - um so veränderten Anforderungen oder veralteter Technologie zu begegnen. Sie verbringen viel Zeit damit, Informationen zu sammeln und zu prüfen, ob potenzielle Lösungen zum jeweiligen Budget und den technologischen Rahmenbedingungen des Unternehmens passen. Sie treffen am Ende die Entscheidung, sie müssen jedoch in der Lage sein, ihre Vorgesetzten zu überzeugen und für deren Zustimmung werben. Der Preis gilt dabei als ein wichtiges Kriterium.\n\nDecision maker: IT-Entscheider (requires approval from superiors)\nTechnical level: high",
+        "pain_points": "[\"Veraltete Technologie\",\"Budgetbeschränkungen\",\"Zustimmung der Vorgesetzten einholen\"]",
+        "motivations": "[\"IT-Infrastruktur an veränderte Anforderungen oder veraltete Technologie anpassen\",\"Vorgesetzte überzeugen und Zustimmung einholen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Developers and Small Technical Teams",
+        "context": "Developers and small technical teams who have outgrown shared hosting and want root access without buying a whole physical machine.\n\nTechnical level: high",
+        "pain_points": "[\"Outgrown shared hosting limitations\"]",
+        "motivations": "[\"Root access\",\"Dedicated resources without physical hardware overhead\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Domainer und Domain-Investoren",
+        "context": "Einzelne Personen oder kleine Organisationen, die vom System der Domain-Vergabe im Netz wirtschaftlich profitieren. Dieses Segment registriert und verwaltet Domains, um sie weiterverkaufen zu können.",
+        "pain_points": "[\"Preissensibilität (Rabattaktionen sind besonders interessant)\"]",
+        "motivations": "[\"Domains weiterverkaufen\",\"Premium-Domain-Namen sichern\",\"Park-Domains für Werbezwecke nutzen\",\"Große Menge von Domains übertragen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Einsteiger und kleine Unternehmen",
+        "context": "Einsteiger und kleine Unternehmen, die ohne viel Aufwand mit ihrem Shop online gehen wollen. Die Zielgruppe hat wenig oder keine Erfahrung in den Bereichen Webdesign und Programmieren.\n\nTechnical level: low",
+        "pain_points": "[]",
+        "motivations": "[\"Ein lokales Unternehmen schnell und einfach erweitern oder online neu zu platzieren\",\"Eine neue Business-Idee im kleinen Rahmen zu testen\",\"Testen, ob ein Produkt für den Online-Vertrieb geeignet ist\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Einsteiger und professionelle Kleinunternehmer",
+        "context": "Kleinunternehmer, die in kleinem Rahmen mit dem Verkauf in den sozialen Medien (Facebook und Instagram) beginnen wollen, mit der Option später zu expandieren. Perfekt für visuell ausgerichtete Produkte (Mode, Lifestyle) oder Restaurants mit kleiner Speisekarte.\n\nTechnical level: beginner",
+        "pain_points": "[\"Hürden und Einschränkungen beim professionellen Social Selling\"]",
+        "motivations": "[\"Einige wenige Artikel über soziale Medien verkaufen\",\"Start und Wachstumsphase eines Unternehmens begleiten\",\"Ein-Produkt-Lösung für Fokus auf Social Media und übersichtliche Website\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Enterprise IT",
+        "context": "Enterprise IT: Strategische IT-Entscheider in Großunternehmen mit komplexen Compliance-Anforderungen und Multi-Cloud-Architekturen. Brauchen zertifizierte Infrastruktur (ISO 27001, SOC2, C5), dedizierte Account Manager und maßgeschneiderte SLAs. Sovereign Cloud ist Schlüsselthema.",
+        "pain_points": "[\"Integration in bestehende Enterprise-Systeme komplex\",\"Migrationskomplexität und Ausfallrisiken\",\"Compliance-Anforderungen je nach Branche unterschiedlich\",\"US-Cloud-Act-Bedenken bei amerikanischen Anbietern\",\"Fehlende europäische Alternativen mit Enterprise-SLAs\"]",
+        "motivations": "[\"Hybrid-Cloud-Strategie mit europäischem Sovereign Cloud\",\"Nachweisbare Compliance für regulierte Branchen\",\"Kosteneffizienz gegenüber Hyperscalern\",\"Persönliche Betreuung durch dedizierte Cloud Architects\",\"Exit-Strategie und Vermeidung von Vendor Lock-in\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Entwickler",
+        "context": "Angestellte, Agenturmitarbeiter oder Selbständige, die sich bestens in der Welt des Hostings/Webdesigns auskennen und hauptberuflich Websites oder Apps erstellen, programmieren oder sich in anderer Art und Weise damit beschäftigen.\n\nTechnical level: expert",
+        "pain_points": "[]",
+        "motivations": "[\"Websites oder Apps professionell erstellen und programmieren\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Freelancer & Agenturen",
+        "context": "Freelancer & Agenturen: Technikaffine Dienstleister, die Hosting und Server für ihre Kunden verwalten. Brauchen effiziente Multi-Projekt-Verwaltung, API-Zugang und Reseller-Möglichkeiten. Preissensibel, vergleichen aktiv mit Hetzner und DigitalOcean. Schätzen Automatisierung und gute Dokumentation.",
+        "pain_points": "[\"Zeitaufwand für Server-Management statt Kerngeschäft\",\"Kundensupport-Last bei Hosting-Problemen\",\"Fehlende White-Label-Optionen bei vielen Anbietern\",\"Unzureichende API-Dokumentation für Automatisierung\",\"Margendruck durch günstige Wettbewerber\"]",
+        "motivations": "[\"Effizienz steigern durch Automatisierung und APIs\",\"Margen verbessern mit Reseller-Programmen\",\"Kunden mit zuverlässiger Performance begeistern\",\"Professionelle Infrastruktur ohne eigene Datacenter\",\"Einfache Abrechnung und Kundenverwaltung\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Gesellschaften, Vereine und Verbände",
+        "context": "Personengruppen, die sich für einen gemeinsamen Zweck engagieren, z.B. Vereine, Stiftungen, gemeinnützige Einrichtungen.\n\nShare of customers: 20%\nTechnical level: low",
+        "pain_points": "[\"Technisches Grundwissen der einzelnen Mitglieder kann stark variieren\"]",
+        "motivations": "[\"Speicherplatz und Tools, die alle Mitglieder nutzen können\",\"Prozesse wie das Planen von Veranstaltungen vereinfachen\",\"Interne und externe Kommunikation erleichtern\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Gewöhnliche Verbraucher",
+        "context": "Preissensitive, teils technikaffine Kunden mit diversen Anwendungsfällen (Websites für Hochzeiten, App-/Web-Entwicklung, behördliche Websites, Online-Speicherplatz).\n\nShare of customers: 10%\nTechnical level: Teils technikaffin\nNOT a focus audience — do not write for this segment unless explicitly asked.",
+        "pain_points": "[]",
+        "motivations": "[\"Günstiger Preis\",\"Viele Funktionen des Produkts\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — AI App and Site Builder",
+        "context": "Tech-savvy SMBs, entrepreneurs, and web agencies seeking rapid, compliant full-stack web application deployment without complex coding or server setup.",
+        "pain_points": "[\"Technical barriers of coding and infrastructure configuration\",\"Slow\",\"expensive development cycles for MVPs\",\"Regulatory and GDPR compliance concerns with US-based AI startups\",\"Fragmented billing and complexity from managing separate domain\",\"email\",\"hosting\",\"and AI tools\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — AI CRM Manager",
+        "context": "Micro businesses with 1 to 5 employees, freelancers, trades, local service providers, and solo self-employed professionals without a dedicated sales team or CRM experience.",
+        "pain_points": "[\"Overwhelming setup complexity of traditional CRMs\",\"Disorganized customer communications\",\"files\",\"and deals scattered across multiple places\",\"Lack of time or dedicated sales staff to draft follow-up emails and identify past clients to contact\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — AI Document Manager",
+        "context": "European micro-enterprises with 1-10 employees in service-oriented industries such as trades, professional services, and real estate.",
+        "pain_points": "[\"Spending too much working time on manual document administration\",\"Losing track of critical contract details\",\"deadlines\",\"and renewal terms\",\"Wasting hours searching across unorganized drives\",\"emails\",\"and phone images\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — AI Model Studio",
+        "context": "Developers, IT architects, and enterprises seeking to integrate LLMs into custom applications while prioritizing data sovereignty and GDPR compliance.",
+        "pain_points": "[\"High dev-ops overhead of managing complex GPU infrastructure\",\"Compliance risks associated with global data processing by standard hyperscalers\",\"High costs and vendor lock-in of proprietary AI models\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Agency Business",
+        "context": "Webdesign-, Entwicklungs- und Digitalagenturen, die Hosting-Projekte für Kunden realisieren und betreuen.",
+        "pain_points": "[\"Zeitaufwendiges Verwalten von unterschiedlichen Kunden-Logins und Verträgen bei verschiedenen Providern.\",\"Finanzielles Risiko und fehlende Flexibilität bei der Bereitstellung von Testumgebungen.\",\"Mangelnder direkter\",\"kompetenter Ansprechpartner bei dringenden technischen Problemen.\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Cloud Server",
+        "context": "IT-Verantwortliche und Unternehmen, die eine hochskalierbare, sichere und einfach zu verwaltende Cloud-Infrastruktur von einem lokal ansässigen Partner suchen.",
+        "pain_points": "[\"Frustration über technische Einschränkungen und Migrationsprobleme\",\"Ausfallzeiten und veraltete Hardware\",\"Mangelnde Erreichbarkeit von kompetentem\",\"technischem Support\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Dedicated Server",
+        "context": "IT-Entscheider, Systemadministratoren und Entwickler in Europa, die performante Enterprise-Hardware mit maximaler Flexibilität und lokalem Support suchen.",
+        "pain_points": "[\"Frustration über veraltete Hardware und technische Einschränkungen\",\"Unerwartete Ausfallzeiten und unzureichende Zuverlässigkeit\",\"Nutzungsprobleme und mangelnde Unterstützung bei komplexen Aufgaben wie Migrationen\",\"Langfristige Vertragsbindungen ohne Skalierungsmöglichkeiten\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Deploy Now",
+        "context": "Professionelle Web-Entwickler, die moderne Git-Workflows, Frontend-Frameworks und statische Website-Generatoren nutzen.",
+        "pain_points": "[\"Zeitverlust durch Medienbrüche beim Verlassen der Git-Umgebung für das Deployment\",\"Komplizierte Einrichtung von Staging- und Testumgebungen für Team- und Kunden-Feedback\",\"Einschränkungen durch monolithische Web-Architekturen\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Domains",
+        "context": "Entrepreneurs, digital agencies, and businesses looking to rapidly acquire and scale their online presence.",
+        "pain_points": "[\"Hidden extra costs for standard domain security and custom email\",\"Lack of direct\",\"knowledgeable support for technical setup\",\"Risk of unauthorized domain transfer or security breaches\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — E-Mail",
+        "context": "Entrepreneurs, freelancers, and small-to-medium enterprises (SMEs) looking to elevate their professional digital presence.",
+        "pain_points": "[\"Loss of credibility from using generic email domains\",\"Distracting advertisements cluttering business email workflows\",\"Concerns about strict data compliance and GDPR regulations\",\"Lack of accessible\",\"direct technical customer support\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Google Workspace",
+        "context": "Junge Geschäftsinhaber, die Professionalität und einfache Kollaboration suchen und von kostenlosem Gmail migrieren möchten.",
+        "pain_points": "[\"Mangelnde Professionalität bei Nutzung kostenloser E-Mail-Adressen für geschäftliche Zwecke\",\"Komplizierte manuelle Einrichtung von Domains und E-Mail-Infrastrukturen\",\"Lange Reaktionszeiten beim technischen Support im Ernstfall\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — List Local",
+        "context": "Sehr kleine bis mittelgroße lokale Unternehmen ohne Online-Marketing-Kenntnisse sowie mit geringen zeitlichen und finanziellen Ressourcen.",
+        "pain_points": "[\"Fehlende zeitliche und finanzielle Mittel für komplexes Online-Marketing\",\"Mangelndes Fachwissen im Bereich SEO und SEA\",\"Geringe Sichtbarkeit und Auffindbarkeit im Internet für lokale Kunden\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Momentum Team – AI Receptionist",
+        "context": "Hands-on SMB professionals (carpenters, therapists, restaurateurs) and white-collar solopreneurs.",
+        "pain_points": "[\"The Focus Dilemma: having to choose between answering calls and performing billable work\",\"Lost revenue due to missed calls and unmanaged voicemails\",\"Interruption fatigue from spam\",\"robocalls\",\"and sales solicitations\",\"Unsecured business data exposure with generic public AI models\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — MyWebsite Creator",
+        "context": "Kleine Unternehmen, Selbstständige und Hobby-Anwender, die eine professionelle Online-Präsenz in Eigenregie erstellen wollen.",
+        "pain_points": "[\"Fehlendes technisches Know-how oder Programmierkenntnisse\",\"Angst vor zu hohem Zeitaufwand und komplexen Design-Entscheidungen\",\"Sorge\",\"bei technischen Problemen oder Fragen allein gelassen zu werden\",\"Unsicherheit bei DSGVO-Richtlinien und Cookie-Vorgaben\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — MyWebsite Creator eCommerce",
+        "context": "Moderne Unternehmer, Selbstständige und Digital Natives, die eine hochflexible Design-Plattform mit weitreichenden Multi-Channel-Verkaufsfunktionen suchen.",
+        "pain_points": "[\"Eingeschränkte Design-Freiheiten bei herkömmlichen Homepage-Baukästen.\",\"Hoher technischer Aufwand bei der Einrichtung von Domains\",\"SSL\",\"E-Mails und Rechtstexten.\",\"Mangelnde Flexibilität beim parallelen Verkauf auf Social Media\",\"Marktplätzen und der eigenen Website.\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — MyWebsite Now",
+        "context": "Privatpersonen, Kleinunternehmer und Inhaber mittelgroßer Unternehmen ohne technische Fachkenntnisse oder Webdesign-Erfahrung.",
+        "pain_points": "[\"Knappe Zeit für den Aufbau einer professionellen Online-Präsenz\",\"Fehlende Programmier- oder Webdesign-Kenntnisse\",\"Überforderung durch komplexe technische Konfigurationen\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — MyWebsite Now Shop",
+        "context": "Vielbeschäftigte Selbstständige und Händler ohne technisches Vorwissen, die schnell und rechtssicher online verkaufen möchten.",
+        "pain_points": "[\"Zeitmangel beim Erstellen eines Webshops\",\"Fehlendes technisches Know-how für Domain- und SSL-Konfiguration\",\"Sorge vor Abmahnungen mangels korrekter Rechtstexte\",\"Angst vor unprofessionell wirkendem Design\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Nextcloud",
+        "context": "Kleine bis mittelgroße Unternehmen (KMU), Vereine, Verbände sowie Web-Profis und Agenturen, die eine sichere, unkomplizierte Kollaborationsplattform suchen.",
+        "pain_points": "[\"Hoher Zeit- und Arbeitsaufwand für die Administration und Aktualisierung eigener Server-Infrastrukturen\",\"Sicherheits- und Compliance-Bedenken bei der Nutzung von US-amerikanischen Cloud-Anbietern\",\"Erschwerte interne Zusammenarbeit durch komplizierte oder verstreute Software-Tools\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Shoplement",
+        "context": "Kleine und lokale Einzelhändler, die sich digital absichern und unkompliziert neue Vertriebskanäle erschließen wollen.",
+        "pain_points": "[\"Konkurrenzdruck durch den Online-Versandhandel\",\"Umsatzeinbußen durch unvorhergesehene Schließungen\",\"Mangel an Zeit und technischem Know-how für komplexe Webprojekte\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Social Buy Button",
+        "context": "Geschäftsinhaber und Unternehmer, die schnell und unkompliziert in den Social Commerce einsteigen und sich Wachstumsoptionen offenhalten wollen.",
+        "pain_points": "[\"Zeitmangel bei der Shopleitung und -einrichtung\",\"Komplexe Konfigurationen von Steuern und Versand\",\"Fehlender Ansprechpartner bei Fragen zum Online-Erfolg\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — VPS",
+        "context": "Developers, system administrators, and growing businesses seeking high-performance virtual servers with full root access and flexible scaling.",
+        "pain_points": "[\"Performance bottlenecks from traditional HDD\\/SSD storage\",\"Lack of root access and custom configuration capabilities on shared hosting\",\"High upfront costs associated with dedicated physical hardware\",\"Inability to scale resources quickly during traffic spikes without downtime\",\"Rigid long-term hosting contracts\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — Website Design Service",
+        "context": "Selbstständige, kleine Unternehmen und Privatpersonen in DE, UK, US, FR, ES und IT, die eine professionelle Internetpräsenz benötigen, aber keine Zeit oder Fachkenntnisse für die Erstellung haben.",
+        "pain_points": "[\"Mangel an Zeit für die eigene Website-Erstellung und -Pflege\",\"Fehlendes technisches Know-how sowie mangelnde Design- und Textkompetenz\",\"Sorge vor intransparenten Agenturkosten und versteckten Gebühren\",\"Unsicherheit bei der kontinuierlichen Wartung und Durchführung von Sicherheitsupdates nach dem Online-Gang\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — WordPress Hosting",
+        "context": "Unternehmen, Blogger, Web-Agenturen und Shopbetreiber, die eine wartungsarme, performante und hochgradig anpassbare Website-Infrastruktur suchen.",
+        "pain_points": "[\"Hoher Zeitaufwand für manuelle Updates von PHP\",\"Themes und Plugins.\",\"Angst vor Sicherheitslücken\",\"Datenverlust oder Schadsoftware.\",\"Langsame Webseiten-Ladezeiten bei globalen Besuchern.\",\"Fehlendes technisches Know-how bei der Ersteinrichtung einer WordPress-Instanz.\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — WordPress Pro",
+        "context": "Professionelle WordPress-Anwender und Agenturen in DE, US und UK mit mehreren Webprojekten",
+        "pain_points": "[\"Hoher zeitlicher Aufwand bei manuellen WordPress-Migrationen und -Updates\",\"Risiken beim Einspielen von Updates ohne vorheriges Stage Testing\",\"Ineffiziente Verwaltung mehrerer getrennter WordPress-Installationen\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — n8n VPS",
+        "context": "Developers, IT managers, and digital agencies seeking reliable, compliant, and cost-effective workflow automation.",
+        "pain_points": "[\"High\",\"unpredictable per-task fees from SaaS automation tools\",\"Complexity of setting up and managing self-hosted workflow environments via command line\",\"Data privacy risks and strict compliance requirements in shared or non-EU clouds\",\"Resource bottlenecks and performance latency on shared hosting platforms\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "ICP fit — rankingCoach",
+        "context": "Inhaber von Unternehmenswebsites und KMUs ohne SEO-Vorkenntnisse, die Kosten sparen und die Optimierung selbst in die Hand nehmen möchten.",
+        "pain_points": "[\"Fehlendes Fachwissen im Bereich Suchmaschinenoptimierung (SEO)\",\"Zu geringes Budget oder mangelndes Vertrauen für die Beauftragung einer Agentur\",\"Sorge vor Kontrollverlust und dem Risiko des Scheiterns bei der Website-Optimierung\",\"Schlechte Auffindbarkeit und Platzierung in den Google-Suchergebnissen\"]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "IT-Entscheider Mittelstand",
+        "context": "IT-Entscheider Mittelstand: Technisch versierte Führungskräfte, die Cloud-Infrastruktur strategisch evaluieren. Fokus auf Performance, Compliance und Kosteneffizienz. Skeptisch gegenüber US-Cloud-Anbietern wegen Datenhoheit. Suchen europäische Alternativen mit Enterprise-Features.",
+        "pain_points": "[\"Vendor Lock-in bei AWS\\/Azure erschwert Migration\",\"Unklare Kostenstrukturen und versteckte Gebühren\",\"Fehlende Transparenz beim Datenstandort\",\"Compliance-Nachweise für Audits schwer zu beschaffen\",\"Mangelhafter Support außerhalb US-Geschäftszeiten\"]",
+        "motivations": "[\"Moderne, skalierbare Infrastruktur aufbauen\",\"Kostenoptimierung durch transparente Preismodelle\",\"Datensouveränität und DSGVO-Konformität sicherstellen\",\"Hybrid-Cloud-Strategie mit europäischem Provider\",\"Karrieresicherheit durch richtige Technologiewahl\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "KMU",
+        "context": "Kleine und mittelständische Unternehmen (KMU), die professionelle Tools benötigen, um effizient zu arbeiten.\n\nShare of customers: 60%\nTechnical level: medium",
+        "pain_points": "[\"Benötigen keinen vollumfänglichen IT-Support, sondern lediglich eine Kontaktperson\"]",
+        "motivations": "[\"Sicherer Speicher als Ort, auf den alle Teammitglieder zugreifen können\",\"Zuverlässiger Kundenservice, der bei Fragen und Problemen schnell weiterhilft\",\"Technisch versierte Kontaktperson\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "KMU-Inhaber",
+        "context": "KMU-Inhaber DACH: Entscheider in kleinen Unternehmen ohne eigene IT. Suchen einfache, bezahlbare Cloud-Lösungen mit deutschem Support. Getrieben von Digitalisierungsdruck und Datenschutz-Anforderungen. Bevorzugen klare Preise, schnelle Einrichtung und persönliche Beratung.",
+        "pain_points": "[\"IT-Komplexität überfordert das Team\",\"Datenschutz-Unsicherheit und DSGVO-Compliance\",\"Zeitmangel für technische Themen\",\"Angst vor Vendor Lock-in bei US-Anbietern\",\"Unvorhersehbare IT-Kosten\"]",
+        "motivations": "[\"Digitalisierung vorantreiben und wettbewerbsfähig bleiben\",\"IT-Kosten planbar und transparent halten\",\"Daten in Deutschland speichern\",\"Professioneller Online-Auftritt mit wenig Aufwand\",\"Zuverlässiger Partner mit persönlichem Support\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Kleine bis mittelgroße Unternehmen (KMU)",
+        "context": "Hauptzielgruppe des Services. Suchen eine schnelle, professionelle Website zum besten Preis-Leistungs-Verhältnis ohne eigene Einarbeitung, Personalaufbau oder teure Agenturen.",
+        "pain_points": "[\"Keine Zeit für Website-Erstellung und Content\",\"Kein Budget für teure Agenturen\",\"Bedarf an zukünftiger Pflege und Wartung\"]",
+        "motivations": "[\"Schnell zur professionellen Website\",\"Bestes Preis-Leistungs-Verhältnis\",\"Zeit für das Kerngeschäft gewinnen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Kleine bis mittelgroße Unternehmen, Selbständige und Privatpersonen",
+        "context": "Kleine bis mittelgroße Unternehmen (max. 9 Mitarbeiter), Selbständige oder Privatpersonen, die ihr Business online präsentieren wollen. Der Kunde hat keine Erfahrung im Bereich Webdesign und möchte sich auch nicht in die Thematik einarbeiten. Das Erstellen einer professionellen Website soll ihn nicht viel Zeit oder Aufwand kosten.\n\nTechnical level: none",
+        "pain_points": "[\"Keine Erfahrung im Bereich Webdesign\",\"Möchte sich nicht in die Thematik einarbeiten\",\"Knappe Zeit\"]",
+        "motivations": "[\"Business online präsentieren\",\"Professionelle Website ohne viel Zeit oder Aufwand erstellen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Kleine bis mittlere Unternehmen (KMU)",
+        "context": "5-25 Mitarbeiter. Nutzen verschiedene Anwendungen für E-Mail, Speicherung, Videokonferenzen. Probleme mit Datenverwaltung und Mitarbeiterzugriff. Einige möchten Offline-Anwendungen (Outlook, Office Suite) weiternutzen.\n\nTechnical level: low_to_medium",
+        "pain_points": "[\"Probleme mit der Verwaltung aller anfallenden Daten und dem Zugriff internationaler Mitarbeiter\"]",
+        "motivations": "[\"Verringerung der Verwaltungs- und Speicherkosten\",\"Überwachung und Verwaltung des Zugriffs\",\"Sichere Zusammenarbeit mit externen Partnern\",\"Kompatibilität mit Office und Outlook\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Kleinst- und Kleinunternehmer sowie Selbstständige",
+        "context": "Vornehmlich aus technik-fernen Branchen. Dem Kunden fehlt i.d.R. das notwendige Wissen, sodass die Websitegestaltung mittels Drag & Drop von Bildern, Überschriften oder Videos die nötige Sicherheit verspricht. Er möchte aktiv werden und ist sich der Bedeutung einer professionellen Website bewusst.\n\nTechnical level: low",
+        "pain_points": "[\"Fehlendes technisches Know-how\",\"Bedürfnis nach Sicherheit bei der Gestaltung\"]",
+        "motivations": "[\"Sich online präsentieren\",\"Aktiv werden\",\"Design bis ins kleinste Detail auf das Unternehmen auslegen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Kleinstunternehmen",
+        "context": "Flexibel, reaktionsfähig und fokussiert auf den Kunden. Die Nutzung von Domains ist von unterschiedlichen Bedürfnissen abhängig.",
+        "pain_points": "[]",
+        "motivations": "[\"Werbeeffekt erzielen\",\"Marke stärken\",\"Traffic auf Website oder App bringen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Kleinunternehmen",
+        "context": "Kleine Unternehmen, die einen zuverlässigen Geschäftspartner für technischen Support suchen.\n\nShare of customers: 40%\nDecision maker: Leiter der IT\nTechnical level: Variierend",
+        "pain_points": "[]",
+        "motivations": "[\"Zuverlässiger Geschäftspartner für technischen Support\",\"Skalierbarkeit und Wachstum\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Kleinunternehmer",
+        "context": "Suchen einen vertrauenswürdigen, verlässlichen Partner für technischen Support. Benutzerfreundlichkeit und ein professioneller Auftritt sind essenziell.\n\nDecision maker: Leiter der IT\nTechnical level: variable",
+        "pain_points": "[\"Unterschiedlich gut vorhandenes technologisches Wissen je nach Entscheidungsträger\"]",
+        "motivations": "[\"Vertrauenswürdiger, verlässlicher Partner für technischen Support\",\"Benutzerfreundlichkeit\",\"Professioneller Auftritt\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Kleinunternehmer ohne Erfahrung",
+        "context": "Kleinunternehmer ohne Erfahrung in Sachen Webdesign, die eine einfache und schnelle Lösung benötigen, um online verkaufen zu können.\n\nTechnical level: none",
+        "pain_points": "[\"Haben weder Zeit, um eine komplizierte Website mit Onlineshop zu erstellen, noch Angestellte, die es für sie erledigen könnten\",\"Wollen keine Zeit auf technische Details oder eventuelle Fehler verwenden, die der Website schaden könnten\"]",
+        "motivations": "[\"Einfacher und schneller Online-Verkauf\",\"Online-Verkäufe testen, bevor mehr Zeit und Geld investiert wird\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Konsumenten/Privatpersonen",
+        "context": "Erwerben Domains zum Zweck des Personal Brandings, um ihre Online-Identität zu schützen, um ihre Internetpräsenz auszubauen, als Plattform für ihre beruflichen Referenzen oder ihr Portfolio.",
+        "pain_points": "[]",
+        "motivations": "[\"Personal Branding\",\"Online-Identität schützen\",\"Internetpräsenz ausbauen\",\"Plattform für berufliche Referenzen\\/Portfolio\",\"Zukünftige Marken der Kinder schützen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Neue Unternehmen / Start-ups",
+        "context": "1-5 Mitarbeiter, Start-up oder Neugründung. Verwenden derzeit kostenloses Gmail und möchten ein einheitliches, professionelles Erscheinungsbild schaffen. Digital Natives, nicht besorgt über Datenspeicherort.\n\nTechnical level: low_to_medium",
+        "pain_points": "[\"Mangel an professionellem Auftreten bei Nutzung von kostenlosem Gmail\"]",
+        "motivations": "[\"Professionelles Aussehen mit benutzerdefinierter Domain erstellen\",\"Wie gewohnt weiterarbeiten in vertrauter Umgebung\",\"Geringe Kosten und hohe Flexibilität\",\"Arbeiten von überall aus\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Nicht geeignete Kunden",
+        "context": "Kunden, die einen vollwertigen Onlineshop wünschen, sofort ein Multi-Channel-Erlebnis schaffen wollen, ein größeres Produktsortiment haben oder nicht in den sozialen Medien aktiv sind.\n\nNOT a focus audience — do not write for this segment unless explicitly asked.",
+        "pain_points": "[]",
+        "motivations": "[]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Profis: Agenturen/Web Profis",
+        "context": "Endbenutzer und Profis, die bereits WordPress und andere CMS-Systeme nutzen.\n\nShare of customers: 50%\nDecision maker: Endbenutzer und Profis\nTechnical level: Fortgeschritten (nutzen bereits WordPress und andere CMS-Systeme)",
+        "pain_points": "[]",
+        "motivations": "[\"Zeitersparnis\",\"Gutes Preis-Leistungs-Verhältnis\",\"24\\/7 Support\",\"Inkludierte Leistungen wie E-Mail-Postfach\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Reseller",
+        "context": "Allgemeine Verbraucher und Web-Profis sind die Entscheidungsträger. Sie benötigen ein professionelles, werbefreies und sicheres Kommunikationswerkzeug mit verlässlichem Kundenservice.\n\nDecision maker: Allgemeine Verbraucher und Web-Profis\nTechnical level: high",
+        "pain_points": "[]",
+        "motivations": "[\"Bedarf nach einem professionellen, werbefreien und sicheren Kommunikationswerkzeug\",\"Verlässlicher Kundenservice\",\"Integrierte Funktionen wie ein E-Mail-Postfach als zusätzlicher Vorteil für ihre eigenen Kunden\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Sehr kleine bis mittelgroße Unternehmen (KMU)",
+        "context": "Unternehmen, die online einfacher gefunden werden wollen – ganz ohne Online-Marketing-Kenntnisse und ohne viel Zeit oder Geld investieren zu müssen.\n\nTechnical level: low",
+        "pain_points": "[\"Keine Online-Marketing-Kenntnisse\",\"Keine zeitlichen oder finanziellen Mittel\",\"Keine eigene Website\"]",
+        "motivations": "[\"Online einfacher gefunden werden\",\"Schnell eine stärkere Internet-Präsenz aufbauen\",\"Sich weiter um das Core Business kümmern\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Selbstständige und kleine Unternehmen (Tech-savvy)",
+        "context": "Selbstständige und kleine Unternehmen, die bereits einen digitalen Fußabdruck hinterlassen haben und vertraut sind im Umgang mit Software. Sie sind in der Lage, von Grund auf eine benutzerdefinierte Website zu erstellen und nach eigenem Belieben aufzubauen. Sie möchten jedes Detail bearbeiten, unzählige Produkte organisieren und lokal sowie international verkaufen.\n\nTechnical level: Vertraut im Umgang mit Software, fähig HTML/CSS zu nutzen",
+        "pain_points": "[]",
+        "motivations": "[\"Eine erstklassige Website von Grund auf erstellen und fast alles gestalten\\/kontrollieren\",\"Erweiterungen von Drittanbietern (3rd-Party-Widgets) für maximale Flexibilität hinzufügen\",\"Komplexe Struktur für den Onlineshop schaffen und international verkaufen\",\"Verkaufen in hohen Volumina und Einsatz leistungsfähiger Online-Shop-Tools wie Retargeting\",\"Individualisierungen der Website und des Shops mittels HTML und CSS\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Small business owners and freelance web professionals",
+        "context": "Small business owners and freelance web professionals who run a business-critical website but have no dedicated IT operations team. They are not backup experts and do not want to become one.\n\nTechnical level: low",
+        "pain_points": "[\"Not backup experts and do not want to become one\",\"No dedicated IT operations team\"]",
+        "motivations": "[\"Run a business-critical website without needing IT operations expertise\",\"Keep site backed up without manual maintenance\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Startup-Gründer",
+        "context": "Startup-Gründer DACH: Cloud-native Teams, die schnell skalieren müssen. Nutzen Kubernetes, Infrastructure-as-Code und CI/CD. Preissensibel in der Frühphase, aber bereit für Premium bei Wachstum. Wählen nach Developer Experience und Dokumentationsqualität. DSGVO von Anfang an wichtig für B2B-Kunden.",
+        "pain_points": "[\"Cloud-Kosten explodieren bei schnellem Wachstum\",\"Zu wenig DevOps-Kapazität im kleinen Team\",\"DSGVO-Compliance für B2B-Kunden nachweisen\",\"Kubernetes-Komplexität ohne dediziertes Plattform-Team\",\"Investoren fragen nach Datenstandort und Sovereignty\"]",
+        "motivations": "[\"Pay-as-you-grow ohne Mindestvertragslaufzeit\",\"Managed Kubernetes ohne Ops-Overhead\",\"DSGVO-Konformität als Selling Point bei B2B-Kunden\",\"Europäischer Anbieter für Investoren-Compliance\",\"Einfache Skalierung von Prototype zu Production\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Web- und App-Entwickler",
+        "context": "Freelancer, angestellte Web Developer oder Studenten entsprechender Studienfächer. Sie sind mit Webentwicklung vertraut und verstehen Git-Software.\n\nTechnical level: high",
+        "pain_points": "[\"Wasserfallartige Release Models\",\"Monolithische Web-Architekturen\"]",
+        "motivations": "[\"Websites professionell erstellen\",\"Hosting nahtlos in Workflows einbinden\",\"Direkt aus der vertrauten Dev-Umgebung deployen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Web-Profis & Agenturen",
+        "context": "IT-bewanderte Experten, die von Unternehmen oder professionellen Anwendern wegen digitaler Lösungen konsultiert werden. Diese beinhalten auch technische Entwickler und Webentwickler, die Bedarf an höheren Cloud-Kapazität haben, sowie Webdesigner, Agenturen und DevOps. Dieser Teil der Zielgruppe sucht nach Lösungen, die die Bedürfnisse ihrer Kunden abdeckt, die sie aber auch für ihr eigenes Business intern nutzen können.\n\nShare of customers: 20%\nTechnical level: high",
+        "pain_points": "[\"Fehlende Zeit und interne Ressourcen für Anpassungen, Pflege und Wartung\"]",
+        "motivations": "[\"Lösungen, die die Bedürfnisse ihrer Kunden abdecken\",\"Lösungen für das eigene Business intern nutzen\",\"Exzellente Performance\",\"Flexible, individuell anpassbare Lösungen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Webdesigner",
+        "context": "Angestellte, Agenturmitarbeiter oder Selbständige, die sich bestens in der Welt des Hostings/Webdesigns auskennen und hauptberuflich Websites oder Apps erstellen, programmieren oder sich in anderer Art und Weise damit beschäftigen.\n\nTechnical level: expert",
+        "pain_points": "[]",
+        "motivations": "[\"Websites oder Apps professionell erstellen und programmieren\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "Website-Ersteller ohne Zeit/Erfahrung",
+        "context": "Kunden, die eine eigene Website erstellen möchten, es aber aus verschiedenen Gründen nicht können oder wollen. Dazu gehören Kunden mit wenig bis keiner Erfahrung im Bereich Webhosting, Kunden mit wenig Zeit sowie Freelancer und Unternehmen ohne eigene IT-Abteilung.\n\nTechnical level: low",
+        "pain_points": "[\"Keine Erfahrung im Webhosting\",\"Wenig Zeit\",\"Keine eigene IT-Abteilung\"]",
+        "motivations": "[\"Eigene Website erstellen\",\"Zeit sparen\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "WordPress Hosting",
+        "context": "Für jedes Erfahrungslevel von Anfänger bis Profi geeignet. Richtet sich an kleine Unternehmen, Agenturen, Freelancer und Privatpersonen.\n\nTechnical level: beginner_to_expert",
+        "pain_points": "[]",
+        "motivations": "[\"Einfache Erstellung von Websites, Blogs oder Online-Shops\"]"
+    },
+    {
+        "team": "IONOS",
+        "name": "WordPress Pro",
+        "context": "Richtet sich an WordPress Developer, Agenturen, Freelancer und Web-Profis in DE, US, und UK.\n\nTechnical level: expert",
+        "pain_points": "[]",
+        "motivations": "[\"Verwaltung mehrerer Projekte über ein Dashboard\",\"Migration, Stage Testing und smarte Updates\"]"
+    }
+]

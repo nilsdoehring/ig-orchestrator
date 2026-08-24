@@ -1,0 +1,457 @@
+openapi: 3.1.0
+info:
+  title: Unima Image Generation API
+  description: |
+    Image generation endpoint powered by n8n + Google Gemini (workflow
+    `integrations/n8n/workflows/image-generation-single-v2.json`, webhook path `image-generate`).
+    Supports prompt enrichment via the shared `Resolve Briefing Context` sub-workflow, or inline
+    briefing data.
+
+    ## The model comes from `metadata.model_hint` — and from nowhere else
+
+    `metadata.model_hint` is interpolated DIRECTLY into the Gemini image URL
+    (`…/models/{{ model_hint }}:generateContent`), defaulting to `gemini-3.1-flash-image` when
+    absent. A typo therefore surfaces as a Gemini 404, not as a validation error.
+
+    A hint containing `flux`, `local`, `omlx` or `mflux` (case-insensitive) routes the whole
+    request to the local MFLUX provider instead, which reports `provider: "local-omlx"` and
+    `model: "flux2-klein-4b"` regardless of what you asked for.
+
+    There is no `params.gemini_image_model`. It was removed on 2026-08-23: it existed only because
+    one console test command wrote it, it was the only key the workflow's Gemini URL trusted, and
+    production (which always sent `metadata.model_hint`) was therefore silently pinned to the
+    workflow's literal fallback for every image it ever generated. Sending it now does nothing at
+    all — the workflow never reads it.
+
+    ## Where prompts come from
+
+    Any prompt this workflow loads (currently only `params.skill`) is resolved from the n8n
+    `prompts` Data Table, which is a MIRROR of the `AiPrompt` database entity, refreshed by
+    `bin/console unima:n8n:sync-tables`. Only rows with status `published` are mirrored — drafts
+    never reach n8n. The `config/unima/prompts/*.txt` files are a factory seed for a fresh
+    database, not a resolution tier; see the README in that directory.
+
+    ## Authentication
+
+    Every request must include a custom header:
+
+      ai-website-builder: <key>
+
+    curl example:
+
+      curl -s -X POST https://n8nwh.ionos.org/webhook/brand-official-image-generate \
+        -H "Content-Type: application/json" \
+        -H "ai-website-builder: $N8N_IONOS_ORG_HEADER_AUTH_KEY" \
+        -d '{"prompt":"A professional portrait photograph","params":{"aspect_ratio":"1:1"},"enrichment_mode":"skip","metadata":{"model_hint":"gemini-3.1-flash-image"}}'
+
+    Header auth is an ENTERPRISE-INSTANCE concern. The workflow exports in
+    `integrations/n8n/workflows/` are the local-dev copies and their webhook nodes carry
+    `authentication: none`; locally the same call is an unauthenticated
+    `POST http://localhost:5678/webhook/image-generate`. The in-cluster PHP caller
+    (`src/AI/Infrastructure/External/ExternalImageGeneratorAdapter.php`) sends
+    `Authorization: Bearer <key>`, not this header.
+  version: 2.1.0
+  contact:
+    name: Unima Team
+
+servers:
+  - url: https://n8nwh.ionos.org/webhook
+    description: Enterprise n8n (production)
+
+security:
+  - headerAuth: []
+
+paths:
+  /brand-official-image-generate:
+    post:
+      operationId: generateImage
+      summary: Generate a single image
+      description: |
+        Generates one image from a text prompt via Google Gemini (or local MFLUX — see
+        `metadata.model_hint`).
+
+        Mode routing is a PREFIX TEST, not an enum match: the workflow's `Route by Mode` node asks
+        whether `enrichment_mode` starts with the string `enrich`. Anything else — `skip`, a typo,
+        or an absent field — takes the skip branch, which sends `prompt` to the image model
+        untouched. There is no error for an unrecognised mode.
+
+        - `skip` — passthrough. `prompt` is assumed already AI-enhanced by the PHP pipeline.
+        - `enrich_from_keys` — `briefing.brand` selects the team; products, target groups and goals
+          come from their Data Tables and the brand's own copy from the composed knowledge corpus,
+          all via the shared `Resolve Briefing Context` sub-workflow (`W43MTmDsamhA7AsQ`).
+        - `enrich_from_data` — the same sections, but read from inline `briefing.*` fields.
+
+        Both enrich modes are TWO model calls: a text model rewrites your prompt into a detailed
+        image prompt, then the image model renders it. The rewriting model is hard-coded to
+        `gemini-3-flash-preview` (or the local oMLX endpoint) and is NOT affected by
+        `metadata.model_hint`, which only selects the image model.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageGenerateRequest'
+            examples:
+              skip_mode:
+                summary: Skip mode — direct prompt, no enrichment
+                value:
+                  prompt: "A professional portrait photograph of a mid-40s IT manager, neutral grey background, studio lighting"
+                  params:
+                    aspect_ratio: "1:1"
+                    style: photographic
+                    quality: standard
+                  enrichment_mode: skip
+                  metadata:
+                    model_hint: "gemini-3.1-flash-image"
+              with_reference_images:
+                summary: Enrich mode with reference images (base64, top level — NOT URLs in params)
+                value:
+                  prompt: "Cloud storage with automatic backup"
+                  params:
+                    aspect_ratio: "1:1"
+                  reference_images_data:
+                    - mime_type: "image/png"
+                      data: "iVBORw0KGgoAAAANSUhEUgAA..."
+                  enrichment_mode: enrich_from_keys
+                  briefing:
+                    brand: "IONOS"
+                  metadata:
+                    model_hint: "gemini-3.1-flash-image"
+              with_skill:
+                summary: With a `skill` — NO SKILL PROMPT IS PUBLISHED TODAY, so this is inert
+                value:
+                  prompt: "Cloud storage with automatic backup"
+                  params:
+                    aspect_ratio: "1:1"
+                    skill: "<a published prompt key — see ImageParams.skill>"
+                  enrichment_mode: enrich_from_keys
+                  briefing:
+                    brand: "IONOS"
+                  metadata:
+                    model_hint: "gemini-3.1-flash-image"
+      responses:
+        '200':
+          description: Image generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageGenerateResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Provider error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    headerAuth:
+      type: apiKey
+      in: header
+      name: ai-website-builder
+      description: |
+        Custom header auth. Header name: ai-website-builder.
+        Value from env var: N8N_IONOS_ORG_HEADER_AUTH_KEY (in .env / .env.local).
+
+  schemas:
+    ImageParams:
+      type: object
+      description: |
+        THE WORKFLOW READS EXACTLY TWO OF THESE: `aspect_ratio` and `skill`. Every other property
+        below is still SENT by the PHP caller (`ExternalImageGeneratorAdapter::normalizeParams()`)
+        and accepted by the webhook, but no node in `image-generation-single-v2.json` looks at it.
+        They are documented here so a reader who was relying on one knows it is inert rather than
+        broken — see each property's note.
+      properties:
+        aspect_ratio:
+          type: string
+          enum: ['1:1', '16:9', '9:16', '4:3', '3:4', '2:3', '3:2', '4:5', '5:4', '1:4', '4:1', '1:8', '8:1', '21:9']
+          default: '1:1'
+          description: |
+            Output aspect ratio. Passed to Gemini as `generationConfig.imageConfig.aspectRatio`,
+            and omitted entirely when `preserve_reference_dimensions` is true.
+
+            On the local MFLUX path the ratio is instead mapped to explicit pixel dimensions, and
+            that map covers only `1:1`, `16:9`, `9:16`, `4:3`, `3:4`, `3:2` and `2:3` — anything
+            else silently falls back to 1024x1024.
+        style:
+          type: string
+          enum: [photographic, digital_art, illustration]
+          default: photographic
+          description: |
+            IGNORED BY THE WORKFLOW. Still forwarded by PHP, but no node reads `params.style`;
+            style comes from the enrichment prompt and the brand's composed image/visual style.
+            Setting it has no effect on the output.
+        quality:
+          type: string
+          enum: [standard, hd]
+          default: standard
+          description: |
+            IGNORED BY THE WORKFLOW. Still forwarded by PHP, but no node reads `params.quality`,
+            and neither Gemini image generation nor MFLUX is given a quality knob here.
+        image_base_prompt:
+          type: string
+          description: |
+            IGNORED BY THE WORKFLOW. This used to be prepended to the main prompt; the current
+            workflow never reads it. PHP still normalises it onto the payload, so it round-trips
+            in the request and does nothing. Put the text in `prompt` instead.
+        reference_images:
+          type: array
+          items:
+            type: string
+            format: uri
+          description: |
+            IGNORED BY THE WORKFLOW at this position. Reference images now travel as base64 in the
+            TOP-LEVEL `reference_images_data` field, because Gemini `inlineData` needs bytes, not
+            URLs, and n8n has no filesystem or fetch helper to resolve them.
+
+            It is not useless, though: `ExternalImageGeneratorAdapter` accepts URLs, absolute local
+            paths and root-relative paths HERE, resolves and base64-encodes each one, and emits the
+            result as `reference_images_data`. So PHP callers keep using `params.reference_images`;
+            direct HTTP callers must send `reference_images_data` themselves.
+        alpha:
+          type: boolean
+          default: false
+          description: |
+            NOT PART OF THIS API. `alpha` is a PHP-side provider param: the green-screen prompt
+            suffix and the background removal both happen in `ExternalImageGeneratorAdapter` /
+            `GeminiImageGenerator` around the n8n call, and it is never placed on the n8n payload.
+            Sending it to this webhook does nothing.
+        skill:
+          type: string
+          description: |
+            Key of a prompt to use as the system instruction for the creative-director step,
+            replacing the generic prompt enhancement with a style-specific expert persona. Only
+            enrich modes consult it; `skip` mode never does.
+
+            The lookup is the SAME prompts Data Table and the SAME exact-key match the text router
+            uses — the image router just sends `params.skill` as its `prompt_key`. Downstream
+            semantics differ: the text router REPLACES its system prompt with the row, this one
+            PREPENDS it and swaps its whole wrapper template (and prefers the brand's
+            `visual_style` over its `image_style` while a skill is active).
+
+            Normally set from the reference-set config (a `skill` setting on the BrandAssetCollection,
+            resolved by `ReferenceSetConfigPolicy`), or explicitly by the `/api/v1` generation
+            request; image slots using `imagen` / `imagen_alpha` mode never include one.
+
+            NO SKILL PROMPT IS PUBLISHED TODAY, so every value is currently a miss. The whole style
+            -director family — `pictogram_director`, `illustration_director`, `director_flat`,
+            `director_3d`, `director_isometric` (and `ad_copywriter`) — was retired on 2026-08-23:
+            they belonged to the Catalog+Gen reference-style experiment, were superseded during that
+            feature's finalisation, and had no remaining consumer. They still exist in the database
+            as `draft` rows, but drafts are never mirrored to n8n, so they behave exactly like a name
+            that was deleted. `director_photo` has no row at all.
+
+            AN UNKNOWN SKILL IS NOT AN ERROR — this is the failure mode to plan for. The bundle does
+            `req.prompt_key ? (prompts[req.prompt_key] ?? '') : ''` and the router then branches on
+            `if (skillPrompt)`, so a stale name yields an empty string, takes the generic
+            creative-director path, and returns a perfectly plausible unstyled image. Nothing in the
+            response says the skill was not found. If you are passing one of the retired names you
+            are getting no style direction at all — remove it, or publish a replacement at
+            `/unima/prompts`, run `unima:n8n:sync-tables`, and use that key.
+
+    Briefing:
+      type: object
+      description: |
+        Brand context for prompt enrichment. Fields used depend on enrichment_mode.
+
+        In `enrich_from_keys` these are LOOKUP KEYS, and an unmatched key degrades rather than
+        errors: the workflow falls back to putting the raw key string into the prompt
+        (`'Product: ' + briefing.product`) rather than the resolved description.
+      properties:
+        brand:
+          type: string
+          description: |
+            Team/brand name (enrich_from_keys). Scopes the products / target_groups / goals Data
+            Table loads AND the composed brand section from the knowledge corpus. Without it no
+            brand context is added at all, silently.
+        product:
+          type: string
+          description: Product name (enrich_from_keys) — resolved to its description
+        target_group:
+          type: string
+          description: Target group name (enrich_from_keys) — resolved to its context
+        goal:
+          type: string
+          description: Campaign goal name (enrich_from_keys) — resolved to its guidance
+        brand_image_style:
+          type: string
+          description: |
+            Inline image style notes (enrich_from_data). Used on the default photoreal path,
+            i.e. when no `params.skill` resolved.
+        brand_visual_style:
+          type: string
+          description: |
+            Inline visual identity — colours, typography, background treatment (enrich_from_data).
+            Used INSTEAD of `brand_image_style` when a `params.skill` resolved. Since no skill
+            prompt is currently published, this field is currently unreachable on the plain
+            image-generate path; `/catalog-generate` sets it internally from the composed brand.
+        product_description:
+          type: string
+          description: Inline product description (enrich_from_data)
+        goal_guidance:
+          type: string
+          description: Inline campaign-goal guidance (enrich_from_data)
+        target_context:
+          type: string
+          description: Inline target-audience context (enrich_from_data)
+
+    Persona:
+      type: object
+      description: Character persona for consistent character generation
+      properties:
+        description:
+          type: string
+          description: Persona description (age, appearance, attire)
+        vertical:
+          type: string
+          description: '"professional", "lifestyle", "creative", etc.'
+        reference_image_data:
+          type: string
+          description: Base64-encoded reference image
+        reference_image_mime:
+          type: string
+          description: MIME type of reference image (e.g., "image/png")
+
+    ReferenceImageData:
+      type: object
+      description: |
+        One reference image, already fetched and base64-encoded. Both fields are required — the
+        workflow skips any entry missing either, without reporting it.
+      required: [data, mime_type]
+      properties:
+        data:
+          type: string
+          description: Base64-encoded image bytes, with no `data:` URI prefix
+        mime_type:
+          type: string
+          description: |
+            MIME type. Gemini `inlineData` accepts raster only; an SVG here will make the Gemini
+            call fail rather than being skipped.
+          example: "image/png"
+
+    ImageGenerateRequest:
+      type: object
+      required: [prompt]
+      properties:
+        prompt:
+          type: string
+          description: |
+            Image generation prompt. Defaults to the literal string "A professional photograph"
+            when absent or empty — you get an image either way, so an accidentally empty prompt
+            reads as a successful generation.
+        params:
+          $ref: '#/components/schemas/ImageParams'
+        briefing:
+          $ref: '#/components/schemas/Briefing'
+        persona:
+          $ref: '#/components/schemas/Persona'
+        reference_images_data:
+          type: array
+          description: |
+            TOP LEVEL, not inside `params`. Reference images as base64 `inlineData`, prepended to
+            the Gemini parts array (after the persona reference, before the prompt text) in BOTH
+            skip and enrich modes. This is the only channel the workflow reads reference images
+            from — `params.reference_images` is ignored here.
+          items:
+            $ref: '#/components/schemas/ReferenceImageData'
+        preserve_reference_dimensions:
+          type: boolean
+          default: false
+          description: |
+            TOP LEVEL. When true the workflow omits `imageConfig.aspectRatio` entirely so the
+            reference image's native dimensions survive — required for true image EDITS (the Asset
+            Localizer's `LocalizeMarketCommandHandler` and `SvgImageLocalizer` set it). It is only
+            honoured on the SKIP path; the enrich path always forces the aspect ratio.
+        enrichment_mode:
+          type: string
+          enum: [skip, enrich_from_keys, enrich_from_data]
+          default: skip
+          description: |
+            Prompt enrichment strategy. Matched as a PREFIX (`startsWith('enrich')`), so any
+            unrecognised value — including a typo — silently takes the skip branch.
+        metadata:
+          type: object
+          additionalProperties: true
+          description: |
+            Echoed back verbatim on the response, so campaign ids and similar correlation keys
+            survive the round trip.
+          properties:
+            model_hint:
+              type: string
+              default: 'gemini-3.1-flash-image'
+              description: |
+                The image model, spliced straight into the Gemini URL. A value containing `flux`,
+                `local`, `omlx` or `mflux` routes to the local MFLUX provider instead. This is the
+                ONLY model channel — `params.gemini_image_model` no longer exists.
+
+    ImageGenerateResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [completed]
+        image:
+          type: object
+          properties:
+            data:
+              type: string
+              description: Base64-encoded image data
+            mime_type:
+              type: string
+              enum: [image/png, image/jpeg, image/webp]
+        provider:
+          type: string
+          enum: [google-gemini, local-omlx]
+          example: google-gemini
+        model:
+          type: string
+          description: |
+            On the Gemini path this simply ECHOES `metadata.model_hint` (or the
+            `gemini-3.1-flash-image` default) — it is not read back from the provider response, so
+            it confirms what was requested, not what served it. On the MFLUX path it is the literal
+            `flux2-klein-4b`.
+          example: gemini-3.1-flash-image
+        prompt_used:
+          type: string
+          description: Final prompt sent to provider (may differ from input if enriched)
+        metadata:
+          type: object
+          additionalProperties: true
+          description: Passthrough of the request's `metadata`
+
+    ErrorResponse:
+      type: object
+      description: |
+        Returned with HTTP 200 — check `status`. Note the narrow scope: this envelope is produced
+        only by the two Format Response nodes, i.e. only when the provider answered but the answer
+        contained no image. A Gemini HTTP failure, an unknown model in the URL, or a 120s timeout
+        aborts the n8n execution instead, and the caller sees an n8n-level error (or a hung request),
+        not this shape. `ExternalImageGeneratorAdapter` maps both cases onto exceptions.
+      properties:
+        status:
+          type: string
+          enum: [failed]
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              enum: [NO_IMAGE]
+              description: |
+                `NO_IMAGE` is the ONLY code this workflow emits ("Gemini returned no image data" /
+                "MFLUX returned no image data"). The former `HTTP_ERROR`, `TIMEOUT`,
+                `PROVIDER_ERROR` and `PROVIDER_NOT_AVAILABLE` values were documented but never
+                produced by any node; they are listed here only so a reader who was branching on
+                them knows to stop. Do not match on them.
+            message:
+              type: string
+        metadata:
+          type: object
+          additionalProperties: true

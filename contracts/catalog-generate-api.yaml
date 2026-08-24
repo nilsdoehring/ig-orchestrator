@@ -1,0 +1,463 @@
+openapi: 3.1.0
+info:
+  title: Unima Catalog Generate API
+  description: |
+    Combined catalog-selection + image-generation endpoint powered by n8n + Gemini (workflow
+    `integrations/n8n/workflows/catalog-generate.json`, webhook path `catalog-generate`).
+
+    Internally chains four operations:
+    1. **Compose Brand** — resolves the brand's `visual_style` from the knowledge corpus. This
+       replaced a read of the flat `brands` Data Table, which was retired with M2b-3.
+    2. **Catalog select** — semantically picks the `max_reference_images` best-matching catalog
+       entries (default 7, ceiling 24) for the given brand/set and `text_to_match` (an internal call
+       to `/catalog-select`).
+    3. **Fetch Asset Base64 Data** — downloads those selected assets through
+       `unima.cloud/n8n-api/ai-library/asset-data.php` and base64-encodes them, because Gemini
+       `inlineData` needs bytes and n8n cannot fetch them in a Code node.
+    4. **Image generate** — calls `/image-generate` with those bytes as `reference_images_data`,
+       producing a brand-new image styled after the catalog's visual language.
+
+    The result is a freshly generated image (not a verbatim catalog entry). Use
+    `catalog_select` if you want to return an existing pictogram unchanged; use this
+    endpoint when you want a new AI-generated image that matches the catalog style.
+
+    ## Two model channels, one per job (since 2026-08-24)
+
+    `metadata.model_hint` is the IMAGE model. `/image-generate` splices it into its Gemini URL.
+
+    `metadata.select_model_hint` is the TEXT model. The internal `/catalog-select` call asks it to
+    read a catalog and answer in JSON.
+
+    They were one field until 2026-08-24, and the single field was forwarded to both.
+    `ExternalImageGeneratorAdapter::generateFromCatalog()` sends the resolved IMAGE model, so the
+    selection was being made against an image model. Nothing errored — which is why it survived. Run
+    live, the difference shows in the descriptions the selection comes back with:
+
+      gemini-2.5-flash       "Represents security and protection, directly matching 'securely'."
+      gemini-3.1-flash-image "shield 300"
+
+    The image model stops reasoning and echoes each catalog entry's own key, still reporting
+    `status: completed` with the right number of results. It is also billed at image rates.
+
+    The select channel deliberately does NOT fall back to `model_hint`. Both channels fall back to
+    `gemini-3-flash-preview`, the literal this workflow has always used, so a request with no
+    `metadata` behaves exactly as it did before the split.
+
+    ## Authentication
+
+    Every request must include a custom header:
+
+      ai-website-builder: <key>
+
+    curl example:
+
+      curl -s -X POST https://n8nwh.ionos.org/webhook/brand-official-catalog-generate \
+        -H "Content-Type: application/json" \
+        -H "ai-website-builder: $N8N_IONOS_ORG_HEADER_AUTH_KEY" \
+        -d '{
+          "brand": "ionos",
+          "selection_set_key": "ionos-value-prop-illustrations",
+          "text_to_match": "Cloud storage with automatic backup and file synchronisation",
+          "prompt": "A modern value-proposition pictogram for cloud storage",
+          "params": { "aspect_ratio": "1:1", "skill": "<a published prompt key>" },
+          "enrichment_mode": "enrich_from_keys",
+          "briefing": { "brand": "IONOS", "product": "HiDrive", "target_group": "KMU-Inhaber", "goal": "Brand Awareness" },
+          "metadata": { "model_hint": "gemini-3-flash-preview" }
+        }'
+
+    ## Local dev curl example
+
+      curl -s -X POST http://localhost:5678/webhook/catalog-generate \
+        -H "Content-Type: application/json" \
+        -d '{
+          "brand": "ionos",
+          "selection_set_key": "ionos-value-prop-illustrations",
+          "text_to_match": "Cloud storage with automatic backup",
+          "prompt": "A value-prop pictogram for cloud storage",
+          "params": { "aspect_ratio": "1:1", "skill": "<a published prompt key>" },
+          "enrichment_mode": "enrich_from_keys",
+          "metadata": { "model_hint": "gemini-3-flash-preview" }
+        }'
+
+    Header auth is an ENTERPRISE-INSTANCE concern. The workflow export in
+    `integrations/n8n/workflows/catalog-generate.json` is the local-dev copy: its webhook node
+    carries `authentication: none`, and its two internal HTTP calls target
+    `http://localhost:5678/webhook/catalog-select` and `.../image-generate` unauthenticated.
+
+  version: 1.2.0
+  contact:
+    name: Unima Team
+
+servers:
+  - url: https://n8nwh.ionos.org/webhook
+    description: Enterprise n8n (production)
+
+security:
+  - headerAuth: []
+
+paths:
+  /brand-official-catalog-generate:
+    post:
+      operationId: catalogGenerate
+      summary: Generate a new image styled after semantically-selected catalog references
+      description: |
+        Workflow: Webhook → Extract Body → Load Hint Wrapper (dataTable) +
+        Build Brand Compose Request → Compose Brand (sub-workflow) →
+        Call Catalog Select (HTTP) → Fetch Asset Base64 Data (HTTP) →
+        Build Image Request (Code) → Call Image Generate (HTTP) →
+        Format Response → Respond to Webhook
+
+        The `/catalog-select` sub-call uses the same `catalog_entries` Data Table as the standalone
+        endpoint. It receives `metadata.select_model_hint` as its model — not `metadata.model_hint`,
+        which is the image model — and it receives `max_reference_images`, so the selection size is
+        the caller's, defaulting to 7 and capped at 24.
+
+        ## What reaches the image model
+
+        The selected assets are fetched and base64-encoded, then passed to `/image-generate` as
+        TOP-LEVEL `reference_images_data`, filtered to raster MIME types. `params.reference_images`
+        is also populated with the URLs, but purely as a record — `/image-generate` ignores that
+        field. SVG catalog entries are swapped to their `.png` companions (uploaded by
+        `unima:ai:upload-icon-libraries`) before fetching, because Gemini `inlineData` rejects SVG.
+
+        ## The prompt and the hint wrapper
+
+        `text_to_match` is wrapped in the `catalog.generate_hint` prompt (loaded from the `prompts`
+        Data Table, `{{HINT}}` substitution, falling back to the literal `"Marketing copy: {{HINT}}"`)
+        and appended to `prompt` with a blank line between them. That key was renamed from
+        `catalog_generate_hint_wrapper` on 2026-08-23 along with every other prompt key; a missing
+        or unsynced row degrades to the literal fallback silently.
+
+        ## Your `enrichment_mode` may be overridden
+
+        When `Compose Brand` returns a non-empty `visual_style`, `Build Image Request` injects it as
+        `briefing.brand_visual_style` and FORCES `enrichment_mode: enrich_from_data` on the
+        downstream call, regardless of what you sent. Only when the composition is empty does your
+        own mode survive. `params.briefing`, if present, is stripped before forwarding.
+
+        ## Degradation
+
+        Both `Call Catalog Select` and `Fetch Asset Base64 Data` run with
+        `onError: continueRegularOutput`, so a network error or an empty selection continues without
+        reference images and degrades to a plain imagen generation. Check `catalog_select_status`
+        and `asset_data_count` on the response to tell that apart from a real catalog match — a
+        `completed` response says nothing about whether references were used.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogGenerateRequest'
+            example:
+              brand: "ionos"
+              selection_set_key: "ionos-value-prop-illustrations"
+              text_to_match: "Cloud storage with automatic backup and file synchronisation"
+              prompt: "A modern value-proposition pictogram for cloud storage"
+              params:
+                aspect_ratio: "1:1"
+                skill: "<a published prompt key>"
+              enrichment_mode: "enrich_from_keys"
+              briefing:
+                brand: "IONOS"
+                product: "HiDrive"
+                target_group: "KMU-Inhaber"
+                goal: "Brand Awareness"
+              metadata:
+                model_hint: "gemini-3-flash-preview"
+      responses:
+        '200':
+          description: Generation completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogGenerateResponse'
+              example:
+                status: completed
+                image:
+                  data: "iVBORw0KGgoAAAANSUhEUgAA..."
+                  mime_type: "image/png"
+                provider: "google-gemini"
+                model: "gemini-3.1-flash-image"
+                prompt_used: "A modern value-proposition pictogram for cloud storage. Professional flat vector illustration."
+                metadata:
+                  model_hint: "gemini-3-flash-preview"
+                catalog_select_status: "completed"
+                catalog_reference_count: 6
+                asset_data_count: 6
+        '200_error':
+          description: Error envelope (n8n always returns HTTP 200; check status field)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  securitySchemes:
+    headerAuth:
+      type: apiKey
+      in: header
+      name: ai-website-builder
+      description: |
+        Custom header auth. Header name: ai-website-builder.
+        Value from env var: N8N_IONOS_ORG_HEADER_AUTH_KEY (in .env / .env.local).
+
+  schemas:
+    CatalogGenerateRequest:
+      type: object
+      required: [brand, selection_set_key, text_to_match]
+      properties:
+        brand:
+          type: string
+          description: Brand identifier, lowercase (e.g. "ionos"). Scopes the catalog lookup.
+          example: "ionos"
+        selection_set_key:
+          type: string
+          description: |
+            Reference set identifier matching a row in catalog_entries.
+            Must use hyphens (not underscores), e.g. "ionos-value-prop-illustrations".
+          example: "ionos-value-prop-illustrations"
+        text_to_match:
+          type: string
+          description: |
+            Text describing the visual concept to match against the catalog.
+            Used for the catalog selection step. If omitted, `prompt` is used as fallback.
+          example: "Cloud storage with automatic backup and file synchronisation"
+        prompt:
+          type: string
+          description: |
+            Base prompt for image generation. Combined with brand enrichment when
+            `enrichment_mode` is `enrich_from_keys` or `enrich_from_data`.
+            If omitted, `text_to_match` is used as fallback.
+          example: "A modern value-proposition pictogram for cloud storage"
+        params:
+          type: object
+          description: |
+            Forwarded to `/image-generate` after `briefing` is stripped out of it. That endpoint
+            reads only `aspect_ratio` and `skill`; see image-generation-api.yaml for the full list
+            of properties it accepts and ignores.
+          properties:
+            aspect_ratio:
+              type: string
+              description: Target image aspect ratio.
+              default: "1:1"
+              example: "1:1"
+            skill:
+              type: string
+              description: |
+                Key of a style-director prompt, resolved by `/image-generate` against the `prompts`
+                Data Table.
+
+                NO SKILL PROMPT IS PUBLISHED TODAY, so any value is currently a miss. The whole
+                director family (`pictogram_director`, `illustration_director`, `director_flat`,
+                `director_3d`, `director_isometric`) was retired on 2026-08-23 when the Catalog+Gen
+                reference-style experiment was finalised; the rows survive as `draft`, and drafts
+                are never mirrored to n8n.
+
+                An unknown key is NOT an error — it yields an empty skill prompt, falls through to
+                the generic creative-director path, and returns a plausible unstyled image with
+                nothing in the response indicating the miss. See `ImageParams.skill` in
+                image-generation-api.yaml.
+
+                Note also that this workflow usually forces `enrich_from_data` with a composed
+                `brand_visual_style` (see the operation description), which is the path a skill
+                prompt would have selected anyway.
+              example: "<a published prompt key>"
+            reference_images:
+              type: array
+              items:
+                type: string
+                format: uri
+              description: |
+                Additional reference image URLs, merged with (not replacing) the catalog selection
+                results before forwarding.
+
+                LARGELY INERT: `/image-generate` ignores `params.reference_images` and reads only
+                the top-level `reference_images_data` this workflow builds — and that array is
+                built from the CATALOG selection alone, base64-encoded via asset-data.php. URLs
+                added here are forwarded but never fetched, so they do not reach the image model.
+                They survive only as a record on the outgoing request.
+            max_reference_images:
+              type: integer
+              description: |
+                DEPRECATED ALIAS of the top-level `max_reference_images`. Read only when the
+                top-level field is absent, and kept because that is where callers used to put it.
+                Send the top-level one.
+        max_reference_images:
+          type: integer
+          minimum: 1
+          maximum: 24
+          default: 7
+          description: |
+            How many catalog references to select, fetch and inline into the image request.
+
+            7 is the DEFAULT and 24 the CEILING; the caller wins in between. 24 is the same ceiling
+            `/catalog-select` has always applied to its own selection, so the whole chain caps in one
+            place. Values above 24, below 1, or non-numeric fall back to 7 — there is no "0
+            references" setting.
+
+            Until 2026-08-24 this was read nowhere in this workflow and then hard-capped at 7 by two
+            literal `.slice(0, 7)` calls, so it did nothing at all on this path.
+        enrichment_mode:
+          type: string
+          enum: [enrich_from_keys, enrich_from_data, skip]
+          default: enrich_from_keys
+          description: |
+            Controls how the image generation prompt is enriched.
+            `enrich_from_keys`: look up product/target-group/goal context from Data Tables and the
+            brand's own copy from the composed knowledge corpus.
+            `enrich_from_data`: inline context provided in `briefing`.
+            `skip`: pass the prompt through unchanged.
+
+            OVERRIDDEN WHENEVER A BRAND VISUAL STYLE COMPOSES: the workflow then sends
+            `enrich_from_data` downstream with `briefing.brand_visual_style` injected, whatever you
+            asked for. Your value only survives when the composition is empty.
+        briefing:
+          type: object
+          description: |
+            Campaign briefing. Used by `enrich_from_keys` (provide keys like brand, product,
+            target_group, goal) or `enrich_from_data` (provide pre-computed context values).
+          properties:
+            brand:
+              type: string
+              example: "IONOS"
+            product:
+              type: string
+              example: "HiDrive"
+            target_group:
+              type: string
+              example: "KMU-Inhaber"
+            goal:
+              type: string
+              example: "Brand Awareness"
+        persona:
+          type: object
+          nullable: true
+          description: |
+            Optional character reference for persona consistency. Forwarded verbatim to
+            `/image-generate`, which prefixes the prompt with the description and puts the
+            reference image FIRST in the parts array, ahead of the catalog references.
+          properties:
+            description:
+              type: string
+              description: Persona description (age, appearance, attire)
+            vertical:
+              type: string
+              description: '"professional", "lifestyle", "creative", etc.'
+            reference_image_data:
+              type: string
+              description: |
+                Base64-encoded reference image. This is the field `/image-generate` actually reads.
+            reference_image_mime:
+              type: string
+              description: MIME type of the reference image, defaulting to "image/png"
+            reference_image_url:
+              type: string
+              format: uri
+              description: |
+                IGNORED. `/image-generate` reads only `reference_image_data`, so a URL here is
+                forwarded and then dropped — the character reference never reaches the model.
+                Fetch and base64-encode it yourself, into `reference_image_data`.
+        metadata:
+          type: object
+          properties:
+            model_hint:
+              type: string
+              description: |
+                The IMAGE model. Forwarded to `/image-generate`, which splices it into its Gemini
+                URL. It no longer reaches `/catalog-select` — see `select_model_hint`.
+
+                `params.gemini_image_model` was removed on 2026-08-23, so this is the only image
+                channel. Production (`ExternalImageGeneratorAdapter::generateFromCatalog()`) sends
+                the resolved image model here.
+              default: "gemini-3-flash-preview"
+              example: "gemini-3.1-flash-image"
+            select_model_hint:
+              type: string
+              description: |
+                The TEXT model for the internal `/catalog-select` call, which must return JSON.
+                Added 2026-08-24 to split this job off `model_hint`; see the API description for
+                what an image model does to a selection.
+
+                Omit it and the workflow uses `gemini-3-flash-preview`. It does NOT fall back to
+                `model_hint` — that fallback was the defect.
+              default: "gemini-3-flash-preview"
+              example: "gemini-2.5-flash"
+
+    CatalogGenerateResponse:
+      type: object
+      description: |
+        The `/image-generate` response spread verbatim, plus the three catalog diagnostics below.
+        That means a `status: "failed"` body from the image step also arrives through here, with
+        the diagnostics attached — check `status` before reading `image`.
+      properties:
+        status:
+          type: string
+          enum: [completed, failed]
+        image:
+          type: object
+          properties:
+            data:
+              type: string
+              description: Base64-encoded image data.
+            mime_type:
+              type: string
+              example: "image/png"
+        provider:
+          type: string
+          enum: [google-gemini, local-omlx]
+          example: "google-gemini"
+        model:
+          type: string
+          description: |
+            Echo of the `metadata.model_hint` that reached `/image-generate` (or its
+            `gemini-3.1-flash-image` default) — what was requested, not what served it.
+          example: "gemini-3.1-flash-image"
+        prompt_used:
+          type: string
+          description: The final prompt sent to the image model after enrichment.
+        metadata:
+          type: object
+          description: |
+            Only `{model_hint}` — this workflow rebuilds it rather than passing your `metadata`
+            through, so correlation ids sent on the request do NOT survive the round trip.
+        catalog_select_status:
+          type: string
+          enum: [completed, error, unknown]
+          description: |
+            Status of the internal catalog-select call. `error` when it reported one, `unknown`
+            when it returned nothing recognisable (e.g. the call itself failed and
+            `onError: continueRegularOutput` let the workflow proceed). Anything other than
+            `completed` means the image was generated with NO catalog references.
+          example: "completed"
+        catalog_reference_count:
+          type: integer
+          description: |
+            Number of entries catalog-select returned. This counts SELECTIONS, not images that
+            reached the model — compare against `asset_data_count`.
+          example: 6
+        asset_data_count:
+          type: integer
+          description: |
+            Number of reference images actually base64-encoded and sent to the image model, after
+            the asset-data.php fetch and the raster-MIME filter. A value of 0 with a non-zero
+            `catalog_reference_count` means the fetch failed or every entry was non-raster, and the
+            image was generated unreferenced — the single most useful field for telling a real
+            catalog-styled result from a silent plain generation.
+          example: 6
+
+    ErrorResponse:
+      type: object
+      description: |
+        Note `status: "error"` — this is the shape the internal `/catalog-select` call produces and
+        that a caller may see surfaced. A failure in the image step arrives instead as a
+        CatalogGenerateResponse with `status: "failed"` and an `error.code` of `NO_IMAGE`.
+      properties:
+        status:
+          type: string
+          enum: [error]
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: Human-readable error reason.

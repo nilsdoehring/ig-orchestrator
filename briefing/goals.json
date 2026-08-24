@@ -1,0 +1,38 @@
+[
+    {
+        "team": "IONOS",
+        "name": "Brand Awareness",
+        "description": "Steigerung der Markenbekanntheit und -wahrnehmung im DACH-Markt. Fokus auf Sichtbarkeit bei Entscheidungsträgern und IT-Verantwortlichen.\n\nZiel-KPIs:\n- Impressions und Reichweite der Kampagne\n- Brand Recall und Wiedererkennung\n- Share of Voice im Wettbewerbsumfeld\n- Verweildauer auf Landing Pages",
+        "guidance": "Fokus auf Markenwerte und Differenzierung gegenüber AWS, Azure, Hetzner. Emotionale Ansprache mit Faktenunterstützung. Breite Themenwahl erlaubt.\n\nInhaltliche Leitlinien:\n- Kein direkter Verkaufsimpuls, sondern Vertrauensaufbau\n- Europäische Werte (Datenschutz, Souveränität) hervorheben\n- Thought Leadership über Cloud-Trends und Digitalisierung\n- Kundenerfolgsgeschichten einbinden, wenn möglich\n- CTA: Weich (\"Mehr erfahren\", \"Entdecken Sie\")"
+    },
+    {
+        "team": "IONOS",
+        "name": "Competitive Differentiation",
+        "description": "IONOS gegenüber Wettbewerbern (AWS, Azure, Hetzner, OVH) positionieren.\n\nZiel-KPIs:\n- Vergleichsseiten-Traffic und Conversion\n- Wettbewerber-Switch-Rate\n- Brand Preference Score\n- Search Ranking für Vergleichs-Keywords",
+        "guidance": "Stärken betonen ohne Wettbewerber direkt anzugreifen. Europäische Werte als strategischen Vorteil positionieren.\n\nInhaltliche Leitlinien:\n- DSGVO-Konformität und deutsche Rechenzentren hervorheben\n- Preistransparenz ohne versteckte Kosten betonen\n- Persönlicher Support vs. Ticket-Systeme der Großen\n- Keine negative Kampagne, immer positiv differenzieren\n- CTA: Vergleichend (\"Vergleich ansehen\", \"Warum IONOS?\")"
+    },
+    {
+        "team": "IONOS",
+        "name": "Conversion",
+        "description": "Direkte Umwandlung von Interessenten zu Kunden durch produktfokussierte Inhalte.\r\n\r\nZiel-KPIs:\r\n- Bestellungen und Aktivierungen\r\n- Upsell-Rate bei Bestandskunden\r\n- Conversion Rate auf Produktseiten\r\n- Average Revenue per User (ARPU)",
+        "guidance": "Produktvorteile konkret und messbar kommunizieren. Preisvergleiche und TCO-Argumente nutzen.\r\n\r\nInhaltliche Leitlinien:\r\n- Social Proof einbauen\r\n- Preistransparenz und Kostenvorteile hervorheben\r\n- Benchmarks nennen\r\n- Dringlichkeit ohne Druck erzeugen (zeitlich begrenzte Angebote)\r\n- CTA: Stark (\"Jetzt bestellen\", \"Server konfigurieren\")"
+    },
+    {
+        "team": "IONOS",
+        "name": "Customer Retention",
+        "description": "Bestandskunden binden und Cross-/Upselling fördern.\n\nZiel-KPIs:\n- Churn-Rate senken\n- Net Promoter Score (NPS) steigern\n- Nutzungsintensivierung bestehender Services\n- Cross-Sell-Rate für Zusatzprodukte",
+        "guidance": "Wertschätzung zeigen (\"Als IONOS Kunde profitieren Sie\"). Mehrwert der bestehenden Beziehung betonen.\n\nInhaltliche Leitlinien:\n- Neue Features und Produktupdates hervorheben\n- Erfolgsgeschichten und Best Practices teilen\n- Exklusive Angebote für Bestandskunden kommunizieren\n- Support-Ressourcen und Tutorials prominent verlinken\n- CTA: Warm (\"Upgrade entdecken\", \"Neue Features testen\")"
+    },
+    {
+        "team": "IONOS",
+        "name": "Lead Generation",
+        "description": "Generierung qualifizierter Leads durch informative Inhalte mit klaren Handlungsaufforderungen.\n\nZiel-KPIs:\n- Download-Rate von Whitepapers und Guides\n- Newsletter-Anmeldungen\n- Kontaktanfragen über Formulare\n- Cost per Lead (CPL)",
+        "guidance": "Jedes Content-Modul braucht einen klaren CTA. Mehrwert vor Verkauf: erst informieren, dann konvertieren.\n\nInhaltliche Leitlinien:\n- Überschriften müssen Nutzenversprechen enthalten\n- Kostenlose Ressourcen anbieten (Checklisten, Guides, Webinare)\n- Formulare erwähnen, aber nicht aufdringlich wirken\n- Vertrauenssignale einbauen (TÜV, ISO, Kundenzahlen)\n- CTA: Mittel (\"Jetzt kostenlos testen\", \"Guide herunterladen\")"
+    },
+    {
+        "team": "IONOS",
+        "name": "Product Education",
+        "description": "Technisches Verständnis und Produktkompetenz bei der Zielgruppe aufbauen.\n\nZiel-KPIs:\n- Engagement-Rate (Scroll Depth, Verweildauer)\n- Tutorial-Completion-Rate\n- Support-Ticket-Reduktion\n- Feature-Adoption-Rate",
+        "guidance": "Komplexe Technik einfach und zugänglich erklären. Step-by-Step-Anleitungen und visuelle Hilfsmittel nutzen.\n\nInhaltliche Leitlinien:\n- Fachbegriffe immer kontextuell erklären\n- Vergleiche und Analogien für technische Konzepte verwenden\n- Praxisbeispiele und Use Cases einbinden\n- Schritt-für-Schritt-Struktur mit klaren Zwischenüberschriften\n- CTA: Lernend (\"Tutorial starten\", \"Dokumentation lesen\")"
+    }
+]

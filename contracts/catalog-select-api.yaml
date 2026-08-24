@@ -1,0 +1,264 @@
+openapi: 3.1.0
+info:
+  title: Unima Catalog Select API
+  description: |
+    Semantic catalog selection endpoint powered by n8n + Gemini (workflow
+    `integrations/n8n/workflows/catalog-select.json`, webhook path `catalog-select`).
+    Receives a text description and returns up to `max_reference_images` (default 7) matching
+    reference image entries from the `catalog_entries` Data Table for the given brand and
+    selection set.
+
+    Each catalog entry has a stable CDN URL (no generation — pure lookup). The URL is taken from
+    the Data Table row's own `url_map`, never from the model's answer, so a hallucinated URL cannot
+    be returned; an entry the model invents is dropped for having no URL.
+
+    ## Brand visual identity is composed, not looked up
+
+    The selector's system prompt includes the brand's `visual_style` when one resolves. That value
+    now comes from the `Compose Brand` sub-workflow reading the knowledge corpus — the flat
+    `brands` Data Table it used to read was retired with M2b-3. A failed or empty composition
+    degrades to a selection prompt with no brand identity section rather than erroring.
+
+    ## Authentication
+
+    Every request must include a custom header:
+
+      ai-website-builder: <key>
+
+    curl example:
+
+      curl -s -X POST https://n8nwh.ionos.org/webhook/brand-official-catalog-select \
+        -H "Content-Type: application/json" \
+        -H "ai-website-builder: $N8N_IONOS_ORG_HEADER_AUTH_KEY" \
+        -d '{
+          "brand": "ionos",
+          "selection_set_key": "ionos-value-prop-illustrations",
+          "text_to_match": "Cloud storage with automatic backup and file synchronisation",
+          "metadata": { "model_hint": "gemini-3-flash-preview" }
+        }'
+
+    Header auth is an ENTERPRISE-INSTANCE concern. The workflow export in
+    `integrations/n8n/workflows/catalog-select.json` is the local-dev copy and its webhook node
+    carries `authentication: none`; locally the same call is an unauthenticated
+    `POST http://localhost:5678/webhook/catalog-select`.
+  version: 1.2.0
+  contact:
+    name: Unima Team
+
+servers:
+  - url: https://n8nwh.ionos.org/webhook
+    description: Enterprise n8n (production)
+
+security:
+  - headerAuth: []
+
+paths:
+  /brand-official-catalog-select:
+    post:
+      operationId: catalogSelect
+      summary: Select matching catalog entries for a text description
+      description: |
+        Looks up the `catalog_entries` Data Table for the given brand + selection_set_key,
+        passes all entries and the wrapped `text_to_match` to Gemini, and returns the best
+        semantic matches with their CDN URLs.
+
+        Workflow: Webhook → Extract Body → Has Text To Match (IF) →
+        [empty] Blank Text Fast Return → Respond
+        [non-empty] Load Catalog Entries (dataTable get) + Load Hint Wrapper (dataTable get) +
+        Compose Brand (sub-workflow) → Build Prompt (Code) → Gemini Selection (HTTP Request) →
+        Parse and Enrich (Code) → Respond to Webhook
+
+        ## An empty `text_to_match` short-circuits — it does NOT produce a generic selection
+
+        This spec previously said an empty string was allowed and "Gemini will make a generic
+        selection". That is no longer true and was expensive while it was: a degenerate prompt was
+        observed taking 4-7 minutes across three 180s retries. The `Has Text To Match` branch now
+        returns `{"status": "completed", "result": []}` immediately, with no Data Table read and no
+        model call. Callers must treat an empty `result` on a `completed` response as normal —
+        PHP's `resolveCatalogSelectUrl()` falls back to the reference set's configured `urls[0]`.
+
+        ## The hint wrapper
+
+        `text_to_match` is not sent verbatim. It is interpolated into the `catalog.select_hint`
+        prompt (loaded from the `prompts` Data Table by `{{HINT}}` substitution), falling back to
+        the literal `"Marketing copy: {{HINT}}"` if that row is missing. That key was renamed from
+        `catalog_select_hint_wrapper` on 2026-08-23 along with every other prompt key; the fallback
+        means a missing or unsynced row degrades the selection quality silently rather than failing.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogSelectRequest'
+            example:
+              brand: "ionos"
+              selection_set_key: "ionos-value-prop-illustrations"
+              text_to_match: "Cloud storage with automatic backup and file synchronisation"
+              metadata:
+                model_hint: "gemini-3-flash-preview"
+      responses:
+        '200':
+          description: Selection completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogSelectResponse'
+              example:
+                status: completed
+                result:
+                  - id: "illustration---bento_windows_webhosting_2---1256_33560"
+                    url: "https://ionos-display-cdn.com/uds-autogen/ai-reference-vprops/illustration---bento_windows_webhosting_2---1256_33560.png"
+                    description: "Cloud server backup and data restoration process"
+                  - id: "illustration---bento_windows_webhosting_2---1256_33487"
+                    url: "https://ionos-display-cdn.com/uds-autogen/ai-reference-vprops/illustration---bento_windows_webhosting_2---1256_33487.png"
+                    description: "Cloud backup and server data recovery icon"
+                  - id: "illustration---bento_joomla_webhosting_7---1256_33495"
+                    url: "https://ionos-display-cdn.com/uds-autogen/ai-reference-vprops/illustration---bento_joomla_webhosting_7---1256_33495.png"
+                    description: "Server tower with cloud and backup icon"
+                  - id: "illustration---bento_ms_exchange_aktuelle_exchange_08---1256_33518"
+                    url: "https://ionos-display-cdn.com/uds-autogen/ai-reference-vprops/illustration---bento_ms_exchange_aktuelle_exchange_08---1256_33518.png"
+                    description: "Server tower with cloud and backup refresh icon"
+                  - id: "illustration---bento_domain_security_dns_backup---1256_33523"
+                    url: "https://ionos-display-cdn.com/uds-autogen/ai-reference-vprops/illustration---bento_domain_security_dns_backup---1256_33523.png"
+                    description: "Server with cloud storage and sync icon"
+                  - id: "illustration---bento_managednextcloud_05---1256_33536"
+                    url: "https://ionos-display-cdn.com/uds-autogen/ai-reference-vprops/illustration---bento_managednextcloud_05---1256_33536.png"
+                    description: "Software interface depicting cloud file management flow"
+                  - id: "illustration---bento_google_workspace_bento_graphics_2_02---1242_17714"
+                    url: "https://ionos-display-cdn.com/uds-autogen/ai-reference-vprops/illustration---bento_google_workspace_bento_graphics_2_02---1242_17714.png"
+                    description: "Stylized Google Drive user interface layout mockup"
+        '200_error':
+          description: Error envelope (n8n always returns HTTP 200; check status field)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogSelectErrorResponse'
+
+components:
+  securitySchemes:
+    headerAuth:
+      type: apiKey
+      in: header
+      name: ai-website-builder
+      description: |
+        Custom header auth. Header name: ai-website-builder.
+        Value from env var: N8N_IONOS_ORG_HEADER_AUTH_KEY (in .env / .env.local).
+
+  schemas:
+    CatalogSelectRequest:
+      type: object
+      required: [brand, selection_set_key, text_to_match]
+      properties:
+        brand:
+          type: string
+          description: |
+            Brand identifier, lowercase (e.g. "ionos"). Scopes the `catalog_entries` lookup, AND is
+            passed as the `team` to `Compose Brand` for the visual-identity section of the selection
+            prompt.
+          example: "ionos"
+        selection_set_key:
+          type: string
+          description: |
+            Reference set identifier matching a row in catalog_entries.
+            Must use hyphens (not underscores), e.g. "ionos-value-prop-illustrations".
+          example: "ionos-value-prop-illustrations"
+        text_to_match:
+          type: string
+          description: |
+            Text describing the visual concept to match against the catalog.
+            Can be a headline, body copy, product description, or any descriptive text.
+            An empty or missing value short-circuits to an empty result — see the operation
+            description. It is wrapped in the `catalog.select_hint` template before being sent.
+          example: "Cloud storage with automatic backup and file synchronisation"
+        max_reference_images:
+          type: integer
+          default: 7
+          maximum: 24
+          description: |
+            TOP LEVEL, not inside `params`. How many entries to ask the model for; clamped to 24.
+            It is a request to the model, not a guarantee — the model may return fewer, and entries
+            whose id is not in the catalog are then dropped.
+
+            `/catalog-generate` forwards it here since 2026-08-24, with the same default of 7 and
+            the same ceiling of 24. Until then it sent only brand, selection_set_key, text_to_match
+            and metadata, so the count on that path was always 7.
+          example: 7
+        metadata:
+          type: object
+          properties:
+            model_hint:
+              type: string
+              description: |
+                The Gemini model for the selection call, spliced directly into the Gemini URL.
+                The workflow's fallback when absent is `gemini-2.5-flash` — NOT
+                `gemini-3-flash-preview`, which this spec previously claimed. Callers that relied on
+                the documented default have been getting 2.5-flash.
+
+                This is a TEXT/JSON task. Pass an image model here and the call still returns
+                `status: completed` with the right number of entries — it just stops reasoning and
+                echoes each entry's own key as its description ("shield 300" rather than "Represents
+                security and protection, directly matching 'securely'"), at image-model prices.
+                `/catalog-generate` used to do exactly that; since 2026-08-24 it sends its separate
+                `metadata.select_model_hint` here instead.
+              default: "gemini-2.5-flash"
+              example: "gemini-3-flash-preview"
+
+    CatalogSelectResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [completed]
+        result:
+          type: array
+          description: |
+            Up to `max_reference_images` (default 7) best-matching catalog entries, ordered by
+            relevance. MAY BE EMPTY on a `completed` response — either because `text_to_match` was
+            blank (fast return, no model call) or because every selection the model returned was
+            dropped for having no URL in the catalog. An empty array is not an error and callers
+            must have a fallback.
+          items:
+            $ref: '#/components/schemas/CatalogEntry'
+
+    CatalogEntry:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Catalog entry key (stable identifier within the selection set).
+          example: "illustration---bento_windows_webhosting_2---1256_33560"
+        url:
+          type: string
+          format: uri
+          description: CDN URL of the reference image (PNG). Always sourced from the catalog — never hallucinated by the AI.
+          example: "https://ionos-display-cdn.com/uds-autogen/ai-reference-vprops/illustration---bento_windows_webhosting_2---1256_33560.png"
+        description:
+          type: string
+          description: Short description of the entry as chosen by the AI.
+          example: "Cloud server backup and data restoration process"
+
+    CatalogSelectErrorResponse:
+      type: object
+      description: |
+        Note `status: "error"` here, not `"failed"` as the image and text endpoints use. Returned
+        with HTTP 200.
+      properties:
+        status:
+          type: string
+          enum: [error]
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              description: |
+                One of: `No catalog found for set: <key>` (no `catalog_entries` row, or the row has
+                no `entries_json`); `No text in Gemini response`; `Parse failed: <detail>`.
+
+                The Gemini call retries up to 3 times at a 180s timeout, so a provider outage
+                surfaces as a very slow n8n execution failure rather than as this envelope.
+              example: "No catalog found for set: ionos-value-prop-illustrations"
+            raw:
+              type: string
+              description: |
+                First 300 characters of the model's output. Present only on `Parse failed`.
