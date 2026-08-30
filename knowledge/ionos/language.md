@@ -1,0 +1,445 @@
+# IONOS — language
+
+Brand partition key: `0d7e8bcb-999b-4f96-8a31-3cfb42959e22`
+
+Categories are the frozen vocabulary for this dimension. The number after each atom is its
+rank; only the top 12 per category reach a prompt.
+
+## terminology
+
+- (100) Der Firmenname IONOS wird immer in Großbuchstaben geschrieben, und der Possessiv wird mit 'von' gebildet (z. B. 'X von IONOS'). `language=de-DE`
+- (100) Das Datenschutz-Gesetz wird im Deutschen immer als DSGVO und niemals als GDPR bezeichnet. `language=de-DE`
+- (100) Always write the brand name as "IONOS" in all caps and use the possessive pattern "X de IONOS". `language=es-ES`
+- (100) Do not translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, MyDefender, Deploy Now, n8n, and OpenClaw. `language=de-DE`
+- (100) Eigennamen wie Momentum, MyWebsite Now, HiDrive, Deploy Now sowie Drittanbieter-Produkte wie WordPress oder Google Workspace werden niemals übersetzt. `language=de-DE`
+- (100) Do not translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, MyDefender, Deploy Now, n8n, and OpenClaw. `language=es-ES`
+- (100) Use "gratis" instead of "0 €" or "$0" on all pages; never write "0 €". `language=es-ES`
+- (100) Use the specific word order "Cloud IONOS", never "IONOS Cloud". `language=fr-FR`
+- (100) Never translate brand or open-source names (e.g., Momentum, MyWebsite Now, HiDrive, n8n, OpenClaw). `language=fr-FR`
+- (100) Never translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, and MyDefender.
+- (100) Always write the brand name as IONOS in all caps, and use the possessive pattern "X de IONOS".
+- (100) Use "IA" for AI, and form adjectives as "basado en IA" or "con IA" (e.g., "generador de textos con IA").
+- (100) Never translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, MyDefender, Deploy Now, n8n, OpenClaw, or AI Model Hub.
+- (100) Never translate third-party names like Google Workspace, Microsoft 365, WordPress, WooCommerce, PrestaShop, Joomla!, Contao, Docker, or Kubernetes.
+- (100) Use "página web" or "sitio web", "dominio", and "cloud", and never translate "cloud" to "nube" as a product term.
+- (100) Use "RGPD" for the GDPR data protection law.
+- (100) Always use "gratis" instead of "0 €" or "$0" on all pages.
+- (100) Never translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, MyDefender, Deploy Now, n8n, or OpenClaw.
+- (100) Never translate third-party names like Google Workspace, Microsoft 365, WordPress, WooCommerce, PrestaShop, Joomla!, Contao, Docker, or Kubernetes.
+- (100) Never translate brand names like IONOS, Momentum, MyWebsite Now, Presence Suite, HiDrive, MyDefender, Deploy Now, SiteAnalytics, or rankingCoach.
+- (100) Never translate third-party or open-source names like n8n, OpenClaw, Docker, Kubernetes, Google Workspace, Microsoft 365, WordPress, or WooCommerce.
+- (100) Never translate 'AI Model Hub' or the 'Momentum' ecosystem brand name.
+- (100) Use "plan" or "plans" instead of "package" or "packages" for pricing tiers. `language=en-US`
+- (100) Refer to the privacy law as "CCPA", not "GDPR". `language=en-US`
+- (100) Use "Plus applicable tax" for VAT and tax disclaimers. `language=en-US`
+- (100) Use "AI" as the abbreviation and "Artificial Intelligence" when spelled out. `language=en-US`
+- (100) Write general AI terms without hyphens (e.g., AI tools, AI content) unless used as an adjective before a noun (e.g., AI-powered, AI-generated). `language=en-US`
+- (100) Never translate these protected names: Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, MyDefender, Deploy Now. `language=en-US`
+- (100) Never translate third-party or open-source names: n8n, OpenClaw, Docker, Kubernetes, Google Workspace, Microsoft 365, WordPress, WooCommerce, PrestaShop, Joomla!, Contao. `language=en-US`
+- (100) Do not translate "AI Model Hub" in any market. `language=en-US`
+- (100) Use 'IONOS' for the company name and 'X di IONOS' for the possessive form.
+- (100) Use 'IA' (Intelligenza Artificiale) for AI, and form adjectives as 'basato su IA' or 'con IA' without hyphens.
+- (100) Use 'GDPR' for data protection laws and 'soddisfatti o rimborsati' for money-back guarantees.
+- (100) Never translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, HiDrive, MyDefender, Deploy Now, n8n, or OpenClaw.
+- (100) Never translate third-party names like Google Workspace, Microsoft 365, WordPress, WooCommerce, PrestaShop, Joomla!, or Contao.
+- (100) "AI Model Hub" remains in English across all markets. `language=de-DE`
+- (100) Never translate protected product names, open-source tools, and third-party brands like Momentum, MyWebsite Now, HiDrive, n8n, WordPress, or Google Workspace. `language=it-IT`
+- (100) Keep 'AI Model Hub' in English across all markets, never translating it to Italian. `language=it-IT`
+- (100) Form the possessive with 'di' (e.g., 'X di IONOS'). `language=it-IT`
+- (100) Never translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, MyDefender, Deploy Now, n8n, OpenClaw, and AI Model Hub. `language=en-GB`
+- (100) Never translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, HiDrive, MyDefender, Deploy Now, n8n, OpenClaw, and AI Model Hub.
+- (100) Never translate third-party names like Google Workspace, Microsoft 365, WordPress, WooCommerce, PrestaShop, Joomla!, Contao, Docker, and Kubernetes.
+- (100) Do not translate protected brand and product names like Momentum, MyWebsite Now, Presence Suite, HiDrive, MyDefender, Deploy Now, and SiteAnalytics. `language=en-CA`
+- (100) The company name is always "IONOS" in all caps, and the possessive is formed as "X von IONOS". `language=de-DE`
+- (100) Do not translate third-party and open-source names like Google Workspace, Microsoft 365, WordPress, WooCommerce, n8n, OpenClaw, Docker, and Kubernetes. `language=en-CA`
+- (100) Use "plan(es)" instead of "pack(s)" for pricing plans, which is the main terminology difference from the ES market.
+- (100) Always use "gratis" instead of "$0"; never write "$0".
+- (100) Never translate protected names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, MyDefender, Deploy Now, n8n, and OpenClaw.
+- (100) Third-party and open-source names like Google Workspace, Microsoft 365, WordPress, WooCommerce, PrestaShop, Joomla!, Contao, Docker, and Kubernetes remain unchanged.
+- (100) Keep "AI Model Hub" in English across all markets.
+- (100) Use "IONOS" as the company name, with the possessive forms "X d'IONOS" or "X de IONOS". `language=fr-FR`
+- (100) The data protection law is referred to as "LFPDPPP", never use "RGPD". `language=es-MX`
+- (100) Use "plan(es)" for tariffs and packages, never "pack(s)". `language=es-MX`
+- (100) Use "gratis" instead of "$0"; never write "$0". `language=es-MX`
+- (100) Do not translate IONOS product names like Momentum, MyWebsite Now, Presence Suite, rankingCoach, SiteAnalytics, HiDrive, MyDefender, or Deploy Now. `language=es-MX`
+- (100) Do not translate open-source or third-party names like n8n, OpenClaw, Google Workspace, Microsoft 365, WordPress, WooCommerce, or PrestaShop. `language=es-MX`
+- (100) The product name "AI Model Hub" remains in English across all markets. `language=es-MX`
+- (100) Use "KI" as the abbreviation for artificial intelligence, "Künstliche Intelligenz" when spelled out, and "KI-gestützt" or "KI-basiert" as adjectives. `language=de-DE`
+- (100) Always use DSGVO and DSGVO-konform, never the English abbreviation GDPR.
+- (90) Use "pack" or "packs" for tariffs and packages.
+- (90) Forbidden Anglicisms: use "Funktion" (not Feature), "herunterladen" (not downloaden), "funktionieren" (not performen), and "stornieren" (not canceln). `language=de-DE`
+- (90) Always capitalize IONOS and form the possessive as 'X von IONOS'.
+- (90) Accept Anglicisms like Website, Domain, and Cloud, but use German alternatives for Feature, downloaden, performen, and canceln.
+- (90) Use KI as the standard abbreviation for Artificial Intelligence, and hyphenate it as a prefix in compounds like KI-gestützt.
+- (90) Anglizismen wie Website oder Cloud sind erlaubt, aber deutsche Alternativen sind für Feature (Funktion), downloaden (herunterladen) und canceln (stornieren) Pflicht. `language=de-DE`
+- (90) Die Abkürzung für künstliche Intelligenz lautet im Deutschen 'KI', auch in Zusammensetzungen, außer bei etablierten englischen Fachbegriffen wie AIOps. `language=de-DE`
+- (90) Produktnamen wie 'AI Model Hub' und Open-Source-Namen wie 'n8n' oder 'OpenClaw' behalten das englische 'AI' bzw. ihren Originalnamen und werden nicht übersetzt. `language=de-DE`
+- (90) Form possessives as "X from IONOS" or "IONOS X".
+- (90) Use UK-specific product terms like "Website Builder", "Online Shop", "Control Centre", and "Package(s)" instead of "plans".
+- (90) Use "AI" for Artificial Intelligence, hyphenated as an adjective ("AI-powered") but without a hyphen before nouns ("AI text generator").
+- (90) Translate general product terms into standard UK English, but specifically use "Website Builder", "Control Centre", "Online Shop", and "Package". `language=en-GB`
+- (90) For specific actions or features, use "Domain Names" (buying domains), "Professional Email Address", "Buy SSL certificates", and "Domain Security" (not Domain Guard). `language=en-GB`
+- (90) Use "AI" as the standard abbreviation, forming noun compounds without hyphens (e.g., "AI tools") and adjectives with hyphens ("AI-powered"). `language=en-GB`
+- (90) For Momentum Team avatars, use 'AI' followed by their role, such as Rita (AI Phone Assistant), Greta (AI Executive Assistant), and Simon (AI SEO Specialist). `language=en-GB`
+- (90) Use "X d'IONOS" or "X de IONOS" for the possessive form of the brand name.
+- (90) Translate AI as "IA" (Intelligence Artificielle) and use "par IA" or "basé sur l'IA" for AI-driven features.
+- (90) Use "Cloud IONOS" instead of "IONOS Cloud" to follow French word order.
+- (90) Use "pack(s)" to refer to tariffs or packages.
+- (90) Use "RGPD" for GDPR and data protection laws.
+- (90) Translate AI as "IA", using "par IA" or "basé sur l'IA" without hyphens, except for established English terms like AIOps. `language=fr-FR`
+- (90) Translate "24/7" as "24h/24, 7j/7" and "money-back guarantee" as "satisfait ou remboursé". `language=fr-FR`
+- (90) Use "tienda online" (not e-shop), "antivirus" (not Anti-virus), "startup" (not start-up), and "centros de datos" (not Data centers).
+- (90) Use "RGPD" for the General Data Protection Regulation, never DSGVO or GDPR. `language=es-ES`
+- (90) Use "página web" or "sitio web", "dominio", and "cloud" (never translate to "nube" as a product term). `language=es-ES`
+- (90) Use "pack" or "packs" for tariffs and packages. `language=es-ES`
+- (90) Use "tienda online", "antivirus", and "startup" instead of "e-shop", "Anti-virus", and "start-up". `language=es-ES`
+- (90) Use "centros de datos" and "geográficamente redundante" instead of "Data centers" and "georredundante". `language=es-ES`
+- (90) Translate AI as "IA" and use it with prepositions like "con IA" or "de IA" instead of hyphenated prefixes (e.g., "generador de textos con IA"). `language=es-ES`
+- (90) Use 'plan' or 'plans' instead of 'package' or 'packages' for pricing tiers.
+- (90) Refer to the data privacy law as 'CCPA', not 'GDPR', and use 'Plus applicable tax' for tax disclaimers.
+- (90) Capitalize all words in specific IONOS AI product names (e.g., AI Website Generator, AI Email Assistant). `language=en-US`
+- (90) Keep 'AI' in established English technical terms (e.g., AIOps, AIaaS) and the product name 'AI Model Hub'.
+- (90) Translate 'Tarif' or 'Paket' as 'Pack', and 'Control Panel' as 'Area cliente'.
+- (90) Translate 'Baukasten' as 'Website Builder' and 'Onlineshop' as 'Negozio online'.
+- (90) Use 'clic' instead of the anglicism 'click'.
+- (90) Base CA terminology on the UK glossary but apply US spelling (-ize, -or, -er) and US terms like 'plan' and 'Data Center'.
+- (90) Use 'AI' as the standard abbreviation, forming noun compounds without hyphens (AI tools) and adjectives with hyphens (AI-powered).
+- (90) Never translate protected brand names like Momentum, MyWebsite Now, Presence Suite, HiDrive, MyDefender, Deploy Now, SiteAnalytics, or rankingCoach.
+- (90) Never translate third-party and open-source names like n8n, OpenClaw, Google Workspace, Microsoft 365, WordPress, WooCommerce, PrestaShop, or Joomla!.
+- (90) Do not translate 'AI Model Hub' or the 'Momentum' ecosystem brand name.
+- (90) Use 'IA' (Intelligenza Artificiale) for AI, forming compounds without hyphens like 'generatore di testi con IA' or 'basato su IA'. `language=it-IT`
+- (90) Use 'Pack' for tariffs or packages, and 'Area cliente' for the control panel. `language=it-IT`
+- (90) Use 'GDPR' for all references to data protection laws. `language=it-IT`
+- (90) Use 'IVA inclusa' to indicate that VAT is included. `language=it-IT`
+- (90) Use '30 giorni soddisfatti o rimborsati' for the money-back guarantee. `language=it-IT`
+- (90) Use UK terminology as a baseline for CA, but apply US deviations such as 'plan' instead of 'package' and 'Data Center' instead of 'Data Centre'. `language=en-CA`
+- (90) Use 'AI' as the standard abbreviation for Artificial Intelligence, writing compounds without a hyphen (e.g., 'AI tools') unless used as an adjective before a noun. `language=en-CA`
+- (90) Capitalize AI product names consistently, such as AI Website Generator, AI Text Generator, AI SEO Assistant, and AI Model Hub. `language=en-CA`
+- (90) Use 'Terms and Conditions' for AGB, 'Privacy Policy' for Datenschutzrichtlinie, and 'Plus applicable tax' for VAT notices. `language=en-CA`
+- (90) Translate AI as "IA" (Inteligencia Artificial) and use "basado en IA" or "con IA" for adjectives, without hyphens.
+- (90) Translate AI as "IA" (Inteligencia Artificial) and form compounds with "con IA" or "de IA" (e.g., "herramientas de IA"). `language=es-MX`
+- (90) Key product terms include "Página web" (Website), "Creador de páginas web" (Website builder), and "Área de cliente" (Control Panel). `language=es-MX`
+- (90) The term 'newsletter' is accepted but must be written in lowercase unless it starts a sentence. `language=es-ES`
+- (80) Translate 24/7 as "24h/24, 7j/7" and money-back guarantee as "satisfait ou remboursé".
+- (80) Translate Control Panel as "Espace client" and SiteAnalytics as "WebStat".
+- (80) The hosting synonym "hospedaje" is allowed in Mexico, unlike in Spain where "alojamiento" is used. `language=es-MX`
+- (80) Standard product translations include "Página web" (Website), "Creador de páginas web" (Builder), and "Área de cliente" (Control Panel).
+- (80) Momentum AI avatars are Rita (Phone), Greta (Exec), Sarah (Social), Derek (Visual), Dora (Code), Chris (Learning), Simon (SEO), Anna (Data), Sofia (Sales), Ben (BizDev).
+- (80) "Hospedaje" is an allowed synonym for hosting in Mexico, unlike Spain which uses "alojamiento".
+- (80) Use specific English names for Momentum avatars, such as Rita for AI Phone Assistant, Greta for AI Executive Assistant, and Simon for AI SEO Specialist. `language=en-CA`
+- (80) Momentum avatars: Chris (AI Learning Coach), Simon (AI SEO Specialist), Anna (AI Data Analyst), Sofia (AI Sales Consultant), Ben (AI Business Developer).
+- (80) Momentum avatars: Rita (AI Phone Assistant), Greta (AI Executive Assistant), Sarah (AI Social Media Manager), Derek (AI Visual Designer), Dora (AI Programmer).
+- (80) Established English AI terms like "AIOps", "AIaaS", and "Generative AI" retain "AI" in German. `language=de-DE`
+- (80) Use "Homepage-Baukasten" (not Baukasten), "Domains kaufen" (not Domain kaufen), and "Domain umziehen" (not Domain-Transfer). `language=de-DE`
+- (80) Name AI products using the pattern 'AI [Function] [Tool]', such as AI Website Generator, AI SEO Assistant, or AI Phone Assistant.
+- (80) Translate "Control Panel" as "Área de cliente". `language=es-ES`
+- (80) Keep established English AI terms like "AIOps", "AIaaS", and "AI Model Hub" in English. `language=es-ES`
+- (80) Prefer "correo electrónico" over "e-mail" and "comercio electrónico" over "e-commerce". `language=es-ES`
+- (80) Translate "Baukasten" as "Creador de páginas web", and allow "alojamiento" as a synonym for hosting.
+- (80) Use "geográficamente redundante" instead of "georredundante".
+- (80) Prefer "correo electrónico" over "e-mail", and "comercio electrónico" over "e-commerce".
+- (80) Translate standard hosting terms into French, but always use "Pack(s)" for tariffs/plans and "WebStat" for SiteAnalytics. `language=fr-FR`
+- (80) Always use the officially assigned Momentum AI avatar names for their specific roles, such as Rita for the AI Phone Assistant and Greta for the AI Executive Assistant.
+- (80) Capitalize AI product names consistently, such as 'AI Website Generator' or 'AI SEO Assistant'.
+- (80) Translate 'MwSt.' as 'Plus applicable tax' in CA contexts.
+- (80) Das allgemeine Glossar nutzt durchgängig Bindestriche für zusammengesetzte Begriffe (z. B. 1-Klick-Installation, 30-Tage-Geld-zurück-Garantie, E-Mail-Postfach). `language=de-DE`
+- (80) Use standard German hyphenated compounds for technical features, such as 1-Klick-Installation and 30-Tage-Geld-zurück-Garantie.
+- (80) Momentum Team avatars have specific KI roles, such as Rita as Telefonassistent, Greta as Chefassistent, and Dora as Programmierer.
+- (80) Avoid anglicisms where Italian equivalents exist, such as using 'clic' instead of 'click'. `language=it-IT`
+- (80) Retain AI in established English technical terms, specific product names like AI Model Hub, and SEO-targeted guide titles.
+- (80) Translate general web hosting terms into standard Italian, using 'Sito web' for website, 'Dominio' for domain, and 'E-mail' with a hyphen. `language=it-IT`
+- (70) Produktbegriffe verwenden etablierte deutsche Bezeichnungen (z. B. Homepage-Baukasten), während spezifische Tarife als 'Paket' oder 'Tarif' bezeichnet werden. `language=de-DE`
+- (70) Standard glossary terms include 'Data Center', 'Log-in' (noun), 'Login Data', 'Out-of-Office Notification', 'Base Fee', and 'Setup Fee'.
+- (70) In SEO-driven editorial content, "AI" may be used in titles, but the body text must use "KI". `language=de-DE`
+
+## formatting_conventions
+
+- (100) Format currency with the symbol after the number separated by a space (e.g., 1,50 € or 1 €).
+- (100) Format dates as "DD de mes de AAAA" (e.g., 28 de abril de 2025).
+- (100) Zahlen werden immer als Ziffern geschrieben (z. B. 1, 5, 12), wobei Tausender mit Punkt und Dezimalstellen mit Komma getrennt werden. `language=de-DE`
+- (100) Das Datumsformat ist TT.MM.JJJJ (z. B. 28.04.2025), und Zeitspannen nutzen den Gedankenstrich mit Leerzeichen (z. B. 12 – 15 Uhr). `language=de-DE`
+- (100) Format dates as "DD month YYYY" in lowercase (e.g., 28 avril 2025). `language=fr-FR`
+- (100) Format numbers with a comma for decimals (1,50) and a space for thousands starting from five digits (10 000).
+- (100) Format VAT notices as "inkl. MwSt." and percentages with a space before the sign (99 %). `language=de-DE`
+- (100) Format numbers with a comma for thousands (1,000) and a dot for decimals (1.50).
+- (100) Format currency with the £ symbol before the number (£1.50), dropping decimals for whole numbers (£1).
+- (100) Use a comma for thousands (1,000) and a period for decimals (1.50). `language=en-US`
+- (100) Format currency with the symbol before the number ($1.50) and omit decimals for whole numbers ($1, not $1.00). `language=en-US`
+- (100) Write percentages without a space between the number and the symbol (99%). `language=en-US`
+- (100) Format phone numbers with a plus, country code, and hyphens: +1-484-254-5555. `language=en-US`
+- (100) Format dates as Month Day, Year (e.g., April 28, 2025). `language=en-US`
+- (100) Format dates as Day Month Year without commas, like 28 April 2025.
+- (100) Format numbers with a period for thousands (1.000) and a comma for decimals (1,50).
+- (100) Format currency with the symbol after the number and a space (e.g., 1,50 €), omitting decimals for whole numbers (1 €).
+- (100) Format percentages with a space before the percent sign (e.g., 99 %).
+- (100) Format dates as 'GG mese AAAA' (e.g., 28 aprile 2025).
+- (100) Format dates as Day Month Year without ordinals (e.g., 28 April 2025) and refer to the data protection law as GDPR. `language=en-GB`
+- (100) Format numbers with a period for thousands (1.000) and a comma for decimals (1,50). `language=it-IT`
+- (100) Format currency and percentages with a space before the symbol (e.g., 1,50 €, 99 %). `language=it-IT`
+- (100) Format dates as 'DD month YYYY' in lowercase (e.g., 28 aprile 2025). `language=it-IT`
+- (100) Numbers use a dot for thousands (1.000) and a comma for decimals (1,50). `language=de-DE`
+- (100) Format numbers with a comma for thousands and a period for decimals (e.g., 1,000.50), and write millions as '1 million' or '1M'. `language=en-CA`
+- (100) Format currency with the dollar sign before the number, omitting decimals for whole numbers (e.g., $1), and add the 'CAD' suffix if needed. `language=en-CA`
+- (100) Format dates as Month Day, Year (e.g., January 1, 2024). `language=en-CA`
+- (100) Format currency with the euro symbol after the number and a space (1,50 €), and omit decimals for whole numbers (1 €). `language=de-DE`
+- (100) Write percentages without a space between the number and the percent sign (e.g., 99%). `language=en-CA`
+- (100) Format dates as TT.MM.JJJJ (e.g., 28.04.2025). `language=de-DE`
+- (100) Use a comma for thousands (1,000) and a period for decimals (1.50).
+- (100) Format currency with the dollar sign before the number without a space, omitting decimals for whole numbers (e.g., $1.50, $1).
+- (100) Format dates as "DD de mes de AAAA" (e.g., 28 de abril de 2025).
+- (100) Format dates as "DD de mes de AAAA" (e.g., 28 de abril de 2025). `language=es-MX`
+- (100) Leave a space between the number and the percent sign (99 %). `language=es-MX`
+- (100) Format numbers with a space for thousands (1 000) and a comma for decimals (1,50). `language=fr-FR`
+- (100) Format currency with a space before the symbol (1,50 €) and omit decimals for whole numbers (1 €). `language=fr-FR`
+- (100) Write percentages with a space before the percent sign (99 %). `language=fr-FR`
+- (100) Format phone numbers in pairs separated by spaces (e.g., 09 70 80 89 11). `language=fr-FR`
+- (100) Place the dollar sign before the number without a space ($1.50), and omit decimals for whole numbers ($1). `language=es-MX`
+- (100) Format numbers with a comma for thousands (1,000) and a period for decimals (1.50). `language=es-MX`
+- (90) Format dates as DD month YYYY without leading zeros (e.g., 28 avril 2025).
+- (90) Write out the word "Million" in text, but use digits for all other numbers (1, 5, 12), never spelling them out. `language=de-DE`
+- (90) Format numbers with a dot for thousands and a comma for decimals, and use digits for all numbers except 'Million' which is spelled out.
+- (90) Format currency with the symbol after the number separated by a space, and omit decimals for whole numbers.
+- (90) Format dates as TT.MM.JJJJ and phone numbers with a slash and space, such as 0721/170 5522.
+- (90) Währungsangaben stehen mit Leerzeichen nach der Zahl (z. B. 1,50 €), und glatte Beträge werden ohne Dezimalstellen geschrieben (1 € statt 1,00 €). `language=de-DE`
+- (90) Prozentangaben stehen mit Leerzeichen (99 %), und die Mehrwertsteuer wird als 'inkl. MwSt.' abgekürzt. `language=de-DE`
+- (90) Format millions as "1 million" or "1M", and percentages without a space (99%).
+- (90) Format VAT notices as "excl. VAT at 20%".
+- (90) Format numbers with commas for thousands (1,000) and dots for decimals (1.50), but write whole currency amounts without decimals (e.g., £1). `language=en-GB`
+- (90) Write millions as "1 million" or "1M", percentages without a space (99%), VAT as "excl. VAT at 20%", and phone numbers with spaces (0333 336 5691). `language=en-GB`
+- (90) Format numbers with a space for thousands (1 000) and a comma for decimals (1,50).
+- (90) Format currency with a space before the symbol (1,50 €) and omit decimals for whole numbers (1 €).
+- (90) Format percentages with a space before the percent sign (99 %).
+- (90) Group phone numbers by two digits separated by spaces (e.g., 09 70 80 89 11).
+- (90) Use "HT" (Hors Taxes) as the standard price format, written without a space after the slash (e.g., 1 €HT/mois).
+- (90) Display both HT and TTC for B2C core products, but only HT is required for B2B cloud products.
+- (90) Use "TTC" and "HT" for VAT; HT is default for B2B Cloud, while B2C Core products require both HT and TTC. `language=fr-FR`
+- (90) Format prices per month without a space before the slash, e.g., "1 €HT/mois". `language=fr-FR`
+- (90) Format percentages with a space before the percent sign (e.g., 99 %).
+- (90) Format phone numbers with the country code and spaces (e.g., +34 911 360 000).
+- (90) Indicate VAT inclusion as "IVA incluido".
+- (90) Format numbers with a space as the thousands separator starting from five digits (e.g., 10 000) and a comma for decimals (e.g., 1,50). `language=es-ES`
+- (90) Format currency with the euro symbol after the number, separated by a space (e.g., 1,50 €), and omit decimals for whole numbers (e.g., 1 €). `language=es-ES`
+- (90) Format percentages with a space between the number and the percent sign (e.g., 99 %). `language=es-ES`
+- (90) Format dates as "DD de mes de AAAA" (e.g., 28 de abril de 2025). `language=es-ES`
+- (90) Use commas for thousands (1,000) and periods for decimals (1.50).
+- (90) Format currency with the symbol before the number without a space (e.g., $1.50), and omit decimals for whole numbers (e.g., $1).
+- (90) Write millions as '1 million' or '1M', and format percentages without a space before the symbol (e.g., 99%).
+- (90) Format phone numbers with a plus, country code, and hyphens (e.g., +1-484-254-5555).
+- (90) Format dates as Month Day, Year (e.g., April 28, 2025).
+- (90) Write millions as "1 million" or "1M". `language=en-US`
+- (90) Format phone numbers with spaces (e.g., 0221 802 681).
+- (90) Format numbers with a comma for thousands and a period for decimals (e.g., 1,000.50).
+- (90) Format currency with the dollar sign before the number, omitting decimals for whole numbers ($1), and add 'CAD' if needed ($1.50 CAD).
+- (90) Write millions as '1 million' or '1M', and format percentages without a space (99%).
+- (90) Format phone numbers with hyphens and the country code, such as +1-484-254-5555.
+- (90) Format dates as Month Day, Year.
+- (90) Format phone numbers with spaces (e.g., 0221 802 681). `language=it-IT`
+- (90) Format phone numbers with a plus, country code, and hyphens (e.g., +1-484-254-5555). `language=en-CA`
+- (90) Format percentages with a space before the percent sign (e.g., 99 %).
+- (90) Indicate VAT inclusion with the phrase "IVA incluido". `language=es-MX`
+- (90) Format email greetings as 'Hola, [Nombre]:' and sign-offs as 'Atentamente, El equipo de IONOS'. `language=es-ES`
+- (90) Open newsletters with 'Salve [nome cliente],' and close with 'Cordiali saluti, il team di IONOS'. `language=it-IT`
+- (90) Use the exact email signature 'Atentamente, El equipo de IONOS'. `language=es-MX`
+- (80) Format phone numbers with spaces (e.g., 0800 123 8394).
+- (80) Format phone numbers with spaces, such as 0800 123 8394. `language=es-MX`
+- (80) Format phone numbers with spaces, like 0333 336 5691.
+- (80) Telefonnummern werden im Format Vorwahl/Nummer mit Leerzeichen gruppiert (z. B. 0721/170 5522). `language=de-DE`
+- (80) Use the CCPA reference framework for privacy and data protection contexts. `language=en-CA`
+- (80) Das Wort 'Million' wird im Fließtext immer ausgeschrieben, außer in Grafiken. `language=de-DE`
+- (80) Format phone numbers with spaces (e.g., +34 911 360 000). `language=es-ES`
+- (80) Format phone numbers with a slash and space, e.g., 0721/170 5522. `language=de-DE`
+- (70) Format meta titles following the pattern: 'IONOS | Hosting Provider: Domains, Websites, Servers.'
+
+## orthography_typography
+
+- (100) Do not use a period at the end of H1s, H2s, prelines, CTA buttons/links, badges, meta titles, tooltips, or one-sentence nav descriptions.
+- (100) Use a period at the end of subheadlines, body copy, meta descriptions, FAQ answers, and error messages.
+- (100) Enclose FAQ questions in Spanish opening and closing question marks (¿…?).
+- (100) Always insert a non-breaking space before colons and semicolons. `language=fr-FR`
+- (100) Always use accents on uppercase letters (e.g., É, not E) to ensure readability. `language=fr-FR`
+- (100) Überschriften (H1/H2), Preline, CTAs, Badges, Meta-Titles, Tooltips und Navigationsbeschreibungen enden niemals mit einem Punkt. `language=de-DE`
+- (100) Subheadlines, Fließtext, Meta-Descriptions, FAQ-Antworten und Fehlermeldungen enden immer mit einem Punkt. `language=de-DE`
+- (100) Dreigliedrige Komposita (z. B. KI-Website-Generator) und Kopplungen aus deutschen und fremdsprachigen Begriffen müssen mit Bindestrich geschrieben werden. `language=de-DE`
+- (100) Do not use a period at the end of H1s, H2s, prelines, CTAs, badges, meta titles, tooltips, or single-sentence navigation descriptions. `language=de-DE`
+- (100) Bullet point fragments take no punctuation and start with a capital letter; full sentences in bullets take a period. `language=de-DE`
+- (100) Use standard US spelling conventions: -ize/-ization, -or, -er, -og, and do not double the 'l' in verbs. `language=en-US`
+- (100) Use an em-dash (—) with spaces on both sides for pauses or emphasis. `language=en-US`
+- (100) Do not use a period at the end of H1s, H2s, prelines, CTA buttons, CTA links, badges, or tooltips. `language=en-US`
+- (100) Always use a period at the end of subheadlines, one-sentence nav descriptions, body copy, meta titles, meta descriptions, FAQ answers, and error messages. `language=en-US`
+- (100) End FAQ questions with a question mark. `language=en-US`
+- (100) Use British spelling conventions (-ise, -our, -re, -ogue, double -ll for verbs).
+- (100) Never use the ampersand (&); always write out 'e'.
+- (100) Always write 'internet' in lowercase, but capitalize the 'C' in 'IONOS Cloud'.
+- (100) Always use English loanwords in the singular form in Italian (e.g., 'le keyword', never 'le keywords').
+- (100) Do not use a period at the end of H1s, H2s, prelines, buttons, links, badges, meta titles, tooltips, or single-sentence nav descriptions.
+- (100) Use a period at the end of subheadlines, body copy, meta descriptions, FAQ answers, error messages, and full-sentence bullet points.
+- (100) Use a period at the end of subheadlines, body copy, meta descriptions, FAQ answers, and error messages. `language=de-DE`
+- (100) Use British spelling (-ise, -our, -re, -ogue, double -ll for verbs) and specific UK terms like "package" (never plan), "online shop", "enquiry", and "email". `language=en-GB`
+- (100) Never use the ampersand (&); always write out 'e'. `language=it-IT`
+- (100) Always use English loanwords in the singular form in Italian (e.g., 'le keyword', not 'le keywords'). `language=it-IT`
+- (100) Use US spelling conventions for Canadian English, including -ize, -or, and -er endings. `language=en-CA`
+- (100) Always insert a non-breaking space before colons (:) and semicolons (;).
+- (100) Accents on uppercase letters are mandatory in French (e.g., use É, not E).
+- (100) FAQ questions must use both opening and closing question marks (¿…?). `language=es-MX`
+- (95) Use Title Case for Help Center headlines and main navigation, overriding the general US sentence case rule. `language=en-CA`
+- (95) Always use the Oxford comma for lists of three or more items. `language=en-US`
+- (95) Use title case exclusively for SEM/SEA headlines and sentence case everywhere else. `language=en-US`
+- (90) Use an en-dash (–) with spaces for pauses or emphasis.
+- (90) Use an en-dash (–) with spaces for pauses, emphasis, and time/day ranges (e.g., 12 – 15 Uhr). `language=de-DE`
+- (90) Use hyphens for German-foreign compounds, three-part compounds, two English terms, and abbreviations (e.g., KI-Website-Generator, Traffic-Limit). `language=de-DE`
+- (90) Do not use a period at the end of H1, H2, prelines, CTAs, badges, meta titles, tooltips, or single-sentence navigation descriptions.
+- (90) Use a period at the end of subheadlines, body copy, meta descriptions, FAQ answers, error messages, and full-sentence bullet points.
+- (90) Use an en-dash with spaces for pauses, emphasis, and time or day ranges.
+- (90) Use hyphens for German-foreign compounds, three-part compounds, English-English compounds, and compounds with abbreviations.
+- (90) Do not use hyphens for germanized terms like Onlineshop, internal namings like WordPress Hosting, or Drag-and-drop.
+- (90) Bullet point fragments take no end punctuation, but each point must start with a capital letter.
+- (90) Aufzählungspunkte beginnen immer groß und enden ohne Interpunktion, es sei denn, es handelt sich um vollständige Sätze, die einen Schlusspunkt erhalten. `language=de-DE`
+- (90) Als Gedankenstrich für Pausen, Betonungen und Bereiche wird der Halbgeviertstrich (En-Dash, –) mit umschließenden Leerzeichen verwendet. `language=de-DE`
+- (90) Eingedeutschte Begriffe (z. B. Onlineshop) und interne Namings (z. B. WordPress Hosting, White Paper) werden ohne Bindestrich geschrieben. `language=de-DE`
+- (90) Das kaufmännische Und (&) ist im Fließtext ein Fehler und darf nur bei strenger Zeichenbegrenzung (z. B. Navigation) verwendet werden. `language=de-DE`
+- (90) Do not use a period for H1, H2, prelines, CTAs, badges, meta-titles, or tooltips.
+- (90) Use a period at the end of subheadlines, nav descriptions, body copy, meta-descriptions, FAQ answers, and error messages.
+- (90) For bullet points, use a period only if the point is a full sentence, otherwise use no punctuation.
+- (90) Never hyphenate "drag and drop".
+- (90) Do not use end periods for H1s, H2s, eyebrows, CTAs, badges, tooltips, meta titles, or bulleted fragments. `language=en-GB`
+- (90) Use end periods for subheadlines, single-sentence navigation descriptions, body copy, bulleted sentences, meta descriptions, FAQ answers, and error messages. `language=en-GB`
+- (90) Use an en-dash with spaces ( – ) for pauses and emphasis. `language=en-GB`
+- (90) Do not hyphenate "drag and drop" or AI noun compounds (e.g., "AI text generator"), but hyphenate AI adjectives before nouns (e.g., "AI-powered") and "money-back guarantee". `language=en-GB`
+- (90) Use French guillemets with spaces (« … ») as primary quotation marks, and standard double quotes ("…") as secondary.
+- (90) Do not use periods at the end of H1s, H2s, prelines, buttons, links, badges, meta titles, or tooltips.
+- (90) Use a period at the end of subheadlines, single-sentence navigation descriptions, body copy, meta descriptions, FAQ answers, and error messages.
+- (90) Use an en-dash (–) with spaces for pauses or emphasis; never use an em-dash (—) in French.
+- (90) Do not use a period at the end of headings, prelines, CTAs, badges, meta titles, or tooltips. `language=fr-FR`
+- (90) Use a period at the end of subheadlines, body copy, meta descriptions, FAQ answers, and error messages. `language=fr-FR`
+- (90) Use an en-dash (–) with spaces for pauses or emphasis; never use the English em-dash (—). `language=fr-FR`
+- (90) Use primary guillemets («…») and secondary double quotes ("…"), but avoid quotes entirely on product pages in favor of bolding or links.
+- (90) Use the en-dash (–) with spaces on both sides for pauses or emphasis.
+- (90) Do not use a period at the end of H1s, H2s, prelines, CTA buttons/links, badges, meta titles, tooltips, or single-sentence navigation descriptions. `language=es-ES`
+- (90) Use a period at the end of subheadlines, body copy, meta descriptions, FAQ answers, and error messages. `language=es-ES`
+- (90) Enclose FAQ questions in Spanish question marks (¿…?). `language=es-ES`
+- (90) Use an em-dash (—) with spaces on both sides for pauses or emphasis.
+- (90) Use US spelling conventions, including -ize/-ization, -or, -er, -og, and do not double the 'l' in verbs.
+- (90) Do not use periods for H1, H2, prelines, CTA buttons, CTA links, badges, or tooltips.
+- (90) Use periods at the end of subheadlines, one-sentence nav descriptions, body copy, meta descriptions, FAQ answers, and error messages.
+- (90) Hyphenate 'drag-and-drop' and 'AI-powered' as adjectives before nouns, but do not hyphenate 'AI' before nouns (e.g., AI text generator).
+- (90) Use double quotes ("...") for primary quotations and single quotes ('...') for secondary quotations. `language=en-US`
+- (90) Hyphenate "drag-and-drop" when used before a noun. `language=en-US`
+- (90) Capitalize product names if they are specific IONOS products (e.g., 'Web Hosting'), but use lowercase for generic terms ('web hosting').
+- (90) Use the en-dash (–) with spaces for pauses or emphasis.
+- (90) Use US spelling conventions (-ize, -or, -er) for the CA market.
+- (90) Do not use terminal periods for H1s, H2s, prelines, CTA buttons, CTA links, badges, labels, or tooltips.
+- (90) Use terminal periods for subheadlines, one-sentence nav descriptions, body copy, meta titles, meta descriptions, FAQ answers, and error messages.
+- (90) Use an em-dash (—) with spaces on both sides for pauses or emphasis (e.g., 'infrastructure — the future').
+- (90) Capitalize specific IONOS products (e.g., 'Web Hosting'), but use lowercase for generic terms (e.g., 'web hosting'). `language=it-IT`
+- (90) Always write 'internet' in lowercase, but capitalize 'Cloud' in 'IONOS Cloud'. `language=it-IT`
+- (90) Use the en-dash (–) with spaces for pauses or emphasis. `language=it-IT`
+- (90) Do not use a period at the end of headings, UI elements, badges, or bullet point fragments. `language=it-IT`
+- (90) Use a period at the end of subheadlines, body text, meta descriptions, error messages, and bullet points that are full sentences. `language=it-IT`
+- (90) Limit exclamation marks to two per page, and never use them in headings or email subject lines. `language=de-DE`
+- (90) Do not use a period at the end of H1s, H2s, prelines, CTA buttons, CTA links, badges, or tooltips. `language=en-CA`
+- (90) Use a period at the end of subheadlines, one-sentence navigation descriptions, body copy, meta titles, meta descriptions, FAQ answers, and error messages. `language=en-CA`
+- (90) Use an em-dash (—) with spaces on both sides for pauses or emphasis in a sentence. `language=en-CA`
+- (90) Hyphenate 'drag-and-drop' and 'money-back guarantee', and write '24/7' with a slash. `language=en-CA`
+- (90) Do not use a period at the end of H1, H2, prelines, CTAs, badges, tooltips, meta titles, and single-sentence nav descriptions.
+- (90) Use a period at the end of subheadlines, body copy, meta descriptions, FAQ answers, and error messages.
+- (90) Use the en-dash (–) surrounded by spaces for pauses or emphasis.
+- (90) Use the en-dash (–) surrounded by spaces for pauses or emphasis. `language=es-MX`
+- (90) Do not use end periods for H1, H2, prelines, buttons, links, badges, tooltips, meta-titles, or single-sentence nav descriptions. `language=es-MX`
+- (90) Use end periods for subheadlines, body copy, meta-descriptions, FAQ answers, and error messages. `language=es-MX`
+- (90) Place the period after the closing quotation mark for partial quotes, but before it for full-sentence quotes. `language=de-DE`
+- (90) Do not use punctuation at the end of button texts or secondary CTA links in body copy. `language=de-DE`
+- (90) Use sentence case everywhere, except for Help Center headlines and main navigation which use Title Case. `language=en-GB`
+- (90) Do not use semicolons in marketing copy. `language=en-GB`
+- (90) Always use the Oxford comma in lists of three or more items. `language=en-GB`
+- (90) Spell out "and" in body text, but ampersands are permitted in navigation menus. `language=en-GB`
+- (90) Capitalize the first word after a colon if it begins an independent clause. `language=en-CA`
+- (90) Allow ampersands (&) in navigation menus, but spell out 'and' everywhere else. `language=en-CA`
+- (90) Spell out 'and' in general text, but ampersands are permitted in navigation menus. `language=en-US`
+- (90) Spell out 'et' in standard text, but the ampersand (&) is permitted in navigation menus. `language=fr-FR`
+- (90) The ampersand (&) is permitted in navigation menus, but must be spelled out in all other text. `language=es-MX`
+- (85) Write out 'and' in body text, but the ampersand (&) is permitted in navigation menus. `language=es-ES`
+- (80) Use primary guillemets («…») and secondary double quotes ("…"), but prefer bold text or links over quotes on product pages.
+- (80) Avoid quotation marks on product pages, using bold or links for emphasis instead, but retain quotes for testimonials, guides, FAQs, and press releases. `language=en-GB`
+- (80) Use guillemets («…») as primary quotes, but avoid quotes on product pages in favor of bolding or links. `language=es-MX`
+- (80) Use double quotes for speech, single quotes for terminology or nested quotes, and bold text for UI labels. `language=en-GB`
+- (80) Form possessives as "X from IONOS" or "IONOS X". `language=en-GB`
+- (80) Use double quotes for speech and single for terms, but prefer bolding or links instead of quotes on product pages.
+- (80) Fettdruck (Bold) ist im Fließtext nicht erlaubt und bleibt Headlines, Navigation und UI-Labels vorbehalten. `language=de-DE`
+- (80) Primäre Anführungszeichen sind „…“ und sekundäre ‚…‘, sie werden auf Produktseiten jedoch zugunsten von Fettungen oder Links weitgehend vermieden. `language=de-DE`
+- (80) Use double quotes for primary quotations and single quotes for secondary ones, but prefer bolding or links for emphasis on product pages. `language=en-CA`
+- (80) Write out 'e' for 'and' in body text, but the ampersand (&) is permitted in navigation menus. `language=it-IT`
+- (80) Use primary guillemets («…») and secondary double quotes ("…"), but prefer bolding or links over quotes on product pages. `language=it-IT`
+- (80) Avoid quotation marks on product pages; use bold text or links for emphasis instead. `language=en-US`
+- (80) Use double quotation marks primarily and single secondarily, but prefer bolding or links for emphasis on product pages.
+- (80) Use the en-dash (–) with spaces for pauses or emphasis. `language=es-ES`
+- (80) Use guillemets («…») as primary quotation marks and double quotes ("…") as secondary. `language=es-ES`
+- (80) Use quotes « … » with spaces, but prefer bolding or links over quotes on product pages. `language=fr-FR`
+- (80) Hyphenate 'drag-and-drop' and 'money-back guarantee', and use a slash for '24/7'.
+- (80) Use double quotes primary and single secondary, but prefer bolding or links for emphasis on product pages instead of quotation marks.
+- (80) Use an ampersand (&) only when space is strictly limited (navigation, feature tables); otherwise, spell out "und". `language=de-DE`
+- (80) Do not use hyphens for established Germanized words (Onlineshop) or internal namings (WordPress Hosting, White Paper). `language=de-DE`
+- (80) Use typographic quotes („…“, ‚…‘) in guides and FAQs, but on product pages, use bolding or links instead. `language=de-DE`
+- (80) Use primary quotation marks «…» and secondary "…", but prefer bolding or links over quotes on product pages.
+- (80) Spell out 'und' in text and headlines, using an ampersand only when space is strictly limited in navigation or feature tables.
+- (80) Use German typographic quotation marks („…“ and ‚…‘), but prefer bold text or links over quotes on product pages.
+- (70) Form possessives and format bullet points following UK English conventions. `language=en-CA`
+- (70) Avoid quotation marks on product pages; use bold text or links for emphasis instead.
+- (70) Avoid quotation marks on product pages (use bold or links); reserve typographic quotes for testimonials, guides, FAQs, and PR. `language=es-ES`
+- (70) Do not use bold text in body copy; reserve it for headlines, navigation, and UI labels. `language=de-DE`
+- (70) Use a maximum of four commas per sentence and avoid semicolons entirely. `language=de-DE`
+
+## address_and_gender_form
+
+- (100) Use the formal 'vous' for all user addressing. `language=fr-FR`
+- (100) Address all customers, including B2B, with the informal 'tu'. `language=it-IT`
+- (100) Use formal 'Sie' exclusively, never 'du' unless explicitly required by a specific product context. `language=de-DE`
+- (95) Address users with the informal 'tú', reserving the formal 'usted' strictly for legal texts. `language=es-MX`
+- (95) Address users informally with 'tú', reserving the formal 'usted' exclusively for legal texts. `language=es-ES`
+- (90) Use 'Hallo, [Vorname]' or 'Guten Tag, Herr/Frau [Name]' for email salutations. `language=de-DE`
+- (90) Use paired forms (Kundinnen und Kunden) or neutral terms (Mitarbeitende), but keep 'Persönlicher Berater' masculine as a fixed term. `language=de-DE`
+- (90) Use "you" for formal-polite address and avoid using the impersonal "one". `language=en-GB`
+- (90) Use "they/them" pronouns for gender-neutral references. `language=en-GB`
+- (90) Use 'you' for the user and 'we' sparingly, maintaining a more casual tone than UK English. `language=en-US`
+- (90) Use 'Hi [First name]' for email greetings. `language=en-US`
+- (90) Write calls to action using the imperative 'tu' form, such as 'Inizia ora' or 'Scopri di più'. `language=it-IT`
+- (90) Use gender-neutral phrasing, such as 'Ti diamo il benvenuto' instead of the gendered 'Benvenuto'. `language=it-IT`
+- (85) Address the user casually as 'you' and use the first-person 'we' sparingly. `language=en-CA`
+- (85) Apply inclusive and gender-neutral language mechanics. `language=es-MX`
+- (80) Use "Hi [First name]" for email salutations. `language=en-GB`
+- (80) Apply inclusive language (écriture inclusive) in moderation rather than continuously throughout the text. `language=fr-FR`
+- (75) Apply a moderate approach to gender-neutral and inclusive language. `language=es-ES`
+
+## market_variants
+
+- (100) Use these exact main navigation labels: Dominios y SSL, Páginas web, Tiendas online, Hosting, WordPress, Correo y Office, Servidores, Cloud, and Nuevo.
+- (100) Refer to the Mexican privacy law as LFPDPPP, never RGPD.
+- (95) Default to US English language and style rules for Canada, applying local exceptions only where explicitly noted. `language=en-CA`
+- (90) Main navigation categories are: Domains & SSL, Website, Onlineshop, Hosting, WordPress, E-Mail & Office, Server, Cloud, and Momentum KI. `language=de-DE`
+- (90) Die Hauptnavigation in Deutschland umfasst Domains & SSL, Website, Onlineshop, Hosting, WordPress, E-Mail & Office, Server, Cloud sowie Momentum KI. `language=de-DE`
+- (90) Use these exact UK navigation labels: Domains & SSL, Websites, eCommerce, Hosting, WordPress, Email & Office, Servers, Cloud, New.
+- (90) Use these exact UK navigation labels: Domains & SSL, Websites, eCommerce, Hosting, WordPress, Email & Office, Servers, Cloud, and New. `language=en-GB`
+- (90) Use specific French navigation labels: Domaines & SSL, Sites Internet, E-commerce, Hébergement, WordPress, Email & Office, Serveurs, Cloud, and Nouveau.
+- (90) Use standard navigation labels: Domaines & SSL, Sites Internet, E-commerce, Hébergement, WordPress, Email & Office, Serveurs, Cloud, Nouveau. `language=fr-FR`
+- (90) Use these navigation labels: Dominios y SSL, Páginas web, Tiendas online, Hosting, WordPress, Correo y Office, Servidores, Cloud, and Nuevo. `language=es-ES`
+- (90) Unlike other markets, the US market requires a period at the end of the Meta-Title (e.g., 'IONOS | Hosting Provider: Domains, Websites, Servers.').
+- (90) Use these exact navigation labels: Domini e SSL, Siti web, E-commerce, Hosting, WordPress, Office e produttività, Server, Cloud, Novità / PEC Europea.
+- (90) Use these exact Italian navigation labels: Domini e SSL, Siti web, E-commerce, Hosting, WordPress, Office e produttività, Server, Cloud, Novità / PEC Europea. `language=it-IT`
+- (90) Follow the UK navigation structure for CA, but apply US spelling conventions where applicable. `language=en-CA`
+- (90) Verify product differences between the US and CA markets, such as .ca domain offers, before directly copying US content. `language=en-CA`
+- (90) Navigation menu labels are: Dominios y SSL, Páginas web, Tiendas online, Hosting, WordPress, E-mail y Office, Servidores, Cloud, and Nuevo.
+- (90) Main navigation labels are Dominios y SSL, Páginas web, Tiendas online, Hosting, WordPress, E-mail y Office, Servidores, Cloud, and Nuevo. `language=es-MX`
+- (85) Omit 'please' in error messages (e.g., 'Try again') to be more direct than UK English. `language=en-US`
+- (80) Start error messages with "Please" (e.g., "Please try again") to maintain a polite UK tone. `language=en-GB`
+- (80) Label the 'Momentum KI' section in the navigation simply as 'New'. `language=en-CA`
+- (80) Format the standard meta title pattern as "IONOS | Hosting Provider: Domains, Websites, Servers." `language=en-CA`
+- (80) Navigation labels in DE are: Domains & SSL, Website, Onlineshop, Hosting, WordPress, E-Mail & Office, Server, Cloud, Momentum KI.
+- (80) Follow the UK navigation structure for CA, but apply US spelling where the wording differs.
+- (80) For US and CA navigation, follow the UK navigation structure but apply US spelling rules. `language=en-US`
+- (70) Verify product differences between the US and CA markets (like .ca domain offers) before reusing US content directly.
+
+## misc
+
+- (95) Format call-to-action verbs in the infinitive (e.g., 'Démarrer', 'En savoir plus'). `language=fr-FR`
+- (90) Write calls to action using the infinitive verb form, such as 'Empezar ahora' or 'Saber más'. `language=es-ES`
+- (90) Write call-to-action verbs in the infinitive form, such as 'Empezar ahora' or 'Saber más'. `language=es-MX`
+- (70) Reference the CCPA framework for privacy and data protection contexts in CA.

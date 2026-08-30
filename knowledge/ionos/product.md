@@ -1,0 +1,323 @@
+# IONOS — product
+
+Brand partition key: `0d7e8bcb-999b-4f96-8a31-3cfb42959e22`
+
+Categories are the frozen vocabulary for this dimension. The number after each atom is its
+rank; only the top 12 per category reach a prompt.
+
+## description
+
+- (100) The AI App & Site Builder lets users generate fully functional, deployed web applications instantly by describing them via text, voice, or screenshot.
+- (100) Shoplement turns any existing website into an online store with just a few clicks via an HTML snippet or native CMS plugin.
+- (100) Deploy Now is an IONOS web hosting solution that combines secure hosting with the flexibility of a Git development environment.
+- (100) MyWebsite Now Shop is an easy-to-use website builder that lets anyone create a professional online shop in under an hour without design or coding knowledge.
+- (100) The Website Design Service includes a custom domain, an email address, and a personal consultant available 24/7 via phone, chat, or email for post-launch support.
+- (100) The Website Design Service is a complete package where a professional team of designers, developers, and copywriters builds a custom website for the customer.
+- (95) List Local places and synchronizes company data across the 35 most important apps and portals, including Google, Facebook, and Foursquare.
+- (95) rankingCoach is an SEO tool that crawls a user's website to provide customized optimization feedback and enables the creation of Google Ads with just a few clicks.
+- (95) MyWebsite Now is IONOS's simplest website builder, requiring only three steps: choose a design, add content, and publish with one click.
+- (90) Google Workspace is a cloud-based productivity suite combining email, calendar, documents, spreadsheets, presentations, and video conferencing.
+- (90) IONOS Webhosting provides a performance-optimized, scalable platform with 1-click installations for popular CMS systems, requiring no server maintenance.
+- (90) MyWebsite Creator is a drag-and-drop website builder offering ultimate design freedom, including pixel-perfect customization and HTML/CSS code-level access.
+- (90) MyWebsite Creator eCommerce is a highly flexible website builder and e-commerce solution that allows users to create custom online shops from scratch using HTML and CSS.
+- (90) MyWebsite Creator eCommerce supports selling physical and digital products or services across the website, social media, and online marketplaces.
+- (90) Managed Nextcloud is a GDPR-compliant, flexible cloud storage solution where IONOS handles installation, hosting, updates, and maintenance.
+- (90) IONOS WordPress Hosting is a fast, secure, and affordable hosting solution for corporate websites, blogs, personal sites, and small online shops.
+- (90) Available only in DE, US, and UK, IONOS WordPress Pro includes a WordPress Toolkit for migration, stage testing, smart updates, and multi-project management.
+- (90) IONOS Domains provide a memorable web address with a wide selection of extensions, from classic like .com to new TLDs like .surf.
+- (90) Deploy Now allows developers to launch web projects directly from their GitHub accounts.
+- (90) Deploy Now works with all common frontend frameworks and static site generators via a developer-friendly interface.
+- (90) Shoplement allows users to sell physical and digital products, plus services, on their website, social media, and marketplaces.
+- (90) IONOS E-Mail is a professional, ad-free email service that perfectly complements a customer's domain and includes webmail access and real-time synchronization.
+- (90) List Local requires no website or marketing knowledge; users only need to provide basic business information like name, address, and phone.
+- (90) Momentum Team – AI Receptionist is a digital gatekeeper for SMBs that autonomously manages inbound calls, books appointments, and filters spam.
+- (90) IONOS Domains is a high-performance domain management service providing a professional digital identity with bundled essentials like custom email and SSL.
+- (90) IONOS E-Mail is professional email hosting designed to establish instant trust with secure, ad-free, domain-based email addresses.
+- (90) IONOS VPS is a high-performance virtual private server solution offering dedicated resources, full administrative control, and instant scaling.
+- (90) IONOS Managed AI Model Studio offers instant access to leading open-source LLMs via a unified API, hosted entirely in German data centers.
+- (90) IONOS n8n VPS is a specialized virtual private server pre-configured with the n8n automation platform for executing complex workflows with full data sovereignty.
+- (90) IONOS AI App and Site Builder is a 'vibe coding' platform to create, deploy, and manage professional full-stack web applications through natural language.
+- (90) IONOS AI CRM Manager is a lightweight CRM for micro businesses that acts as a smart customer manager that runs itself.
+- (90) IONOS AI Document Manager is an AI-native knowledge base that automatically captures, organises, and extracts data from documents on EU-sovereign infrastructure.
+- (90) IONOS Web Hosting provides high-performance, scalable web infrastructure bridging the gap between ease-of-use and technical depth.
+- (90) IONOS MyWebsite Now Shop is an uncomplicated online shop solution for busy sellers to start selling professionally and securely within an hour without technical knowledge.
+- (90) IONOS Cloud Server offers powerful cloud infrastructure with intuitive management, maximum reliability, and transparent pay-as-you-go billing.
+- (90) IONOS Dedicated Server provides high-performance servers with 100 percent enterprise-grade hardware, maximum flexibility through pay-as-you-go, and intuitive 24/7 expert support.
+- (90) IONOS WordPress Hosting is a fast, secure, and affordable hosting solution for creating professional websites with maximum design freedom.
+- (90) IONOS WordPress Pro is an easy-to-manage hosting platform for the simultaneous management of multiple projects via a single dashboard in DE, US, and UK.
+- (90) IONOS Agency Business is a central partner portal offering exclusive hosting benefits, a strong community, and dedicated support for agencies managing client projects.
+- (90) IONOS Website Design Service is a professional, all-inclusive package where an expert team creates a custom, turnkey website for clients lacking time or skills.
+- (90) IONOS Deploy Now is a web hosting innovation for professional developers that combines secure hosting with the flexibility of a direct GitHub development environment.
+- (90) IONOS Google Workspace is a professional email and productivity solution with a custom business domain for seamless migration from Gmail.
+- (90) IONOS List Local is a simple and affordable online visibility tool for small to medium-sized businesses to be found quickly on the internet without marketing knowledge.
+- (90) IONOS Managed Nextcloud is an intelligent, flexible, and GDPR-compliant cloud storage solution combining simple collaboration with professional security.
+- (90) IONOS Shoplement is an uncomplicated e-commerce solution for small local businesses to sell flexibly via existing websites, social media, and marketplaces.
+- (90) IONOS Social Buy Button is the fastest way for time-strapped business owners to sell physical and digital products directly via Facebook and Instagram.
+- (90) IONOS rankingCoach is a Do-it-Yourself SEO tool for website operators without prior knowledge, offering step-by-step instructions and simple ad creation to improve Google visibility.
+- (90) IONOS MyWebsite Creator allows businesses and hobbyists to independently build a professional, responsive website without programming knowledge, backed by 24/7 support.
+- (90) IONOS MyWebsite Creator eCommerce enables small businesses to create highly flexible, dynamic websites with powerful e-commerce functions to sell on a large scale.
+- (90) IONOS MyWebsite Now is the simplest website builder for individuals and small businesses to create a professional website in under 60 minutes without technical knowledge.
+- (90) The AI App & Site Builder generates full-stack Node.js and SQLite applications, not just static pages or templates.
+- (90) The Social Buy Button allows small businesses to sell physical and digital products directly on Facebook and Instagram without needing a standalone website.
+- (90) rankingCoach provides simple, step-by-step optimization guides, including video tutorials, to help users improve their search engine rankings.
+- (90) The IONOS Agentur Partnerprogramm provides agencies and web professionals with free access to special offers, support, tools, lead generation, and testing.
+- (90) The Momentum AI Sales Consultant is an intelligent coach that generates pitches, scripts, and negotiation tactics to turn product knowledge into persuasive arguments.
+- (90) The Momentum AI Phone Assistant is an intelligent voice interface that manages inbound calls, bookings, and inquiries for SMBs.
+- (85) rankingCoach includes built-in analysis and reporting tools to track SEO performance.
+- (80) Shoplement works with self-hosted WordPress or builders like Jimdo, and can be managed conveniently via a mobile app.
+- (80) Managed Nextcloud combines user-friendly online storage with professional security features and expandable collaboration tools.
+- (80) Users can integrate a comprehensive online store into their MyWebsite Creator project with just a few clicks.
+- (70) The builder includes an integrated image editor for cropping, adjusting brightness and saturation, and applying Instagram-like filters directly within MyWebsite Creator.
+- (70) Users can integrate third-party apps, interactive pop-ups, booking forms, and vouchers into their MyWebsite Creator eCommerce site.
+- (60) MyWebsite Creator supports advanced visual features including social media integrations, animations, and parallax effects.
+
+## value_proposition
+
+- (90) MyWebsite Now allows users with no technical knowledge to create a professional online presence without learning to code.
+- (90) Managed Nextcloud saves users time and effort by fully outsourcing installation, updates, and maintenance to IONOS.
+- (90) MyWebsite Now Shop enables small business owners to quickly start selling online, test new business ideas, and gain independence without hiring an agency.
+- (90) Deploy Now saves time by seamlessly integrating hosting into existing GitHub workflows and modern CI/CD pipelines.
+- (90) The AI App & Site Builder eliminates infrastructure setup, allowing users to go from idea to live, professional-grade application in minutes.
+- (90) IONOS Cloud and Dedicated Servers offer full flexibility and scalability through a transparent pay-as-you-go billing model with no contract lock-in.
+- (90) rankingCoach empowers small businesses to execute a professional SEO strategy independently, saving the time and money required to hire an agency.
+- (90) It cures sales anxiety by providing the exact words needed to open conversations, handle objections, and close deals without feeling pushy.
+- (90) The Momentum AI Phone Assistant restores a business owner's focus by acting as a digital gatekeeper that handles calls and filters noise.
+- (85) The IONOS Agentur-Partnerportal streamlines workflows by allowing agencies to manage all client orders and contracts through a single login.
+- (85) List Local allows businesses to be found online and manage reviews easily, freeing them to focus entirely on their core business.
+- (85) IONOS Webhosting eliminates the need for server installation, maintenance, and updates, making it easier to manage than a dedicated server.
+- (85) MyWebsite Now uses pre-made layout elements to guarantee a professional look where users cannot make design mistakes.
+- (85) IONOS E-Mail allows customers to project a professional image by using an email address that matches their domain name, completely free of advertising.
+- (85) The Social Buy Button offers a one-click connection to Facebook for setup in minutes, and allows the entire shop to be managed conveniently via a mobile app.
+- (85) The Website Design Service saves customers time by handling all website creation, content writing, and post-launch maintenance so they can focus on their core business.
+- (85) The Website Design Service offers transparent, fair pricing without hidden costs, providing a cost-effective alternative to hiring an independent agency or in-house IT.
+- (85) IONOS handles all technical configurations for MyWebsite Now, allowing users to focus entirely on their business.
+- (80) Deploy Now enables developers to manage feature branches, testing, staging, and updates directly from their repository.
+- (80) Deploy Now allows users to deploy multiple branches per repository to test changes in a live environment before publishing.
+- (80) Shoplement enables users to quickly test new e-commerce ideas or temporarily expand their website without programming knowledge.
+- (80) The IONOS E-Mail service offers flexible scalability, allowing users to easily add multiple mailboxes and expand storage capacity as their needs grow.
+- (80) Momentum Team – AI Receptionist converts inbound inquiries directly into confirmed calendar entries without the overhead of a traditional front office.
+- (80) Momentum Team – AI Receptionist secures proprietary data on European infrastructure that never trains public models on your data.
+- (80) IONOS Cloud and Dedicated Servers can be intuitively managed via the user-friendly Cloud-Panel or through APIs.
+- (80) The Social Buy Button enables users to quickly test business ideas, monetize hobbies, and professionally sell a small number of products on social media.
+- (80) rankingCoach gives users full control over their SEO activities and delivers a sense of achievement through improved search rankings.
+- (80) MyWebsite Creator eCommerce enables high-volume international selling with complex shop structures and powerful marketing tools like retargeting.
+- (80) Managed Nextcloud enables secure, anywhere-access file sharing and collaboration without requiring internal IT resources.
+- (80) The optional Managed WordPress feature saves users time by automatically handling updates for core files, templates, plugins, and PHP versions.
+- (80) The IONOS Agentur Partnerprogramm helps agencies generate leads by listing them in the partner network directory.
+- (80) IONOS Domains enable users to build an online identity, protect their brand, and route traffic to websites or social media.
+- (80) Google Workspace allows users to seamlessly upgrade from free Gmail to a professional custom domain while retaining a familiar environment.
+- (80) IONOS Webhosting allows users to host projects on a small budget with scalable resources that grow alongside their website's traffic.
+- (80) IONOS Webhosting provides a reliable, GDPR-compliant infrastructure that agencies can confidently recommend and resell to their own clients.
+- (80) MyWebsite Creator provides a secure, intuitive way to build responsive, multilingual websites that include content versioning.
+- (70) Deploy Now generates preview URLs for staging environments that can be easily shared with teams and clients.
+- (70) Google Workspace reduces administration and storage costs by providing a single, comprehensive suite for all essential business activities.
+- (70) New Top Level Domains (nTLDs) offer higher availability for IONOS Domain users wanting to rank high for popular search terms.
+
+## differentiators
+
+- (100) Unlike competitors that hard-block users when credits run out, the AI App & Site Builder guarantees uninterrupted building capability across all plans.
+- (95) The IONOS Agentur-Partnerportal allows users to manage all client projects centrally, even those not hosted with IONOS.
+- (90) Purchasing Google Workspace through IONOS offers cost savings compared to buying directly from Google, particularly with the 5-user package.
+- (90) IONOS provides accelerated support for Google Workspace, ensuring customer tickets receive higher priority at Google than direct submissions.
+- (90) Unlike standard cloud storage like Dropbox or Google Drive, Managed Nextcloud provides a private, GDPR-compliant environment in the user's own cloud.
+- (90) IONOS WordPress Hosting includes 24/7 personal advice from WordPress expert support.
+- (90) Competing against Wix, Shopify, and Squarespace, MyWebsite Now Shop features an indestructible design with auto-fixed sections that always look professional.
+- (90) Every MyWebsite Now Shop customer receives a personal consultant to help with their website, shop, and online success.
+- (90) Unlike conventional hosting, Deploy Now avoids monolithic architectures by supporting flexible, decoupled Jamstack setups.
+- (90) Unlike Bolt or Lovable which rely on third-party hosting, the AI App & Site Builder natively bundles AI generation, database, domain, SSL, and email.
+- (90) Unlike selling directly via Facebook and Instagram, the Social Buy Button supports third-party apps, invoice management, and synchronization with Amazon and eBay.
+- (90) Unlike US competitors, the Momentum AI Phone Assistant is 100% GDPR compliant and hosted in ISO-certified German data centers.
+- (85) Unlike pure DIY builders without support, IONOS MyWebsite Now includes personal, free expert consulting around the clock (24/7) directly in the package.
+- (85) Unlike free generic email providers, IONOS E-Mail offers a 100% ad-free environment and advanced data security under strict German privacy laws.
+- (85) Unlike classic isolated social media shops, IONOS Social Buy Button offers a direct upgrade path via the Shoplement extension to a true multi-channel experience.
+- (85) Unlike standard single-platform hosting, IONOS Web Hosting utilizes a dual-platform strategy where web servers and storage are on the same platform.
+- (85) Unlike competitors' entry-level tiers, IONOS VPS standardizes high-speed NVMe storage even in its most affordable entry-level plans.
+- (85) You may claim List Local is one of the cheapest market solutions and offers the best price-performance ratio compared to competitors.
+- (85) Unlike buying directly from Google, IONOS Google Workspace offers cheaper rates (especially for the 5-user package), accelerated support, and automatic domain setup.
+- (85) Unlike classic DIY builders, IONOS MyWebsite Now Shop requires absolutely no technical configuration and includes personal 1:1 consulting for every customer.
+- (85) Unlike generic SEO advice, rankingCoach crawls the specific business website to generate highly individualized, actionable optimization tips.
+- (85) Unlike pure DIY builders without help, IONOS MyWebsite Creator offers the security of a personal 24/7 contact person during independent website creation.
+- (85) Unlike rigidly priced server solutions, IONOS Cloud Server offers fully flexible scalability and transparent, down-to-the-second pay-as-you-go billing.
+- (85) Unlike hyperscalers, IONOS AI Model Studio guarantees data processing occurs strictly within Germany, eliminating global data processing risks.
+- (85) Unlike classic server providers with minimum contract terms, IONOS Dedicated Server offers full flexibility through pure pay-as-you-go billing without contract binding.
+- (85) Unlike generic US-based bots, Momentum Team – AI Receptionist guarantees strict GDPR compliance and localized German data residency.
+- (85) Unlike basic chatbots, Momentum Team – AI Receptionist uses RAG architecture to provide precise answers based strictly on uploaded business documents.
+- (85) Unlike standard n8n Cloud subscriptions, IONOS n8n VPS provides dedicated hardware resources and local support at a fraction of the cost.
+- (85) Unlike completely self-managed hosting, IONOS WordPress Hosting removes the risk and effort by automatically updating core files, themes, plugins, and PHP versions.
+- (85) Unlike SEO or SEA tools, IONOS List Local is faster and easier to use, delivering immediate results without requiring prior knowledge.
+- (85) Unlike Dropbox or Google Drive, IONOS Managed Nextcloud combines user-friendly application with professional security features, GDPR compliance, and hosting in certified German data centers.
+- (85) Unlike manual hosting setups, IONOS Deploy Now provides a dev-friendly interface with automatic CI/CD pipelines and staging environments directly via GitHub.
+- (85) Unlike competitors with hard credit blocks, IONOS AI App and Site Builder maintains building capability with a 'never-blocked' access model.
+- (85) Unlike standard IONOS WordPress Hosting, IONOS WordPress Pro exclusively offers the WordPress Toolkit and simultaneous multi-project management, but is only available in DE, US, and UK.
+- (85) Unlike Shopify or Squarespace, IONOS MyWebsite Creator eCommerce balances full design freedom via CSS/HTML editing with a completely configuration-free infrastructure and native multi-channel e-commerce.
+- (85) Unlike complex e-commerce systems, IONOS Shoplement enables online selling in minutes via an HTML snippet without developer effort, combined with personal consulting.
+- (85) Unlike traditional management across multiple provider logins, IONOS Agency Business enables central control of all client projects through a single, free partner portal.
+- (85) Unlike competitors charging for extras, IONOS Domains includes a professional 2GB email and a Wildcard SSL certificate at no additional cost.
+- (85) Unlike Dropbox, IONOS AI Document Manager automatically names, classifies, and reads the content of documents natively.
+- (85) Unlike classic SEO agencies, IONOS rankingCoach allows users to perform professional SEO cost-effectively and independently without agency dependence.
+- (85) Unlike DIY website builders, IONOS Website Design Service completely takes over the creation and maintenance process, eliminating any learning or time effort for the client.
+- (80) Unlike competitors offering code-only rollbacks, the AI App & Site Builder provides unified rollbacks for code, chat, and database simultaneously.
+- (80) List Local delivers immediate online visibility results faster and easier than traditional SEO or SEA tools.
+- (80) MyWebsite Now Shop eliminates technical setup by having IONOS automatically configure the domain and SSL encryption.
+- (80) IONOS differentiates its Google Workspace offering by providing automatic domain setup for customers.
+- (80) Unlike unmanaged server products, IONOS Webhosting handles all backend maintenance and updates automatically.
+- (70) Shoplement competes directly with Shopify, FoxyCart, and Shoprocket.
+
+## proof_points
+
+- (100) Private registration is guaranteed for all available IONOS Domains to ensure GDPR compliance and protect privacy.
+- (100) IONOS Agentur Partnerprogramm members receive exclusive benefits including three-month test phases, no setup fees, and monthly cancellation terms.
+- (100) Every IONOS Domain automatically includes a free Wildcard SSL certificate in the initial contract.
+- (100) Every IONOS Domain includes a free email inbox with 2 GB of easily expandable storage.
+- (100) Every IONOS WordPress Hosting plan includes at least one domain, an SSL certificate, one email address, and virus protection.
+- (100) IONOS Domains include a Domain Lock feature to prevent unauthorized transfers by third parties.
+- (100) You can safely claim that proprietary conversations handled by the Momentum AI Phone Assistant are never used to train public AI models.
+- (95) IONOS E-Mail ensures data security through ISO-certified data centers, an included SSL certificate, and an integrated anti-spam filter.
+- (95) Every Social Buy Button customer receives a personal consultant to answer questions about their online shop and digital success factors.
+- (95) IONOS E-Mail provides up to 50 GB of storage space per mailbox.
+- (95) Every MyWebsite Now package includes a domain name, an ad-free email address, an SSL certificate, and an image archive.
+- (95) MyWebsite Now enables users to build and publish a complete website in under 60 minutes.
+- (95) The Website Design Service is backed by over six years of market experience and more than 20,000 published websites; safe to claim.
+- (90) IONOS Webhosting includes essential features like a domain, an email inbox, and an SSL certificate in its product packages.
+- (90) IONOS Webhosting ensures high speed through SSD storage, high-speed fiber optic data center connections, and a Content Delivery Network.
+- (90) IONOS Webhosting secures websites with malware protection, DDoS protection, backups, and geo-redundant, ISO-certified data centers.
+- (90) IONOS Webhosting includes 24/7 customer support with direct access to a personal consultant.
+- (90) MyWebsite Creator includes hundreds of responsive, industry-specific design templates and access to royalty-free graphics.
+- (90) MyWebsite Creator ensures GDPR compliance through an integrated cookie management system that gives users full control over privacy settings.
+- (90) MyWebsite Now includes 24/7 step-by-step support from a personal expert advisor.
+- (90) MyWebsite Creator eCommerce includes a framework for legal notices and privacy policies, a custom email address, and pre-configured SSL encryption.
+- (90) Every MyWebsite Creator eCommerce customer receives a personal consultant to answer questions about their online shop and digital success factors.
+- (90) Managed Nextcloud offers flexible cloud storage capacities ranging from 500 GB up to 10 TB.
+- (90) Managed Nextcloud is hosted in ISO 27001-certified German data centers.
+- (90) IONOS WordPress Hosting offers over 5,000 design templates and 50,000 plugins, supported by a Setup Assistant and SSD storage.
+- (90) IONOS WordPress Hosting ensures fast global load times using dedicated resources, Advanced Caching, and a Content Delivery Network (CDN).
+- (90) MyWebsite Now Shop allows users to put their offer online and start selling within one hour.
+- (90) MyWebsite Now Shop includes SSL encryption and an email inbox out of the box.
+- (90) Every IONOS Domain includes 24/7 personal customer service from experts.
+- (90) Deploy Now projects are hosted on a green, redundant, and DDoS-protected IONOS hosting network.
+- (90) Deploy Now offers a free trial for registered members that includes three projects deployed at no cost during the trial phase.
+- (90) Every Shoplement customer receives a dedicated personal consultant for questions about their store; safe to claim.
+- (90) IONOS E-Mail includes 24/7 support from a personal consultant and free email migration from other providers.
+- (90) It is safe to claim Momentum Team – AI Receptionist is 100% GDPR compliant and hosted in ISO-certified German data centers.
+- (90) It is safe to claim IONOS Domains offers access to over 700 Top-Level Domains and includes a 2GB professional mailbox.
+- (90) It is safe to claim IONOS E-Mail guarantees 99.9% uptime and is hosted in ISO-certified data centers.
+- (90) It is safe to claim IONOS VPS data centers run on 100% renewable energy and are ISO 27001 certified.
+- (90) It is safe to claim IONOS AI Model Studio billing is calculated based on exact token usage, billed per 1,000 tokens.
+- (90) It is safe to claim IONOS AI App and Site Builder offers near-instant live preview updates in approximately 1.2 seconds.
+- (90) IONOS AI App & Site Builder plans include one domain free for the first year, whereas STRATO plans include one domain permanently at no extra cost.
+- (90) The AI App & Site Builder is hosted strictly on owned infrastructure, ensuring GDPR compliance for EU customers and data transparency for the US.
+- (90) IONOS Cloud Server features a VMware-virtualized public cloud infrastructure utilizing SAN-SSD storage.
+- (90) IONOS Dedicated Server provides high-performance processors built entirely on 100 percent enterprise-grade hardware.
+- (90) IONOS Cloud and Dedicated Servers include unlimited traffic, free load balancers, shared storage, block storage, backups, and server imaging.
+- (90) The Website Design Service is executed by an expert agency based in Germany; safe to claim.
+- (90) The IONOS Agentur Partnerprogramm includes dedicated expert support and account management for premium partners.
+- (90) The Momentum AI Phone Assistant integrates with Google Calendar and Outlook to actively negotiate time slots and book appointments directly.
+- (85) Shoplement setup takes only a few minutes, including configuring tax and shipping options; safe to claim.
+- (85) IONOS Webhosting uses green energy, though this claim must only be made where available in the specific target market.
+- (80) The Social Buy Button can be upgraded to the Shoplement extension to connect the social store with a full website and marketplaces for a multi-channel experience.
+- (80) It ensures team consistency by creating a Master Script in the Knowledge Hub so all reps use the same effective messaging.
+- (80) The AI summarizes sales calls via integration and drafts follow-up emails with clear next steps to maintain deal momentum.
+- (80) IONOS Domains feature one-click activation to easily connect the domain with email, hosting, and social profiles.
+- (80) IONOS Domains support Domain Connect for easy integration with third-party providers like Shopify and iCloud.
+- (80) The AI App & Site Builder plans (Standard, Plus, Premium, Ultimate) scale project limits from 1 to 50 and include professional email and SSL.
+- (80) The IONOS Agentur Partnerprogramm is built on Europe's largest hosting and cloud platform, making it the largest WordPress hoster.
+- (80) STRATO AI App & Site Builder monthly base prices are €4 lower than IONOS across S-L tariffs, with the XL tariff priced at €175 per month.
+- (80) The Momentum AI Phone Assistant filters out spam and robocalls, creating transcripts of every call but only notifying the user for genuine leads.
+- (80) Static websites hosted with Deploy Now load up to ten times faster than dynamic websites because they do not rely on a database.
+- (80) The Momentum AI Phone Assistant requires zero configuration, learning business details in minutes by scanning the user's existing website.
+- (80) The AI generates persuasive sales narratives tailored to prospect pain points based on basic product specs.
+- (80) IONOS Server customers receive a money-back guarantee and direct access to a dedicated Personal Consultant for support.
+- (80) It generates step-by-step cold call guides including the opener, value proposition, and the ask.
+- (80) The AI provides strategic counter-arguments to defend pricing and handle discount requests while keeping relationships positive.
+- (80) MyWebsite Creator customers have access to a personal consultant available 24 hours a day, seven days a week.
+- (80) Technical setup for MyWebsite Creator eCommerce is zero-configuration, with the domain and SSL automatically set up for the customer.
+- (80) Managed Nextcloud includes built-in collaboration tools like a team calendar, address book, inbox, Kanban board, and video conferencing.
+- (80) Powered by RAG, the Momentum AI Phone Assistant references uploaded PDFs like menus or price lists to provide accurate, business-specific answers.
+- (80) The MyWebsite Now Shop can be managed via a mobile app, but never claim the website itself supports mobile editing.
+- (70) MyWebsite Now Shop provides a built-in framework for integrating legal and privacy notices.
+- (70) Managed Nextcloud allows secure file sharing with colleagues, customers, or external partners via protected upload and download links.
+- (60) The IONOS Agentur Partnerprogramm offers access to a broad community through meetups, webinars, trade fair presence, and open-source sponsoring.
+
+## claim_constraints
+
+- (100) Never imply the AI App & Site Builder has a free trial; position the Plus plan's first free month strictly as a time-limited introductory offer.
+- (100) Never reference prompt counts, token limits, or model names for the AI App & Site Builder; always frame its "unlimited" usage as continuous access.
+- (100) Never give flat revenue or growth guarantees for IONOS Website Design Service; frame growth as appropriate representation and motivation.
+- (100) Never imply introductory IONOS Domains rates apply indefinitely beyond the first year, or over-claim security as unbreakable.
+- (100) Never use standardized product images for IONOS Website Design Service, as every website is unique.
+- (100) Do not claim full LLM sovereignty for the AI App & Site Builder, as the product uses Anthropic's Claude model.
+- (100) Never guarantee specific search engine ranks (SEO) when promoting IONOS Domains.
+- (100) Never use generic US hosting terminology, overlook European residency claims, or suggest manual setup is required for Momentum Team – AI Receptionist.
+- (100) Never make promises about guaranteed revenue through the IONOS Agency Business partner program.
+- (100) Never promise or imply that existing customers can migrate to the AI App & Site Builder from a Website Builder, WordPress, or Web Hosting product.
+- (100) Never claim Momentum Team – AI Receptionist replaces human staff for highly complex, non-database negotiations.
+- (100) Never promote IONOS WordPress Pro in markets outside of DE, US, and UK, or generalize about unlimited scalability without referring to the dashboard or toolkit.
+- (100) Always use 'AI Sales Consultant' or 'Sales Enablement Agent' in external marketing; only use the avatar name 'Sofia' within the product experience.
+- (100) Never represent IONOS VPS as physically dedicated hardware, as it is virtualized.
+- (100) Never make unsubstantiated promises about the exact amount of savings for IONOS Google Workspace without referring to the specific tariff.
+- (100) Never promise unlimited disk storage or RAM for IONOS VPS; only traffic is unlimited.
+- (100) Never assure that IONOS Deploy Now is available in German, as the product itself is only available in English.
+- (100) Never claim specific percentage uptime guarantees for IONOS VPS, as none are stated.
+- (100) Never claim the custom domain for IONOS E-Mail is free forever; it is only free for the first 12 months.
+- (100) Never promise unlimited free use for IONOS Deploy Now; the trial phase is strictly limited to 3 free projects upon registration.
+- (100) Never present 100% sustainability as globally universally valid for IONOS WordPress Hosting; it must be restricted to 'in most markets'.
+- (100) Never use the internal project name "Stretch"; refer to the AI App & Site Builder's foundation as IONOS infrastructure or EU-based hosting platform.
+- (100) Never make unsubstantiated promises of infinite performance or guarantee absolute fail-safety beyond contractual SLAs for IONOS Dedicated Server.
+- (100) Never claim or imply that Shoplement can be used exclusively for selling on social media.
+- (100) Never guarantee 100% uptime without exact SLAs or use overly complex tech jargon without benefit reference for IONOS Cloud Server.
+- (100) Never claim Shoplement builds a fully integrated, feature-complete online store from scratch.
+- (100) Never give an absolute guarantee for legal warning protection (Abmahnsicherheit) regarding the legal texts in IONOS MyWebsite Now Shop.
+- (100) Never claim the €1/month price is permanent or the domain is free forever for IONOS Web Hosting; they are introductory offers.
+- (100) Never make promises about automatic top search engine rankings for IONOS MyWebsite Now.
+- (100) Never claim that unlimited, free code adjustments are possible in IONOS MyWebsite Now, as the focus is on predefined layouts.
+- (100) Never provide legal advice for IONOS MyWebsite Creator eCommerce, as the provided framework for imprint and privacy policies does not replace individual legal review.
+- (100) Never claim MyWebsite Now Shop is suitable for highly customized websites, HTML adjustments, blogs, or external add-ons.
+- (100) Never give legal guarantees regarding absolute protection against warnings despite the cookie management in IONOS MyWebsite Creator.
+- (100) Never claim 100% or absolute uptime for IONOS Web Hosting; you must stick to the 99.9% guarantee.
+- (100) IONOS WordPress Hosting provides ImunifyAV malware protection and backups, but you must never claim the backups are geo-redundant.
+- (100) Never state that generative capabilities are currently active for IONOS AI Document Manager, or suggest any data transfers to the US.
+- (100) Never claim automatic OCR and indexing are available for web-uploaded images and scans at launch for IONOS AI Document Manager.
+- (100) Never promote Managed Nextcloud in the US or Canada, as the product is not available in those markets.
+- (100) Never position MyWebsite Creator eCommerce as a quick, minimal-effort solution or one reliant on pre-made layouts, as it requires deep customization.
+- (100) Never conceal that the high flexibility of IONOS MyWebsite Creator requires time and decisions, or promise free access to rankingCoach or List Local without mentioning additional costs.
+- (100) Never claim or imply that IONOS sells the Google Workspace Enterprise package, as only Business Starter and Business Standard are offered.
+- (100) Never guarantee first-place rankings on Google or make unrealistic time-saving promises for IONOS rankingCoach.
+- (100) Never use complex enterprise software jargon, claim infinite scalability, or mention dedicated sales pipelines for IONOS AI CRM Manager.
+- (100) Never make absolute claims that users never need to write code for IONOS AI App and Site Builder, only that it is not required.
+- (100) Never imply that the Shoplement upgrade for IONOS Social Buy Button is free of charge.
+- (100) Never promise guaranteed sales increases or state that absolutely no effort is required to use IONOS Shoplement.
+- (100) Never guarantee absolute software flawlessness or provide unqualified legal advice on GDPR beyond the technical platform provision for IONOS Managed Nextcloud.
+- (100) Never claim that backups for IONOS WordPress Hosting are geo-redundant.
+- (100) Never guarantee ranking promises, such as first place on Google, when promoting IONOS List Local.
+- (100) Never claim arbitrary uptime guarantees for IONOS n8n VPS, or suggest that n8n nodes are custom-built or exclusively provided by IONOS.
+- (100) Never present standard Google features as exclusive IONOS developments when promoting IONOS Google Workspace.
+- (100) Never claim IONOS AI Model Studio is hosted outside of German data centers or supports proprietary models like OpenAI GPT or Anthropic Claude.
+- (100) Safe to claim 24/7 support for AI App & Site Builder infrastructure, but never claim support assists with AI-generated code, prompts, or logic.
+- (95) Never claim IONOS Webhosting requires absolutely no technical knowledge; position it as an uncomplicated 1-click solution for users with basic tech skills.
+- (95) Never criticize, bash, or accuse marketing agencies of scamming customers when positioning rankingCoach as an alternative.
+- (95) Never position the Social Buy Button as a full-fledged online store or an immediate multi-channel solution; it is strictly for small-scale social media selling.
+- (95) Never promise a guaranteed first-place ranking on Google or claim that rankingCoach will make all SEO problems a thing of the past.
+- (90) Never refer to the Momentum AI Phone Assistant as a generic "chatbot" or a simple voicemail replacement.
+- (90) Google Workspace is compatible with offline applications like Outlook; never claim it forces users to work exclusively online.
+- (90) You may promote MyWebsite Creator's compatibility with marketing tools like rankingCoach and List Local, but must state they cost extra.
+- (90) Never position GDPR compliance as the main selling point for Managed Nextcloud, though it may be mentioned as a feature.
+- (90) IONOS WordPress Hosting is 100% sustainable in most markets; always qualify sustainability claims as applying to most markets.
+- (90) Never claim the AI App & Site Builder includes payment integration, as direct Stripe integration is not available.
+
+## misc
+
+- (100) The product name is universally "MyWebsite Creator" across all global markets.
+- (90) The Social Buy Button requires users to have an existing Facebook Business page to get started.
+- (80) While IONOS Domains are available globally, specific country-code TLDs like .de are not available in all markets.
+- (80) The product is globally available in all markets under the exact name MyWebsite Now.
+- (70) The Social Buy Button is available in all markets, but writers must check for local differences in the exact product name.
+- (70) Additional security and performance can be added to IONOS Domains via the Domain Guard and DNS Pro add-ons.
+- (70) rankingCoach is available in all IONOS markets globally under the exact same product name.
+- (70) The IONOS E-Mail product is available globally, but is specifically referred to as 'E-Mail' or 'E-Mail-Adresse' in the German (DE) market.
+- (60) The Deploy Now product interface is exclusively in English and will not be localized, though marketing materials are localized.
+- (60) The Website Design Service is available in DE, UK, US, FR, ES, and IT, though market-specific product names may apply outside Germany.
+- (50) IONOS offers Google Workspace in seven countries: Germany, Austria, the UK, France, Spain, Italy, and the US.
+- (50) List Local is available globally, though the product name may vary depending on the specific country.
+- (50) Users can resell their IONOS Domains to profit from potential value increases.
+- (50) Shoplement is available globally, though the product name may vary by country.
+- (40) MyWebsite Creator eCommerce competes directly against GoDaddy, Jimdo, Squarespace, and Shopify.
