@@ -6,11 +6,12 @@ files:
   commands/kh-assemble.md: 9e885bfa82599de2005be4a2f3f3bac1beea9aaf291c7df95c9bd74c20900add
   commands/kh-ingest.md: 3525e7f76fa9c4355948c78003b80de8edcde8e4895a39542dcbebe60419bc42
   commands/kh-publish.md: ca9983e1af17966a08777f3f6c605be6976ee12a682a3e70758fe3666a63153d
-  knowledge/ionos/brand-identity.md: 3ffafbcc83e45efd709fc804227d9d14f24295a688afd1fa3e9b266f42190041
-  knowledge/ionos/image-guidelines.md: 88488c836b2de5dc0df514bfc32dafa4e28c8649b531b2ad164fdb69c6bf65d0
-  knowledge/ionos/language.md: 28a3032324972b7e83eebd38446ead68d4c60d98e7efd89cd274a5e726cf10f4
-  knowledge/ionos/product.md: fda2c2cbe3ac399842ad9442f539cfde5f909119dbb0068634218964e291ce4b
-  knowledge/ionos/writing-tone.md: 9e07f0b29271854814f859ab1e12b169200a5ed2f5797c45ff65160bc7978f08
+  knowledge/ionos/brand-identity.md: 54918ad9edb599c094cfe2293511495edc0cdfdf2f217319bf70c68a87b6f6d6
+  knowledge/ionos/image-guidelines.md: 025360d5372297a43739fbda535ea538c06ae02b2da0959a1ee1588bff1a695c
+  knowledge/ionos/language.md: 7ae208fe9db5f81c6e130d3eb70b43513485e28e7a8c8cb869c93961ee76c390
+  knowledge/ionos/platforms.md: d913fb50730d05040cd4757ecfb7f23fb24f96f8fe6138600e5011459f0d7cfd
+  knowledge/ionos/product.md: 1515690d2b07fca6fe7379b69847993415c80aa0d44d0d3b4bc74fe15ed80577
+  knowledge/ionos/writing-tone.md: 29d62793dd22c418411b3e799d8d719348ba77e429b4a0e23722f27650532529
   knowledge/strato/brand-identity.md: cfabccb7efa229fa6eb308a510acddd38d31cf9adfa852bbc121a986bcef73fb
   knowledge/strato/product.md: 4fb3a732f766f96c541affc55c00fcc9aa7628aaf0386762be50b462d155ec82
   knowledge/strato/target-group.md: b67a5cb3bffba619fcbf5b5a72bb7b743fa724f587b1e7f46f784979a91987af

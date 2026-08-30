@@ -14,8 +14,8 @@ rank; only the top 12 per category reach a prompt.
 - (90) Address the reader directly using active phrasing and a formal, premium stance.
 - (90) Adopt an authoritative, visionary, and reassuring tone that speaks with the weight of an established industry leader.
 - (90) Use professional, industry-standard terminology instead of slang, colloquialisms, or informal greetings.
-- (80) Use an encouraging and inspiring tone that shows ambition for the customer's success.
 - (80) Use active, confident verbs that imply progress and stability.
+- (80) Use an encouraging and inspiring tone that shows ambition for the customer's success.
 
 ## web_readability
 

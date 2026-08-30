@@ -14,5 +14,5 @@ rank; only the top 12 per category reach a prompt.
 ## personality
 
 - (90) The IONOS brand embodies the hero archetype, acting as a confident, sustainable European counterpoint to the major global tech giants.
-- (80) As a hero brand, IONOS communicates with bold confidence in its value, but is never overbearing, arrogant, or patronizing.
 - (80) The core personality traits of the IONOS brand are confident, dedicated, ambitious, bold, engaging, friendly, helpful, encouraging, and inspiring.
+- (80) As a hero brand, IONOS communicates with bold confidence in its value, but is never overbearing, arrogant, or patronizing.

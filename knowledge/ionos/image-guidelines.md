@@ -22,10 +22,10 @@ rank; only the top 12 per category reach a prompt.
 - (90) Always state face and body framing positively in the prompt, such as 'full body in frame from head to floor', because negative prompts are weak composition signals.
 - (90) For cutout assets, center a single clear subject on a plain, evenly lit, high-contrast background to ensure an unambiguous silhouette for the matting model.
 - (90) For feature highlights, place a dense, dark navy main output frame center-right, overlapped on its left edge by a smaller, light-colored input pop-out.
-- (80) For customer testimonial images, leave a calm, dead-center negative-space region clear for overlaid quote cards, avoiding tight face close-ups.
+- (80) For 'Celebrity Backdrop' compositions, feature scaled N-shaped elements with a 26-degree inclination protruding from the lower right of the frame.
 - (80) Account for center-crop bias by adjusting subject positioning to keep key elements in the surviving central band, as landscape targets trim top/bottom and portraits trim sides.
 - (80) Environments must feel lived-in with appropriate density and disorder, using three planes of depth: colorful foreground bokeh, a sharp subject, and a softly blurred background.
-- (80) For 'Celebrity Backdrop' compositions, feature scaled N-shaped elements with a 26-degree inclination protruding from the lower right of the frame.
+- (80) For customer testimonial images, leave a calm, dead-center negative-space region clear for overlaid quote cards, avoiding tight face close-ups.
 
 ## subject_and_diversity
 
