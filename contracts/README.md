@@ -17,6 +17,11 @@ Published from `integrations/n8n/openapi/` by the knowledge hub. Hand-authored, 
 - `catalog-generate-api.yaml`
 - `catalog-select-api.yaml`
 - `image-generation-api.yaml`
+- `knowledge-hub-api.yaml` — the Hub's own six `kh/*` n8n webhooks (assemble/ingest/publish/
+  skill-upsert/lookup/lookup-publish), plus `kh/teams-publish` as a flagged addendum. Added
+  2026-09-16 — no OpenAPI spec for this surface existed before; only the other services in this
+  list did. Hand-kept, same as its siblings; source of truth is
+  `integrations/n8n/openapi/knowledge-hub-api.yaml` in the main repo.
 - `n8n-image-generate-enrich-from-keys.md`
 - `text-generation-api.yaml`
 

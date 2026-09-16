@@ -1,0 +1,495 @@
+openapi: 3.1.0
+info:
+  title: Unima Knowledge Hub API
+  version: "2026-09-16"
+  description: |
+    The Knowledge Hub's own webhook surface, hosted in n8n. Six live webhooks are the whole Hub
+    surface — assembling a system prompt, digesting an upload into draft atoms, publishing atoms
+    and skills, and serving the entry-vocabulary dropdowns. Canonical reference:
+    `unima-orchestrator/docs/knowledge-hub-api-contract.md` (audited against the code and the live
+    n8n instance) and `unima-orchestrator/docs/knowledge-hub-concept.md` (what the Hub *is*).
+
+    **This spec is hand-kept, like its siblings in this directory.** Nothing generates it and
+    nothing keeps it in sync automatically — if a paragraph here disagrees with a workflow export
+    under `integrations/n8n/workflows/kh-*.json` or with the Symfony call sites in
+    `src/Unima/Infrastructure/KnowledgeHub/N8nKnowledgeHubClient.php`, those win and this file is
+    the bug. Re-derive it from the contract doc and the PHP call sites, not from memory.
+
+    ## Assembly runs no model
+
+    `kh/assemble` builds and returns a system prompt string. It never calls a model and never sees
+    the user prompt — the router keeps that and calls the provider itself. There is no `generate`
+    endpoint on this surface; there never was one.
+
+    ## Brand is the partition, always the caller's own team id
+
+    Every request below that takes `brand` expects the calling team's id (`BrandKey`), never a
+    human-readable name — `unima_teams.name` has no unique index, so a name-keyed partition let one
+    tenant's brand voice assemble into another tenant's prompts before this was fixed (see the
+    contract doc, "Brand was partitioned by team NAME, not id"). There is no cross-brand query on
+    any of these routes.
+
+    ## Authentication
+
+    Enterprise-instance concern, same as this directory's other specs — not modelled here as it
+    varies by deployment. Local n8n has none.
+  contact:
+    name: Knowledge Hub
+    url: https://github.com/
+tags:
+  - name: assemble
+    description: Serve-time prompt assembly. Runs no model.
+  - name: ingest
+    description: Digesting an uploaded document into draft atoms.
+  - name: publish
+    description: Publishing corpus content, skills, or entry vocabulary into n8n's Data Tables.
+  - name: lookup
+    description: Reading the entry-vocabulary dropdowns (product/language/platform/target group).
+paths:
+  /webhook/kh/assemble:
+    post:
+      operationId: khAssemble
+      tags: [assemble]
+      summary: Assemble a system prompt for a skill, brand and scope.
+      description: |
+        Workflow `LJNYuAEIncvz85xD` (`integrations/n8n/workflows/kh-assemble.json`). Called by the
+        text/image routers, the agent repo, and the Prompt Explorer's `/explain` preview.
+
+        Runs four serve-time operations in order — **filter** (brand partition, appetite match,
+        `published` state, per-axis tag match against `product`/`language`/`platform`/`segment`),
+        **rank** (by atom rank, descending), **cap** (top `budget` per `dimension/category`, no
+        branch for `*`-tagged atoms), **order** (appetite order, with `target group` then
+        `platforms` forced last, plus one override sentence). Nothing else may be added to assembly,
+        ever — a second implementation of this algorithm anywhere else is the bug, not a feature.
+
+        A brand with no knowledge, or a skill name that matches no `kh_skills` row, fails loudly
+        (non-2xx) rather than returning an empty prompt — n8n skips every downstream node on a
+        zero-row read, which without this guard would read as HTTP 200 success.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [skill, brand]
+              properties:
+                skill:
+                  type: string
+                  description: The `kh_skills` row to assemble against — names the default appetite.
+                  example: copywriter
+                brand:
+                  type: string
+                  description: The calling team's id. The partition; never a team name.
+                  example: "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+                scope:
+                  type: object
+                  description: |
+                    All four keys are optional, but send all four even when empty — an omitted key
+                    is restrictive (matches only globally-tagged atoms), never permissive.
+                  properties:
+                    product: { type: [string, "null"], example: hosting }
+                    language: { type: [string, "null"], example: de-DE }
+                    platform: { type: [string, "null"], example: social }
+                    segment: { type: [string, "null"], example: audience.ambitious_digital_starter }
+                budget:
+                  type: integer
+                  minimum: 1
+                  default: 12
+                  description: Top-N cap, applied per `dimension/category`, not per dimension or overall.
+                appetite:
+                  type: array
+                  items: { type: string }
+                  description: |
+                    Overrides the skill's own declared appetite for this one call. `dimension/*`
+                    selects a whole dimension; `[]` is a real instruction meaning "see nothing" —
+                    how the Prompt Explorer isolates a skill's own prompt from its knowledge.
+                  example: ["language/*", "product/claim_constraints"]
+      responses:
+        "200":
+          description: The assembled prompt, what produced it, and the effective appetite.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  system:
+                    type: string
+                    description: The assembled system prompt.
+                  used:
+                    type: array
+                    description: Every atom that made it into `system`, for audit.
+                    items:
+                      type: object
+                      properties:
+                        atom: { type: string }
+                        dimension: { type: string }
+                        category: { type: string }
+                        rank: { type: integer }
+                  skill: { type: string }
+                  model: { type: string }
+                  appetite:
+                    type: array
+                    items: { type: string }
+                    description: The EFFECTIVE appetite actually applied (skill default, or the override).
+                  diagnostics:
+                    type: object
+                    properties:
+                      fetched: { type: integer }
+                      kept: { type: integer }
+                      budget: { type: integer }
+                      appetiteOverride: { type: boolean }
+        default:
+          description: Unknown skill, or a brand with no knowledge — assembly fails loudly rather than returning an empty prompt.
+
+  /webhook/kh/ingest:
+    post:
+      operationId: khIngest
+      tags: [ingest]
+      summary: Digest an uploaded document into draft atoms for one dimension.
+      description: |
+        Workflow `YC4IkJRi9Hcvxuap` (`integrations/n8n/workflows/kh-ingest.json`, if exported under
+        that name — see `kh-assemble.json`'s siblings). Called by the Hub itself, from
+        `DigestHubDocumentCommandHandler`, after `POST /api/v1/knowledge-hub/documents` dispatches
+        `DigestHubDocumentCommand`.
+
+        `dimension` selects the expert skill by name: `'ingest.' + dimension.toLowerCase().replace(/[^a-z]+/g, '_')`.
+        `scope` is the uploader's DECLARED attribution — a ceiling. The skill may propose a
+        narrower per-atom scope; it can never widen past the declaration, and the clamp is enforced
+        in PHP (`DigestHubDocumentCommandHandler::narrowed()`), not in this workflow — the `Parse`
+        node passes any per-atom scope through unchecked on purpose.
+
+        A run that returns zero atoms is a FAILURE, not an empty success: the webhook answers 200
+        with an `error` key when nothing could be produced, because a document silently marked done
+        with no atoms and no complaint is the worst outcome available.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [brand, dimension, document]
+              properties:
+                brand: { type: string, description: The calling team's id. }
+                dimension:
+                  type: string
+                  example: language
+                  description: One of the seven Hub dimensions; selects the `ingest.*` skill.
+                document:
+                  type: string
+                  description: The document text (images already stripped by intake before the skill sees it).
+                scope:
+                  type: object
+                  description: The uploader's declared attribution — a ceiling the skill may narrow but never widen.
+                  properties:
+                    product: { type: [string, "null"] }
+                    language: { type: [string, "null"] }
+                    platform: { type: [string, "null"] }
+                    segment: { type: [string, "null"] }
+                instruction:
+                  type: string
+                  description: Optional per-document steer.
+      responses:
+        "200":
+          description: Draft atoms, what was dropped, and a run-level verdict.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  atoms:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        body: { type: string }
+                        dimension: { type: string }
+                        category: { type: string }
+                        rank: { type: integer }
+                        brand: { type: string }
+                        product: { type: [string, "null"] }
+                        language: { type: [string, "null"] }
+                        platform: { type: [string, "null"] }
+                        segment: { type: [string, "null"] }
+                        state: { type: string, enum: [draft] }
+                  drops:
+                    type: array
+                    description: What the skill declined, and why — the feedback loop for tuning a skill.
+                    items:
+                      type: object
+                      properties:
+                        section: { type: string }
+                        reason: { type: string }
+                  verdict:
+                    type: object
+                    description: Run-level "was this any good" — not decoration; this is what caught the bytea stream bug.
+                    properties:
+                      coverage: { type: string }
+                      gist: { type: string }
+                      note: { type: string }
+                  gates:
+                    type: object
+                    description: Reported diagnostics only — nothing in the pipeline blocks on any of it.
+                    properties:
+                      intake: { type: object }
+                      atoms: { type: integer }
+                      drops: { type: integer }
+                      perCategory: { type: object }
+                      overBudget: { type: array, items: { type: string } }
+                      offVocabCategories: { type: array, items: { type: string } }
+                      notOneLiners: { type: integer }
+                  error:
+                    type: string
+                    description: Present, with no atoms, when the run produced nothing usable.
+
+  /webhook/kh/publish:
+    post:
+      operationId: khPublish
+      tags: [publish]
+      summary: Upsert this brand's published atoms and prune everything not sent.
+      description: |
+        Workflow `gtW5TSJCcC8RtwGQ`. Called by `unima:kh:publish`
+        (`PublishHubCorpusCommand`, via `N8nKnowledgeHubClient::publish()` —
+        `src/Unima/Infrastructure/KnowledgeHub/N8nKnowledgeHubClient.php`). Upserts into `kh_atoms`
+        and PRUNES: any row for this brand's named dimensions that the payload does not contain is
+        deleted, which is how retirement propagates out of Postgres and into the live corpus.
+
+        Prune is a diff, not a delete-then-insert — rows being kept are never removed, so there is
+        no window where a consumer sees a shelf missing something.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [brand, dimensions, atoms]
+              properties:
+                brand: { type: string, description: The calling team's id. }
+                dimensions:
+                  type: array
+                  items: { type: string }
+                  description: |
+                    The dimensions this call is authoritative for. Named by the caller, never
+                    inferred from `atoms` — a dimension whose atoms were all retired must still be
+                    pruned to empty, and a scope derived from the payload would be silently empty
+                    exactly then.
+                atoms:
+                  type: array
+                  items:
+                    type: object
+                    required: [atom_id, dimension, category, body, state]
+                    properties:
+                      atom_id: { type: string, description: Stable across republishes. }
+                      dimension: { type: string }
+                      category: { type: string }
+                      body: { type: string }
+                      rank: { type: integer }
+                      product: { type: string, description: "Flat tag; `*` applies to every value on the axis." }
+                      language: { type: string, description: Locale code, or `*`. }
+                      platform: { type: string, description: "Tag value, or `*`." }
+                      segment: { type: string, description: Audience-segment key, or `*`. }
+                      state: { type: string, enum: [published] }
+                      source_doc: { type: string, description: Provenance; empty string if hand-filed. }
+      responses:
+        "200":
+          description: What was published and what got pruned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  published: { type: integer }
+                  pruned: { type: integer }
+                  prunedIds:
+                    type: array
+                    items: { type: string }
+        default:
+          description: "`{ \"error\": \"...\" }` on failure."
+
+  /webhook/kh/skill-upsert:
+    post:
+      operationId: khSkillUpsert
+      tags: [publish]
+      summary: Write or update one skill row.
+      description: |
+        Workflow `zM9KiR2oNdIZxPRc` backs `kh_skills`. Called by `unima:kh:port-prompts` and
+        friends (`PublishHubSkillsCommand::upsertSkill()` —
+        `src/Unima/Infrastructure/Command/PublishHubSkillsCommand.php`). Upsert-only, matched on
+        `skill` — there is no prune path, so a retired skill row keeps serving until something
+        deliberately overwrites or removes it.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [skill, kind, prompt, appetite, model]
+              properties:
+                skill: { type: string, description: The name callers pass to `kh/assemble`. }
+                kind: { type: string, enum: [task, ingest] }
+                brand:
+                  type: string
+                  description: Empty string means available to every brand (the common case).
+                  example: ""
+                prompt: { type: string, description: The skill body. }
+                appetite:
+                  type: string
+                  description: |
+                    A JSON-encoded STRING of the include list (e.g. `"[\"language/*\"]"`), not a
+                    nested JSON array — `PublishHubSkillsCommand` sends it through `json_encode()`
+                    before this call. An explicit include list, never an exclusion.
+                model: { type: string, description: Which model runs this skill. }
+      responses:
+        "200":
+          description: Row written. Response body is not consumed by any caller — only the status code is read.
+
+  /webhook/kh/lookup:
+    post:
+      operationId: khLookup
+      tags: [lookup]
+      summary: Read one brand's entry vocabulary for one or more dimensions.
+      description: |
+        Workflow `kh_lookup`. Called by `N8nKnowledgeHubClient::lookup()` /
+        `lookupBundle()` (`src/Unima/Infrastructure/KnowledgeHub/N8nKnowledgeHubClient.php`) —
+        used by the Prompt Explorer and any future scope-dropdown consumer, proxied through
+        `GET /api/v1/knowledge-hub/lookup` on the Symfony side so a page never has to reach
+        Postgres for scope choices.
+
+        **Sent as a POST, despite the contract doc's summary table calling it `GET`** — n8n webhook
+        nodes commonly take a body regardless of the label used in prose; the PHP call site is the
+        load-bearing contract here. Reads `kh_products` / `kh_languages` / `kh_platforms` /
+        `kh_target_groups`, excluding each team's Global-sentinel row.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  title: Single dimension
+                  required: [brand, dimension]
+                  properties:
+                    brand: { type: string }
+                    dimension: { type: string, enum: [product, language, platform, target_group] }
+                - type: object
+                  title: Bundled (multiple dimensions in one call)
+                  required: [brand, dimensions]
+                  properties:
+                    brand: { type: string }
+                    dimensions:
+                      type: array
+                      items: { type: string, enum: [product, language, platform, target_group] }
+      responses:
+        "200":
+          description: The vocabulary for the requested dimension(s).
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    title: Single-dimension response
+                    properties:
+                      options:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            value: { type: string }
+                            label: { type: string }
+                      count: { type: integer }
+                  - type: object
+                    title: Bundled response
+                    properties:
+                      by_dimension:
+                        type: object
+                        additionalProperties:
+                          type: object
+                          properties:
+                            options:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  value: { type: string }
+                                  label: { type: string }
+                            count: { type: integer }
+
+  /webhook/kh/lookup-publish:
+    post:
+      operationId: khLookupPublish
+      tags: [publish]
+      summary: Upsert-then-prune one brand+dimension's entry vocabulary.
+      description: |
+        Workflow `kh_lookup_publish`. Called by `unima:kh:publish-lookups`
+        (`PublishHubLookupsCommand::optionsFor()`, via
+        `N8nKnowledgeHubClient::publishLookups()`). Mirrors `kh/publish`'s own upsert-then-prune
+        semantics, one call per brand+dimension, writing into `kh_products` / `kh_languages` /
+        `kh_platforms` / `kh_target_groups`.
+
+        `options: []` is a legitimate instruction — a full prune for that brand+dimension — always
+        sent as a JSON array.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [brand, dimension, options]
+              properties:
+                brand: { type: string }
+                dimension: { type: string, enum: [product, language, platform, target_group] }
+                options:
+                  type: array
+                  items:
+                    type: object
+                    required: [value, label]
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                        description: Present for product/language/target_group entries only — platform entries omit it.
+                      value: { type: string }
+                      label: { type: string }
+      responses:
+        "200":
+          description: What was published and what got pruned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  published: { type: integer }
+                  pruned: { type: integer }
+                  prunedValues:
+                    type: array
+                    items: { type: string }
+
+  /webhook/kh/teams-publish:
+    post:
+      operationId: khTeamsPublish
+      tags: [publish]
+      summary: Publish the team directory n8n needs to resolve brand ids to names.
+      description: |
+        **Not one of the Hub's canonical six** — the contract doc counts six live webhooks as "the
+        whole Hub surface," but `unima:kh:publish-lookups` always calls this fifth (really seventh,
+        counting `assemble`/`ingest`/`publish`/`skill-upsert`/`lookup`/`lookup-publish`) webhook too
+        (`PublishHubLookupsCommand`, via `N8nKnowledgeHubClient::publishTeamDirectory()`). Included
+        here because it is real and in active use; flagged as an addendum so this spec does not
+        silently contradict the contract doc's "six" count.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [teams]
+              properties:
+                teams:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id: { type: string }
+                      name: { type: string }
+      responses:
+        "200":
+          description: No response body is consumed by the caller — only checked for an `error` key.
