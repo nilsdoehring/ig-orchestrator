@@ -1,70 +1,195 @@
 openapi: 3.1.0
 info:
-  title: Unima Knowledge Hub API
-  version: "2026-09-16"
+  title: IONOS Knowledge Hub API
+  version: "2026-09-18"
   description: |
-    The Knowledge Hub's own webhook surface, hosted in n8n. Six live webhooks are the whole Hub
-    surface — assembling a system prompt, digesting an upload into draft atoms, publishing atoms
-    and skills, and serving the entry-vocabulary dropdowns. Canonical reference:
-    `unima-orchestrator/docs/knowledge-hub-api-contract.md` (audited against the code and the live
-    n8n instance) and `unima-orchestrator/docs/knowledge-hub-concept.md` (what the Hub *is*).
+    The Knowledge Hub is what powers Unima's text generation pipeline: a service that turns a
+    brand's and a product's own governed knowledge — voice, claims, terminology, audience, platform
+    rules — into a ready-to-use system prompt, on demand, for any IONOS Group brand and any output
+    platform. Call `kh/assemble` and hand its result straight to your own model call (or to our
+    Text Generation API — see the sibling spec, `text-generation-api.yaml`) to get outbound copy
+    that already sounds like the brand it's for, without your team maintaining a single brand
+    guideline document by hand.
 
-    **This spec is hand-kept, like its siblings in this directory.** Nothing generates it and
-    nothing keeps it in sync automatically — if a paragraph here disagrees with a workflow export
-    under `integrations/n8n/workflows/kh-*.json` or with the Symfony call sites in
-    `src/Unima/Infrastructure/KnowledgeHub/N8nKnowledgeHubClient.php`, those win and this file is
-    the bug. Re-derive it from the contract doc and the PHP call sites, not from memory.
+    Everything else on this surface is how that knowledge is looked after: uploading and reviewing
+    new source material, publishing reviewed knowledge so `kh/assemble` can use it, registering the
+    skills that do the writing, and reading the vocabulary (products, languages, platforms,
+    audiences) a brand has on file.
 
-    ## Assembly runs no model
+    ## What each endpoint gives you
 
-    `kh/assemble` builds and returns a system prompt string. It never calls a model and never sees
-    the user prompt — the router keeps that and calls the provider itself. There is no `generate`
-    endpoint on this surface; there never was one.
+    | Endpoint | What it's for |
+    |---|---|
+    | `list-briefing-options` | **Start here.** Send your brand's name, get back every product, language and target group it has on file — this is how you find the values to send everywhere else on this API. |
+    | `kh/assemble` | Get a brand- and product-governed system prompt for your own generation call. This is the one most integrations use. |
+    | `kh/ingest` | Turn an uploaded brand or product document into reviewable one-line knowledge. |
+    | `kh/publish` | Publish reviewed knowledge so `kh/assemble` starts using it. |
+    | `kh/skill-upsert` | Register or update a skill — a named writing task with its own prompt and its own slice of the knowledge it's allowed to draw on. |
+    | `kh/lookup` | Read the vocabulary (products, languages, platforms, audiences) available for a brand — build your own scope picker with it. |
+    | `kh/lookup-publish` | Publish the current vocabulary for one of those axes. |
+    | `kh/teams-publish` | Publish the brand/team directory this API partitions all of the above by. |
 
-    ## Brand is the partition, always the caller's own team id
+    ## Finding what to send
 
-    Every request below that takes `brand` expects the calling team's id (`BrandKey`), never a
-    human-readable name — `unima_teams.name` has no unique index, so a name-keyed partition let one
-    tenant's brand voice assemble into another tenant's prompts before this was fixed (see the
-    contract doc, "Brand was partitioned by team NAME, not id"). There is no cross-brand query on
-    any of these routes.
+    `kh/assemble`'s `scope` fields take specific values, not free text — `"product": "hosting"`
+    only works because `"hosting"` is a real product value on file for that brand. The quickest way
+    to find real values for your brand is `list-briefing-options`: send your brand's name and get
+    back its products, languages (with a ready-to-use locale code) and target groups. Once you also
+    have your brand id from Nils, `kh/lookup` gives you the same vocabulary plus platforms, keyed
+    the exact way `kh/assemble`'s `scope` expects.
+
+    ## Getting a key
+
+    Every call needs a header key. Reach out to **Nils Döhring** (nils.doehring@ionos.com) to get
+    one issued for your team.
 
     ## Authentication
 
-    Enterprise-instance concern, same as this directory's other specs — not modelled here as it
-    varies by deployment. Local n8n has none.
+    Every request carries a custom header:
+
+        ai-website-builder: <key>
+
+    curl example:
+
+        curl -s -X POST https://n8n.ionos.org/webhook/kh/assemble \
+          -H "Content-Type: application/json" \
+          -H "ai-website-builder: $N8N_IONOS_ORG_HEADER_AUTH_KEY" \
+          -d '{
+            "skill": "copywriter",
+            "brand": "<your brand id>",
+            "scope": { "product": "hosting", "language": "de-DE", "platform": "social" },
+            "budget": 12
+          }'
   contact:
-    name: Knowledge Hub
-    url: https://github.com/
+    name: Nils Döhring
+    email: nils.doehring@ionos.com
+
+servers:
+  - url: https://n8n.ionos.org/webhook
+    description: IONOS Group n8n
+
+security:
+  - headerAuth: []
+
 tags:
+  - name: discover
+    description: Find your brand's real products, languages, platforms and target groups.
   - name: assemble
-    description: Serve-time prompt assembly. Runs no model.
+    description: Get a brand-governed system prompt for your own generation call.
   - name: ingest
-    description: Digesting an uploaded document into draft atoms.
+    description: Turn an uploaded document into reviewable knowledge.
   - name: publish
-    description: Publishing corpus content, skills, or entry vocabulary into n8n's Data Tables.
+    description: Publish reviewed knowledge, skills, or vocabulary so the rest of the API can use it.
   - name: lookup
-    description: Reading the entry-vocabulary dropdowns (product/language/platform/target group).
+    description: Read the vocabulary a brand has on file — products, languages, platforms, audiences.
 paths:
-  /webhook/kh/assemble:
+  /list-briefing-options:
+    post:
+      operationId: listBriefingOptions
+      tags: [discover]
+      summary: Look up a brand's products, languages and target groups by name.
+      description: |
+        The starting point for a new integration: send a brand's name — the one Nils gives you
+        along with your key — and get back every product, language and target group on file for
+        it. Languages come back with a ready-to-use locale code (e.g. `de-DE`) — exactly what
+        `scope.language` expects, and a product's name doubles as its `scope.product` value in the
+        common case. A target group's name here is its display label, not necessarily the exact
+        `scope.segment` key.
+
+        Send `teams` (a list of names) instead of `team` to look up several brands in one call.
+
+        Once you have your brand id from Nils, `kh/lookup` covers all four axes — including
+        platforms, which aren't in this response — each keyed exactly the way `kh/assemble`'s
+        `scope` expects.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  title: One brand
+                  required: [team]
+                  properties:
+                    team: { type: string, description: The brand's name, e.g. "IONOS". }
+                - type: object
+                  title: Several brands at once
+                  required: [teams]
+                  properties:
+                    teams:
+                      type: array
+                      items: { type: string }
+                      example: ["IONOS", "STRATO"]
+      responses:
+        "200":
+          description: The brand's (or brands') products, languages and target groups.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: object
+                    title: One-brand response
+                    properties:
+                      team: { type: string }
+                      products:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id: { type: string }
+                            name: { type: string }
+                      languages:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id: { type: string }
+                            name: { type: string }
+                            code: { type: string, description: "The locale code to use as `scope.language`, e.g. de-DE." }
+                      target_groups:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id: { type: string }
+                            name: { type: string }
+                      counts:
+                        type: object
+                        properties:
+                          products: { type: integer }
+                          target_groups: { type: integer }
+                          languages: { type: integer }
+                  - type: object
+                    title: Several-brands response
+                    properties:
+                      by_team:
+                        type: object
+                        additionalProperties:
+                          type: object
+                          properties:
+                            products: { type: array, items: { type: object } }
+                            languages: { type: array, items: { type: object } }
+                            target_groups: { type: array, items: { type: object } }
+                            counts: { type: object }
+
+  /kh/assemble:
     post:
       operationId: khAssemble
       tags: [assemble]
-      summary: Assemble a system prompt for a skill, brand and scope.
+      summary: Get a brand- and product-governed system prompt.
       description: |
-        Workflow `LJNYuAEIncvz85xD` (`integrations/n8n/workflows/kh-assemble.json`). Called by the
-        text/image routers, the agent repo, and the Prompt Explorer's `/explain` preview.
+        Give it a skill, a brand, and the scope you're writing for — get back a system prompt
+        built from that brand's own governed knowledge, ready to hand to your model call as-is.
 
-        Runs four serve-time operations in order — **filter** (brand partition, appetite match,
-        `published` state, per-axis tag match against `product`/`language`/`platform`/`segment`),
-        **rank** (by atom rank, descending), **cap** (top `budget` per `dimension/category`, no
-        branch for `*`-tagged atoms), **order** (appetite order, with `target group` then
-        `platforms` forced last, plus one override sentence). Nothing else may be added to assembly,
-        ever — a second implementation of this algorithm anywhere else is the bug, not a feature.
+        Behind the scenes it filters the brand's knowledge down to what the named skill is meant
+        to draw on and what your scope actually applies to, ranks it, takes the strongest dozen
+        entries per category (tune with `budget`), and orders it so platform- and audience-specific
+        rules are stated last and win any conflict. You never see that machinery — you get one
+        finished prompt, plus the receipts (`used`) showing exactly which pieces of knowledge went
+        into it, so a surprising result is always traceable.
 
-        A brand with no knowledge, or a skill name that matches no `kh_skills` row, fails loudly
-        (non-2xx) rather than returning an empty prompt — n8n skips every downstream node on a
-        zero-row read, which without this guard would read as HTTP 200 success.
+        Pair the result with our Text Generation API for a complete, brand-governed generation call
+        in two hops.
       requestBody:
         required: true
         content:
@@ -75,17 +200,18 @@ paths:
               properties:
                 skill:
                   type: string
-                  description: The `kh_skills` row to assemble against — names the default appetite.
+                  description: Which writing task you're assembling a prompt for — this decides the default slice of knowledge it draws on.
                   example: copywriter
                 brand:
                   type: string
-                  description: The calling team's id. The partition; never a team name.
+                  description: The brand you're writing for. Ask Nils for your brand id if you don't have it yet.
                   example: "3fa85f64-5717-4562-b3fc-2c963f66afa6"
                 scope:
                   type: object
                   description: |
-                    All four keys are optional, but send all four even when empty — an omitted key
-                    is restrictive (matches only globally-tagged atoms), never permissive.
+                    What you're writing about right now. Send all four keys every time, even
+                    when a value doesn't apply yet — leaving a key out asks for knowledge that
+                    applies no matter what, which is the safe default, not "everything."
                   properties:
                     product: { type: [string, "null"], example: hosting }
                     language: { type: [string, "null"], example: de-DE }
@@ -95,18 +221,17 @@ paths:
                   type: integer
                   minimum: 1
                   default: 12
-                  description: Top-N cap, applied per `dimension/category`, not per dimension or overall.
+                  description: How many knowledge entries per category to include at most.
                 appetite:
                   type: array
                   items: { type: string }
                   description: |
-                    Overrides the skill's own declared appetite for this one call. `dimension/*`
-                    selects a whole dimension; `[]` is a real instruction meaning "see nothing" —
-                    how the Prompt Explorer isolates a skill's own prompt from its knowledge.
+                    Optional — overrides the skill's own default slice of knowledge for this one
+                    call. `dimension/*` asks for a whole category of knowledge at once.
                   example: ["language/*", "product/claim_constraints"]
       responses:
         "200":
-          description: The assembled prompt, what produced it, and the effective appetite.
+          description: The prompt, ready to use, plus what produced it.
           content:
             application/json:
               schema:
@@ -114,10 +239,10 @@ paths:
                 properties:
                   system:
                     type: string
-                    description: The assembled system prompt.
+                    description: The finished system prompt. Hand this straight to your model call.
                   used:
                     type: array
-                    description: Every atom that made it into `system`, for audit.
+                    description: Every piece of knowledge that made it into the prompt, for full traceability.
                     items:
                       type: object
                       properties:
@@ -130,7 +255,7 @@ paths:
                   appetite:
                     type: array
                     items: { type: string }
-                    description: The EFFECTIVE appetite actually applied (skill default, or the override).
+                    description: The knowledge slice actually applied — the skill's own default, or your override.
                   diagnostics:
                     type: object
                     properties:
@@ -138,29 +263,17 @@ paths:
                       kept: { type: integer }
                       budget: { type: integer }
                       appetiteOverride: { type: boolean }
-        default:
-          description: Unknown skill, or a brand with no knowledge — assembly fails loudly rather than returning an empty prompt.
 
-  /webhook/kh/ingest:
+  /kh/ingest:
     post:
       operationId: khIngest
       tags: [ingest]
-      summary: Digest an uploaded document into draft atoms for one dimension.
+      summary: Turn an uploaded document into reviewable knowledge.
       description: |
-        Workflow `YC4IkJRi9Hcvxuap` (`integrations/n8n/workflows/kh-ingest.json`, if exported under
-        that name — see `kh-assemble.json`'s siblings). Called by the Hub itself, from
-        `DigestHubDocumentCommandHandler`, after `POST /api/v1/knowledge-hub/documents` dispatches
-        `DigestHubDocumentCommand`.
-
-        `dimension` selects the expert skill by name: `'ingest.' + dimension.toLowerCase().replace(/[^a-z]+/g, '_')`.
-        `scope` is the uploader's DECLARED attribution — a ceiling. The skill may propose a
-        narrower per-atom scope; it can never widen past the declaration, and the clamp is enforced
-        in PHP (`DigestHubDocumentCommandHandler::narrowed()`), not in this workflow — the `Parse`
-        node passes any per-atom scope through unchecked on purpose.
-
-        A run that returns zero atoms is a FAILURE, not an empty success: the webhook answers 200
-        with an `error` key when nothing could be produced, because a document silently marked done
-        with no atoms and no complaint is the worst outcome available.
+        Send a source document — a comms guide, a product brief, a style guide — declaring which
+        dimension it belongs to and what it covers, and get back a set of candidate one-line
+        knowledge entries, ready for a reviewer to approve. This is how new brand and product
+        knowledge enters the system that `kh/assemble` draws on.
       requestBody:
         required: true
         content:
@@ -169,17 +282,17 @@ paths:
               type: object
               required: [brand, dimension, document]
               properties:
-                brand: { type: string, description: The calling team's id. }
+                brand: { type: string, description: The brand this document is about. }
                 dimension:
                   type: string
                   example: language
-                  description: One of the seven Hub dimensions; selects the `ingest.*` skill.
+                  description: Which of the seven knowledge dimensions this document belongs to (brand identity, writing & tone, target group, product, language, platforms, image guidelines).
                 document:
                   type: string
-                  description: The document text (images already stripped by intake before the skill sees it).
+                  description: The document's text.
                 scope:
                   type: object
-                  description: The uploader's declared attribution — a ceiling the skill may narrow but never widen.
+                  description: What you already know this document covers — the entries proposed from it will never be broader than this.
                   properties:
                     product: { type: [string, "null"] }
                     language: { type: [string, "null"] }
@@ -187,10 +300,10 @@ paths:
                     segment: { type: [string, "null"] }
                 instruction:
                   type: string
-                  description: Optional per-document steer.
+                  description: Optional steer for this document specifically.
       responses:
         "200":
-          description: Draft atoms, what was dropped, and a run-level verdict.
+          description: Candidate knowledge entries, ready for review, plus a verdict on the run.
           content:
             application/json:
               schema:
@@ -213,7 +326,7 @@ paths:
                         state: { type: string, enum: [draft] }
                   drops:
                     type: array
-                    description: What the skill declined, and why — the feedback loop for tuning a skill.
+                    description: What was left out of this document, and why — useful for tuning what you send next time.
                     items:
                       type: object
                       properties:
@@ -221,14 +334,14 @@ paths:
                         reason: { type: string }
                   verdict:
                     type: object
-                    description: Run-level "was this any good" — not decoration; this is what caught the bytea stream bug.
+                    description: How well the run went, in plain terms.
                     properties:
                       coverage: { type: string }
                       gist: { type: string }
                       note: { type: string }
                   gates:
                     type: object
-                    description: Reported diagnostics only — nothing in the pipeline blocks on any of it.
+                    description: Diagnostics about the run.
                     properties:
                       intake: { type: object }
                       atoms: { type: integer }
@@ -237,24 +350,17 @@ paths:
                       overBudget: { type: array, items: { type: string } }
                       offVocabCategories: { type: array, items: { type: string } }
                       notOneLiners: { type: integer }
-                  error:
-                    type: string
-                    description: Present, with no atoms, when the run produced nothing usable.
 
-  /webhook/kh/publish:
+  /kh/publish:
     post:
       operationId: khPublish
       tags: [publish]
-      summary: Upsert this brand's published atoms and prune everything not sent.
+      summary: Publish reviewed knowledge for a brand.
       description: |
-        Workflow `gtW5TSJCcC8RtwGQ`. Called by `unima:kh:publish`
-        (`PublishHubCorpusCommand`, via `N8nKnowledgeHubClient::publish()` —
-        `src/Unima/Infrastructure/KnowledgeHub/N8nKnowledgeHubClient.php`). Upserts into `kh_atoms`
-        and PRUNES: any row for this brand's named dimensions that the payload does not contain is
-        deleted, which is how retirement propagates out of Postgres and into the live corpus.
-
-        Prune is a diff, not a delete-then-insert — rows being kept are never removed, so there is
-        no window where a consumer sees a shelf missing something.
+        Send the full, current set of a brand's reviewed, approved knowledge for the dimensions
+        you name — this is what `kh/assemble` reads from. Publishing is a full replace for those
+        dimensions: anything not included is retired, so a rule someone withdrew stops showing up
+        in every prompt from that point on, not just new ones.
       requestBody:
         required: true
         content:
@@ -263,15 +369,11 @@ paths:
               type: object
               required: [brand, dimensions, atoms]
               properties:
-                brand: { type: string, description: The calling team's id. }
+                brand: { type: string }
                 dimensions:
                   type: array
                   items: { type: string }
-                  description: |
-                    The dimensions this call is authoritative for. Named by the caller, never
-                    inferred from `atoms` — a dimension whose atoms were all retired must still be
-                    pruned to empty, and a scope derived from the payload would be silently empty
-                    exactly then.
+                  description: The dimensions this call is the current, full picture for.
                 atoms:
                   type: array
                   items:
@@ -283,15 +385,15 @@ paths:
                       category: { type: string }
                       body: { type: string }
                       rank: { type: integer }
-                      product: { type: string, description: "Flat tag; `*` applies to every value on the axis." }
-                      language: { type: string, description: Locale code, or `*`. }
-                      platform: { type: string, description: "Tag value, or `*`." }
-                      segment: { type: string, description: Audience-segment key, or `*`. }
+                      product: { type: string, description: "A value, or `*` for every value on this axis." }
+                      language: { type: string, description: A locale code, or `*`. }
+                      platform: { type: string, description: "A value, or `*`." }
+                      segment: { type: string, description: An audience key, or `*`. }
                       state: { type: string, enum: [published] }
-                      source_doc: { type: string, description: Provenance; empty string if hand-filed. }
+                      source_doc: { type: string, description: Where this came from, if known. }
       responses:
         "200":
-          description: What was published and what got pruned.
+          description: What was published, and what was retired as a result.
           content:
             application/json:
               schema:
@@ -302,20 +404,16 @@ paths:
                   prunedIds:
                     type: array
                     items: { type: string }
-        default:
-          description: "`{ \"error\": \"...\" }` on failure."
 
-  /webhook/kh/skill-upsert:
+  /kh/skill-upsert:
     post:
       operationId: khSkillUpsert
       tags: [publish]
-      summary: Write or update one skill row.
+      summary: Register or update a skill.
       description: |
-        Workflow `zM9KiR2oNdIZxPRc` backs `kh_skills`. Called by `unima:kh:port-prompts` and
-        friends (`PublishHubSkillsCommand::upsertSkill()` —
-        `src/Unima/Infrastructure/Command/PublishHubSkillsCommand.php`). Upsert-only, matched on
-        `skill` — there is no prune path, so a retired skill row keeps serving until something
-        deliberately overwrites or removes it.
+        A skill is a named writing task — copywriter, ad_copywriter, a persona-profile writer, and
+        so on — with its own prompt and its own declared slice of the knowledge it draws on when
+        you call `kh/assemble` with it. Registering one here makes it callable by name.
       requestBody:
         required: true
         content:
@@ -324,40 +422,33 @@ paths:
               type: object
               required: [skill, kind, prompt, appetite, model]
               properties:
-                skill: { type: string, description: The name callers pass to `kh/assemble`. }
+                skill: { type: string, description: The name you'll pass to `kh/assemble`. }
                 kind: { type: string, enum: [task, ingest] }
                 brand:
                   type: string
-                  description: Empty string means available to every brand (the common case).
+                  description: Leave empty to make the skill available to every brand — the common case.
                   example: ""
-                prompt: { type: string, description: The skill body. }
+                prompt: { type: string, description: The skill's own prompt. }
                 appetite:
                   type: string
                   description: |
-                    A JSON-encoded STRING of the include list (e.g. `"[\"language/*\"]"`), not a
-                    nested JSON array — `PublishHubSkillsCommand` sends it through `json_encode()`
-                    before this call. An explicit include list, never an exclusion.
-                model: { type: string, description: Which model runs this skill. }
+                    A JSON-encoded list of which knowledge this skill draws on by default
+                    (e.g. `"[\"language/*\"]"`) — an include list, so being explicit about what
+                    it needs is always safe.
+                model: { type: string, description: Which model this skill runs on. }
       responses:
         "200":
-          description: Row written. Response body is not consumed by any caller — only the status code is read.
+          description: The skill is registered.
 
-  /webhook/kh/lookup:
+  /kh/lookup:
     post:
       operationId: khLookup
       tags: [lookup]
-      summary: Read one brand's entry vocabulary for one or more dimensions.
+      summary: Read a brand's vocabulary for one or more axes.
       description: |
-        Workflow `kh_lookup`. Called by `N8nKnowledgeHubClient::lookup()` /
-        `lookupBundle()` (`src/Unima/Infrastructure/KnowledgeHub/N8nKnowledgeHubClient.php`) —
-        used by the Prompt Explorer and any future scope-dropdown consumer, proxied through
-        `GET /api/v1/knowledge-hub/lookup` on the Symfony side so a page never has to reach
-        Postgres for scope choices.
-
-        **Sent as a POST, despite the contract doc's summary table calling it `GET`** — n8n webhook
-        nodes commonly take a body regardless of the label used in prose; the PHP call site is the
-        load-bearing contract here. Reads `kh_products` / `kh_languages` / `kh_platforms` /
-        `kh_target_groups`, excluding each team's Global-sentinel row.
+        Ask for a brand's current products, languages, platforms, or target groups — the values
+        you can pass into `kh/assemble`'s `scope` — and get back the list, ready to build your own
+        picker or dropdown with.
       requestBody:
         required: true
         content:
@@ -365,13 +456,13 @@ paths:
             schema:
               oneOf:
                 - type: object
-                  title: Single dimension
+                  title: Single axis
                   required: [brand, dimension]
                   properties:
                     brand: { type: string }
                     dimension: { type: string, enum: [product, language, platform, target_group] }
                 - type: object
-                  title: Bundled (multiple dimensions in one call)
+                  title: Several axes at once
                   required: [brand, dimensions]
                   properties:
                     brand: { type: string }
@@ -380,13 +471,13 @@ paths:
                       items: { type: string, enum: [product, language, platform, target_group] }
       responses:
         "200":
-          description: The vocabulary for the requested dimension(s).
+          description: The vocabulary for the axis or axes you asked for.
           content:
             application/json:
               schema:
                 oneOf:
                   - type: object
-                    title: Single-dimension response
+                    title: Single-axis response
                     properties:
                       options:
                         type: array
@@ -397,7 +488,7 @@ paths:
                             label: { type: string }
                       count: { type: integer }
                   - type: object
-                    title: Bundled response
+                    title: Several-axes response
                     properties:
                       by_dimension:
                         type: object
@@ -413,20 +504,16 @@ paths:
                                   label: { type: string }
                             count: { type: integer }
 
-  /webhook/kh/lookup-publish:
+  /kh/lookup-publish:
     post:
       operationId: khLookupPublish
       tags: [publish]
-      summary: Upsert-then-prune one brand+dimension's entry vocabulary.
+      summary: Publish the current vocabulary for one axis.
       description: |
-        Workflow `kh_lookup_publish`. Called by `unima:kh:publish-lookups`
-        (`PublishHubLookupsCommand::optionsFor()`, via
-        `N8nKnowledgeHubClient::publishLookups()`). Mirrors `kh/publish`'s own upsert-then-prune
-        semantics, one call per brand+dimension, writing into `kh_products` / `kh_languages` /
-        `kh_platforms` / `kh_target_groups`.
-
-        `options: []` is a legitimate instruction — a full prune for that brand+dimension — always
-        sent as a JSON array.
+        Send the full, current list of values for one brand and one axis (products, languages,
+        platforms, or target groups) — this is what powers `kh/lookup` and the scope values
+        `kh/assemble` accepts. Like `kh/publish`, this is a full replace for that axis: send an
+        empty list to publish "nothing on this axis right now."
       requestBody:
         required: true
         content:
@@ -446,12 +533,12 @@ paths:
                       id:
                         type: string
                         format: uuid
-                        description: Present for product/language/target_group entries only — platform entries omit it.
+                        description: Present for product, language and target_group entries.
                       value: { type: string }
                       label: { type: string }
       responses:
         "200":
-          description: What was published and what got pruned.
+          description: What was published, and what was retired as a result.
           content:
             application/json:
               schema:
@@ -463,18 +550,14 @@ paths:
                     type: array
                     items: { type: string }
 
-  /webhook/kh/teams-publish:
+  /kh/teams-publish:
     post:
       operationId: khTeamsPublish
       tags: [publish]
-      summary: Publish the team directory n8n needs to resolve brand ids to names.
+      summary: Publish the brand/team directory.
       description: |
-        **Not one of the Hub's canonical six** — the contract doc counts six live webhooks as "the
-        whole Hub surface," but `unima:kh:publish-lookups` always calls this fifth (really seventh,
-        counting `assemble`/`ingest`/`publish`/`skill-upsert`/`lookup`/`lookup-publish`) webhook too
-        (`PublishHubLookupsCommand`, via `N8nKnowledgeHubClient::publishTeamDirectory()`). Included
-        here because it is real and in active use; flagged as an addendum so this spec does not
-        silently contradict the contract doc's "six" count.
+        Send the current list of brand ids and names — this is the directory every `brand` value
+        elsewhere on this API is resolved against.
       requestBody:
         required: true
         content:
@@ -492,4 +575,14 @@ paths:
                       name: { type: string }
       responses:
         "200":
-          description: No response body is consumed by the caller — only checked for an `error` key.
+          description: The directory is published.
+
+components:
+  securitySchemes:
+    headerAuth:
+      type: apiKey
+      in: header
+      name: ai-website-builder
+      description: |
+        Custom header auth. Header name: `ai-website-builder`. Reach out to Nils Döhring
+        (nils.doehring@ionos.com) to get a key issued.
