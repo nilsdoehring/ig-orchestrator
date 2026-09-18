@@ -51,7 +51,7 @@ info:
 
     curl example:
 
-        curl -s -X POST https://n8n.ionos.org/webhook/kh/assemble \
+        curl -s -X POST https://n8nwh.ionos.org/webhook/kh/assemble \
           -H "Content-Type: application/json" \
           -H "ai-website-builder: $N8N_IONOS_ORG_HEADER_AUTH_KEY" \
           -d '{
@@ -65,8 +65,13 @@ info:
     email: nils.doehring@ionos.com
 
 servers:
-  - url: https://n8n.ionos.org/webhook
-    description: IONOS Group n8n
+  # NOT `n8n.ionos.org` — that host is the n8n application itself (editor UI, credentials, the
+  # REST management API) and its `/webhook/*` paths redirect to CAS SSO for an unauthenticated
+  # POST. `n8nwh.ionos.org` is the dedicated webhook gateway — the same host every sibling spec in
+  # this directory (image-generation-api.yaml, text-generation-api.yaml, catalog-select-api.yaml)
+  # already uses — and it checks the `ai-website-builder` header directly, with no SSO involved.
+  - url: https://n8nwh.ionos.org/webhook
+    description: IONOS Group n8n (webhook gateway)
 
 security:
   - headerAuth: []
