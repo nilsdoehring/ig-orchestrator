@@ -27,8 +27,8 @@ scope naming a value here matches nothing.
 | `Advertising` | Advertising |
 | `Landing Page` | Landing Page |
 | `Mailing` | Mailing |
-| `Sales Deck` | Sales Deck |
-| `Social Media` | Social Media |
+| `Pitch Deck` | Pitch Deck |
+| `Social` | Social |
 | `Whitepaper` | Whitepaper |
 
 ## target_group

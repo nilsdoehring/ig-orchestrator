@@ -1,6 +1,6 @@
 # STRATO — writing & tone
 
-Partition key: `4e947002-cc58-4265-affb-15d213f39b2e` · 14 published atoms
+Partition key: `4e947002-cc58-4265-affb-15d213f39b2e` · 13 published atoms
 
 Each line is `(rank) atom`, ranked highest first, followed by the tags that NARROW it. An
 axis with no tag shown is `*` and matches every value — so a line with no tags at all is
@@ -15,7 +15,6 @@ lines are not the answer.
 
 - (100) STRATO is acting as the entry rebel and has a young and fresh tone.
 - (100) STRATO siezt seine Kunden. `language=de-DE`
-- (100) Super rule: STRATO always uses untechnical language and short sentences.
 - (85) Write in a fresh, lively, and approachable stance on eye level: be explanatory and direct without sounding patronizing or overly academic.
 - (80) Use vivid, emotional language and concrete examples instead of corporate jargon or sterile tech-speak.
 - (75) Avoid weak modal verbs (such as 'could', 'should', or 'would') to maintain an active, energetic, and decisive tone.

@@ -31,7 +31,6 @@ axis", not a value this brand owns, and it is never a legal scope value.
 | `IONOS Cloud` | IONOS Cloud |
 | `List Local` | List Local |
 | `Momentum Ecosystem` | Momentum Ecosystem |
-| `Momentum Ecosystem` | Momentum Ecosystem |
 | `Momentum Team – AI Receptionist` | Momentum Team – AI Receptionist |
 | `MyWebsite Creator` | MyWebsite Creator |
 | `MyWebsite Creator eCommerce` | MyWebsite Creator eCommerce |
@@ -67,8 +66,8 @@ axis", not a value this brand owns, and it is never a legal scope value.
 | `Advertising` | Advertising |
 | `Landing Page` | Landing Page |
 | `Mailing` | Mailing |
-| `Sales Deck` | Sales Deck |
-| `Social Media` | Social Media |
+| `Pitch Deck` | Pitch Deck |
+| `Social` | Social |
 | `Whitepaper` | Whitepaper |
 
 ## target_group
