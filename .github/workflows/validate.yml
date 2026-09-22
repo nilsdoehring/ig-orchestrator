@@ -1,17 +1,42 @@
-# CI for this repo. Every step below is `node scripts/<name>.mjs` and nothing else — this repo has
-# ZERO DEPENDENCIES by design (see lib/yaml.mjs's file header for why), so there is deliberately no
-# `npm install` / `npm ci` step here. Adding one would be dead weight on every run and a standing
-# invitation for a future PR to add a dependency this repo exists specifically not to need.
+# CI for this repo.
 #
-# Each gate is its own named step so a failure is legible straight from the PR checks list, without
-# opening the log:
-#   - selftest          proves lib/yaml.mjs parses the exporter's grammar and refuses everything else
-#   - verify-manifest   proves no published path was hand-edited (or corrupted) after publish
-#   - conformance       proves lib/resolve.mjs agrees with the PHP resolver on every known context
-#   - design-firewall   proves no design content (colours, fonts, measurements, …) leaked into a
-#                        knowledge file
-#   - forbidden-terms   proves no term listed in knowledge/terms/forbidden.yaml appears anywhere else
-#                        in the tree
+# ZERO DEPENDENCIES BY DESIGN. Both Node gates are plain ESM importing nothing outside `node:` and
+# `lib/yaml.mjs`, so there is deliberately no `npm ci` for this repository itself. The one install
+# below is for the Claude Code CLI, which is a tool, not a dependency of this tree — nothing here
+# imports it and `node scripts/*.mjs` still runs on a bare checkout.
+#
+# WHAT EACH GATE PROVES
+#   selftest          lib/yaml.mjs parses exactly the grammar the generator emits, and refuses
+#                     everything else. A silent misparse would produce a wrong answer with no error.
+#   verify-manifest   no path listed in MANIFEST.yaml was hand-edited or corrupted after publish.
+#                     Generated files have one writable home and it is not a clone of this repo.
+#   plugin-validate   `.claude-plugin/plugin.json`, `skills/` and `commands/` are a well-formed
+#                     Claude Code plugin, so an install from the marketplace cannot fail on shape.
+#
+# WHY plugin-validate IS NOT `--strict` YET. `--strict` promotes warnings to errors, and two
+# warnings stand today:
+#   1. `plugin.json` declares no `author`. That file is GENERATED — the field has to be added in
+#      unima:kh:publish-agent-repo, not here.
+#   2. `CLAUDE.md at the plugin root is not loaded as project context`. That is expected and
+#      wanted: CLAUDE.md serves people who CLONE this repo, and an installer is served by skills/.
+# Flip this to `--strict` once (1) is emitted by the generator AND the CLI stops warning about (2),
+# not before — a gate that fails on correct content teaches people to ignore it.
+#
+# GATES THAT WERE REMOVED (2026-09-22), and why, so nobody re-adds them:
+#   conformance       proved lib/resolve.mjs agreed with a PHP resolver. Both are retired: the
+#                     resolver is gone, lib/resolve.mjs was a second implementation of assembly
+#                     (which lives exactly once, in n8n), and knowledge/_conformance/cases.json has
+#                     not existed since the atom model landed. The script died with ENOENT.
+#   forbidden-terms   linted the tree against knowledge/terms/forbidden.yaml, a file of the retired
+#                     rule-cascade model. Also ENOENT. Terminology is atoms in the `language`
+#                     dimension now, and is reviewed at ingest.
+#   design-firewall   asserted no colour, font or measurement appears in a knowledge file. That was
+#                     right when design content had no home here; it is wrong now, because the
+#                     `image guidelines` dimension has `color_direction` and `visual_tokens`
+#                     categories whose whole purpose is to carry exactly that. It failed on five
+#                     brands' CURRENT, CORRECT shelves. Attribution of design content is enforced at
+#                     ingest, by the dimension a document is digested into, not by a grep in CI.
+
 name: validate
 
 on:
@@ -33,17 +58,19 @@ jobs:
         with:
           node-version: '20'
 
-      - name: selftest — lib/yaml.mjs parses the exporter's grammar
+      - name: selftest — lib/yaml.mjs parses the generator's grammar
         run: node scripts/selftest.mjs
 
-      - name: verify-manifest — no published path was hand-edited after publish
+      - name: verify-manifest — no generated path was hand-edited after publish
         run: node scripts/verify-manifest.mjs
 
-      - name: conformance — lib/resolve.mjs agrees with the PHP resolver
-        run: node scripts/conformance.mjs
+      - name: Install the Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
 
-      - name: design-firewall — no design content leaked into a knowledge file
-        run: node scripts/design-firewall.mjs
-
-      - name: forbidden-terms — no forbidden term appears outside its own ledger
-        run: node scripts/forbidden-terms.mjs
+      - name: plugin-validate — this tree is a well-formed Claude Code plugin
+        # --strict TREATS WARNINGS AS ERRORS, and it is usable because the generator now emits the
+        # two things it warns about: a marketplace `description`, and a `version` on both manifests
+        # derived from the corpus (`2.<atoms>.<fingerprint>`). Without a version Claude Code falls
+        # back to the commit SHA — which works, and which the docs recommend — but it warns, and a
+        # gate carrying a permanent expected-warning is a gate nobody re-reads.
+        run: claude plugin validate . --strict

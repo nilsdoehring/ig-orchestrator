@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-// Proves lib/yaml.mjs parses exactly the grammar unima:knowledge:publish-agent-repo emits, and
-// refuses everything outside it.
+// Proves lib/yaml.mjs parses exactly the grammar unima:kh:publish-agent-repo emits, and refuses
+// everything outside it.
 //
-// WHY THIS EXISTS SEPARATELY FROM conformance.mjs. Conformance proves the RESOLVER agrees with PHP
-// on real corpus data — it never exercises a YAML construct the exporter does not currently produce.
-// This file exercises the parser directly: every shape the grammar allows, and every shape it must
-// refuse. A silent misparse of, say, a single-quoted scalar would still let conformance pass on
-// today's corpus and then produce a wrong rule set the day someone hand-edits a file to use one — a
-// silent misparse would produce a wrong rule set with no error, which is why refusal is the designed
-// behaviour and why it has to be proven here, not left to be discovered by conformance.mjs later.
+// WHY A PARSER TEST AND NOT A DATA TEST. verify-manifest.mjs, the only other consumer of this
+// parser, reads one file — MANIFEST.yaml — and would keep passing on today's bytes even if the
+// parser silently misread a construct today's bytes happen not to contain. This file exercises the
+// parser directly instead: every shape the grammar allows, and every shape it must refuse. A silent
+// misparse of, say, a single-quoted scalar would produce a wrong answer with no error, which is why
+// refusal is the designed behaviour and why it has to be proven here rather than discovered the day
+// the generator's output changes shape.
 //
 // Each refusal case below is written to match what the parser ACTUALLY rejects, not what its own
 // comments aspire to reject: an anchor embedded inline after "key: " (e.g. `a: &x 1`) is not caught

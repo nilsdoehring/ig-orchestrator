@@ -1,14 +1,19 @@
 #!/usr/bin/env node
-// CI gate: this repo is generated and has exactly one writable home — the Unima repository's
-// `integrations/agent-repo/template/` for tooling, and the knowledge database for data. A hand-edit
-// made straight in a clone of THIS repo is silently reverted the next time it is published, so it
-// has to be caught here, at PR time, rather than discovered later as lost work.
+// CI gate: every path MANIFEST.yaml lists is GENERATED, and a generated path has exactly one
+// writable home — the knowledge database for the atoms, and `unima:kh:publish-agent-repo` in the
+// Unima repository for the prose around them. A hand-edit made straight in a clone of THIS repo is
+// silently reverted the next time it is published (the publish also PRUNES anything under
+// knowledge/, skills/ or commands/ that a run did not write), so it has to be caught here, at PR
+// time, rather than discovered later as lost work.
 //
 // MANIFEST.yaml is the bundle's own claim about itself: `path -> sha256 of that path's bytes`,
-// written by AgentRepoBundle::manifest() at publish time. This script re-hashes every listed path
-// and fails loudly on any mismatch — that is the entire mechanism. It does not and cannot check
-// MANIFEST.yaml's own bytes or VERSION's: AgentRepoBundle deliberately excludes both from the
-// manifest it writes, because a file cannot contain its own hash.
+// written by the publisher. This script re-hashes every listed path and fails loudly on any
+// mismatch — that is the entire mechanism. It does not and cannot check MANIFEST.yaml's own bytes
+// or VERSION's: the publisher deliberately excludes both from the manifest it writes, because a
+// file cannot contain its own hash.
+//
+// A path NOT listed is hand-authored (AGENTS.md, CLAUDE.md, contracts/, scripts/, lib/, .github/,
+// .claude/) and is reported as informational, never as a failure.
 //
 //   node scripts/verify-manifest.mjs
 
@@ -93,24 +98,21 @@ console.error(`\nverify-manifest: ${failureCount} of ${listedPaths.length} liste
 exit(1)
 
 /**
- * Where to actually make the change. Data paths are rendered from database rows by writers under
- * `src/AI/Domain/Service/Knowledge/AgentRepo/Writer/`; everything else is copied byte-for-byte from
- * the template directory by `TemplateCopier`. Both facts are recorded in
- * `.publish/template-provenance.md`, which this points at implicitly by naming the two homes.
+ * Where to actually make the change. There is no static template any more: every listed path is
+ * written by `PublishHubAgentRepoCommand` in the Unima repository, either from database rows
+ * (the atoms under `knowledge/`) or from prose that command holds (everything else).
  */
 function pointerFor(path) {
-  const dataPrefixes = ['knowledge/', 'briefing/', 'prompts/', 'design/photography/']
-  if (dataPrefixes.some((prefix) => path.startsWith(prefix))) {
+  if (path.startsWith('knowledge/')) {
     return (
-      'Generated from the knowledge database. Edit the source rows in Unima (rules, terms, ' +
-      'statements, briefing, prompts, …), then re-run unima:knowledge:publish-agent-repo — ' +
-      'do not edit the published bytes directly.'
+      'Generated from the knowledge database. Fix the atom in the Hub — upload, digest, review, ' +
+      'publish — then re-run unima:kh:publish-agent-repo. Do not edit the published bytes directly.'
     )
   }
 
   return (
-    `Part of the static template. Edit integrations/agent-repo/template/${path} in the Unima ` +
-    'repository, then re-publish — do not edit the published bytes directly.'
+    'Generated prose. Edit src/Unima/Infrastructure/Command/PublishHubAgentRepoCommand.php in the ' +
+    'Unima repository, then re-publish — do not edit the published bytes directly.'
   )
 }
 

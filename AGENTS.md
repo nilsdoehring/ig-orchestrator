@@ -1,116 +1,182 @@
 # AGENTS.md
 
-## What this is
+Instructions for any coding agent working in this repository — Claude Code, Cursor, Codex, Gemini
+CLI, Copilot, or a human reading over one's shoulder. Nothing below depends on a feature only one
+of them has.
 
-A generated snapshot of one Unima team's writing-knowledge corpus, plus zero-dependency Node tooling
-to resolve and check it **offline** — no network, no Unima login, no n8n. It exists so an agent
-working on copy for this brand can get the same rule cascade and the same n8n prompt-assembly logic
-Unima runs internally, from a plain `git clone`.
+## What this repository is
 
-## What this is not
+The **IONOS Knowledge Hub**, published as a git tree: every brand's reviewed writing and
+image-direction knowledge, as one-sentence **atoms**, plus the rules for turning them into a system
+prompt. It is a read-only snapshot of a live database, regenerated wholesale on every publish.
 
-- Not a copy of the editor, the database, or the render pipeline. It carries writing knowledge, plus
-  **photography guidance** (`design/photography/`) and one **quarantine** (`design/statements/`). See
-  `design/README.md` for what is refused and where it actually lives.
-- **Not a place to resolve a design question**, with one narrow and deliberate exception.
-  `design/statements/` holds migrated brand prose that DOES contain colour values, font names and
-  measurements. It is there because a live consumer — the image-generation workflow — reads it and has
-  nothing else to read, so deleting it would break that workflow. It is quarantined outside
-  `knowledge/` so nothing writing-side can glob it, and it is for **image-prompt assembly only**.
-  Never answer a design question from it, and never use it for copy: it is unreviewed migrated prose,
-  not maintained design guidance. The real owners are named in `design/README.md`.
-- Everything else design-shaped — logo construction, spacing, type scale, component names — is refused
-  at export and is not here.
-- Not editable. See "This is generated" below.
+It is **not** a copy of the Unima editor, the render pipeline, or any product code. It carries
+knowledge and the documentation of how that knowledge is used, and nothing else.
 
-## Tree
+## Start here: `knowledge/brands.md`
+
+Resolve the brand name you were given to its **partition key** in
+[`knowledge/brands.md`](knowledge/brands.md), then read only that directory.
 
 ```
-AGENTS.md CLAUDE.md README.md MANIFEST.yaml VERSION
-.claude/{settings.json,commands/*.md,skills/*/SKILL.md}
-knowledge/rules/<family>.md          knowledge/rules/index.yaml
-knowledge/slots/index.yaml           knowledge/statements/<type>.md
-knowledge/terms/glossary.yaml        knowledge/terms/forbidden.yaml
-knowledge/exemplars/<group>.md       knowledge/metrics.yaml
-knowledge/products/<slug>.md         knowledge/products/index.yaml
-knowledge/vocabulary.yaml            knowledge/discards.md   knowledge/UNGUARDED.md
-knowledge/_conformance/cases.json
-design/README.md                     design/photography/rules.md
-design/statements/index.yaml         design/statements/<type>.md      <- quarantine, image prompts only
-briefing/{brands,products,target_groups,goals,languages}.json  briefing/README.md
-prompts/<key>.md                     prompts/index.yaml
-lib/*.mjs  scripts/*.mjs  .github/workflows/validate.yml
+knowledge/brands.md                      Brand name -> partition key. The index.
+knowledge/<partition key>/index.md       One brand's summary: atom counts per dimension/category.
+knowledge/<partition key>/<dimension>.md One shelf of atoms, already ranked.
 ```
 
-`knowledge/rules/*.md` is the same rows as `knowledge/rules/index.yaml`, rendered for a human instead
-of a script — read the Markdown to understand a rule, read the YAML to resolve one. `prompts/` and
-`briefing/*.json` are byte mirrors of the Data Tables the real n8n router reads, so enrichment done
-here matches enrichment done there.
+The partition key is the brand's **team id** (a UUID), and it is also the literal string the Hub's
+API expects as `brand`, so the offline route and the API name a brand identically. It is not the
+brand's name, because names carry no unique index: two teams can be renamed to the same name, and
+from that moment they would share one directory — one brand's voice assembling into another's
+prompts. A brand listed in `brands.md` with no directory has nothing published yet. That is a real
+state, not a missing file.
 
-## Five things to do before you write anything
+**Never read a second brand's directory for any reason.** There is no cross-brand view and no
+"applies to all brands" state, by design.
 
-**1. Resolve before writing.** Never paste a rule family into a prompt from memory or from a partial
-read of `knowledge/rules/`. The cascade (scope → filter → shadow → budget) decides what actually
-applies, and it is not something to eyeball:
+## The model, in one screen
 
-```bash
-node scripts/resolve.mjs --slot=<slot> --language=<lang> --market=<market> \
-  --product=<product> --channel=<channel> --budget=12 --json
+An **atom** is one sentence. It belongs to exactly one **dimension** and one **category** inside
+that dimension, carries a **rank** of 0-100, and is attributed by four flat tags.
+
+The seven dimensions, one file each under a brand's directory:
+
+| Dimension | File | Holds |
+|---|---|---|
+| brand identity | `brand-identity.md` | what is TRUE about the brand — claims a writer must not contradict |
+| writing & tone | `writing-tone.md` | HOW to write, in a form that survives translation |
+| product | `product.md` | what a product is, why it wins, what may not be claimed about it |
+| language | `language.md` | grammar, orthography, terminology, locale conventions |
+| image guidelines | `image-guidelines.md` | what an image-prompt writer needs and a copywriter never sees |
+| target group | `target-group.md` | who we write to, and what moves them — **overrides the base dimensions** |
+| platforms | `platforms.md` | per-surface practice — **overrides everything, target group included** |
+
+The four **attribution axes**, one tag each per atom: `product`, `language` (a locale code such as
+`de-DE`), `platform`, and `segment` (an audience-segment key, never its display name). A tag holds
+either a concrete value or the global marker `*`, meaning *every value on this axis*. On the
+published shelves a tag is printed only where it narrows, so **an axis with no tag shown is `*`**.
+
+Brand is **not** a tag. Brand is the partition — the directory.
+
+A scope value you did not name is **restrictive**, not permissive: asking without a `language` asks
+for what applies regardless of language, never for every language. That is the safe direction — a
+call with no platform must not inherit social's rules, and a call with no segment must not inherit
+another audience's.
+
+## Assembly is not in this repository
+
+Turning atoms into a prompt is four operations — filter, rank, cap at 12 per dimension-category,
+order with the two overriding dimensions last. **That algorithm exists exactly once, and it is not
+here.** It is the Hub's `kh/assemble` workflow in n8n, which reads the live tables and returns both
+the prompt and the atoms that produced it.
+
+- **If you can reach the Hub, call it.** See [`skills/endpoints/SKILL.md`](skills/endpoints/SKILL.md),
+  which documents all six endpoints. Use what `assemble` returns.
+- **If you cannot**, [`skills/assemble/SKILL.md`](skills/assemble/SKILL.md) describes the algorithm
+  so you can approximate it by hand. Read it there; it is not restated in this file, and a second
+  copy of it anywhere is a bug.
+
+Doing it by hand **is an approximation**, for three reasons that are properties of the route and
+not defects in it: a model following written steps is not a deterministic filter; this tree is a
+snapshot while the workflow reads live rows; and a skill's *appetite* — the explicit
+`dimension/category` include-list it is entitled to — lives in the Hub's `kh_skills` table and is
+not carried here.
+
+**Say which route produced a prompt when you hand one over.**
+
+Do not write a resolver, a cascade, a weighting scheme, or a second assembler in this repository or
+anywhere else. If two atoms contradict each other, that is a review finding for a person — carry
+both, or carry the one your filter kept, and say so. Do not invent the merge.
+
+## The Hub's API
+
+Six webhooks, all `POST`, all at `https://n8nwh.ionos.org/webhook`. The full OpenAPI spec is
+[`contracts/knowledge-hub-api.yaml`](contracts/knowledge-hub-api.yaml); the three an agent calls
+most have a short usage note under `commands/`.
+
+| Endpoint | What it does |
+|---|---|
+| `/kh/assemble` | Returns a brand-governed system prompt plus the atoms that produced it. Runs no model. |
+| `/kh/ingest` | Digests a document into **draft** atoms through its dimension's expert skill. Nothing publishes itself. |
+| `/kh/publish` | Publishes a brand's reviewed atoms and prunes what was retired, for the dimensions the call names. |
+| `/kh/skill-upsert` | Registers or updates a skill and its appetite. |
+| `/kh/lookup` | Reads a brand's vocabulary for an axis — products, languages, platforms, target groups. |
+| `/kh/lookup-publish` | Publishes the current vocabulary for one axis. |
+
+There is **no `generate` endpoint**. The Hub hands you a prompt; you make your own model call with it.
+
+## Rules
+
+1. **Reproduce an atom as written.** Do not paraphrase or summarise it. Atoms are already
+   compressed, and a rewrite drops the qualifier that makes a rule conditional — a proof point
+   carries its own guardrail inside its sentence (*"99.9% uptime guaranteed — safe to claim; never
+   claim 100%"*), and a summary is exactly what loses the second half.
+2. **Never invent a product name, a locale, a platform or a segment key.** Use what the brand's
+   shelves carry, or ask `/kh/lookup`. If the value you need is not there, say so.
+3. **Do not use a dimension your task has no appetite for.** An image director receiving claim
+   constraints, or a copywriter receiving photographic direction, is the failure the appetite exists
+   to prevent.
+4. **Do not cross brands.** One partition, one directory, no fallback.
+5. **Do not hand-edit anything under `knowledge/`, `skills/` or `commands/`** — see below.
+
+## This repository is generated
+
+`knowledge/`, `skills/`, `commands/`, plus `README.md`, `MANIFEST.yaml`,
+`.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`, are written by Unima's
+`unima:kh:publish-agent-repo`. The publish **prunes**: anything under those three directories that a
+run did not write is deleted. A file you place there by hand does not survive the next publish.
+
+`MANIFEST.yaml` records a sha256 per generated path, and `scripts/verify-manifest.mjs` re-hashes
+them in CI, so a hand-edit is detectable rather than merely discouraged.
+
+**The plugin version is the corpus**, and it lives in `.claude-plugin/plugin.json` as
+`2.<published atoms>.<fingerprint>`. It is not a build number: an unchanged corpus republishes to the
+same version and produces no diff, and any edited atom changes it — which is the whole update
+mechanism, because Claude Code skips a plugin whose version matches the one already installed.
+(There used to be a root `VERSION` file claiming to do this. Nothing wrote it: it was a leftover from
+the retired generator, still holding that generator's last bundle id, and it has been deleted.)
+
+There is one writable home per kind of change:
+
+- **An atom is wrong, missing or misattributed** → fix it in the Hub (upload → digest → review →
+  publish), then re-publish. Nothing is authored in this tree.
+- **The assembly rule is wrong** → fix the n8n workflow. It is the only implementation.
+- **The generated prose around the atoms is wrong** (a shelf header, a command note, the assembly
+  skill) → fix the generator, `src/Unima/Infrastructure/Command/PublishHubAgentRepoCommand.php` in
+  the Unima repository, then re-publish.
+
+Hand-authored and safe to edit here: **this file**, `CLAUDE.md`, `contracts/`, `scripts/`, `lib/`,
+`.github/`, `.claude/`, `.gitignore`.
+
+## Layout
+
+```
+AGENTS.md CLAUDE.md README.md MANIFEST.yaml .gitignore
+.claude-plugin/plugin.json          generated — plugin manifest
+knowledge/brands.md                 generated — the index; start here
+knowledge/<partition key>/*.md      generated — one directory per brand, one file per dimension
+knowledge/<partition key>/entries.md generated — the legal product/language/platform/segment values
+knowledge/skills.md                 generated — every skill, its appetite and its model
+.claude-plugin/marketplace.json     generated — what makes the repo installable
+skills/assemble/                    generated — how to build a prompt offline, and the vocabulary
+skills/lookup/                      generated — how to read a brand's entry vocabulary
+skills/endpoints/                   generated — the Hub's six webhooks, for when it IS reachable
+contracts/*.yaml                    hand-kept — OpenAPI specs for the Hub and sibling services
+scripts/selftest.mjs                hand-kept — proves lib/yaml.mjs parses the generator's grammar
+scripts/verify-manifest.mjs         hand-kept — proves no generated path was hand-edited
+lib/yaml.mjs                        hand-kept — the only dependency either script has
+.github/workflows/validate.yml      hand-kept — CI
+.claude/                            hand-kept — project-scope only; NOT shipped to plugin installers
 ```
 
-**2. Obey `must` absolutely.** A `must` line is never dropped for budget, by design — if the result
-says `mandatory_exceeds_budget: true`, that is a data problem the corpus owner has to retune, not
-something to quietly resolve yourself by skipping one. Stop and report it instead of picking.
+This repository has **zero npm dependencies** and is meant to stay that way. Both scripts are plain
+Node ESM and import nothing outside `node:` and `lib/yaml.mjs`.
 
-**3. Check the output before you hand it back.** Some rules are verified against the finished text,
-not instructed into the prompt — they cost no budget and are checked exactly, not obeyed
-probabilistically:
+## Installing it as a plugin
 
-```bash
-node scripts/check.mjs --slot=<slot> --language=<lang> --market=<market> --text-file=<file>
-node scripts/check.mjs --forbidden --text-file=<file>
-```
+This tree is also a Claude Code plugin (`.claude-plugin/plugin.json`, name `knowledge-hub`),
+published from the personal marketplace at `github.com/nilsdoehring/ig-orchestrator`. Installing the
+plugin gives you `skills/` and `commands/`; it does **not** give you `.claude/`, which is
+project-scope and visible only to someone who clones this repository directly.
 
-**4. Never invent a product name.** Use only what is in `knowledge/products/index.yaml` or
-`briefing/products.json`. If the product you need is not there, say so — do not paraphrase your way
-to something close.
-
-**5. Never answer a design question from this repo.** Colour, typography, spacing, logo rules and
-component names are refused at export on purpose. Read `design/README.md` (German — the owners are
-German-speaking) for who actually owns each of those, and `knowledge/UNGUARDED.md` for the known,
-named cases where design content still reached a prompt anyway. The colour-name stoplist is a floor,
-not a guarantee — it does not catch everything.
-
-Full resolution mechanics — scope matching, shadowing, the budget split, family compaction — are in
-`.claude/skills/knowledge-model/SKILL.md`. How to write or judge a rule that survives the cascade is
-in `.claude/skills/writing-rules/SKILL.md`.
-
-## This is generated — do not hand-edit
-
-Every file here is produced by Unima's `unima:knowledge:publish-agent-repo` and listed with its
-sha256 in `MANIFEST.yaml`. CI (`.github/workflows/validate.yml`) recomputes those hashes and fails the
-build on any mismatch, so a hand-edit does not survive the next publish and does not survive review
-either — it is not a style preference, it is enforced.
-
-There is exactly one writable home for each kind of change:
-
-- **A knowledge row is wrong or missing** (a rule, a term, a statement, a product) → fix it in Unima,
-  where the corpus is authored, then re-run the publish command.
-- **The tooling itself is wrong** (`lib/`, `scripts/`, `.claude/commands/`, `.claude/skills/`) → fix
-  it in Unima's `integrations/agent-repo/template/`, the source this whole tree is copied from, then
-  re-run the publish command.
-
-`VERSION` is a content hash, not a build number — an unchanged corpus re-publishes to the same
-`VERSION` and produces no new commit. If you changed nothing here and `VERSION` changed, something
-upstream changed; if you changed something here and `VERSION` did not, your edit did not survive.
-
-## Before you trust `lib/resolve.mjs`
-
-It is a JS port of Unima's PHP resolver, proven against `knowledge/_conformance/cases.json` by:
-
-```bash
-node scripts/conformance.mjs
-```
-
-PHP is normative. A divergence here is a bug in this file until proven otherwise — never edit a case
-to make the script pass.
+Nothing above requires the plugin. A plain `git clone` and this file are enough.

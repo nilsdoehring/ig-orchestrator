@@ -1,0 +1,15 @@
+{
+    "name": "ig-orchestrator",
+    "owner": {
+        "name": "IONOS Group — Unima Knowledge Hub"
+    },
+    "description": "The Unima Knowledge Hub as a Claude Code plugin: brand knowledge for eight IONOS Group brands, the vocabulary that scopes it, and the skills that consume it.",
+    "plugins": [
+        {
+            "name": "knowledge-hub",
+            "source": "./",
+            "version": "2.1480.25234",
+            "description": "Brand knowledge, entry vocabulary and skills for eight IONOS Group brands, generated from the Knowledge Hub."
+        }
+    ]
+}

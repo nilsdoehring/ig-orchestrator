@@ -1,5 +1,11 @@
 {
     "name": "knowledge-hub",
-    "description": "Brand knowledge as one-liner atoms, and the rules for turning them into a system prompt. Assemble a brand-governed prompt without the Hub running.",
-    "version": "2.0.0"
+    "description": "Brand knowledge as one-liner atoms, the entry vocabulary that scopes them, the skills that consume them, and the rules for turning all of it into a system prompt. Assemble a brand-governed prompt without the Hub running.",
+    "author": {
+        "name": "IONOS Group — Unima Knowledge Hub"
+    },
+    "homepage": "https://github.com/nilsdoehring/ig-orchestrator",
+    "repository": "https://github.com/nilsdoehring/ig-orchestrator",
+    "license": "UNLICENSED",
+    "version": "2.1480.25234"
 }
