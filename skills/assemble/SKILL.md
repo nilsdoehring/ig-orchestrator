@@ -27,6 +27,16 @@ are properties of the route rather than bugs in it:
 Say which route produced a prompt when you hand one over. A prompt from here is
 reproducible only in the sense that the atoms are on disk.
 
+## If you were asked directly for a prompt
+
+Someone may invoke this skill on its own, not as a step inside another
+skill. If so, work out which Hub skill the prompt is for and which
+brand — read `knowledge/skills.md` and `knowledge/brands.md` and name
+the options if either wasn't stated, rather than guessing. Only ask
+about narrowing the scope (product / language / platform / segment) if
+the user actually wants something narrower than that skill's full
+default appetite.
+
 ## The appetite
 
 An appetite is an explicit **include list** of `dimension/category` — `*` allowed for a
