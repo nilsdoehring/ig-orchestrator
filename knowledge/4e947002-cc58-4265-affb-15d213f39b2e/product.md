@@ -1,0 +1,351 @@
+# STRATO — product
+
+Partition key: `4e947002-cc58-4265-affb-15d213f39b2e` · 321 published atoms
+
+Each line is `(rank) atom`, ranked highest first, followed by the tags that NARROW it. An
+axis with no tag shown is `*` and matches every value — so a line with no tags at all is
+global on all four axes. A global atom gets NO separate slice: it competes in the same
+per-dimension-category cap as every specifically-tagged atom here, ranked together with them.
+
+Headings are the frozen categories for this dimension; a category with nothing published is
+omitted. The cap of 12 applies per category AFTER your scope filters these, so the first 12
+lines are not the answer.
+
+## description
+
+- (95) AI App & Site Builder is a prompt-based tool to create professional websites and interactive web apps without coding. `product=AI App and Site Builder`
+- (95) AI Marketing Manager is an AI-powered tool by STRATO that automates social media marketing from single posts to full campaigns. `product=AI Marketing Manager`
+- (95) AI Marketing Suite is a bundle of three AI agents for SMB online marketing: KI Search-Manager, KI Reputationsmanager, and KI Marketing-Manager. `product=AI Marketing Suite`
+- (95) AI Reputation Manager is an AI-powered SaaS tool for centralizing and automating customer review management across multiple platforms. `product=AI Reputation Manager`
+- (95) AI Search Manager is an AI tool that optimizes business visibility across Google, generative AI engines (ChatGPT, Gemini, Perplexity), and directories. `product=AI Search Manager`
+- (95) Cyber Protect is a combined backup and cybersecurity solution for over 20 platforms, delivered with Acronis. `product=Cyber Protect`
+- (95) Dedicated Server: Dedicated root server with exclusive Intel/AMD hardware, full root or admin access, hosted in German ISO 27001 data centers. `product=Dedicated Server`
+- (95) HiDrive Business is a GDPR-compliant cloud storage solution for companies, hosted exclusively in German data centers. `product=HiDrive Business`
+- (95) HiDrive Share is a free, ad-free file transfer tool by STRATO for sending large files up to 2 GB via shareable link without registration. `product=HiDrive Share`
+- (95) KI Chat-Assistent is an AI-powered website chatbot that automates customer inquiry responses around the clock. `product=AI Chat Assistant`
+- (95) OpenClaw VPS Hosting is a preconfigured virtual private server designed for hosting personal AI agents. `product=OpenClaw VPS Hosting`
+- (95) STRATO AI Phone Assistant is an AI-powered phone service for businesses that answers calls 24/7 when staff are unavailable. `product=AI Phone Assistant`
+- (95) STRATO Domain Guard is a security add-on for STRATO domains that protects against domain hijacking, unauthorized transfers, and DNS manipulation. `product=Domain Guard`
+- (95) STRATO Domains provides registration across over 200 TLDs, domain transfers, and setup support with 1-month or 12-month contract options. `product=Domains`
+- (95) STRATO E-Commerce Plug-in turns any existing CMS website into an online shop via HTML snippet without coding or rebuilding the site. `product=E-Commerce Plugin`
+- (95) STRATO E-Mail Archiving is an audit-proof software solution for storing business email correspondence and attachments in compliance with GoBD. `product=E-Mail Archiving`
+- (95) STRATO E-Mail is an ad-free email hosting service offering custom-domain mailboxes for individuals and business teams. `product=E-Mail`
+- (95) STRATO GPT is an EU-hosted, GDPR-compliant AI chat assistant offering unlimited chatting, document uploads, web search, and reasoning mode. `product=STRATO GPT`
+- (95) STRATO Homepage-Baukasten is an AI-powered website builder that allows users to create and publish websites without coding knowledge. `product=Homepage Builder`
+- (95) STRATO SSL Certificates provide 256-bit encryption for websites and webshops to secure data transfers between server and client via HTTPS. `product=SSL Certificates`
+- (95) STRATO SmartWebshop is a no-code e-commerce site builder with drag-and-drop templates and integrated AI assistance for launching an online store. `product=Webshop`
+- (95) STRATO Webhosting provides all-in-one website hosting packages including domain, SSL certificates, SSD storage, and email mailboxes. `product=Web Hosting`
+- (95) STRATO Website Design & Maintenance is a service where a dedicated design team builds a website using the site builder, including hosting, domains, and email. `product=Website Design & Maintenance`
+- (95) STRATO WooCommerce Hosting is a managed WordPress hosting package designed specifically for running WooCommerce online stores. `product=WooCommerce`
+- (95) STRATO WordPress Hosting offers managed WordPress hosting with an included domain, SSD storage, AI site generation tools, and automatic updates. `product=WordPress Hosting`
+- (90) AI App and Site Builder is a platform for creating and deploying full-stack Node.js/SQLite web applications using natural language, voice, or screenshot prompts. `product=AI App and Site Builder`
+- (90) Cyber Protect Defender is a real-time antivirus and automated encrypted backup solution for PCs, Macs, mobile devices, and cloud apps. `product=Cyber Protect Defender`
+- (90) HiDrive Object Storage is fast, scalable S3-compatible object storage for business data, hosted across two German data centers. `product=HiDrive Object Storage`
+- (90) STRATO E-Mail-Marketing-Tool is an AI-assisted email marketing platform featuring a drag-and-drop editor and real-time performance analytics. `product=Email Marketing Tool`
+- (90) STRATO HiDrive is a cloud storage solution hosted in Germany for secure file storage, sharing, and collaboration. `product=HiDrive`
+- (90) STRATO Linux V-Server is a KVM-based virtual private server providing full root access and NVMe storage. `product=VPS`
+- (90) STRATO Microsoft 365 is a monthly subscription providing Microsoft Office desktop and online applications alongside Exchange email hosting. `product=Microsoft 365`
+- (90) STRATO Windows V-Server is a KVM-based virtual private server providing full administrator rights on Windows Server. `product=VPS`
+- (90) STRATO n8n VPS is a Linux virtual private server optimized for self-hosting the n8n workflow automation platform. `product=n8n VPS`
+- (90) The STRATO AI App & Site Builder is a 'vibe coding' platform that lets users create, deploy, and manage full-stack web applications using natural language.
+- (85) AI Marketing Suite operates via a single login with a shared cross-tool knowledge base, European hosting, and GDPR compliance. `product=AI Marketing Suite`
+- (80) KI Marketing-Manager plans and executes social media posts and complete marketing campaigns with interactive AI guidance. `product=AI Marketing Suite`
+- (80) KI Reputationsmanager monitors multi-platform reviews and generates automated, brand-consistent professional responses. `product=AI Marketing Suite`
+- (80) KI Search-Manager tracks industry trends, optimizes SEO rankings, SEA campaigns, and AI mentions in tools like ChatGPT. `product=AI Marketing Suite`
+- (65) AI Reputation Manager belongs to STRATO's Smart AI / AI Marketing Suite alongside KI Search-Manager and KI Marketing-Manager. `product=AI Reputation Manager`
+
+## value_proposition
+
+- (90) AI Marketing Suite delivers online visibility, reputation management, and social media campaigns without agency fees or tech skills. `product=AI Marketing Suite`
+- (90) Dedicated Server: Provides 100% dedicated bare-metal CPU, RAM, and storage performance without shared hardware virtualization overhead. `product=Dedicated Server`
+- (90) HiDrive Business enables secure team collaboration, document editing, and automated device backups under German data privacy standards. `product=HiDrive Business`
+- (90) HiDrive Share enables instant, privacy-compliant file sharing without requiring sender or recipient to create an account. `product=HiDrive Share`
+- (90) Provides businesses with a professionally built, turnkey website completed quickly without requiring DIY design effort. `product=Website Design & Maintenance`
+- (90) STRATO Domain Guard gives domain owners full control by preventing unauthorized traffic redirection, ownership transfers, and domain cancellation. `product=Domain Guard`
+- (90) STRATO E-Mail delivers professional email on a custom .de domain backed by strict German data protection at affordable entry prices. `product=E-Mail`
+- (85) AI App & Site Builder lets users generate and iterate functional web apps and sites directly from natural language prompts. `product=AI App and Site Builder`
+- (85) AI Marketing Manager delivers agency-quality social media marketing without agency overhead, giving users full control or automated publishing. `product=AI Marketing Manager`
+- (85) AI Reputation Manager automatically generates on-brand replies matching a company's custom tone across multiple languages. `product=AI Reputation Manager`
+- (85) AI Reputation Manager centralizes reviews from Google, Trustpilot, Yelp, TripAdvisor, and Facebook with real-time email alerts. `product=AI Reputation Manager`
+- (85) AI Search Manager delivers agency-grade SEO, SEA, and AI search visibility without agency costs or technical expertise. `product=AI Search Manager`
+- (85) Cyber Protect Defender secures devices and cloud data against malware, theft, and accidental loss with automated backup and easy recovery. `product=Cyber Protect Defender`
+- (85) Cyber Protect protects systems by combining AI-based malware defense, endpoint management, and bare-metal recovery. `product=Cyber Protect`
+- (85) Enables users to build a complete, professional website in minutes using AI assistance for structure, text, and imagery. `product=Homepage Builder`
+- (85) HiDrive Object Storage provides GDPR-compliant, scalable cloud storage hosted in Germany without fixed contract commitments. `product=HiDrive Object Storage`
+- (85) HiDrive lets individuals and teams store, sync, and share files securely under strict German GDPR compliance. `product=HiDrive`
+- (85) KI Chat-Assistent captures more appointments and leads without extra staff by learning from business data to answer instantly. `product=AI Chat Assistant`
+- (85) OpenClaw VPS Hosting increases productivity through automated workflows while keeping AI data secure in German data centers. `product=OpenClaw VPS Hosting`
+- (85) STRATO AI Phone Assistant automates appointment booking, advises callers, and frees teams from phone interruptions around the clock. `product=AI Phone Assistant`
+- (85) STRATO Domains enables quick, straightforward domain registration so customers can secure their brand and establish an online presence easily. `product=Domains`
+- (85) STRATO E-Commerce Plug-in lets businesses add a full shop or buy buttons to existing websites with 1-click installation. `product=E-Commerce Plugin`
+- (85) STRATO E-Mail Archiving ensures GoBD and GDPR compliance, protecting businesses from legal risks by safeguarding electronic records for tax audits. `product=E-Mail Archiving`
+- (85) STRATO E-Mail-Marketing-Tool enables businesses to build customer relationships and drive sales through fast, easy newsletter creation with no technical skills. `product=Email Marketing Tool`
+- (85) STRATO GPT enhances business productivity across drafting, data analysis, and contract reviews while maintaining strict European data privacy. `product=STRATO GPT`
+- (85) STRATO SSL Certificates protect user data, eliminate browser security warnings, boost SEO rankings, and fulfill GDPR encryption compliance. `product=SSL Certificates`
+- (85) STRATO SmartWebshop enables quick and easy online selling without technical expertise or programming skills. `product=Webshop`
+- (85) STRATO Webhosting delivers up to 3x faster loading times with built-in reliability during traffic spikes. `product=Web Hosting`
+- (85) STRATO WooCommerce Hosting delivers a fast, secure, and easily managed e-commerce environment with pre-configured shop software. `product=WooCommerce`
+- (85) STRATO WordPress Hosting enables fast website creation with AI assistance and hassle-free operation via automated updates and included domains. `product=WordPress Hosting`
+- (85) STRATO n8n VPS provides full data sovereignty and eliminates n8n cloud subscription fees by self-hosting workflows on your own server. `product=n8n VPS`
+- (80) AI App and Site Builder allows users to build functional SaaS MVPs without writing code and deploy them automatically on professional-grade owned infrastructure. `product=AI App and Site Builder`
+- (80) AI App and Site Builder ensures strict data compliance by hosting applications on GDPR-compliant EU data residency infrastructure rather than third-party hyperscalers. `product=AI App and Site Builder`
+- (80) AI App and Site Builder lets developers safely iterate by rolling back code, database state, and AI chat history all at once. `product=AI App and Site Builder`
+- (80) STRATO Microsoft 365 enables cross-device collaboration, secure document sharing, and remote access to Office tools with automatic updates included. `product=Microsoft 365`
+- (80) The STRATO AI App & Site Builder allows users to bypass traditional development cycles and go from initial concept to a live, functional web application in minutes.
+- (75) AI Reputation Manager tracks sentiment and reputation scores in real time and provides competitive reputation benchmarking. `product=AI Reputation Manager`
+- (70) AI Reputation Manager's Review Booster proactively requests customer feedback via post-purchase reminder links. `product=AI Reputation Manager`
+- (70) By consolidating hosting, domains, security, and AI generation into one subscription, the STRATO AI App & Site Builder reduces overall cost and management complexity.
+
+## differentiators
+
+- (95) STRATO GPT differentiates from ChatGPT by hosting data in the EU/Germany under GDPR and guaranteeing customer inputs are never used for AI training. `product=STRATO GPT`
+- (90) AI Marketing Manager is 100% GDPR-compliant and hosted exclusively in European data centers. `product=AI Marketing Manager`
+- (90) AI Reputation Manager processes all data exclusively in German ISO 27001-certified data centers, avoiding US third-country transfer risks. `product=AI Reputation Manager`
+- (90) Cyber Protect stores all backup data exclusively in two high-security German data centers under German data sovereignty. `product=Cyber Protect`
+- (90) OpenClaw VPS Hosting stores all data strictly within the EU in ISO/IEC 27001-certified German data centers. `product=OpenClaw VPS Hosting`
+- (90) STRATO E-Commerce Plug-in connects to Google Shopping, Facebook, Instagram, and Amazon via Codisto with real-time sync. `product=E-Commerce Plugin`
+- (90) STRATO Webhosting guarantees 99.99% server availability hosted exclusively in ISO 27001-certified German data centers. `product=Web Hosting`
+- (90) STRATO is recognized as "Service-Champion & Nr. 1 im Webhosting" (2025) and hosts all domains in ISO/IEC-27001 certified German data centers. `product=Domains`
+- (90) Unlike Bolt and Lovable, the STRATO AI App & Site Builder uses owned infrastructure rather than third-party hyperscalers, ensuring superior security and GDPR compliance.
+- (90) Unlike competitors with hard credit limits, the STRATO AI App & Site Builder offers a 'never-blocked' access model for uninterrupted building after primary AI allocations.
+- (85) AI Marketing Manager automatically analyzes the user's website during setup to learn business model, products, and target audience. `product=AI Marketing Manager`
+- (85) AI Marketing Suite at €59/mo saves up to €16/mo (€192/yr) compared to buying its three individual €25/mo AI agents separately. `product=AI Marketing Suite`
+- (85) AI Search Manager optimizes presence for generative AI search engines (ChatGPT, Gemini, Perplexity) alongside traditional Google search. `product=AI Search Manager`
+- (85) Combines personal design team creation and ongoing monthly maintenance (2 hours/month included in all tiers) with self-service site editor access. `product=Website Design & Maintenance`
+- (85) HiDrive Business differentiates via German data centers, ISO 27001, TÜV and Trusted Cloud seals, and 100% green power over non-EU clouds. `product=HiDrive Business`
+- (85) HiDrive Object Storage operates exclusively in two German high-security data centers powered entirely by green electricity. `product=HiDrive Object Storage`
+- (85) Hosted in two ISO 27001-certified German data centers running on 100% green electricity, ensuring full GDPR compliance. `product=Homepage Builder`
+- (85) KI Chat-Assistent shares a unified knowledge base with KI Telefonassistent. `product=AI Chat Assistant`
+- (85) OpenClaw VPS Hosting features an n8n automation integration, installing Node.js and dependencies in a single line of code. `product=OpenClaw VPS Hosting`
+- (85) STRATO Domain Guard provides dual-layer domain protection combining 2-factor email authorization for admin changes with automated DNSSEC validation. `product=Domain Guard`
+- (85) STRATO E-Mail-Marketing-Tool differentiates itself with an integrated AI text generator that produces tailored newsletter copy from chosen industry and topic prompts. `product=Email Marketing Tool`
+- (85) STRATO SSL tiers differ in validation depth (DV, OV, EV), warranty amounts, and subdomain coverage, not in 256-bit encryption strength. `product=SSL Certificates`
+- (85) STRATO bundles Microsoft 365 with domain and hosting services under one provider, including a free migration service for emails and contacts. `product=Microsoft 365`
+- (85) STRATO n8n VPS enables unlimited workflow and task executions without cloud tier limits, connecting with over 500 services. `product=n8n VPS`
+- (85) Unlike Bolt and Lovable, AI App and Site Builder uses fully owned infrastructure rather than Vercel or Supabase, ensuring superior security and GDPR compliance. `product=AI App and Site Builder`
+- (85) Unlike competitors with hard credit blocks, AI App and Site Builder offers 'never-blocked' access for uninterrupted building after primary AI allocations are met. `product=AI App and Site Builder`
+- (85) Unlike standard version control, AI App and Site Builder provides unified rollbacks that restore the application state, database, and AI history simultaneously. `product=AI App and Site Builder`
+- (80) Cyber Protect Defender positions dedicated encrypted backup as more secure and distinct from standard cloud storage or external drives. `product=Cyber Protect Defender`
+- (80) Cyber Protect integrates real-time AI/ML anti-malware, ransomware active protection, and backup across 20+ platforms. `product=Cyber Protect`
+- (80) Dedicated Server: Optional Backup Edition adds 200 GB Acronis Cyber Protect backup storage and 24/7 hotline for an additional €10/month. `product=Dedicated Server`
+- (80) KI Chat-Assistent automatically detects when human support is needed and transitions chats directly to team phone calls. `product=AI Chat Assistant`
+- (80) KI Chat-Assistent requires no technical skills and sets up in under 10 minutes on average. `product=AI Chat Assistant`
+- (80) STRATO AI Phone Assistant connects via call forwarding, allowing businesses to retain their existing phone numbers seamlessly. `product=AI Phone Assistant`
+- (80) STRATO AI Phone Assistant sets up automatically by learning from company website content and uploaded reference documents. `product=AI Phone Assistant`
+- (80) STRATO Domains infrastructure runs exclusively on renewable energy in German data centers ("Hosted in Germany"). `product=Domains`
+- (80) STRATO E-Mail includes a free migration service for emails, contacts, and calendar entries across all plans. `product=E-Mail`
+- (80) STRATO GPT provides unlimited chat access with no monthly usage caps or speed throttling, including unlimited step-by-step thinking mode. `product=STRATO GPT`
+- (80) STRATO SmartWebshop is hosted in German ISO 27001-certified data centers powered by green electricity, providing GDPR-compliant hosting and support. `product=Webshop`
+- (80) STRATO Webhosting provides 24/7 customer phone support via a German landline alongside email and FAQ self-service. `product=Web Hosting`
+- (80) STRATO WooCommerce Hosting simplifies store setup via pre-installed WooCommerce, guided setup assistants, and integrated AI website tools. `product=WooCommerce`
+- (80) Unlike standard version control, the STRATO AI App & Site Builder provides unified rollbacks that simultaneously restore code, database state, and AI chat history.
+- (80) Unlike traditional block-based website builders, AI App & Site Builder proactively suggests layouts and content from prompts. `product=AI App and Site Builder`
+- (75) AI Search Manager provides automated Google Ads creation with upfront outcome forecasting to eliminate budget risk. `product=AI Search Manager`
+- (75) Dedicated Server Windows: Offers an optional Security Edition (Cyber Protect Pro & Monitoring Premium) with real-time antivirus and patch management. `product=Dedicated Server`
+- (75) HiDrive Object Storage provides S3 compatibility and REST APIs, enabling flexible migration and integration with major appliances. `product=HiDrive Object Storage`
+- (75) STRATO AI Phone Assistant automatically synchronizes bookings with Google Calendar, Outlook, Apple Calendar, and Calendly/CAL.com. `product=AI Phone Assistant`
+- (75) STRATO AI Phone Assistant detects key terms like "emergency" and automatically routes unresolved inquiries to human staff. `product=AI Phone Assistant`
+- (75) STRATO Linux VPS supports Docker-ready environments and integrated n8n automation out of the box. `product=VPS`
+- (75) STRATO Webhosting data centers have operated on 100% green electricity (Ökostrom) since 2008 with full GDPR compliance. `product=Web Hosting`
+- (75) STRATO Webmail includes an integrated AI assistant for one-click draft generation, replies, and translations. `product=E-Mail`
+- (75) STRATO WordPress Hosting pairs German-hosted geo-redundancy with built-in AI creation tools and a permanently included domain. `product=WordPress Hosting`
+- (75) Unlike paid HiDrive Cloud Storage, HiDrive Share is strictly a 7-day, 2 GB temporary transfer tool without collaboration or backup features. `product=HiDrive Share`
+- (70) STRATO E-Mail Archiving can be booked directly and activated within minutes inside the STRATO customer login. `product=E-Mail Archiving`
+- (70) STRATO VPS includes free switching and reinstallation among supported operating system distributions. `product=VPS`
+- (65) Rated 2nd place (grade 1.7) in the Für-Gründer.de website builder comparison for usability, solid features, and fair terms. `product=Homepage Builder`
+
+## proof_points
+
+- (90) AI App & Site Builder includes full hosting, SSL certificate, SQL database, storage, and a permanently free domain in all tiers. `product=AI App and Site Builder`
+- (90) AI App and Site Builder generates robust Node.js and SQLite database-driven backends rather than static templates. `product=AI App and Site Builder`
+- (90) AI App and Site Builder updates live applications in approximately 1.2 seconds as changes are described. `product=AI App and Site Builder`
+- (90) AI Marketing Suite pricing: 12-month contract costs €59/month with first month free and €0 setup fee. `product=AI Marketing Suite`
+- (90) AI Search Manager 12-month plan costs €0 for month 1 then €25/month incl. VAT; 1-month plan costs €35/month incl. VAT; setup is always €0. `product=AI Search Manager`
+- (90) All STRATO E-Mail plans include 1 .de domain, 10 subdomains, up to 250 aliases, 75 MB attachment limits, and IMAP/POP3 access. `product=E-Mail`
+- (90) All STRATO WordPress Hosting plans include 1 free domain, 1 SSL certificate, unmetered traffic, SFTP, PHP 8.3, and a 2 GB MariaDB database. `product=WordPress Hosting`
+- (90) Dedicated Server: Includes 1 Gbit/s uplink, unlimited traffic flatrate, 1 IPv4 address, IPv6 support, 1 SSL single-domain certificate, and Plesk Web Admin. `product=Dedicated Server`
+- (90) HiDrive Business holds ISO 27001, TÜV certifications, and the BMWK Trusted Cloud seal; data centers use green power — safe to claim. `product=HiDrive Business`
+- (90) HiDrive Object Storage guarantees at least 99% annual availability SLA—safe to claim; do not claim higher uptime. `product=HiDrive Object Storage`
+- (90) HiDrive is ISO/IEC 27001 and TÜV certified and holds the BMWK 'Trusted Cloud' seal, hosted in two German data centers. `product=HiDrive`
+- (90) Homepage Builder includes 1 domain, 1 SSL certificate, unlimited traffic, and two 5 GB mailboxes across all plan tiers. `product=Homepage Builder`
+- (90) KI Chat-Assistent costs €12/month (incl. VAT) with 1st month free, €0 setup, unlimited chats, and monthly cancellation. `product=AI Chat Assistant`
+- (90) KI Chat-Assistent is 100% GDPR-compliant, hosted in two German high-security data centers, and ISO 27001-certified. `product=AI Chat Assistant`
+- (90) STRATO E-Mail Archiving is certified according to IDW PS 880 for completeness, accuracy, timeliness, immutability, and traceability. `product=E-Mail Archiving`
+- (90) STRATO GPT pricing: €5/month (1-month term) or €4/month (12-month term, 1st month free), €0 setup - safe to claim 'ab 4 Euro im Monat'. `product=STRATO GPT`
+- (90) STRATO WooCommerce Hosting includes 100 GB webspace, 1 domain, 1 SSL certificate, unlimited traffic, and a 2 GB MariaDB SSD database. `product=WooCommerce`
+- (90) The STRATO AI App & Site Builder guarantees GDPR-compliant EU data residency by hosting everything on its own infrastructure.
+- (85) AI App & Site Builder plans scale by project limits (1, 10, 25) and AI credits (150, 300, or unlimited per month). `product=AI App and Site Builder`
+- (85) AI Marketing Manager supports cross-channel planning and posting across Facebook, Instagram, LinkedIn, and X. `product=AI Marketing Manager`
+- (85) AI Marketing Suite pricing: 1-month flexible contract costs €99/month with €0 setup fee. `product=AI Marketing Suite`
+- (85) All STRATO SmartWebshop plans include 1 free domain, a free SSL certificate, 2 email inboxes (5 GB each), and hosting with a CDN. `product=Webshop`
+- (85) All plans include 3 domains, 5 subdomains, 10 GB webspace, 3 email mailboxes (5 GB each), 5 SSL certificates, unlimited traffic, and 2 hours monthly maintenance. `product=Website Design & Maintenance`
+- (85) Cyber Protect Defender tiers scale by PC/Mac count (1, 3, 5, or 10 devices), each including unlimited mobile devices and cloud backups. `product=Cyber Protect Defender`
+- (85) Cyber Protect secures data using AES 256-bit encryption in ISO/IEC 27001-certified German data centers. `product=Cyber Protect`
+- (85) Dedicated Server: Hosted in German data centers with ISO 27001 certification, TÜV Nord annual audit, and powered by 100% green electricity. `product=Dedicated Server`
+- (85) Dedicated Server: Includes 30-day money-back guarantee, rescue system, remote/VNC console, integrated monitoring, and free OS switching at any time. `product=Dedicated Server`
+- (85) E-Commerce Plug-in tiers scale from Basic (5k items, 1GB files) to Plus (10k items) and Pro (unlimited items, 10GB files). `product=E-Commerce Plugin`
+- (85) HiDrive Business includes unlimited data traffic with zero file size limits or file/folder count restrictions — safe to claim. `product=HiDrive Business`
+- (85) HiDrive Object Storage is certified under ISO/IEC 27001 by TÜV Nord and carries the BMWi Trusted Cloud seal. `product=HiDrive Object Storage`
+- (85) HiDrive Share allows transfers up to 2 GB total per share with no restriction on the number of files; safe to claim. `product=HiDrive Share`
+- (85) HiDrive Share download links expire and uploaded files are automatically deleted after exactly 7 days. `product=HiDrive Share`
+- (85) HiDrive includes AES-128 encryption and 2FA; optional zero-knowledge end-to-end encryption is available for €2/month. `product=HiDrive`
+- (85) Homepage Builder tiers scale capacity: Basic (5 pages, 10 GB), Plus (100 pages, 20 GB), and Pro (500 pages, 50 GB). `product=Homepage Builder`
+- (85) KI Chat-Assistent supports native conversation in 20+ languages via automatic language detection. `product=AI Chat Assistant`
+- (85) STRATO AI Phone Assistant is hosted in Germany in ISO/IEC 27001 certified data centers powered by 100% green electricity. `product=AI Phone Assistant`
+- (85) STRATO Domain Guard costs 1.25 €/month on a 12-month contract term - safe to claim; state term length alongside monthly price. `product=Domain Guard`
+- (85) STRATO Domains provides over 200 extensions including .de, .com, .eu, .org, .net, .online, and .shop, with optional multi-domain bundles - safe to claim. `product=Domains`
+- (85) STRATO E-Mail Business includes 50 GB per mailbox, ActiveSync, CalDAV/CardDAV sync, HiDrive integration, and standard premium antivirus. `product=E-Mail`
+- (85) STRATO E-Mail is hosted in two ISO-27001-certified German data centers powered by 100% green electricity. `product=E-Mail`
+- (85) STRATO E-Mail offers optional IDW PS 880 certified archiving compliant with GDPR, GoBD, and electronic invoice standards (ZUGFeRD, XRechnung). `product=E-Mail`
+- (85) STRATO GPT is hosted in ISO 27001-certified German high-security data centers powered by green electricity with SSL encryption. `product=STRATO GPT`
+- (85) STRATO SmartWebshop scales across four plans: Basic (500 products), Plus (5,000), Pro (10,000), and Ultimate (unlimited products and webspace). `product=Webshop`
+- (85) STRATO VPS includes 1 IPv4 address, unlimited traffic, up to 1,000 MBit/s connection, 1 SSL certificate, and a VNC console. `product=VPS`
+- (85) STRATO Webhosting offers a 30-day money-back guarantee across all monthly and annual plans. `product=Web Hosting`
+- (85) STRATO Webhosting plans scale across Starter, Basic, Plus, and Pro tiers, providing 50 GB to 200 GB SSD storage and 1 to 10 domains. `product=Web Hosting`
+- (85) STRATO WooCommerce Hosting includes automated security updates, PHP 8.3 support, and an integrated WordPress security scan. `product=WooCommerce`
+- (85) STRATO WordPress Hosting guarantees 99.98% availability across geo-redundant, ISO 27001-certified German data centers powered by green energy. `product=WordPress Hosting`
+- (80) AI App & Site Builder hosts all data in the EU under GDPR-compliant data processing standards. `product=AI App and Site Builder`
+- (80) AI Marketing Manager 12-month plan costs €0 in month 1, then €25/mo (€0 setup); 1-month plan is €35/mo (€0 setup); all prices include VAT. `product=AI Marketing Manager`
+- (80) AI Marketing Suite: data is hosted in Europe with full GDPR compliance. `product=AI Marketing Suite`
+- (80) AI Reputation Manager costs 35 €/month or 0 € for month 1 then 25 €/month with 0 € setup - safe to claim; verify term duration. `product=AI Reputation Manager`
+- (80) AI Reputation Manager runs on 100% renewable electricity in GDPR-compliant German data centers - safe to claim; cite ISO/IEC 27001. `product=AI Reputation Manager`
+- (80) AI Search Manager distributes and syncs company profiles across over 35 leading business directories from a single input. `product=AI Search Manager`
+- (80) All STRATO E-Mail-Marketing-Tool plans include a €0 setup fee, responsive design templates, drag-and-drop editing, double opt-in, and an AI text generator. `product=Email Marketing Tool`
+- (80) Basic includes an AI shop generator, while advanced AI text, SEO, image, and product description tools require SmartWebshop Plus or higher. `product=Webshop`
+- (80) Dedicated Server: Setup fee matches the 1-month rate on 1-month terms, but is €0 on 12-month contract terms. `product=Dedicated Server`
+- (80) E-Commerce Plug-in Plus adds product SEO, item filters, multi-language support, wishlists, and CSV data export. `product=E-Commerce Plugin`
+- (80) E-Commerce Plug-in Pro exclusively includes customer groups, volume discounts, wholesale B2B sales, and POS sync. `product=E-Commerce Plugin`
+- (80) HiDrive Business scales from Essential (1 TB, 5 users) up to Premium (10 TB, 20 users) on monthly or 12-month terms — safe to claim. `product=HiDrive Business`
+- (80) HiDrive Business supports AES-256, ECDH, optional end-to-end encryption (E2EE), and two-factor authentication — safe to claim. `product=HiDrive Business`
+- (80) HiDrive Object Storage includes free inbound traffic, while outbound traffic is billed at €0.05 per GB per month. `product=HiDrive Object Storage`
+- (80) HiDrive Object Storage storage pricing scales from €0.018/GB down to €0.012/GB per month based on usage volume. `product=HiDrive Object Storage`
+- (80) HiDrive Share data is hosted in two ISO 27001 certified, GDPR-compliant STRATO data centers in Germany powered by green energy. `product=HiDrive Share`
+- (80) HiDrive tiers scale from Starter (500 GB, 1 user) to Business (up to 10 TB, 20 users) with zero setup fees across all plans. `product=HiDrive`
+- (80) Homepage Builder Plus and Pro tiers include AI text, SEO, and image generators, plus translation for up to 103 languages. `product=Homepage Builder`
+- (80) Homepage Builder includes a 30-day money-back guarantee on all plans. `product=Homepage Builder`
+- (80) KI Chat-Assistent books appointments via Google Calendar integration and connects via API to CRMs and helpdesks. `product=AI Chat Assistant`
+- (80) OpenClaw VPS Hosting includes 1 IPv4, IPv6 readiness, 1 SSL certificate, Docker support, and unlimited traffic at up to 1,000 MBit/s. `product=OpenClaw VPS Hosting`
+- (80) Pro (€70/mo, €0 setup) and Plus (€50/mo, €0 setup) include up to 7 pages; Basic (€30/mo, €200 setup) covers 1 page; Pro adds included SEO and legal text templates. `product=Website Design & Maintenance`
+- (80) STRATO Domain Guard requires 2-factor email verification for domain transfers, cancellations, DNS adjustments, and contact detail updates. `product=Domain Guard`
+- (80) STRATO E-Mail Archiving runs in ISO/IEC 27001-certified German data centers powered entirely by green electricity. `product=E-Mail Archiving`
+- (80) STRATO E-Mail-Marketing-Tool ensures GDPR compliance via double opt-in verification, anti-spam safeguards, and automated legal notice (Impressum) integration. `product=Email Marketing Tool`
+- (80) STRATO Linux VPS allows users to select server locations across certified data centers in Germany, France, or Spain. `product=VPS`
+- (80) STRATO Linux VPS offers 5 NVMe hardware tiers from S (1 vCore, 2GB RAM) up to XXL (12 vCores, 24GB RAM, 720GB NVMe). `product=VPS`
+- (80) STRATO Microsoft 365 plans feature 1-month contract terms, €0 setup, up to 100 GB mailbox storage, and 1 TB OneDrive cloud storage per user. `product=Microsoft 365`
+- (80) STRATO SSL Certificates are issued in partnership with Sectigo and all feature standard 256-bit encryption. `product=SSL Certificates`
+- (80) STRATO Windows VPS offers 4 hardware tiers from M (2 vCores, 4GB RAM) up to XXL (12 vCores, 24GB RAM, 720GB NVMe). `product=VPS`
+- (80) STRATO n8n VPS includes 1 IPv4 address, unlimited traffic, up to 1 Gbit/s bandwidth, KVM virtualization, Docker support, and 1 SSL cert. `product=n8n VPS`
+- (80) STRATO recommends at least VPS M (4 GB RAM) for up to 10 n8n workflows, and VPS L (8 GB RAM) for complex data processing or AI tasks. `product=n8n VPS`
+- (80) The STRATO AI App & Site Builder features zero-configuration instant deployment on professional-grade owned infrastructure with an integrated CDN.
+- (80) The STRATO AI App & Site Builder generates fully functional Node.js and SQLite applications from text, voice, or screenshot prompts, moving beyond static templates.
+- (80) Website Design & Maintenance: over 15,000 realized projects and delivery within a few business days - safe to claim. `product=Website Design & Maintenance`
+- (75) AI App & Site Builder offers a 30-day trial period and 0 € setup fee across all subscription plans. `product=AI App and Site Builder`
+- (75) AI Marketing Manager includes a drag-and-drop campaign calendar, visual post preview, and automated or one-click approval workflows. `product=AI Marketing Manager`
+- (75) AI Marketing Manager supports 3 image sources: generative AI image creation, custom user uploads, and a free stock photo library. `product=AI Marketing Manager`
+- (75) AI Search Manager provides 24/7 real-time competitor, trend, and brand mention monitoring across generative AI platforms. `product=AI Search Manager`
+- (75) All STRATO Webhosting plans include unlimited traffic, daily malware scans, DDoS protection, 2FA, database backups, and HTTP/2. `product=Web Hosting`
+- (75) Cyber Protect Defender is developed by Acronis International GmbH, a Cloud Security Alliance member. `product=Cyber Protect Defender`
+- (75) Cyber Protect offers Bare Metal Recovery alongside file- and image-based incremental backups. `product=Cyber Protect`
+- (75) Dedicated Server Linux: Entry pricing starts at €36/month for CP4 models up to 16-core AMD Epyc models (€160/month). `product=Dedicated Server`
+- (75) Dedicated Server Windows: Available with Windows Server 2025 or 2022, featuring up to 60% faster storage IOPS and integrated AI diagnostics. `product=Dedicated Server`
+- (75) HiDrive Business includes 24/7 hotline support and a 1-month free trial — safe to claim. `product=HiDrive Business`
+- (75) HiDrive Share carries the German Federal Ministry for Economic Affairs 'Trusted Cloud' seal; safe to claim. `product=HiDrive Share`
+- (75) KI Chat-Assistent integrates with all major website systems and allows full corporate design customization. `product=AI Chat Assistant`
+- (75) Multichannel selling on Amazon and eBay plus B2B customer-group discounts are exclusive to the SmartWebshop Ultimate tier. `product=Webshop`
+- (75) OpenClaw VPS Hosting offers 4 KVM tiers (M to XXL, 4–24 GB RAM, 120–720 GB NVMe), with VPS L designated as bestseller. `product=OpenClaw VPS Hosting`
+- (75) Over 70,000 customers host WooCommerce with STRATO—safe to claim as a proof point. `product=WooCommerce`
+- (75) STRATO Domain Guard includes automated DNSSEC validation to cryptographically verify the authenticity of DNS data in fractions of a second. `product=Domain Guard`
+- (75) STRATO E-Mail Archiving supports excluding predefined email addresses (such as works council communications) to comply with data privacy laws. `product=E-Mail Archiving`
+- (75) STRATO E-Mail-Marketing-Tool tiers scale by monthly email volume: Basic offers 2,000, Plus offers 7,500, and Pro provides 20,000 emails per month. `product=Email Marketing Tool`
+- (75) STRATO Microsoft 365 Business Standard includes downloadable Office apps for up to 5 devices, 100 GB mailbox, 1 TB OneDrive, and Teams for €17/month. `product=Microsoft 365`
+- (75) STRATO SSL Business provides Organization Validation (OV) with a $1,250,000 warranty, issued in 1-3 days for single domains or wildcards. `product=SSL Certificates`
+- (75) STRATO SSL Premium provides Extended Validation (EV) for enterprises with a $1,500,000 warranty, issued in 3-5 days. `product=SSL Certificates`
+- (75) STRATO SSL Starter provides Domain Validation (DV) with a $500,000 warranty, issued in minutes for single domains or wildcards. `product=SSL Certificates`
+- (75) STRATO VPS 12-month terms feature discounted promotional pricing for the first 3 months before reverting to regular rates. `product=VPS`
+- (75) STRATO Windows VPS includes a 30-day money-back guarantee. `product=VPS`
+- (75) STRATO WordPress Hosting scales from Basic (25 GB SSD) to E-Commerce (100 GB SSD) with proportional increases in mailboxes and subdomains. `product=WordPress Hosting`
+- (75) STRATO n8n VPS tiers range from VPS S (1 vCore, 2 GB RAM, 60 GB NVMe) to VPS XXL (12 vCore, 24 GB RAM, 720 GB NVMe) plus a €9 setup fee. `product=n8n VPS`
+- (75) STRATO rankingCoach SEO tool is included exclusively in the Homepage Builder Pro tier. `product=Homepage Builder`
+- (75) SmartWebshop supports 20+ payment gateways, with SEPA direct debit, inventory sync, and real-time shipment tracking starting from the Pro plan. `product=Webshop`
+- (75) Stiftung Warentest rated HiDrive 'Gut' (2.3) in 10/2023; webhosting.de rated it 'sehr gut' in their 2025 comparison. `product=HiDrive`
+- (70) AI Marketing Manager includes performance analytics, AI-driven optimization recommendations, and automated audience topic suggestions. `product=AI Marketing Manager`
+- (70) Cyber Protect plans (Basic, Pro, Business) scale from 20 GB to 5 TB on 1- or 12-month contract terms. `product=Cyber Protect`
+- (70) HiDrive Business supports protocols (WebDAV, SMB, SFTP, rsync, Git), REST API, HiDrive Office, and NAS integration — safe to claim. `product=HiDrive Business`
+- (70) HiDrive supports access protocols SFTP, WebDAV, SMB, rsync, SCP, and Git via add-on (€5/mo) or included in Business plans. `product=HiDrive`
+- (70) In AI App & Site Builder, 1 credit covers basic prompt tasks, while complex modifications scale up to 10 credits. `product=AI App and Site Builder`
+- (70) OpenClaw VPS Hosting supports free switching between Linux distributions including Ubuntu, Debian, Rocky Linux, and AlmaLinux. `product=OpenClaw VPS Hosting`
+- (70) Optional add-ons: Listing & Review Service (€30/mo), SEO Service (€40/mo, included in Pro), and copywriting (€100 one-time fee). `product=Website Design & Maintenance`
+- (70) Rated 2.2 by ComputerBild (08/2025) and awarded Service-Champion Gold (2025) for customer satisfaction. `product=Webshop`
+- (70) STRATO AI Phone Assistant plans start at €35/month, are monthly cancellable, and include a 30-day free trial after purchase. `product=AI Phone Assistant`
+- (70) STRATO Domain Guard activates within approximately one hour of ordering - safe to claim as standard provisioning time. `product=Domain Guard`
+- (70) STRATO E-Mail Starter, Basic, and Plus plans provide 1 to 25 mailboxes with 2 GB to 5 GB storage per mailbox. `product=E-Mail`
+- (70) STRATO Webhosting includes 3 GB storage per email mailbox across all plans, featuring spam protection and webmail access. `product=Web Hosting`
+- (70) STRATO Webhosting supports 1-click CMS installs (WordPress, TYPO3, Joomla), PHP 8.4, Git, and SSH/WP-CLI access. `product=Web Hosting`
+- (70) STRATO WooCommerce Hosting provides 10 email accounts (5 GB each), 10,000 aliases, SFTP access, and integrated AI creation tools. `product=WooCommerce`
+- (70) STRATO WordPress Hosting includes daily security scans and DDoS protection; claim up to 5x faster SSD performance only when citing SSD storage. `product=WordPress Hosting`
+- (70) STRATO is an Acronis Platinum Service Provider and Cloud Security Alliance member for Cyber Protect. `product=Cyber Protect`
+- (70) STRATO n8n VPS supports Linux OS distributions including Ubuntu LTS (26.04/24.04), Debian (13/12), Rocky Linux, and AlmaLinux. `product=n8n VPS`
+- (70) The STRATO AI App & Site Builder includes a complete business suite out of the box, featuring professional email, custom domains, and integrated SSL certificates.
+- (70) The STRATO AI App & Site Builder provides near-instant live previews, updating in approximately 1.2 seconds as changes are described.
+- (65) AI Content Creator requires STRATO WordPress Hosting Plus or higher; AI support and Unsplash access require Pro or E-Commerce plans. `product=WordPress Hosting`
+- (65) AI Reputation Manager setup requires exactly 3 steps: connect platforms, set tone, preview and publish - safe to claim. `product=AI Reputation Manager`
+- (65) HiDrive migration service imports data from IONOS HiDrive, MagentaCLOUD, Dropbox, and OneDrive (€10 or included in Family/Business). `product=HiDrive`
+- (65) Optional legally compliant legal texts from IT-Recht Kanzlei are available as an add-on for STRATO SmartWebshop. `product=Webshop`
+- (65) STRATO Domain Guard includes STRATO's standard 30-day money-back guarantee. `product=Domain Guard`
+- (65) STRATO Webhosting supports Python and Ruby only on Basic, Plus, and Pro tiers, not on the Starter plan. `product=Web Hosting`
+- (60) Cyber Protect Defender initial full backup of ~250 GB takes several hours; subsequent incremental backups typically take a few minutes. `product=Cyber Protect Defender`
+
+## claim_constraints
+
+- (100) Never guarantee absolute immunity from security breaches for AI App and Site Builder; describe it as offering 'high-level data compliance and security'. `product=AI App and Site Builder`
+- (100) Never make unqualified claims about competitor pricing regarding AI App and Site Builder; refer specifically to cost consolidation. `product=AI App and Site Builder`
+- (100) Never promise infinite free generations for AI App and Site Builder; clarify that 'never-blocked' access allows continued building under its subscription model. `product=AI App and Site Builder`
+- (100) Never state AI App and Site Builder development is 'instant'; claim it takes 'in minutes' or cite the 1.2s live preview update metric. `product=AI App and Site Builder`
+- (95) ActiveSync, team calendars, and built-in premium antivirus apply only to STRATO E-Mail Business; never claim them for Starter, Basic, or Plus. `product=E-Mail`
+- (95) Dedicated Server: SLA, FTP backupspace, TrafficControl, ProNet VLAN, and ClusterIP are not included in standard base packages; do not claim them. `product=Dedicated Server`
+- (95) HiDrive Object Storage: never claim 100% or 99.9% availability; the SLA guarantee is at least 99% on an annual basis. `product=HiDrive Object Storage`
+- (95) Never claim 24/7 hotline support or legal protection (Abmahnschutz) are included; both are optional paid add-ons. `product=Homepage Builder`
+- (95) Never claim HiDrive has default zero-knowledge encryption; end-to-end encryption is an optional €2/month add-on. `product=HiDrive`
+- (95) Never claim STRATO Microsoft 365 data is hosted in STRATO German data centers; data processing occurs in Microsoft data centers, mainly in Europe. `product=Microsoft 365`
+- (95) Never claim STRATO VPS has no setup fees ('Ohne Einrichtungsgebühren'); all contract tiers require a 9 € setup fee. `product=VPS`
+- (95) OpenClaw VPS Hosting does not include backups by default; never claim that automatic backups are included. `product=OpenClaw VPS Hosting`
+- (95) STRATO AI Phone Assistant must include a legally required AI disclosure greeting; never claim or imply callers will not know it is AI. `product=AI Phone Assistant`
+- (95) STRATO Domains introductory prices apply only to the first 12-month term; never present promotional rates as permanent ongoing pricing. `product=Domains`
+- (95) STRATO E-Mail Archiving: Never claim retroactive archiving; it only archives emails sent or received after activation to ensure GoBD compliance. `product=E-Mail Archiving`
+- (95) STRATO GPT: Never claim customer inputs or uploaded documents are used for AI training; training uses strictly public sources and RLHF data. `product=STRATO GPT`
+- (95) STRATO Webhosting: Never claim 100% uptime; the guaranteed availability is exactly 99.99%. `product=Web Hosting`
+- (90) AI Marketing Manager entry price of "from €25/month" requires a 12-month contract; do not claim it applies to flexible 1-month plans (€35/mo). `product=AI Marketing Manager`
+- (90) AI Marketing Suite: do not claim money-back guarantees, uptime SLAs, or server specs, as it is a SaaS marketing bundle. `product=AI Marketing Suite`
+- (90) Continuous Data Protection (CDP) and Off-Host Processing are available exclusively on the Business tier - never claim for Basic or Pro. `product=Cyber Protect`
+- (90) HiDrive Business: Never claim a specific uptime SLA percentage, as no explicit uptime percentage guarantee is provided in the source. `product=HiDrive Business`
+- (90) HiDrive Object Storage: never claim fixed tiered subscription packages or minimum contract durations; billing is strictly pay-per-use. `product=HiDrive Object Storage`
+- (90) Never claim 100% uptime for STRATO WordPress Hosting; availability is guaranteed at 99.98% across dual German data centers. `product=WordPress Hosting`
+- (90) Never claim AI image, SEO, or text generators are available in the Basic tier; they require at least a Plus subscription. `product=Homepage Builder`
+- (90) Never claim Cyber Protect Defender provides 100% infection immunity; backup is required for complete protection against data loss. `product=Cyber Protect Defender`
+- (90) Never claim HiDrive Share has native password protection; users must use password-protected ZIP files for extra security. `product=HiDrive Share`
+- (90) Never claim HiDrive Share offers permanent storage or transfers over 2 GB; files auto-delete after 7 days. `product=HiDrive Share`
+- (90) Never claim POS sync, volume discounts, customer groups, or multi-language shops are available on the Basic tier. `product=E-Commerce Plugin`
+- (90) Never claim STRATO Linux VPS includes automatic backups; backups are not included by default. `product=VPS`
+- (90) Never claim STRATO Microsoft 365 includes a free trial or money-back guarantee, as neither is offered for this product. `product=Microsoft 365`
+- (90) Never claim STRATO SSL tiers offer different encryption strengths; all tiers use uniform 256-bit encryption. `product=SSL Certificates`
+- (90) Never claim an explicit uptime SLA, money-back guarantee, or specific contract term for the Website Design & Maintenance service. `product=Website Design & Maintenance`
+- (90) Never claim specific uptime %, SLA metrics, or server CPU/RAM specs for AI Reputation Manager; it is purely a software service. `product=AI Reputation Manager`
+- (90) Never claim unlimited file virus scanning for HiDrive; integrated virus scan is limited to files up to 250 MB. `product=HiDrive`
+- (90) STRATO GPT: Always specify data processing as EU/German data centers; never claim or imply processing or hosting outside the EU. `product=STRATO GPT`
+- (90) STRATO Webhosting: Never claim Python or Ruby support on the Starter plan, as they require Basic or higher. `product=Web Hosting`
+- (90) STRATO charges no platform transaction fees on SmartWebshop, but third-party payment provider transaction fees must always be noted as separate. `product=Webshop`
+- (90) WooCommerce software is free, but never claim all add-ons are free; premium WooThemes and third-party plugins may require paid licenses. `product=WooCommerce`
+- (85) AI Marketing Suite: never claim technical knowledge is required; it is designed for non-technical users. `product=AI Marketing Suite`
+- (85) Do not claim STRATO WordPress Hosting includes free 24/7 support; 24/7 hotline is an optional paid add-on, while standard support has set hours. `product=WordPress Hosting`
+- (85) Never claim customer review data is shared with third parties; all data processing remains strictly isolated in German data centers. `product=AI Reputation Manager`
+- (85) Never claim free setup on the Basic plan; only Pro and Plus waive the €200 setup fee. `product=Website Design & Maintenance`
+- (85) Never claim that Basic includes full AI creation tools or marketplace sync; AI text/SEO needs Plus and eBay/Amazon requires Ultimate. `product=Webshop`
+- (85) Never recommend running Cyber Protect Defender antivirus alongside another active antivirus; use only its backup module if combined. `product=Cyber Protect Defender`
+- (85) STRATO E-Mail Archiving: Never claim mailbox folder structures are preserved; messages are indexed by sender/recipient and retrieved via search. `product=E-Mail Archiving`
+- (80) AI Search Manager direct website optimizations cannot be applied automatically without the user having edit access to their own website. `product=AI Search Manager`
+- (80) STRATO E-Mail Archiving: Never publish fixed prices or storage tiers publicly, as booking and pricing are exclusively accessible via customer login. `product=E-Mail Archiving`
+
+## misc
+
+- (75) OpenClaw VPS Hosting requires a plan with at least 4 GB RAM (VPS M or higher) for smooth operation. `product=OpenClaw VPS Hosting`
+- (50) STRATO Cyber Protect backup and malware protection is available as an optional paid add-on for STRATO n8n VPS. `product=n8n VPS`

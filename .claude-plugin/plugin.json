@@ -1,5 +1,5 @@
 {
     "name": "knowledge-hub",
-    "description": "Brand knowledge as one-liner atoms, and the skills that consume them. Assemble a system prompt for a brand without the Hub running.",
-    "version": "1.0.0"
+    "description": "Brand knowledge as one-liner atoms, and the rules for turning them into a system prompt. Assemble a brand-governed prompt without the Hub running.",
+    "version": "2.0.0"
 }
