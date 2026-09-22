@@ -13,8 +13,12 @@ unchanged corpus regenerates byte for byte and the diff is the change.
 |---|---|
 | `knowledge/brands.md` | brand name → partition key. Start here. |
 | `knowledge/<partition key>/` | one brand. `index.md` summarises it, one file per dimension holds the atoms. |
-| `skills/assembling-a-prompt/` | how to build a system prompt out of those files, and the frozen vocabulary. |
-| `commands/` | the Hub's webhooks, for when it IS reachable. |
+| `knowledge/<partition key>/entries.md` | the legal product / language / platform / segment values for that brand. |
+| `knowledge/<partition key>/reference/` | checkable standards a brand ships as a document rather than as atoms. Not every brand has one. |
+| `knowledge/skills.md` | every skill, the knowledge it asks for, and the model it runs on. |
+| `skills/assemble/` | how to build a system prompt out of those files, and the frozen vocabulary. |
+| `skills/lookup/` | how to read a brand's entry vocabulary. |
+| `skills/endpoints/` | the Hub's six webhooks, for when it IS reachable. |
 
 Anything else in this repository belongs to another target and is not generated here.
 
@@ -45,7 +49,7 @@ one brand's voice into another.
 
 Filter, rank, cap at 12 per dimension-category, order with target group and then
 platforms last. The whole
-rule is in `skills/assembling-a-prompt/SKILL.md`, including the part that matters most:
+rule is in `skills/assemble/SKILL.md`, including the part that matters most:
 **this route is an approximation.** Assembly exists exactly once, in the Hub's n8n
 workflow. This repository describes it for the case where the Hub cannot be reached; when
 it can, call `kh/assemble` and use what it returns.

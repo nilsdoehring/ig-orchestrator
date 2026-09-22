@@ -18,5 +18,5 @@ if there are any.
 The counts are what is PUBLISHED, not what a prompt gets. A prompt gets at most 12 per
 dimension-category after your scope has filtered these. Global atoms get NO separate slice: an
 atom tagged `*` competes in that same per-dimension-category cap, ranked together with the
-specifically-tagged ones — see `../../skills/assembling-a-prompt/SKILL.md`.
+specifically-tagged ones — see `../../skills/assemble/SKILL.md`.
 
