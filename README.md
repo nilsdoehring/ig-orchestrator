@@ -1,9 +1,9 @@
 # ig-orchestrator
 
-Claude Code plugin for the IONOS Group's brand knowledge. It carries what each brand
+Claude Code plugin for the IONOS Group's public-facing brand, localization, and product knowledge. It carries what each brand
 claims, how it writes, who it writes to and what it may not say — as **one-liner
 atoms** — plus the skills that turn that into finished work: a storyline, copy, or a
-product-owner review of a page.
+review of a page. Anything.
 
 This repository is GENERATED. The Knowledge Hub regenerates it wholesale on every
 publish and is its only committer; `MANIFEST.yaml` records a checksum per file so a hand
