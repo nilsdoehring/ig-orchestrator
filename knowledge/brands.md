@@ -9,7 +9,7 @@ only that directory.
 | Fasthosts | `8aa9afcc-f2bf-4388-9066-482448eaa32d` | [`8aa9afcc-f2bf-4388-9066-482448eaa32d/`](8aa9afcc-f2bf-4388-9066-482448eaa32d/index.md) — 14 atoms |
 | IONOS | `0d7e8bcb-999b-4f96-8a31-3cfb42959e22` | [`0d7e8bcb-999b-4f96-8a31-3cfb42959e22/`](0d7e8bcb-999b-4f96-8a31-3cfb42959e22/index.md) — 1013 atoms |
 | SEO | `be49fc21-15b8-4b1a-a436-8bb07051e58b` | *no published knowledge yet* |
-| STRATO | `4e947002-cc58-4265-affb-15d213f39b2e` | [`4e947002-cc58-4265-affb-15d213f39b2e/`](4e947002-cc58-4265-affb-15d213f39b2e/index.md) — 403 atoms |
+| STRATO | `4e947002-cc58-4265-affb-15d213f39b2e` | [`4e947002-cc58-4265-affb-15d213f39b2e/`](4e947002-cc58-4265-affb-15d213f39b2e/index.md) — 392 atoms |
 | Strefa | `7f29907c-2b09-4034-a78e-c920230b1599` | [`7f29907c-2b09-4034-a78e-c920230b1599/`](7f29907c-2b09-4034-a78e-c920230b1599/index.md) — 11 atoms |
 | UDAG | `2c8dbf9f-db4f-41ef-a62c-beac1c8f6384` | [`2c8dbf9f-db4f-41ef-a62c-beac1c8f6384/`](2c8dbf9f-db4f-41ef-a62c-beac1c8f6384/index.md) — 10 atoms |
 | home.pl | `4af13eab-54c2-4444-86ed-9d0ffbe2317b` | [`4af13eab-54c2-4444-86ed-9d0ffbe2317b/`](4af13eab-54c2-4444-86ed-9d0ffbe2317b/index.md) — 9 atoms |

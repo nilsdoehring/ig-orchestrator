@@ -103,7 +103,8 @@ go-live.
 
 **Carries** the Hub's `review.website_po` skill verbatim, in
 `skills/website-po-review/` · **reads** `brand identity/*`, `writing &
-tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*`.
+tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*`, `design
+guidelines/*`.
 
 ### `assemble`
 
@@ -128,7 +129,7 @@ counts are as of this publish.
 | Fasthosts | `8aa9afcc-f2bf-4388-9066-482448eaa32d` | 14 atoms |
 | IONOS | `0d7e8bcb-999b-4f96-8a31-3cfb42959e22` | 1013 atoms |
 | SEO | `be49fc21-15b8-4b1a-a436-8bb07051e58b` | *none published yet* |
-| STRATO | `4e947002-cc58-4265-affb-15d213f39b2e` | 403 atoms |
+| STRATO | `4e947002-cc58-4265-affb-15d213f39b2e` | 392 atoms |
 | Strefa | `7f29907c-2b09-4034-a78e-c920230b1599` | 11 atoms |
 | UDAG | `2c8dbf9f-db4f-41ef-a62c-beac1c8f6384` | 10 atoms |
 | home.pl | `4af13eab-54c2-4444-86ed-9d0ffbe2317b` | 9 atoms |
@@ -161,6 +162,7 @@ one brand's voice into another.
 | `product` | what a product is, why it wins, and what may not be claimed about it | — |
 | `language` | grammar, orthography, terminology and locale conventions | — |
 | `image guidelines` | what an image-prompt writer needs and a copywriter never sees | — |
+| `design guidelines` | the exact, checkable design-system values a finished page is reviewed against | — |
 | `target group` | who we write to, and what moves them | **overrides the others** (see the assembly skill) |
 | `platforms` | per-surface practice — the only atoms that override others | **overrides the others** (see the assembly skill) |
 

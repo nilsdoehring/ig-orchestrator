@@ -2,7 +2,7 @@
 
 Partition key `4e947002-cc58-4265-affb-15d213f39b2e` — pass this as `brand` to the Hub's API, and read only this directory.
 
-403 atoms in this directory, 65 of them global on all four axes. Retired and draft
+392 atoms in this directory, 54 of them global on all four axes. Retired and draft
 atoms are not here: only what a person published reaches a target. Neither is a published atom
 that left an axis undeclared — those are withheld and counted under "Attribution backlog" below,
 if there are any.
@@ -11,7 +11,7 @@ if there are any.
 |---|---|---|
 | [`brand identity`](brand-identity.md) | 12 | `brand_context` 8, `personality` 1, `misc` 3 |
 | [`writing & tone`](writing-tone.md) | 13 | `voice_register` 6, `web_readability` 5, `audience_framing` 2 |
-| [`product`](product.md) | 321 | `description` 40, `value_proposition` 39, `differentiators` 55, `proof_points` 138, `claim_constraints` 47, `misc` 2 |
+| [`product`](product.md) | 310 | `description` 39, `value_proposition` 37, `differentiators` 52, `proof_points` 133, `claim_constraints` 47, `misc` 2 |
 | [`image guidelines`](image-guidelines.md) | 31 | `photographic_style` 3, `composition_and_framing` 6, `subject_and_diversity` 8, `color_direction` 4, `visual_tokens` 7, `misc` 3 |
 | [`target group`](target-group.md) | 26 | `segment_definition` 5, `needs_and_pains` 11, `decision_drivers` 7, `addressing_the_segment` 3 |
 

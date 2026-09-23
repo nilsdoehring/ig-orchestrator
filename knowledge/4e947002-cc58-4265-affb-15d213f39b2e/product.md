@@ -1,6 +1,6 @@
 # STRATO — product
 
-Partition key: `4e947002-cc58-4265-affb-15d213f39b2e` · 321 published atoms
+Partition key: `4e947002-cc58-4265-affb-15d213f39b2e` · 310 published atoms
 
 Each line is `(rank) atom`, ranked highest first, followed by the tags that NARROW it. An
 axis with no tag shown is `*` and matches every value — so a line with no tags at all is
@@ -47,7 +47,6 @@ lines are not the answer.
 - (90) STRATO Microsoft 365 is a monthly subscription providing Microsoft Office desktop and online applications alongside Exchange email hosting. `product=Microsoft 365`
 - (90) STRATO Windows V-Server is a KVM-based virtual private server providing full administrator rights on Windows Server. `product=VPS`
 - (90) STRATO n8n VPS is a Linux virtual private server optimized for self-hosting the n8n workflow automation platform. `product=n8n VPS`
-- (90) The STRATO AI App & Site Builder is a 'vibe coding' platform that lets users create, deploy, and manage full-stack web applications using natural language.
 - (85) AI Marketing Suite operates via a single login with a shared cross-tool knowledge base, European hosting, and GDPR compliance. `product=AI Marketing Suite`
 - (80) KI Marketing-Manager plans and executes social media posts and complete marketing campaigns with interactive AI guidance. `product=AI Marketing Suite`
 - (80) KI Reputationsmanager monitors multi-platform reviews and generates automated, brand-consistent professional responses. `product=AI Marketing Suite`
@@ -91,10 +90,8 @@ lines are not the answer.
 - (80) AI App and Site Builder ensures strict data compliance by hosting applications on GDPR-compliant EU data residency infrastructure rather than third-party hyperscalers. `product=AI App and Site Builder`
 - (80) AI App and Site Builder lets developers safely iterate by rolling back code, database state, and AI chat history all at once. `product=AI App and Site Builder`
 - (80) STRATO Microsoft 365 enables cross-device collaboration, secure document sharing, and remote access to Office tools with automatic updates included. `product=Microsoft 365`
-- (80) The STRATO AI App & Site Builder allows users to bypass traditional development cycles and go from initial concept to a live, functional web application in minutes.
 - (75) AI Reputation Manager tracks sentiment and reputation scores in real time and provides competitive reputation benchmarking. `product=AI Reputation Manager`
 - (70) AI Reputation Manager's Review Booster proactively requests customer feedback via post-purchase reminder links. `product=AI Reputation Manager`
-- (70) By consolidating hosting, domains, security, and AI generation into one subscription, the STRATO AI App & Site Builder reduces overall cost and management complexity.
 
 ## differentiators
 
@@ -106,8 +103,6 @@ lines are not the answer.
 - (90) STRATO E-Commerce Plug-in connects to Google Shopping, Facebook, Instagram, and Amazon via Codisto with real-time sync. `product=E-Commerce Plugin`
 - (90) STRATO Webhosting guarantees 99.99% server availability hosted exclusively in ISO 27001-certified German data centers. `product=Web Hosting`
 - (90) STRATO is recognized as "Service-Champion & Nr. 1 im Webhosting" (2025) and hosts all domains in ISO/IEC-27001 certified German data centers. `product=Domains`
-- (90) Unlike Bolt and Lovable, the STRATO AI App & Site Builder uses owned infrastructure rather than third-party hyperscalers, ensuring superior security and GDPR compliance.
-- (90) Unlike competitors with hard credit limits, the STRATO AI App & Site Builder offers a 'never-blocked' access model for uninterrupted building after primary AI allocations.
 - (85) AI Marketing Manager automatically analyzes the user's website during setup to learn business model, products, and target audience. `product=AI Marketing Manager`
 - (85) AI Marketing Suite at €59/mo saves up to €16/mo (€192/yr) compared to buying its three individual €25/mo AI agents separately. `product=AI Marketing Suite`
 - (85) AI Search Manager optimizes presence for generative AI search engines (ChatGPT, Gemini, Perplexity) alongside traditional Google search. `product=AI Search Manager`
@@ -138,7 +133,6 @@ lines are not the answer.
 - (80) STRATO SmartWebshop is hosted in German ISO 27001-certified data centers powered by green electricity, providing GDPR-compliant hosting and support. `product=Webshop`
 - (80) STRATO Webhosting provides 24/7 customer phone support via a German landline alongside email and FAQ self-service. `product=Web Hosting`
 - (80) STRATO WooCommerce Hosting simplifies store setup via pre-installed WooCommerce, guided setup assistants, and integrated AI website tools. `product=WooCommerce`
-- (80) Unlike standard version control, the STRATO AI App & Site Builder provides unified rollbacks that simultaneously restore code, database state, and AI chat history.
 - (80) Unlike traditional block-based website builders, AI App & Site Builder proactively suggests layouts and content from prompts. `product=AI App and Site Builder`
 - (75) AI Search Manager provides automated Google Ads creation with upfront outcome forecasting to eliminate budget risk. `product=AI Search Manager`
 - (75) Dedicated Server Windows: Offers an optional Security Edition (Cyber Protect Pro & Monitoring Premium) with real-time antivirus and patch management. `product=Dedicated Server`
@@ -173,7 +167,6 @@ lines are not the answer.
 - (90) STRATO E-Mail Archiving is certified according to IDW PS 880 for completeness, accuracy, timeliness, immutability, and traceability. `product=E-Mail Archiving`
 - (90) STRATO GPT pricing: €5/month (1-month term) or €4/month (12-month term, 1st month free), €0 setup - safe to claim 'ab 4 Euro im Monat'. `product=STRATO GPT`
 - (90) STRATO WooCommerce Hosting includes 100 GB webspace, 1 domain, 1 SSL certificate, unlimited traffic, and a 2 GB MariaDB SSD database. `product=WooCommerce`
-- (90) The STRATO AI App & Site Builder guarantees GDPR-compliant EU data residency by hosting everything on its own infrastructure.
 - (85) AI App & Site Builder plans scale by project limits (1, 10, 25) and AI credits (150, 300, or unlimited per month). `product=AI App and Site Builder`
 - (85) AI Marketing Manager supports cross-channel planning and posting across Facebook, Instagram, LinkedIn, and X. `product=AI Marketing Manager`
 - (85) AI Marketing Suite pricing: 1-month flexible contract costs €99/month with €0 setup fee. `product=AI Marketing Suite`
@@ -236,8 +229,6 @@ lines are not the answer.
 - (80) STRATO Windows VPS offers 4 hardware tiers from M (2 vCores, 4GB RAM) up to XXL (12 vCores, 24GB RAM, 720GB NVMe). `product=VPS`
 - (80) STRATO n8n VPS includes 1 IPv4 address, unlimited traffic, up to 1 Gbit/s bandwidth, KVM virtualization, Docker support, and 1 SSL cert. `product=n8n VPS`
 - (80) STRATO recommends at least VPS M (4 GB RAM) for up to 10 n8n workflows, and VPS L (8 GB RAM) for complex data processing or AI tasks. `product=n8n VPS`
-- (80) The STRATO AI App & Site Builder features zero-configuration instant deployment on professional-grade owned infrastructure with an integrated CDN.
-- (80) The STRATO AI App & Site Builder generates fully functional Node.js and SQLite applications from text, voice, or screenshot prompts, moving beyond static templates.
 - (80) Website Design & Maintenance: over 15,000 realized projects and delivery within a few business days - safe to claim. `product=Website Design & Maintenance`
 - (75) AI App & Site Builder offers a 30-day trial period and 0 € setup fee across all subscription plans. `product=AI App and Site Builder`
 - (75) AI Marketing Manager includes a drag-and-drop campaign calendar, visual post preview, and automated or one-click approval workflows. `product=AI Marketing Manager`
@@ -285,8 +276,6 @@ lines are not the answer.
 - (70) STRATO WordPress Hosting includes daily security scans and DDoS protection; claim up to 5x faster SSD performance only when citing SSD storage. `product=WordPress Hosting`
 - (70) STRATO is an Acronis Platinum Service Provider and Cloud Security Alliance member for Cyber Protect. `product=Cyber Protect`
 - (70) STRATO n8n VPS supports Linux OS distributions including Ubuntu LTS (26.04/24.04), Debian (13/12), Rocky Linux, and AlmaLinux. `product=n8n VPS`
-- (70) The STRATO AI App & Site Builder includes a complete business suite out of the box, featuring professional email, custom domains, and integrated SSL certificates.
-- (70) The STRATO AI App & Site Builder provides near-instant live previews, updating in approximately 1.2 seconds as changes are described.
 - (65) AI Content Creator requires STRATO WordPress Hosting Plus or higher; AI support and Unsplash access require Pro or E-Commerce plans. `product=WordPress Hosting`
 - (65) AI Reputation Manager setup requires exactly 3 steps: connect platforms, set tone, preview and publish - safe to claim. `product=AI Reputation Manager`
 - (65) HiDrive migration service imports data from IONOS HiDrive, MagentaCLOUD, Dropbox, and OneDrive (€10 or included in Family/Business). `product=HiDrive`

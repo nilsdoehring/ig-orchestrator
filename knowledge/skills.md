@@ -31,7 +31,7 @@ is cascade thinking and cascades drift.
 | `imagen` | `image guidelines/*`, `brand identity/*`, `target group/*`, `product/*` | `gemini-3-pro-image` |
 | `layout.uds_plan` | `brand identity/*`, `product/*` | `gemini-3.7-flash` |
 | `persona.profile` | `brand identity/*`, `target group/*` | `gemini-3.7-flash` |
-| `review.website_po` | `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*` | `gemini-3-flash-preview` |
+| `review.website_po` | `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*`, `design guidelines/*` | `gemini-3-flash-preview` |
 | `textgen` | `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*` | `gemini-3-flash-preview` |
 
 ## Ingest skills
@@ -42,6 +42,7 @@ always empty — that is not an omission.
 | Skill | Appetite | Model |
 |---|---|---|
 | `ingest.brand_identity` | — | `gemini-3.7-flash` |
+| `ingest.design_guidelines` | — | `gemini-3.1-pro-preview` |
 | `ingest.image_guidelines` | — | `gemini-3.7-flash` |
 | `ingest.language` | — | `gemini-3.7-flash` |
 | `ingest.platforms` | — | `gemini-3.7-flash` |

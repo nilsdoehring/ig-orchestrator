@@ -61,6 +61,18 @@ what an image-prompt writer needs and a copywriter never sees.
 - `image guidelines/visual_tokens`
 - `image guidelines/misc`
 
+## `design guidelines`
+
+the exact, checkable design-system values a finished page is reviewed against.
+
+- `design guidelines/color_usage`
+- `design guidelines/typography_scale`
+- `design guidelines/components`
+- `design guidelines/logo_and_brand_elements`
+- `design guidelines/layout_and_responsiveness`
+- `design guidelines/accessibility`
+- `design guidelines/misc`
+
 ## `target group`
 
 who we write to, and what moves them.

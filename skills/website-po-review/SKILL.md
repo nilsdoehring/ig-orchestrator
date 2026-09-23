@@ -32,7 +32,7 @@ Then continue to load that brand's knowledge, below.
 
 ## Before you start: load the brand knowledge
 
-This skill declares an appetite of `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*`. Nothing here has pre-filled it.
+This skill declares an appetite of `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*`, `design guidelines/*`. Nothing here has pre-filled it.
 
 1. Find the brand's partition key in `${CLAUDE_PLUGIN_ROOT}/knowledge/brands.md`.
 2. Read the shelves for the dimensions above from
