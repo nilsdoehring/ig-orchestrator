@@ -31,8 +31,8 @@ is cascade thinking and cascades drift.
 | `imagen` | `image guidelines/*`, `brand identity/*`, `target group/*`, `product/*` | `gemini-3-pro-image` |
 | `layout.uds_plan` | `brand identity/*`, `product/*` | `gemini-3.7-flash` |
 | `persona.profile` | `brand identity/*`, `target group/*` | `gemini-3.7-flash` |
-| `review.website_po` | `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*`, `design guidelines/*` | `gemini-3-flash-preview` |
-| `textgen` | `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*` | `gemini-3-flash-preview` |
+| `review.website_po` | `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*`, `design guidelines/*` | `gemini-3.7-flash` |
+| `textgen` | `brand identity/*`, `writing & tone/*`, `target group/*`, `product/*`, `language/*`, `platforms/*` | `gemini-3.7-flash` |
 
 ## Ingest skills
 
