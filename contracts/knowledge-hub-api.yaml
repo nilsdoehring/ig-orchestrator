@@ -40,8 +40,7 @@ info:
 
     ## Getting a key
 
-    Every call needs a header key. Reach out to **Nils Döhring** (nils.doehring@ionos.com) to get
-    one issued for your team.
+    Every call needs a header key. Reach out to **Nils** to get one issued for your team.
 
     ## Authentication
 
@@ -61,8 +60,7 @@ info:
             "budget": 12
           }'
   contact:
-    name: Nils Döhring
-    email: nils.doehring@ionos.com
+    name: Nils
 
 servers:
   # NOT `n8n.ionos.org` — that host is the n8n application itself (editor UI, credentials, the
@@ -589,5 +587,5 @@ components:
       in: header
       name: ai-website-builder
       description: |
-        Custom header auth. Header name: `ai-website-builder`. Reach out to Nils Döhring
-        (nils.doehring@ionos.com) to get a key issued.
+        Custom header auth. Header name: `ai-website-builder`. Reach out to Nils to get a
+        key issued.
