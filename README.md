@@ -1,9 +1,9 @@
 # ig-orchestrator
 
-Claude Code plugin for the IONOS Group's public-facing brand, localization, and product knowledge. It carries what each brand
-claims, how it writes, who it writes to and what it may not say — as **one-liner
-atoms** — plus the skills that turn that into finished work: a storyline, copy, or a
-review of a page. Anything.
+Claude Code plugin for the IONOS Group's public-facing brand, localization, and product
+knowledge. It carries what each brand claims, how it writes, who it writes to and what
+it may not say — as **one-liner atoms** — plus the skills that turn that into finished
+work: a storyline, copy, or a review of a page. Anything.
 
 This repository is GENERATED. The Knowledge Hub regenerates it wholesale on every
 publish and is its only committer; `MANIFEST.yaml` records a checksum per file so a hand
@@ -127,6 +127,7 @@ counts are as of this publish.
 | Arsys | `83b881f9-2d3b-4df3-962b-e5c0213acb0e` | 9 atoms |
 | Fasthosts | `8aa9afcc-f2bf-4388-9066-482448eaa32d` | 14 atoms |
 | IONOS | `0d7e8bcb-999b-4f96-8a31-3cfb42959e22` | 1013 atoms |
+| SEO | `be49fc21-15b8-4b1a-a436-8bb07051e58b` | *none published yet* |
 | STRATO | `4e947002-cc58-4265-affb-15d213f39b2e` | 403 atoms |
 | Strefa | `7f29907c-2b09-4034-a78e-c920230b1599` | 11 atoms |
 | UDAG | `2c8dbf9f-db4f-41ef-a62c-beac1c8f6384` | 10 atoms |
