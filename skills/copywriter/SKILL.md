@@ -37,8 +37,7 @@ This skill declares an appetite of `brand identity/*`, `writing & tone/*`, `targ
 2. Read the shelves for the dimensions above from
    `${CLAUDE_PLUGIN_ROOT}/knowledge/<partition key>/`.
 3. Read `${CLAUDE_PLUGIN_ROOT}/knowledge/<partition key>/entries.md` for the legal
-   scope values, and `.../reference/` for any standard the brand ships as a document
-   rather than as atoms.
+   scope values.
 4. Apply `${CLAUDE_PLUGIN_ROOT}/skills/assemble/SKILL.md` to narrow that down. It is
    an APPROXIMATION of `kh/assemble` and says so; if you can reach the Hub, prefer it.
 
