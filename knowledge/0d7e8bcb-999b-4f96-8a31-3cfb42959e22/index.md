@@ -2,7 +2,7 @@
 
 Partition key `0d7e8bcb-999b-4f96-8a31-3cfb42959e22` — pass this as `brand` to the Hub's API, and read only this directory.
 
-1013 atoms in this directory, 105 of them global on all four axes. Retired and draft
+1079 atoms in this directory, 171 of them global on all four axes. Retired and draft
 atoms are not here: only what a person published reaches a target. Neither is a published atom
 that left an axis undeclared — those are withheld and counted under "Attribution backlog" below,
 if there are any.
@@ -14,6 +14,7 @@ if there are any.
 | [`product`](product.md) | 446 | `description` 82, `value_proposition` 77, `differentiators` 60, `proof_points` 132, `claim_constraints` 73, `misc` 22 |
 | [`language`](language.md) | 382 | `terminology` 131, `formatting_conventions` 88, `orthography_typography` 118, `address_and_gender_form` 18, `market_variants` 23, `misc` 4 |
 | [`image guidelines`](image-guidelines.md) | 52 | `photographic_style` 7, `composition_and_framing` 23, `subject_and_diversity` 4, `color_direction` 9, `visual_tokens` 7, `misc` 2 |
+| [`design guidelines`](design-guidelines.md) | 66 | `color_usage` 15, `typography_scale` 25, `components` 12, `logo_and_brand_elements` 10, `layout_and_responsiveness` 2, `accessibility` 2 |
 | [`target group`](target-group.md) | 60 | `segment_definition` 16, `needs_and_pains` 16, `decision_drivers` 21, `addressing_the_segment` 4, `misc` 3 |
 | [`platforms`](platforms.md) | 21 | `format_constraints` 10, `register_override` 3, `platform_conventions` 8 |
 
